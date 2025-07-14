@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de Menor Rota - NPC Bastille</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .container {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #333;
+            text-align: center;
+        }
+        .location {
+            background: #e8f4f8;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border-left: 4px solid #007acc;
+        }
+        .result {
+            background: #e8f8e8;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 5px;
+            border-left: 4px solid #28a745;
+        }
+        .distance {
+            font-weight: bold;
+            color: #007acc;
+        }
+        .route {
+            background: #fff3cd;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border-left: 4px solid #ffc107;
+        }
+        button {
+            background: #007acc;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin: 10px 0;
+        }
+        button:hover {
+            background: #005a8a;
+        }
+        .step {
+            margin: 5px 0;
+            padding: 5px;
+            background: #f8f9fa;
+            border-radius: 3px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🗺️ Calculadora de Menor Rota - NPC Bastille</h1>
+        
+        <div class="location">
+            <h3>📍 Localizações:</h3>
+            <p><strong>NPC Bastille:</strong> (3973, 30662)</p>
+            <p><strong>Tangle Islands:</strong> (2299, 30031)</p>
+            <p><strong>Palm Islands:</strong> (2678, 31162) - Via surf: (2609, 31179)</p>
+            <p><strong>Blaze Islands:</strong> (3750, 30002)</p>
+            <p><strong>Astral Ruins:</strong> (3380, 30959)</p>
+        </div>
+
+        <button onclick="calculateBestRoute()">🧭 Calcular Melhor Rota</button>
+        <button onclick="calculateAllRoutes()">📊 Ver Todas as Rotas Possíveis</button>
+
+        <div id="results"></div>
+    </div>
+
+    <script>
+        // Coordenadas dos locais
+        const locations = {
+            'NPC Bastille': { x: 3973, y: 30662 },
+            'Tangle Islands': { x: 2299, y: 30031 },
+            'Palm Islands (Surf)': { x: 2609, y: 31179 },
+            'Blaze Islands': { x: 3750, y: 30002 },
+            'Astral Ruins': { x: 3380, y: 30959 }
+        };
+
+        // Função para calcular distância Manhattan (sem diagonal)
+        function manhattanDistance(pos1, pos2) {
+            return Math.abs(pos1.x - pos2.x) + Math.abs(pos1.y - pos2.y);
+        }
+
+        // Função para calcular distância total de uma rota
+        function calculateRouteDistance(route) {
+            let totalDistance = 0;
+            for (let i = 0; i < route.length - 1; i++) {
+                totalDistance += manhattanDistance(locations[route[i]], locations[route[i + 1]]);
+            }
+            return totalDistance;
+        }
+
+        // Função para gerar todas as permutações possíveis dos berries
+        function generatePermutations(arr) {
+            if (arr.length <= 1) return [arr];
+            
+            const result = [];
+            for (let i = 0; i < arr.length; i++) {
+                const current = arr[i];
+                const remaining = arr.slice(0, i).concat(arr.slice(i + 1));
+                const permutations = generatePermutations(remaining);
+                
+                for (const perm of permutations) {
+                    result.push([current].concat(perm));
+                }
+            }
+            return result;
+        }
+
+        // Função para calcular a melhor rota
+        function calculateBestRoute() {
+            const berries = ['Tangle Islands', 'Palm Islands (Surf)', 'Blaze Islands', 'Astral Ruins'];
+            const permutations = generatePermutations(berries);
+            
+            let bestRoute = null;
+            let bestDistance = Infinity;
+
+            for (const perm of permutations) {
+                const route = ['NPC Bastille', ...perm, 'NPC Bastille'];
+                const distance = calculateRouteDistance(route);
+                
+                if (distance < bestDistance) {
+                    bestDistance = distance;
+                    bestRoute = route;
+                }
+            }
+
+            displayRoute(bestRoute, bestDistance, true);
+        }
+
+        // Função para calcular todas as rotas possíveis
+        function calculateAllRoutes() {
+            const berries = ['Tangle Islands', 'Palm Islands (Surf)', 'Blaze Islands', 'Astral Ruins'];
+            const permutations = generatePermutations(berries);
+            
+            const routes = [];
+            for (const perm of permutations) {
+                const route = ['NPC Bastille', ...perm, 'NPC Bastille'];
+                const distance = calculateRouteDistance(route);
+                routes.push({ route, distance });
+            }
+
+            // Ordenar por distância
+            routes.sort((a, b) => a.distance - b.distance);
+            
+            displayAllRoutes(routes);
+        }
+
+        // Função para exibir uma rota específica
+        function displayRoute(route, distance, isBest = false) {
+            const resultsDiv = document.getElementById('results');
+            const title = isBest ? '🏆 MELHOR ROTA ENCONTRADA' : '📍 ROTA CALCULADA';
+            
+            let html = `
+                <div class="result">
+                    <h3>${title}</h3>
+                    <p class="distance">Distância Total: ${distance.toLocaleString()} unidades</p>
+                    <div class="route">
+                        <h4>🛣️ Sequência da Rota:</h4>
+            `;
+
+            for (let i = 0; i < route.length; i++) {
+                const location = route[i];
+                const coords = locations[location];
+                const step = i + 1;
+                
+                if (i < route.length - 1) {
+                    const nextLocation = route[i + 1];
+                    const stepDistance = manhattanDistance(coords, locations[nextLocation]);
+                    html += `
+                        <div class="step">
+                            ${step}. ${location} (${coords.x}, ${coords.y}) 
+                            → ${nextLocation} 
+                            <span class="distance">[${stepDistance.toLocaleString()} unidades]</span>
+                        </div>
+                    `;
+                } else {
+                    html += `
+                        <div class="step">
+                            ${step}. ${location} (${coords.x}, ${coords.y}) - FIM
+                        </div>
+                    `;
+                }
+            }
+
+            html += `
+                    </div>
+                </div>
+            `;
+
+            resultsDiv.innerHTML = html;
+        }
+
+        // Função para exibir todas as rotas
+        function displayAllRoutes(routes) {
+            const resultsDiv = document.getElementById('results');
+            
+            let html = `
+                <div class="result">
+                    <h3>📊 TODAS AS ROTAS POSSÍVEIS</h3>
+                    <p>Ordenadas da mais eficiente para a menos eficiente:</p>
+            `;
+
+            routes.forEach((routeInfo, index) => {
+                const { route, distance } = routeInfo;
+                const rank = index + 1;
+                const badge = rank === 1 ? '🏆' : rank === 2 ? '🥈' : rank === 3 ? '🥉' : `${rank}º`;
+                
+                html += `
+                    <div class="route">
+                        <h4>${badge} Rota ${rank} - ${distance.toLocaleString()} unidades</h4>
+                        <p>${route.join(' → ')}</p>
+                    </div>
+                `;
+            });
+
+            html += `</div>`;
+            resultsDiv.innerHTML = html;
+        }
+
+        // Calcular melhor rota automaticamente ao carregar
+        window.onload = function() {
+            calculateBestRoute();
+        };
+    </script>
+</body>
+</html>
