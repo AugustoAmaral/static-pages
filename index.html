@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Static Pages - Augusto Amaral</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            color: #333;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .header h1 {
+            color: white;
+            font-size: 3em;
+            font-weight: 300;
+            margin-bottom: 20px;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header p {
+            color: rgba(255,255,255,0.9);
+            font-size: 1.2em;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .github-info {
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 20px;
+            margin-bottom: 40px;
+            text-align: center;
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .github-info a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            padding: 8px 16px;
+            background: rgba(255,255,255,0.2);
+            border-radius: 25px;
+            transition: all 0.3s ease;
+        }
+
+        .github-info a:hover {
+            background: rgba(255,255,255,0.3);
+            transform: translateY(-2px);
+        }
+
+        .pages-container {
+            background: rgba(255,255,255,0.95);
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            backdrop-filter: blur(10px);
+        }
+
+        .loading {
+            text-align: center;
+            padding: 40px;
+            color: #666;
+        }
+
+        .loading::after {
+            content: '';
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 3px solid #ddd;
+            border-top: 3px solid #667eea;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin-left: 10px;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .page-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+
+        .page-card {
+            background: white;
+            border-radius: 12px;
+            padding: 25px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+            border: 1px solid #e0e0e0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .page-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #667eea, #764ba2);
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+
+        .page-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+        }
+
+        .page-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .page-title {
+            font-size: 1.3em;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .page-icon {
+            font-size: 1.5em;
+        }
+
+        .page-description {
+            color: #666;
+            margin-bottom: 20px;
+            line-height: 1.5;
+        }
+
+        .page-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: #667eea;
+            text-decoration: none;
+            font-weight: 500;
+            padding: 12px 20px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            font-size: 0.9em;
+        }
+
+        .page-link:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(102, 126, 234, 0.3);
+        }
+
+        .page-meta {
+            font-size: 0.85em;
+            color: #999;
+            margin-top: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .error {
+            text-align: center;
+            padding: 40px;
+            color: #e74c3c;
+            background: #ffeaea;
+            border-radius: 10px;
+            border: 1px solid #f5b7b1;
+        }
+
+        .stats {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin: 30px 0;
+            flex-wrap: wrap;
+        }
+
+        .stat-item {
+            text-align: center;
+            color: #333;
+        }
+
+        .stat-number {
+            font-size: 2em;
+            font-weight: 600;
+            color: #667eea;
+            display: block;
+        }
+
+        .stat-label {
+            font-size: 0.9em;
+            color: #666;
+        }
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2.2em;
+            }
+            
+            .page-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .container {
+                padding: 20px 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>📚 Static Pages</h1>
+            <p>Coleção de páginas úteis e ferramentas desenvolvidas por Augusto Amaral</p>
+        </div>
+
+        <div class="github-info">
+            <p>🔗 Repositório: <a href="https://github.com/AugustoAmaral/static-pages" target="_blank">github.com/AugustoAmaral/static-pages</a></p>
+        </div>
+
+        <div class="pages-container">
+            <div id="loading" class="loading">
+                Carregando páginas do repositório...
+            </div>
+            
+            <div id="error" class="error" style="display: none;">
+                ❌ Erro ao carregar as páginas do repositório. Verifique sua conexão.
+            </div>
+
+            <div id="content" style="display: none;">
+                <div class="stats">
+                    <div class="stat-item">
+                        <span class="stat-number" id="totalPages">0</span>
+                        <span class="stat-label">Páginas</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number" id="lastUpdate">-</span>
+                        <span class="stat-label">Última Atualização</span>
+                    </div>
+                </div>
+                
+                <div id="pages" class="page-grid"></div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Configurações do repositório
+        const REPO_OWNER = 'AugustoAmaral';
+        const REPO_NAME = 'static-pages';
+        const GITHUB_API_URL = `https://api.github.com/repos/${REPO_OWNER}/${REPO_NAME}/contents`;
+        const GITHUB_PAGES_URL = `https://${REPO_OWNER.toLowerCase()}.github.io/${REPO_NAME}`;
+
+        // Mapeamento de páginas conhecidas com descrições personalizadas
+        const pageDescriptions = {
+            'sailor-bastile-quest.html': {
+                title: '🗺️ Sailor Bastille Quest',
+                description: 'Calculadora de rotas otimizada para a quest do NPC Bastille. Encontra a menor rota para coletar berries nos 4 cantos do mapa.',
+                icon: '🧭'
+            },
+            'index.html': {
+                title: '🏠 Página Inicial',
+                description: 'Página principal com listagem automática de todas as páginas do repositório.',
+                icon: '📋'
+            }
+        };
+
+        // Função para obter ícone baseado no nome do arquivo
+        function getPageIcon(filename) {
+            if (pageDescriptions[filename]) {
+                return pageDescriptions[filename].icon;
+            }
+            
+            const lowerName = filename.toLowerCase();
+            if (lowerName.includes('calc') || lowerName.includes('calculator')) return '🧮';
+            if (lowerName.includes('game') || lowerName.includes('jogo')) return '🎮';
+            if (lowerName.includes('tool') || lowerName.includes('ferramenta')) return '🔧';
+            if (lowerName.includes('chart') || lowerName.includes('graph')) return '📊';
+            if (lowerName.includes('map') || lowerName.includes('mapa')) return '🗺️';
+            return '📄';
+        }
+
+        // Função para formatar nome do arquivo em título
+        function formatTitle(filename) {
+            if (pageDescriptions[filename]) {
+                return pageDescriptions[filename].title;
+            }
+            
+            return filename
+                .replace('.html', '')
+                .replace(/[-_]/g, ' ')
+                .replace(/\b\w/g, l => l.toUpperCase());
+        }
+
+        // Função para gerar descrição baseada no nome
+        function generateDescription(filename) {
+            if (pageDescriptions[filename]) {
+                return pageDescriptions[filename].description;
+            }
+            
+            return `Página ${formatTitle(filename)} - Clique para acessar o conteúdo.`;
+        }
+
+        // Função para formatar data
+        function formatDate(dateString) {
+            const date = new Date(dateString);
+            return date.toLocaleDateString('pt-BR');
+        }
+
+        // Função para calcular tempo relativo
+        function getRelativeTime(dateString) {
+            const date = new Date(dateString);
+            const now = new Date();
+            const diffTime = Math.abs(now - date);
+            const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+            
+            if (diffDays === 1) return 'hoje';
+            if (diffDays === 2) return 'ontem';
+            if (diffDays <= 7) return `${diffDays} dias atrás`;
+            if (diffDays <= 30) return `${Math.ceil(diffDays / 7)} semanas atrás`;
+            return `${Math.ceil(diffDays / 30)} meses atrás`;
+        }
+
+        // Função principal para carregar páginas
+        async function loadPages() {
+            try {
+                const response = await fetch(GITHUB_API_URL);
+                
+                if (!response.ok) {
+                    throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+                }
+                
+                const files = await response.json();
+                
+                // Filtrar apenas arquivos HTML
+                const htmlFiles = files.filter(file => 
+                    file.type === 'file' && 
+                    file.name.endsWith('.html')
+                );
+
+                if (htmlFiles.length === 0) {
+                    showError('Nenhum arquivo HTML encontrado no repositório.');
+                    return;
+                }
+
+                // Obter informações do repositório para última atualização
+                const repoResponse = await fetch(`https://api.github.com/repos/${REPO_OWNER}/${REPO_NAME}`);
+                const repoData = await repoResponse.json();
+
+                displayPages(htmlFiles, repoData);
+                
+            } catch (error) {
+                console.error('Erro ao carregar páginas:', error);
+                showError(`Erro: ${error.message}`);
+            }
+        }
+
+        // Função para exibir páginas
+        function displayPages(htmlFiles, repoData) {
+            const loadingEl = document.getElementById('loading');
+            const contentEl = document.getElementById('content');
+            const pagesEl = document.getElementById('pages');
+            const totalPagesEl = document.getElementById('totalPages');
+            const lastUpdateEl = document.getElementById('lastUpdate');
+
+            // Ocultar loading e mostrar conteúdo
+            loadingEl.style.display = 'none';
+            contentEl.style.display = 'block';
+
+            // Atualizar estatísticas
+            totalPagesEl.textContent = htmlFiles.length;
+            lastUpdateEl.textContent = getRelativeTime(repoData.updated_at);
+
+            // Ordenar arquivos (index.html primeiro, depois alfabético)
+            htmlFiles.sort((a, b) => {
+                if (a.name === 'index.html') return -1;
+                if (b.name === 'index.html') return 1;
+                return a.name.localeCompare(b.name);
+            });
+
+            // Gerar HTML das páginas
+            pagesEl.innerHTML = htmlFiles.map(file => {
+                const title = formatTitle(file.name);
+                const description = generateDescription(file.name);
+                const icon = getPageIcon(file.name);
+                const url = file.name === 'index.html' ? GITHUB_PAGES_URL : `${GITHUB_PAGES_URL}/${file.name}`;
+                const isCurrentPage = file.name === 'index.html';
+
+                return `
+                    <div class="page-card">
+                        <div class="page-title">
+                            <span class="page-icon">${icon}</span>
+                            ${title}
+                        </div>
+                        <div class="page-description">
+                            ${description}
+                        </div>
+                        <a href="${url}" class="page-link" ${isCurrentPage ? '' : 'target="_blank"'}>
+                            ${isCurrentPage ? '🔄 Recarregar' : '🚀 Acessar'}
+                            <span>→</span>
+                        </a>
+                        <div class="page-meta">
+                            <span>📁 ${file.name}</span>
+                            <span>📦 ${(file.size / 1024).toFixed(1)} KB</span>
+                        </div>
+                    </div>
+                `;
+            }).join('');
+        }
+
+        // Função para mostrar erro
+        function showError(message) {
+            const loadingEl = document.getElementById('loading');
+            const errorEl = document.getElementById('error');
+            
+            loadingEl.style.display = 'none';
+            errorEl.style.display = 'block';
+            errorEl.innerHTML = `❌ ${message}`;
+        }
+
+        // Carregar páginas quando a página carregar
+        document.addEventListener('DOMContentLoaded', loadPages);
+    </script>
+</body>
+</html>
