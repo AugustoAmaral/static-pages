@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Termo de Doação de Software</title>
+    <script>
+      const config = {
+        nomeAluno: "Augusto Amaral Pereira",
+        tituloTrabalho: "ANÁLISE COMPARATIVA DE ALGORITMOS DE EXTRAÇÃO AUTOMÁTICA DE PALAVRA-CHAVE UTILIZANDO TÉCNICAS DE PROCESSAMENTO DE LINGUAGEM NATURAL",
+        rg: "12.345.678-9",
+        cpf: "123.456.789-00",
+
+        dia: "01",
+        mes: "Agosto",
+        ano: "2025",
+
+        fontes: {
+          titulo: 4 * 5,
+          paragrafo: 4 * 3,
+          tituloTrabalho: 4 * 4,
+          dataLocal: 4 * 4,
+          infoAssinatura: 4 * 3,
+        },
+
+        espacamentos: {
+          paddingBody: 20,
+          paddingDocumento: 40,
+          indentacaoParagrafo: 40,
+          alturaMinima: 900,
+          alturaAssinatura: 30,
+        },
+      };
+    </script>
+    <style id="estilos-dinamicos"></style>
+  </head>
+  <body>
+    <div class="documento">
+      <h1>Termo de Doação de Software</h1>
+
+      <p>
+        Pelo presente documento, eu, <strong id="nome-aluno"></strong>, venho doar o código (fonte e executável) do software desenvolvido por mim durante o
+        período de elaboração do Trabalho de Conclusão de Curso em Ciência da Computação na UENF, titulado
+      </p>
+
+      <div class="titulo-trabalho" id="titulo-trabalho"></div>
+
+      <p>
+        Esta doação é gratuita e definitiva, e a documentação do sistema desenvolvido, e todos os direitos de propriedade industrial, direito autoral, ou
+        qualquer outra propriedade intelectual relacionado a este software é transferido para o Curso de Ciência da Computação da UENF, permanecendo em todos os
+        casos, o meu nome com o direito de co-autoria.
+      </p>
+
+      <p>Assim, e por estarem justas e acordadas, as partes assinam o presente Termo de Doação.</p>
+
+      <div class="data-local" id="data-local"></div>
+
+      <div class="assinaturas">
+        <div class="bloco-assinatura">
+          <div class="linha-assinatura"></div>
+          <div class="info-assinatura">
+            <strong>Aluno: <span id="nome-aluno-assinatura"></span></strong><br />
+            RG: <span id="rg"></span><br />
+            CPF: <span id="cpf"></span>
+          </div>
+        </div>
+
+        <div class="bloco-assinatura">
+          <div class="linha-assinatura"></div>
+          <div class="info-assinatura">
+            <strong>Coordenador do Curso de Ciência da Computação</strong>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      function aplicarConfiguracoes() {
+        document.getElementById("nome-aluno").textContent = config.nomeAluno;
+        document.getElementById("nome-aluno-assinatura").textContent = config.nomeAluno;
+        const titulo = config.tituloTrabalho;
+        let tituloFormatado = titulo;
+
+        if (titulo.includes("|")) {
+          tituloFormatado = titulo.split("|").join("<br>");
+        }
+
+        document.getElementById("titulo-trabalho").innerHTML = tituloFormatado;
+        document.getElementById("rg").textContent = config.rg;
+        document.getElementById("cpf").textContent = config.cpf;
+        document.getElementById("data-local").textContent = `Campos dos Goytacazes, ${config.dia} de ${config.mes} ${config.ano}`;
+
+        const estilos = `
+                body {
+                    font-family: Arial, sans-serif;
+                    font-size: 14px;
+                    max-width: 800px;
+                    margin: 0 auto;
+                    padding: ${config.espacamentos.paddingBody}px 10px;
+                    background-color: #f5f5f5;
+                }
+                
+                .documento {
+                    background-color: white;
+                    padding: ${config.espacamentos.paddingDocumento}px;
+                    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+                    min-height: ${config.espacamentos.alturaMinima}px;
+                    position: relative;
+                }
+                
+                h1 {
+                    text-align: center;
+                    font-size: ${config.fontes.titulo}px;
+                    font-weight: bold;
+                    margin-bottom: 30px;
+                }
+                
+                p {
+                    text-align: justify;
+                    line-height: 1.6;
+                    margin-bottom: 15px;
+                    text-indent: ${config.espacamentos.indentacaoParagrafo}px;
+                    font-size: ${config.fontes.paragrafo}px;
+                }
+                
+                .titulo-trabalho {
+                    text-decoration: underline;
+                    font-weight: bold;
+                    display: block;
+                    text-align: center;
+                    margin: 15px 0;
+                    line-height: 1.4;
+                    font-size: ${config.fontes.tituloTrabalho}px;
+                }
+                
+                .data-local {
+                    text-align: center;
+                    margin: 30px 0;
+                    font-size: ${config.fontes.dataLocal}px;
+                }
+                
+                .assinaturas {
+                    margin-top: 60px;
+                    display: flex;
+                    justify-content: space-between;
+                    flex-wrap: wrap;
+                }
+                
+                .bloco-assinatura {
+                    width: 45%;
+                    text-align: center;
+                    margin-top: 30px;
+                }
+                
+                .linha-assinatura {
+                    border-bottom: 1px solid #000;
+                    width: 100%;
+                    margin: 15px 0 5px 0;
+                    height: ${config.espacamentos.alturaAssinatura}px;
+                }
+                
+                .info-assinatura {
+                    font-size: ${config.fontes.infoAssinatura}px;
+                    line-height: 1.4;
+                }
+                
+                @media print {
+                    body {
+                        background-color: white;
+                        padding: 0;
+                    }
+                    
+                    .documento {
+                        box-shadow: none;
+                        padding: ${config.espacamentos.paddingDocumento - 10}px;
+                    }
+                }
+                
+                @media (max-width: 600px) {
+                    .bloco-assinatura {
+                        width: 100%;
+                        margin-bottom: 40px;
+                    }
+                }
+            `;
+
+        document.getElementById("estilos-dinamicos").innerHTML = estilos;
+      }
+
+      window.onload = aplicarConfiguracoes;
+    </script>
+  </body>
+</html>
