@@ -451,18 +451,22 @@
     <div class="container">
         <div class="header">
             <h1>📊 Analisador de Movimentações Bancárias</h1>
-            <p>Importe seu extrato e visualize suas finanças de forma inteligente</p>
+            <p>Importe extratos do Mercado Pago e Nubank e visualize suas finanças de forma inteligente</p>
         </div>
 
         <div class="content">
             <div class="upload-section">
                 <h2>📁 Carregar Arquivo CSV</h2>
                 <p style="margin: 15px 0; color: #666;">Selecione o arquivo de extrato bancário no formato CSV</p>
+                <p style="margin: 10px 0; color: #888; font-size: 0.9em;">
+                    ✅ Suporta CSV exportado do <strong>Mercado Pago</strong> e <strong>Nubank</strong>
+                </p>
                 <div class="file-input-wrapper">
                     <input type="file" id="csvFile" accept=".csv">
                     <label for="csvFile" class="file-input-label">Escolher Arquivo</label>
                 </div>
                 <span id="fileName" style="margin-left: 20px; color: #666;"></span>
+                <div id="formatInfo" style="display: none; margin-top: 10px; font-weight: bold; font-size: 0.9em;"></div>
             </div>
 
             <div class="options-section" id="optionsSection">
@@ -549,6 +553,27 @@
                         parseCSV(e.target.result);
                         document.getElementById('optionsSection').classList.add('active');
                         document.getElementById('errorMessage').classList.remove('active');
+                        
+                        // Mostrar informação sobre o formato detectado
+                        const formatInfo = document.getElementById('formatInfo');
+                        if (formatInfo) {
+                            const hasTransactionHeaders = e.target.result.includes('RELEASE_DATE') && e.target.result.includes('TRANSACTION_TYPE');
+                            
+                            if (hasTransactionHeaders) {
+                                formatInfo.textContent = `✅ CSV do Mercado Pago detectado (${csvData.length} transações)`;
+                                formatInfo.style.color = '#48c774';
+                            } else {
+                                const firstLine = e.target.result.split('\n')[0];
+                                if (firstLine.includes(';')) {
+                                    formatInfo.textContent = `✅ CSV com separador ";" detectado (${csvData.length} registros)`;
+                                    formatInfo.style.color = '#667eea';
+                                } else {
+                                    formatInfo.textContent = `✅ CSV do Nubank detectado (${csvData.length} registros)`;
+                                    formatInfo.style.color = '#3273dc';
+                                }
+                            }
+                            formatInfo.style.display = 'block';
+                        }
                     } catch (error) {
                         showError('Erro ao processar o arquivo. Verifique se o formato está correto.');
                     }
@@ -560,16 +585,85 @@
 
         function parseCSV(text) {
             const lines = text.split('\n').filter(line => line.trim());
-            const headers = lines[0].split(',');
+            
+            // Detectar separador automaticamente
+            const firstLine = lines[0];
+            let separator = ',';
+            if (firstLine.includes(';') && firstLine.split(';').length > firstLine.split(',').length) {
+                separator = ';';
+            }
             
             csvData = [];
-            for (let i = 1; i < lines.length; i++) {
-                const values = lines[i].split(',');
-                const row = {};
-                headers.forEach((header, index) => {
-                    row[header.trim()] = values[index] ? values[index].trim() : '';
-                });
-                csvData.push(row);
+            
+            // Verificar se é formato Mercado Pago procurando por RELEASE_DATE
+            let isMercadoPago = false;
+            let transactionHeaderIndex = -1;
+            
+            for (let i = 0; i < lines.length; i++) {
+                if (lines[i].includes('RELEASE_DATE') && lines[i].includes('TRANSACTION_TYPE')) {
+                    isMercadoPago = true;
+                    transactionHeaderIndex = i;
+                    break;
+                }
+            }
+            
+            if (isMercadoPago && transactionHeaderIndex >= 0) {
+                // Processar formato Mercado Pago
+                const transactionHeaders = lines[transactionHeaderIndex].split(separator);
+                
+                // Processar transações a partir da linha seguinte aos headers
+                for (let i = transactionHeaderIndex + 1; i < lines.length; i++) {
+                    const values = lines[i].split(separator);
+                    if (values.length >= 3) { // Pelo menos data, tipo e valor
+                        const row = {};
+                        transactionHeaders.forEach((header, index) => {
+                            row[header.trim()] = values[index] ? values[index].trim() : '';
+                        });
+                        
+                        // Mapear campos do Mercado Pago para formato padrão
+                        const mappedRow = {
+                            Data: convertMercadoPagoDate(row['RELEASE_DATE']),
+                            Descricao: row['TRANSACTION_TYPE'],
+                            Valor: row['TRANSACTION_NET_AMOUNT'],
+                            Saldo: row['PARTIAL_BALANCE'],
+                            Referencia: row['REFERENCE_ID'],
+                            // Manter campos originais também
+                            ...row
+                        };
+                        csvData.push(mappedRow);
+                    }
+                }
+            } else {
+                // Processar CSV padrão
+                const headers = lines[0].split(separator);
+                for (let i = 1; i < lines.length; i++) {
+                    const values = lines[i].split(separator);
+                    const row = {};
+                    headers.forEach((header, index) => {
+                        row[header.trim()] = values[index] ? values[index].trim() : '';
+                    });
+                    csvData.push(row);
+                }
+            }
+        }
+        
+        function convertMercadoPagoDate(dateStr) {
+            // Converter data do formato DD-MM-YYYY para DD/MM/YYYY
+            if (dateStr && dateStr.includes('-')) {
+                return dateStr.replace(/-/g, '/');
+            }
+            return dateStr;
+        }
+        
+        function parseValor(valorStr) {
+            if (!valorStr) return 0;
+            
+            if (valorStr.includes(',')) {
+                // Formato brasileiro: 1.000,50 ou 2,24
+                return parseFloat(valorStr.replace(/\./g, '').replace(',', '.'));
+            } else {
+                // Formato padrão: 1000.50
+                return parseFloat(valorStr);
             }
         }
 
@@ -637,7 +731,13 @@
                     };
                 }
                 
-                const valor = parseFloat(row.Valor.replace(',', '.'));
+                // Converter valor corretamente (Mercado Pago usa vírgula como decimal)
+                const valor = parseValor(row.Valor);
+                
+                if (isNaN(valor)) {
+                    return; // Pular se não conseguir converter o valor
+                }
+                
                 if (valor > 0) {
                     grouped[key].entradas += valor;
                 } else {
@@ -650,9 +750,19 @@
         }
 
         function parseDate(dateStr) {
+            if (!dateStr) return null;
+            
+            // Formato DD/MM/YYYY (já convertido pela convertMercadoPagoDate se necessário)
             const parts = dateStr.split('/');
+            
             if (parts.length === 3) {
-                return new Date(parts[2], parts[1] - 1, parts[0]);
+                const day = parseInt(parts[0]);
+                const month = parseInt(parts[1]);
+                const year = parseInt(parts[2]);
+                
+                if (day > 0 && day <= 31 && month > 0 && month <= 12) {
+                    return new Date(year, month - 1, day);
+                }
             }
             return null;
         }
@@ -753,7 +863,7 @@
                 let filteredTransactions = group.transacoes;
                 if (!showEntradas || !showSaidas) {
                     filteredTransactions = group.transacoes.filter(transaction => {
-                        const valor = parseFloat(transaction.Valor.replace(',', '.'));
+                        const valor = parseValor(transaction.Valor);
                         if (!showEntradas && valor > 0) return false;
                         if (!showSaidas && valor < 0) return false;
                         return true;
@@ -813,16 +923,19 @@
                     });
                     
                     sortedTransactions.forEach(transaction => {
-                        const valor = parseFloat(transaction.Valor.replace(',', '.'));
+                        const valor = parseValor(transaction.Valor);
                         const valorClass = valor > 0 ? 'detail-entrada' : 'detail-saida';
                         const valorFormatted = Math.abs(valor).toFixed(2).replace('.', ',');
                         const signal = valor > 0 ? '+' : '-';
+                        
+                        // Usar o campo de descrição apropriado
+                        const descricao = transaction.Descricao || transaction['TRANSACTION_TYPE'] || 'Sem descrição';
                         
                         rowHTML += `
                             <tr>
                                 <td>${transaction.Data}</td>
                                 <td class="${valorClass}">${signal} R$ ${valorFormatted}</td>
-                                <td class="transaction-description" title="${transaction['Descrição']}">${transaction['Descrição']}</td>
+                                <td class="transaction-description" title="${descricao}">${descricao}</td>
                             </tr>
                         `;
                     });
@@ -833,8 +946,8 @@
                 }
                 
                 // Contar transações de entrada e saída (apenas as visíveis)
-                const entradasCount = filteredTransactions.filter(t => parseFloat(t.Valor.replace(',', '.')) > 0).length;
-                const saidasCount = filteredTransactions.filter(t => parseFloat(t.Valor.replace(',', '.')) < 0).length;
+                const entradasCount = filteredTransactions.filter(t => parseValor(t.Valor) > 0).length;
+                const saidasCount = filteredTransactions.filter(t => parseValor(t.Valor) < 0).length;
                 
                 // Calcular valores filtrados
                 const entradasFiltered = showEntradas ? group.entradas : 0;
