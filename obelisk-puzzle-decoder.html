@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculador de Posições - Enigma do Obelisco</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .container {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            max-width: 800px;
+            width: 100%;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 10px;
+            font-size: 2em;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #666;
+            margin-bottom: 30px;
+            font-size: 1.1em;
+        }
+
+        .section {
+            margin-bottom: 25px;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 10px;
+        }
+
+        .section-title {
+            font-weight: bold;
+            color: #444;
+            margin-bottom: 15px;
+            font-size: 1.1em;
+        }
+
+        .input-group {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 15px;
+            align-items: end;
+        }
+
+        .input-wrapper {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+
+        label {
+            color: #666;
+            font-size: 0.9em;
+            font-weight: 500;
+        }
+
+        input[type="text"], input[type="number"] {
+            padding: 12px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            font-size: 16px;
+            width: 100%;
+        }
+
+        input[type="number"] {
+            width: 100px;
+        }
+
+        .message-input {
+            width: 100%;
+            margin-bottom: 15px;
+        }
+
+        button {
+            padding: 12px 24px;
+            background: #667eea;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: bold;
+            transition: all 0.3s;
+            width: 100%;
+        }
+
+        button:hover {
+            background: #5a67d8;
+            transform: translateY(-2px);
+        }
+
+        .results {
+            display: none;
+            margin-top: 20px;
+            padding: 20px;
+            background: #e8f5e9;
+            border-radius: 10px;
+            border: 2px solid #4caf50;
+        }
+
+        .results.active {
+            display: block;
+        }
+
+        .results-title {
+            font-weight: bold;
+            color: #2e7d32;
+            margin-bottom: 15px;
+            font-size: 1.2em;
+        }
+
+        .position-list {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .position-item {
+            padding: 15px;
+            background: white;
+            border-radius: 8px;
+            border-left: 4px solid #4caf50;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all 0.3s;
+        }
+
+        .position-item:hover {
+            transform: translateX(5px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .position-number {
+            background: #4caf50;
+            color: white;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+
+        .position-coords {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            flex: 1;
+        }
+
+        .coord-original {
+            background: #f3e5f5;
+            padding: 5px 10px;
+            border-radius: 5px;
+            color: #6a1b9a;
+            font-weight: bold;
+        }
+
+        .arrow {
+            color: #999;
+            font-size: 20px;
+        }
+
+        .coord-result {
+            background: #e3f2fd;
+            padding: 8px 15px;
+            border-radius: 5px;
+            color: #1565c0;
+            font-weight: bold;
+            font-size: 1.1em;
+        }
+
+        .instructions {
+            margin-top: 20px;
+            padding: 15px;
+            background: #fff3e0;
+            border-radius: 10px;
+            border-left: 4px solid #ff9800;
+        }
+
+        .instructions h3 {
+            color: #e65100;
+            margin-bottom: 10px;
+        }
+
+        .instructions ul {
+            margin-left: 20px;
+            color: #666;
+        }
+
+        .instructions li {
+            margin: 5px 0;
+        }
+
+        .example {
+            background: #f5f5f5;
+            padding: 10px;
+            border-radius: 5px;
+            margin-top: 10px;
+            font-family: monospace;
+            color: #555;
+        }
+
+        .error {
+            background: #ffebee;
+            color: #c62828;
+            padding: 10px;
+            border-radius: 5px;
+            margin-top: 10px;
+            display: none;
+        }
+
+        .error.active {
+            display: block;
+        }
+
+        .copy-button {
+            background: #4caf50;
+            padding: 8px 12px;
+            font-size: 14px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .copy-button:hover {
+            background: #45a049;
+        }
+
+        .all-positions {
+            background: #e1f5fe;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 15px;
+            border: 2px solid #0288d1;
+        }
+
+        .all-positions-title {
+            color: #01579b;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .positions-text {
+            font-family: monospace;
+            font-size: 14px;
+            color: #333;
+            line-height: 1.5;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🗿 Calculador de Posições</h1>
+        <p class="subtitle">Enigma do Obelisco - Conversor de Coordenadas</p>
+
+        <div class="section">
+            <div class="section-title">📍 Posição do Obelisco (A1)</div>
+            <div class="input-group">
+                <div class="input-wrapper">
+                    <label for="xCoord">X</label>
+                    <input type="number" id="xCoord" placeholder="X" value="32000">
+                </div>
+                <div class="input-wrapper">
+                    <label for="yCoord">Y</label>
+                    <input type="number" id="yCoord" placeholder="Y" value="32000">
+                </div>
+                <div class="input-wrapper">
+                    <label for="zCoord">Z</label>
+                    <input type="number" id="zCoord" placeholder="Z" value="7">
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-title">📝 Mensagem do Enigma</div>
+            <input type="text" class="message-input" id="messageInput" 
+                   placeholder="Digite a mensagem (ex: u6p16f23i25q1 ou a12b25c100)" 
+                   value="u6p16f23i25q1">
+            <button onclick="calculatePositions()">Calcular Posições</button>
+        </div>
+
+        <div class="error" id="errorMessage"></div>
+
+        <div class="results" id="results">
+            <div class="results-title">🎯 Posições Calculadas</div>
+            <div class="position-list" id="positionList"></div>
+            
+            <div class="all-positions">
+                <div class="all-positions-title">📋 Todas as posições para copiar:</div>
+                <div class="positions-text" id="allPositions"></div>
+                <button class="copy-button" onclick="copyAllPositions()">Copiar Todas</button>
+            </div>
+        </div>
+
+        <div class="instructions">
+            <h3>📖 Como funciona:</h3>
+            <ul>
+                <li><strong>Letras (A-Z):</strong> Cada letra representa quantas posições para a DIREITA (eixo X positivo)</li>
+                <li><strong>Números (1-99...):</strong> Cada número representa quantas posições para BAIXO (eixo Y positivo)</li>
+                <li><strong>A1 = Posição do Obelisco:</strong> Ponto de referência inicial</li>
+                <li><strong>Z permanece constante:</strong> Mesmo andar/altura</li>
+            </ul>
+            <div class="example">
+                <strong>Exemplos:</strong><br>
+                Se o obelisco está em (32000, 32000, 7):<br>
+                • B1 = (32001, 32000, 7) - 1 para direita<br>
+                • A2 = (32000, 32001, 7) - 1 para baixo<br>
+                • C3 = (32002, 32002, 7) - 2 direita, 2 baixo<br>
+                • U6 = (32020, 32005, 7) - 20 direita, 5 baixo<br>
+                • F12 = (32005, 32011, 7) - 5 direita, 11 baixo<br>
+                • Z25 = (32025, 32024, 7) - 25 direita, 24 baixo
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function calculatePositions() {
+            const x = parseInt(document.getElementById('xCoord').value);
+            const y = parseInt(document.getElementById('yCoord').value);
+            const z = parseInt(document.getElementById('zCoord').value);
+            const message = document.getElementById('messageInput').value.trim();
+
+            // Validar entrada
+            if (isNaN(x) || isNaN(y) || isNaN(z)) {
+                showError('Por favor, insira coordenadas válidas para X, Y e Z.');
+                return;
+            }
+
+            if (!message) {
+                showError('Por favor, insira a mensagem do enigma.');
+                return;
+            }
+
+            // Limpar mensagem
+            const cleanMessage = message.replace(/albus;?/gi, '').trim();
+
+            // Decodificar coordenadas
+            const coordinates = [];
+            let i = 0;
+
+            while (i < cleanMessage.length) {
+                // Verificar se o caractere atual é uma letra
+                if (/[A-Z]/i.test(cleanMessage[i])) {
+                    const letter = cleanMessage[i].toUpperCase();
+                    let numberStr = '';
+                    let j = i + 1;
+                    
+                    // Coletar todos os dígitos consecutivos após a letra
+                    while (j < cleanMessage.length && /[0-9]/.test(cleanMessage[j])) {
+                        numberStr += cleanMessage[j];
+                        j++;
+                    }
+                    
+                    // Se encontrou um número após a letra, adicionar a coordenada
+                    if (numberStr.length > 0) {
+                        coordinates.push({
+                            original: `${letter}${numberStr}`,
+                            letter: letter,
+                            number: parseInt(numberStr)
+                        });
+                        i = j; // Avançar para o próximo par
+                    } else {
+                        i++; // Avançar se não encontrou número
+                    }
+                } else {
+                    i++; // Avançar se não é uma letra
+                }
+            }
+
+            if (coordinates.length === 0) {
+                showError('Nenhuma coordenada válida encontrada na mensagem.');
+                return;
+            }
+
+            // Calcular posições
+            const positions = coordinates.map((coord, index) => {
+                // A=0, B=1, C=2, etc. (deslocamento da posição base)
+                const xOffset = coord.letter.charCodeAt(0) - 65; // A = 65 em ASCII
+                const yOffset = coord.number - 1; // 1 = 0 de deslocamento
+
+                return {
+                    index: index + 1,
+                    original: coord.original,
+                    x: x + xOffset,
+                    y: y + yOffset,
+                    z: z
+                };
+            });
+
+            // Exibir resultados
+            displayResults(positions);
+            hideError();
+        }
+
+        function displayResults(positions) {
+            const results = document.getElementById('results');
+            const positionList = document.getElementById('positionList');
+            const allPositions = document.getElementById('allPositions');
+
+            // Criar lista de posições
+            positionList.innerHTML = positions.map(pos => `
+                <div class="position-item">
+                    <div class="position-coords">
+                        <div class="position-number">${pos.index}</div>
+                        <div class="coord-original">${pos.original}</div>
+                        <div class="arrow">→</div>
+                        <div class="coord-result">${pos.x}, ${pos.y}, ${pos.z}</div>
+                    </div>
+                    <button class="copy-button" onclick="copyPosition('${pos.x}, ${pos.y}, ${pos.z}')">
+                        Copiar
+                    </button>
+                </div>
+            `).join('');
+
+            // Criar texto com todas as posições
+            allPositions.textContent = positions
+                .map(pos => `${pos.index}. ${pos.original} → ${pos.x}, ${pos.y}, ${pos.z}`)
+                .join('\n');
+
+            results.classList.add('active');
+        }
+
+        function copyPosition(text) {
+            navigator.clipboard.writeText(text).then(() => {
+                // Feedback visual temporário
+                event.target.textContent = 'Copiado!';
+                setTimeout(() => {
+                    event.target.textContent = 'Copiar';
+                }, 1500);
+            });
+        }
+
+        function copyAllPositions() {
+            const allPositions = document.getElementById('allPositions').textContent;
+            navigator.clipboard.writeText(allPositions).then(() => {
+                event.target.textContent = 'Copiado!';
+                setTimeout(() => {
+                    event.target.textContent = 'Copiar Todas';
+                }, 1500);
+            });
+        }
+
+        function showError(message) {
+            const errorElement = document.getElementById('errorMessage');
+            errorElement.textContent = message;
+            errorElement.classList.add('active');
+            document.getElementById('results').classList.remove('active');
+        }
+
+        function hideError() {
+            document.getElementById('errorMessage').classList.remove('active');
+        }
+
+        // Calcular automaticamente ao carregar se houver valores
+        window.onload = function() {
+            if (document.getElementById('messageInput').value && 
+                document.getElementById('xCoord').value && 
+                document.getElementById('yCoord').value && 
+                document.getElementById('zCoord').value) {
+                calculatePositions();
+            }
+        }
+    </script>
+</body>
+</html>
