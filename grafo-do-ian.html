@@ -150,6 +150,88 @@
       .stat-line {
         margin: 3px 0;
       }
+
+      .node-control {
+        margin-top: 20px;
+        padding-top: 15px;
+        border-top: 1px solid rgba(255, 255, 255, 0.2);
+      }
+
+      .node-control label {
+        display: block;
+        margin-bottom: 8px;
+        font-size: 14px;
+      }
+
+      .node-slider {
+        width: 100%;
+        -webkit-appearance: none;
+        appearance: none;
+        height: 6px;
+        border-radius: 5px;
+        background: rgba(255, 255, 255, 0.3);
+        outline: none;
+        opacity: 0.8;
+        transition: opacity 0.2s;
+        margin-bottom: 10px;
+      }
+
+      .node-slider:hover {
+        opacity: 1;
+      }
+
+      .node-slider::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        appearance: none;
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        background: white;
+        cursor: pointer;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+      }
+
+      .node-slider::-moz-range-thumb {
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        background: white;
+        cursor: pointer;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+      }
+
+      .node-display {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 15px;
+        font-size: 12px;
+        opacity: 0.9;
+      }
+
+      .reset-button {
+        width: 100%;
+        padding: 12px;
+        background: rgba(255, 255, 255, 0.2);
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        border-radius: 8px;
+        color: white;
+        font-size: 14px;
+        font-weight: bold;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        backdrop-filter: blur(5px);
+      }
+
+      .reset-button:hover {
+        background: rgba(255, 255, 255, 0.3);
+        transform: translateY(-2px);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      }
+
+      .reset-button:active {
+        transform: translateY(0);
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+      }
     </style>
   </head>
   <body>
@@ -200,6 +282,27 @@
           Status: <span id="genStatus">Iniciando...</span>
         </div>
       </div>
+
+      <div class="node-control">
+        <label for="nodeSlider"
+          >Quantidade de Nós: <span id="nodeValue">35</span></label
+        >
+        <input
+          type="range"
+          id="nodeSlider"
+          class="node-slider"
+          min="1"
+          max="1000"
+          value="35"
+        />
+        <div class="node-display">
+          <span>1 nó</span>
+          <span>1000 nós</span>
+        </div>
+        <button id="resetButton" class="reset-button">
+          🔄 Reiniciar Rede
+        </button>
+      </div>
     </div>
 
     <script>
@@ -229,8 +332,8 @@
       var c = cv.getContext("2d");
 
       // Configurações
-      var NODE_COUNT = 35;
-      var MAX_LINK_DISTANCE_SQR;
+      var nodeCount = 35;
+      var maxLinkDistanceSqr;
       var globalAlpha = 0.3;
       var nodes, mouseNode;
       var lastW = 0,
@@ -300,7 +403,7 @@
                 this.py,
                 targetNode.px,
                 targetNode.py
-              ) > MAX_LINK_DISTANCE_SQR
+              ) > maxLinkDistanceSqr
             )
               this.linkedTo.splice(i, 1);
           }
@@ -314,8 +417,8 @@
           cv.width = newW;
           cv.height = newH;
           c.globalAlpha = globalAlpha;
-          MAX_LINK_DISTANCE_SQR = cv.width / 10 + cv.height / 10;
-          MAX_LINK_DISTANCE_SQR *= MAX_LINK_DISTANCE_SQR;
+          maxLinkDistanceSqr = cv.width / 10 + cv.height / 10;
+          maxLinkDistanceSqr *= maxLinkDistanceSqr;
           mouseNode = new Node(false);
 
           nodes = [];
@@ -327,7 +430,7 @@
       }
 
       function buildNodes() {
-        for (let i = 0; i < NODE_COUNT; i++) {
+        for (let i = 0; i < nodeCount; i++) {
           nodes[i] = new Node(true);
         }
       }
@@ -344,10 +447,10 @@
               nodes[j].px,
               nodes[j].py
             );
-            if (distSqr < MAX_LINK_DISTANCE_SQR) {
+            if (distSqr < maxLinkDistanceSqr) {
               nodes[i].linkedTo.push({
                 node: nodes[j],
-                width: map(distSqr, 0, MAX_LINK_DISTANCE_SQR, 1, 0),
+                width: map(distSqr, 0, maxLinkDistanceSqr, 1, 0),
               });
             }
           }
@@ -357,10 +460,10 @@
             mouseNode.px,
             mouseNode.py
           );
-          if (distSqr < MAX_LINK_DISTANCE_SQR) {
+          if (distSqr < maxLinkDistanceSqr) {
             nodes[i].linkedTo.push({
               node: mouseNode,
-              width: map(distSqr, 0, MAX_LINK_DISTANCE_SQR, 1, 0),
+              width: map(distSqr, 0, maxLinkDistanceSqr, 1, 0),
             });
           }
         }
@@ -430,6 +533,26 @@
         targetFPS = parseInt(e.target.value);
         frameDelay = 1000 / targetFPS;
         fpsValue.textContent = targetFPS;
+      });
+
+      const nodeSlider = document.getElementById("nodeSlider");
+      const nodeValue = document.getElementById("nodeValue");
+      const resetButton = document.getElementById("resetButton");
+
+      nodeSlider.addEventListener("input", function (e) {
+        // Apenas atualiza o valor visual, não reconstrói os nós
+        nodeValue.textContent = e.target.value;
+      });
+
+      resetButton.addEventListener("click", function () {
+        // Aplica a nova quantidade de nós do slider
+        nodeCount = parseInt(nodeSlider.value);
+        // Limpa todos os nós existentes
+        nodes = [];
+        // Reconstrói os nós com a nova quantidade
+        buildNodes();
+        // Força uma atualização das estatísticas
+        updateStats();
       });
 
       document
