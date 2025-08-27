@@ -217,6 +217,13 @@
         return newMin + prop * (newMax - newMin);
       }
 
+      function generateRandomColor() {
+        const hue = Math.floor(Math.random() * 360);
+        const saturation = Math.floor(random(70, 100));
+        const lightness = Math.floor(random(50, 80));
+        return `hsl(${hue}, ${saturation}%, ${lightness}%)`;
+      }
+
       // Canvas e contexto
       var cv = document.getElementById("drawCanvas");
       var c = cv.getContext("2d");
@@ -249,6 +256,7 @@
           this.vy = random(-0.5, 0.5) / window.devicePixelRatio;
           this.linkedTo = [];
           this.moves = moves;
+          this.color = generateRandomColor();
         }
 
         move() {
@@ -262,24 +270,36 @@
         }
 
         display() {
-          c.strokeStyle = "rgb(255, 255, 255)";
-          c.lineWidth = 1;
+          // Desenhar o nó com sua cor específica
+          c.strokeStyle = this.color;
+          c.lineWidth = 2;
           c.beginPath();
           c.arc(this.px, this.py, this.radius, 0, 2 * Math.PI);
           c.stroke();
 
           for (let i = this.linkedTo.length - 1; i >= 0; i--) {
+            const targetNode = this.linkedTo[i].node;
+            
+            const gradient = c.createLinearGradient(
+              this.px, this.py, 
+              targetNode.px, targetNode.py
+            );
+            gradient.addColorStop(0, this.color);
+            gradient.addColorStop(1, targetNode.color);
+            
+            c.strokeStyle = gradient;
             c.lineWidth = this.linkedTo[i].width;
             c.beginPath();
             c.moveTo(this.px, this.py);
-            c.lineTo(this.linkedTo[i].node.px, this.linkedTo[i].node.py);
+            c.lineTo(targetNode.px, targetNode.py);
             c.stroke();
+            
             if (
               dist2dSqr(
                 this.px,
                 this.py,
-                this.linkedTo[i].node.px,
-                this.linkedTo[i].node.py
+                targetNode.px,
+                targetNode.py
               ) > MAX_LINK_DISTANCE_SQR
             )
               this.linkedTo.splice(i, 1);
@@ -296,7 +316,7 @@
           c.globalAlpha = globalAlpha;
           MAX_LINK_DISTANCE_SQR = cv.width / 10 + cv.height / 10;
           MAX_LINK_DISTANCE_SQR *= MAX_LINK_DISTANCE_SQR;
-          mouseNode = new Node();
+          mouseNode = new Node(false);
 
           nodes = [];
           buildNodes();
