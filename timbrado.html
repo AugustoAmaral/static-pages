@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Timbrado - Dra. Juliana Corrêa</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      @page {
+        size: A4;
+        margin: 0;
+      }
+      body {
+        font-family: "Montserrat", sans-serif;
+        background: #f5f5f5;
+        min-height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 20px;
+      }
+      .page {
+        width: 595.276px;
+        height: 841.89px;
+        background: #fff;
+        position: relative;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+        overflow: hidden;
+      }
+      /* Barras - largura: 15.52px, altura de cada seção: ~210px */
+      .bar {
+        position: absolute;
+        width: 15.52px;
+      }
+      .left {
+        left: 0;
+      }
+      .right {
+        right: 0;
+      }
+      .b1 {
+        top: 0;
+        height: 210.21px;
+      }
+      .b2 {
+        top: 210.21px;
+        height: 210.22px;
+      }
+      .b3 {
+        top: 420.43px;
+        height: 210.22px;
+      }
+      .b4 {
+        top: 630.65px;
+        height: 211.24px;
+      }
+      /* Cores */
+      .left.b1 {
+        background: #608f8a;
+      }
+      .left.b2 {
+        background: #eea495;
+      }
+      .left.b3 {
+        background: #b6cdc1;
+      }
+      .left.b4 {
+        background: #f4bc93;
+      }
+      .right.b1 {
+        background: #f4bc93;
+      }
+      .right.b2 {
+        background: #b6cdc1;
+      }
+      .right.b3 {
+        background: #eea495;
+      }
+      .right.b4 {
+        background: #608f8a;
+      }
+      /* SVG de fundo importado */
+      .bg-svg {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+      }
+      /* Rodapé */
+      .footer {
+        position: absolute;
+        bottom: 40px;
+        left: 40px;
+        z-index: 1;
+      }
+      .footer-title {
+        font-size: 11px;
+        font-weight: 700;
+        color: #216059;
+        margin-bottom: 5px;
+      }
+      .footer-info {
+        font-size: 10px;
+        color: #216059;
+        line-height: 1.6;
+      }
+      @media print {
+        body {
+          background: none;
+          padding: 0;
+        }
+        .page {
+          box-shadow: none;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="page">
+      <!-- Barras esquerdas -->
+      <div class="bar left b1"></div>
+      <div class="bar left b2"></div>
+      <div class="bar left b3"></div>
+      <div class="bar left b4"></div>
+      <!-- Barras direitas -->
+      <div class="bar right b1"></div>
+      <div class="bar right b2"></div>
+      <div class="bar right b3"></div>
+      <div class="bar right b4"></div>
+
+      <!-- SVG extraído do PDF (coloque o arquivo timbrado-vectors.svg na mesma pasta) -->
+      <!-- Logo do topo (centralizada nos primeiros 25% da tela) -->
+      <img
+        src="logo_topo.svg"
+        style="
+          position: absolute;
+          top: 12.5%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          width: 400px;
+          height: auto;
+        "
+      />
+
+      <!-- Logo de fundo (centralizada nos 50% inferiores da página) -->
+      <img
+        src="logo_fundo.svg"
+        style="
+          position: absolute;
+          top: 75%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          width: 1000px;
+          height: 1000px;
+          max-width: none;
+          max-height: none;
+          opacity: 0.1;
+        "
+      />
+
+      <!-- Rodapé com novas informações -->
+      <footer class="footer">
+        <div class="footer-title">ESPAÇO DRA. JULIANA CORRÊA</div>
+        <div class="footer-info">
+          Rua Voluntários da Pátria, 487<br />
+          Edifício Palladium - Sala: 402 - Centro - Campos<br />
+          (22) 99771-3872
+        </div>
+      </footer>
+    </div>
+  </body>
+</html>
