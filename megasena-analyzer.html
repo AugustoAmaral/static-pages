@@ -1067,9 +1067,10 @@
         // Generate numbers based on strategy
         function generateNumbers() {
             const sorted = getSortedByFrequency();
-            const hot = sorted.slice(0, 20).map(x => x.num);
-            const cold = sorted.slice(-20).map(x => x.num);
-            const mid = sorted.slice(20, 40).map(x => x.num);
+            const top20Numbers = sorted.slice(0, 20).map(x => x.num); // Os 20 números mais sorteados
+            const hotNumbers = sorted.slice(0, 10).map(x => x.num);   // Os 10 números mais quentes
+            const coldNumbers = sorted.slice(-20).map(x => x.num);    // Os 20 números mais frios
+            const midNumbers = sorted.slice(20, 40).map(x => x.num);  // Números intermediários
             
             let pool = [];
             let generated = [];
@@ -1077,11 +1078,15 @@
             switch (selectedStrategy) {
                 case 'hot':
                     // Favorece números quentes
-                    pool = [...hot, ...hot, ...mid];
+                    pool = [...hotNumbers, ...hotNumbers, ...midNumbers];
+                    break;
+                case 'top20':
+                    // Usa APENAS os 20 números mais sorteados
+                    pool = [...top20Numbers];
                     break;
                 case 'cold':
                     // Favorece números frios (teoria da "dívida")
-                    pool = [...cold, ...cold, ...mid];
+                    pool = [...coldNumbers, ...coldNumbers, ...midNumbers];
                     break;
                 case 'balanced':
                     // Mix equilibrado de todas as faixas
@@ -1098,7 +1103,7 @@
                     // Garantir pelo menos 1 número de cada faixa principal
                     ranges.forEach((range, idx) => {
                         if (generated.length < selectedQty && idx < 6) {
-                            const weighted = range.filter(n => hot.includes(n) || mid.includes(n));
+                            const weighted = range.filter(n => hotNumbers.includes(n) || midNumbers.includes(n));
                             if (weighted.length > 0) {
                                 const pick = weighted[Math.floor(Math.random() * weighted.length)];
                                 if (!generated.includes(pick)) {
@@ -1109,7 +1114,7 @@
                     });
                     
                     // Completar com números quentes/médios
-                    pool = [...hot, ...mid];
+                    pool = [...hotNumbers, ...midNumbers];
                     break;
                 case 'random':
                     // Totalmente aleatório
@@ -1133,8 +1138,8 @@
             const app = document.getElementById('app');
             const lastResult = allResults[0];
             const sorted = getSortedByFrequency();
-            const hotNumbers = sorted.slice(0, 10);
-            const coldNumbers = sorted.slice(-10).reverse();
+            const hotNumbers = sorted.slice(0, 20); // Os 20 números mais sorteados
+            const coldNumbers = sorted.slice(-20).reverse(); // Os 20 números menos sorteados
             const rangeStats = getRangeStats();
             const commonPairs = getCommonPairs();
             const maxFreq = sorted[0].count;
@@ -1170,6 +1175,7 @@
                             <div class="strategy-select">
                                 <button class="strategy-btn ${selectedStrategy === 'balanced' ? 'active' : ''}" data-strategy="balanced">⚖️ Equilibrado</button>
                                 <button class="strategy-btn ${selectedStrategy === 'hot' ? 'active' : ''}" data-strategy="hot">🔥 Números Quentes</button>
+                                <button class="strategy-btn ${selectedStrategy === 'top20' ? 'active' : ''}" data-strategy="top20">⭐ Top 20</button>
                                 <button class="strategy-btn ${selectedStrategy === 'cold' ? 'active' : ''}" data-strategy="cold">❄️ Números Frios</button>
                                 <button class="strategy-btn ${selectedStrategy === 'random' ? 'active' : ''}" data-strategy="random">🎰 Aleatório</button>
                             </div>
@@ -1190,23 +1196,23 @@
                         <h2 class="card-title"><span class="icon">📊</span> Números Quentes & Frios</h2>
                         <div class="top-bottom-grid">
                             <div class="list-section hot">
-                                <h3>🔥 Mais Sorteados</h3>
+                                <h3>🔥 Mais Sorteados (Top 20)</h3>
                                 <div class="number-list">
-                                    ${hotNumbers.map((item, idx) => `
+                                    ${hotNumbers.sort((a, b) => a.num - b.num).map((item, idx) => `
                                         <div class="list-ball hot">
                                             ${String(item.num).padStart(2, '0')}
-                                            <span class="rank">${idx + 1}</span>
+                                            <span class="rank">${hotNumbers.findIndex(h => h.num === item.num) + 1}</span>
                                         </div>
                                     `).join('')}
                                 </div>
                             </div>
                             <div class="list-section cold">
-                                <h3>❄️ Menos Sorteados</h3>
+                                <h3>❄️ Menos Sorteados (Bottom 20)</h3>
                                 <div class="number-list">
-                                    ${coldNumbers.map((item, idx) => `
+                                    ${coldNumbers.sort((a, b) => a.num - b.num).map((item, idx) => `
                                         <div class="list-ball cold">
                                             ${String(item.num).padStart(2, '0')}
-                                            <span class="rank">${idx + 1}</span>
+                                            <span class="rank">${coldNumbers.findIndex(c => c.num === item.num) + 1}</span>
                                         </div>
                                     `).join('')}
                                 </div>
