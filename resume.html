@@ -1,307 +1,448 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Augusto Amaral - Senior Software Engineer</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, Arial, sans-serif;
+        line-height: 1.6;
+        color: #333;
+        max-width: 900px;
+        margin: 0 auto;
+        background: white;
+      }
+
+      header {
+        border-bottom: 2px solid #2c3e50;
+        padding-bottom: 15px;
+        margin-bottom: 20px;
+      }
+
+      h1 {
+        color: #2c3e50;
+        font-size: 28px;
+        margin-bottom: 5px;
+      }
+
+      .subtitle {
+        color: #666;
+        font-size: 16px;
+        font-weight: 500;
+      }
+
+      .contact-info {
+        margin-top: 10px;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 15px;
+        font-size: 14px;
+      }
+
+      .contact-info span {
+        color: #555;
+      }
+
+      .contact-info a {
+        color: #2c3e50;
+        text-decoration: none;
+        transition: color 0.2s ease;
+      }
+
+      .contact-info a:hover {
+        color: #3498db;
+        text-decoration: underline;
+      }
+
+      h2 {
+        color: #2c3e50;
+        font-size: 18px;
+        margin-top: 25px;
+        margin-bottom: 10px;
+        border-bottom: 1px solid #ddd;
+        padding-bottom: 5px;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+      }
+
+      .job {
+        margin-bottom: 20px;
+      }
+
+      .job-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        margin-bottom: 5px;
+      }
+
+      .job-title {
+        font-weight: 600;
+        font-size: 16px;
+        color: #2c3e50;
+        display: block;
+        margin-bottom: 3px;
+      }
+
+      .company {
+        color: #7f8c8d;
+        font-style: italic;
+        display: block;
+        font-size: 13px;
+      }
+
+      .date {
+        color: #7f8c8d;
+        font-size: 14px;
+      }
+
+      ul {
+        margin-left: 20px;
+        margin-top: 5px;
+      }
+
+      li {
+        margin-bottom: 4px;
+        font-size: 14px;
+        line-height: 1.5;
+      }
+
+      .skills-section {
+        display: flex;
+        gap: 30px;
+        flex-wrap: wrap;
+      }
+
+      .skill-category {
+        flex: 1;
+        min-width: 200px;
+      }
+
+      .skill-category strong {
+        color: #2c3e50;
+        display: block;
+        margin-bottom: 3px;
+      }
+
+      .skill-category p {
+        font-size: 14px;
+        color: #555;
+      }
+
+      .education-item {
+        margin-bottom: 10px;
+      }
+
+      .education-title {
+        font-weight: 600;
+        color: #2c3e50;
+      }
+
+      .education-details {
+        font-size: 14px;
+        color: #666;
+      }
+
+      .languages {
+        display: flex;
+        gap: 20px;
+        font-size: 14px;
+      }
+
+      @media print {
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, Arial, sans-serif;
-            line-height: 1.6;
-            color: #333;
-            max-width: 900px;
-            margin: 0 auto;
-            background: white;
+          padding: 0;
+          max-width: 100%;
         }
-        
-        header {
-            border-bottom: 2px solid #2c3e50;
-            padding-bottom: 15px;
-            margin-bottom: 20px;
-        }
-        
-        h1 {
-            color: #2c3e50;
-            font-size: 28px;
-            margin-bottom: 5px;
-        }
-        
-        .subtitle {
-            color: #666;
-            font-size: 16px;
-            font-weight: 500;
-        }
-        
-        .contact-info {
-            margin-top: 10px;
-            display: flex;
-            flex-wrap: wrap;
-            gap: 15px;
-            font-size: 14px;
-        }
-        
-        .contact-info span {
-            color: #555;
-        }
-        
-        .contact-info a {
-            color: #2c3e50;
-            text-decoration: none;
-            transition: color 0.2s ease;
-        }
-        
-        .contact-info a:hover {
-            color: #3498db;
-            text-decoration: underline;
-        }
-        
         h2 {
-            color: #2c3e50;
-            font-size: 18px;
-            margin-top: 25px;
-            margin-bottom: 10px;
-            border-bottom: 1px solid #ddd;
-            padding-bottom: 5px;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
+          page-break-after: avoid;
         }
-        
         .job {
-            margin-bottom: 20px;
+          page-break-inside: avoid;
         }
-        
-        .job-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            margin-bottom: 5px;
-        }
-        
-        .job-title {
-            font-weight: 600;
-            font-size: 16px;
-            color: #2c3e50;
-            display: block;
-            margin-bottom: 3px;
-        }
-        
-        .company {
-            color: #7f8c8d;
-            font-style: italic;
-            display: block;
-            font-size: 13px;
-        }
-        
-        .date {
-            color: #7f8c8d;
-            font-size: 14px;
-        }
-        
-        ul {
-            margin-left: 20px;
-            margin-top: 5px;
-        }
-        
-        li {
-            margin-bottom: 4px;
-            font-size: 14px;
-            line-height: 1.5;
-        }
-        
-        .skills-section {
-            display: flex;
-            gap: 30px;
-            flex-wrap: wrap;
-        }
-        
-        .skill-category {
-            flex: 1;
-            min-width: 200px;
-        }
-        
-        .skill-category strong {
-            color: #2c3e50;
-            display: block;
-            margin-bottom: 3px;
-        }
-        
-        .skill-category p {
-            font-size: 14px;
-            color: #555;
-        }
-        
-        .education-item {
-            margin-bottom: 10px;
-        }
-        
-        .education-title {
-            font-weight: 600;
-            color: #2c3e50;
-        }
-        
-        .education-details {
-            font-size: 14px;
-            color: #666;
-        }
-        
-        .languages {
-            display: flex;
-            gap: 20px;
-            font-size: 14px;
-        }
-        
-        @media print {
-            body {
-                padding: 0;
-                max-width: 100%;
-            }
-            h2 {
-                page-break-after: avoid;
-            }
-            .job {
-                page-break-inside: avoid;
-            }
-        }
+      }
     </style>
-</head>
-<body>
+  </head>
+  <body>
     <header>
-        <h1>Augusto Amaral</h1>
-        <div class="subtitle">Senior Software Engineer</div>
-        <div class="contact-info">
-            <span>📧 <a href="mailto:contact@augustoamaral.com">contact@augustoamaral.com</a></span>
-            <span>📱 <a href="tel:+5522998160639">+55 22 9.98160-7639</a></span>
-            <span>🔗 <a href="https://linkedin.com/in/auamaral" target="_blank" rel="noopener noreferrer">linkedin.com/in/auamaral</a></span>
-            <span>💻 <a href="https://github.com/AugustoAmaral" target="_blank" rel="noopener noreferrer">github.com/AugustoAmaral</a></span>
-            <span>📍 Campos dos Goytacazes, RJ, Brazil</span>
-        </div>
+      <h1>Augusto Amaral</h1>
+      <div class="subtitle">Senior Software Engineer</div>
+      <div class="contact-info">
+        <span
+          >📧
+          <a href="mailto:contact@augustoamaral.com"
+            >contact@augustoamaral.com</a
+          ></span
+        >
+        <span>📱 <a href="tel:+5522998160639">+55 22 9.98160-7639</a></span>
+        <span
+          >🔗
+          <a
+            href="https://linkedin.com/in/auamaral"
+            target="_blank"
+            rel="noopener noreferrer"
+            >linkedin.com/in/auamaral</a
+          ></span
+        >
+        <span
+          >💻
+          <a
+            href="https://github.com/AugustoAmaral"
+            target="_blank"
+            rel="noopener noreferrer"
+            >github.com/AugustoAmaral</a
+          ></span
+        >
+        <span>📍 Campos dos Goytacazes, RJ, Brazil</span>
+      </div>
     </header>
 
     <h2>Professional Summary</h2>
-    <p style="font-size: 14px; margin-bottom: 15px;">
-        Senior Software Engineer and Frontend Team Lead with 7+ years of experience building scalable enterprise  solutions for international markets. Expert in React, TypeScript, Python, and Ruby on Rails with proven track record of leading frontend teams, architecting design systems, and delivering product-driven features in close collaboration with product managers and designers. Specialized in UI architecture, reusable component libraries, and full-stack development for enterprise SaaS platforms. Demonstrated impact through 80% cost reduction in  testing infrastructure, 90%+ code coverage, and zero-downtime product launches.
+    <p style="font-size: 14px; margin-bottom: 15px">
+      Senior Software Engineer and Frontend Team Lead with 7+ years of
+      experience building scalable enterprise solutions for international
+      markets. Expert in React, TypeScript, Python, and Ruby on Rails with
+      proven track record of leading frontend teams, architecting design
+      systems, and delivering product-driven features in close collaboration
+      with product managers and designers. Specialized in UI architecture,
+      reusable component libraries, and full-stack development for enterprise
+      SaaS platforms. Demonstrated impact through 80% cost reduction in testing
+      infrastructure, 90%+ code coverage, and zero-downtime product launches.
     </p>
 
     <h2>Professional Experience</h2>
-    
+
     <div class="job">
-        <div class="job-header">
-            <div>
-                <span class="job-title">Senior Software Engineer & Team Lead</span>
-                <span class="company">Three60 Energy / Maiella, Norway/Italy</span>
-            </div>
-            <span class="date">February 2024 - November 2025</span>
+      <div class="job-header">
+        <div>
+          <span class="job-title">Senior Software Engineer & Team Lead</span>
+          <span class="company">Three60 Energy / Maiella, Norway/Italy</span>
         </div>
-        <ul>
-            <li>Led a 3 person frontend team developing premium business intelligence solutions for oil & gas industry, guiding architecture decisions and delivery strategy in close collaboration with product and design teams</li>
-            <li>Built comprehensive design system and reusable component library using Storybook, establishing frontend architecture standards that enabled consistent UI/UX across multiple products with 90%+ test coverage</li>
-            <li>Reduced infrastructure costs by 80% by architecting custom visual regression testing solution to replace Chromatic, implementing Playwright based tooling that integrated seamlessly with existing workflows without team retraining</li>
-            <li>Architected end-to-end type safety system using Elysia + Eden Treaty, eliminating API contract bugs across monorepo</li>
-            <li>Built complex data visualization dashboards with advanced filtering capabilities using React, TypeScript, and ECharts</li>
-            <li>Collaborated directly with product managers and UX designers to translate business requirements into technical specifications</li>
-            <li>Developed custom CI/CD pipelines with GitHub Actions and Azure DevOps, reducing build times through intelligent caching</li>
-            <li>Contributed to backend services using Python for data processing pipelines and automation scripts, supporting full-stack development needs across the platform</li>
-            <li>Mentored team members on React best practices and modern TypeScript patterns</li>
-            <li>Delivered multiple production-ready products with zero downtime, scaling team output without additional hires while reducing operational costs and maintaining enterprise grade quality standards</li>
-        </ul>
+        <span class="date">February 2024 - November 2025</span>
+      </div>
+      <ul>
+        <li>
+          Led a 3 person frontend team developing premium business intelligence
+          solutions for oil & gas industry, guiding architecture decisions and
+          delivery strategy in close collaboration with product and design teams
+        </li>
+        <li>
+          Built comprehensive design system and reusable component library using
+          Storybook, establishing frontend architecture standards that enabled
+          consistent UI/UX across multiple products with 90%+ test coverage
+        </li>
+        <li>
+          Reduced infrastructure costs by 80% by architecting custom visual
+          regression testing solution to replace Chromatic, implementing
+          Playwright based tooling that integrated seamlessly with existing
+          workflows without team retraining
+        </li>
+        <li>
+          Architected end-to-end type safety system using Elysia + Eden Treaty,
+          eliminating API contract bugs across monorepo
+        </li>
+        <li>
+          Built complex data visualization dashboards with advanced filtering
+          capabilities using React, TypeScript, and ECharts
+        </li>
+        <li>
+          Collaborated directly with product managers and UX designers to
+          translate business requirements into technical specifications
+        </li>
+        <li>
+          Developed custom CI/CD pipelines with GitHub Actions and Azure DevOps,
+          reducing build times through intelligent caching
+        </li>
+        <li>
+          Contributed to backend services using Python for data processing
+          pipelines and automation scripts, supporting full-stack development
+          needs across the platform
+        </li>
+        <li>
+          Mentored team members on React best practices and modern TypeScript
+          patterns
+        </li>
+        <li>
+          Delivered multiple production-ready products with zero downtime,
+          scaling team output without additional hires while reducing
+          operational costs and maintaining enterprise grade quality standards
+        </li>
+      </ul>
     </div>
 
     <div class="job">
-        <div class="job-header">
-            <div>
-                <span class="job-title">Mid Software Engineer</span>
-                <span class="company">Zoolatech / Procore, USA</span>
-            </div>
-            <span class="date">July 2022 - February 2024</span>
+      <div class="job-header">
+        <div>
+          <span class="job-title">Mid Software Engineer</span>
+          <span class="company">Zoolatech / Procore, USA</span>
         </div>
-        <ul>
-            <li>Served as mid consultant for Procore's flagship Rails and React application, a 20-year-old enterprise construction management platform</li>
-            <li>Successfully navigated and enhanced massive legacy codebase while implementing modern engineering practices</li>
-            <li>Delivered critical features for budget management module in complex multi-tenant architecture</li>
-            <li>Reduced technical debt and improved test coverage by over 40% on their budget management module</li>
-            <li>Conducted technical interviews to assess candidates' skills and knowledge, evaluating programming competency and cultural fit</li>
-            <li>Partnered with product managers, designers, and stakeholders throughout feature lifecycle, from requirements gathering to delivery, ensuring technical solutions aligned with business objectives and user needs for budget management module serving thousands of construction professionals</li>
-        </ul>
+        <span class="date">July 2022 - February 2024</span>
+      </div>
+      <ul>
+        <li>
+          Served as mid consultant for Procore's flagship Rails and React
+          application, a 20-year-old enterprise construction management platform
+        </li>
+        <li>
+          Successfully navigated and enhanced massive legacy codebase while
+          implementing modern engineering practices
+        </li>
+        <li>
+          Delivered critical features for budget management module in complex
+          multi-tenant architecture
+        </li>
+        <li>
+          Reduced technical debt and improved test coverage by over 40% on their
+          budget management module
+        </li>
+        <li>
+          Conducted technical interviews to assess candidates' skills and
+          knowledge, evaluating programming competency and cultural fit
+        </li>
+        <li>
+          Partnered with product managers, designers, and stakeholders
+          throughout feature lifecycle, from requirements gathering to delivery,
+          ensuring technical solutions aligned with business objectives and user
+          needs for budget management module serving thousands of construction
+          professionals
+        </li>
+      </ul>
     </div>
 
     <div class="job">
-        <div class="job-header">
-            <div>
-                <span class="job-title">CTO & Co-founder</span>
-                <span class="company">Avaliei!, Brazil</span>
-            </div>
-            <span class="date">May 2021 - July 2022</span>
+      <div class="job-header">
+        <div>
+          <span class="job-title">CTO & Co-founder</span>
+          <span class="company">Avaliei!, Brazil</span>
         </div>
-        <ul>
-            <li>Technical co-founder following Hacking.Rio 2019 victory, transformed hackathon concept into venture-backed startup</li>
-            <li>Architected full-stack solutions and established engineering processes from ground up</li>
-            <li>Led technical strategy in partnership with Vibra Energia S.A. to deliver scalable business solutions</li>
-            <li>Achieved low operational costs through serverless architecture and automated deployment pipelines</li>
-        </ul>
+        <span class="date">May 2021 - July 2022</span>
+      </div>
+      <ul>
+        <li>
+          Technical co-founder following Hacking.Rio 2019 victory, transformed
+          hackathon concept into venture-backed startup
+        </li>
+        <li>
+          Architected full-stack solutions and established engineering processes
+          from ground up
+        </li>
+        <li>
+          Led technical strategy in partnership with Vibra Energia S.A. to
+          deliver scalable business solutions
+        </li>
+        <li>
+          Achieved low operational costs through serverless architecture and
+          automated deployment pipelines
+        </li>
+      </ul>
     </div>
 
     <div class="job">
-        <div class="job-header">
-            <div>
-                <span class="job-title">Junior Full-stack Developer</span>
-                <span class="company">Odda Digital System, Norway</span>
-            </div>
-            <span class="date">January 2019 - July 2022</span>
+      <div class="job-header">
+        <div>
+          <span class="job-title">Junior Full-stack Developer</span>
+          <span class="company">Odda Digital System, Norway</span>
         </div>
-        <ul>
-            <li>Built microservices architecture using NodeJS, React and Ruby on Rails, integrated with Microsoft Dynamics NAV</li>
-            <li>Developed data visualization dashboards for mining processing companies (Tizir)</li>
-            <li>Developed Python-based automation solutions for scheduled jobs and data processing, alongside PHP/React WordPress integrations for client projects</li>
-            <li>Promoted from frontend to full-stack engineer within 6 months due to exceptional performance</li>
-        </ul>
+        <span class="date">January 2019 - July 2022</span>
+      </div>
+      <ul>
+        <li>
+          Built microservices architecture using NodeJS, React and Ruby on
+          Rails, integrated with Microsoft Dynamics NAV
+        </li>
+        <li>
+          Developed data visualization dashboards for mining processing
+          companies (Tizir)
+        </li>
+        <li>
+          Developed Python-based automation solutions for scheduled jobs and
+          data processing, alongside PHP/React WordPress integrations for client
+          projects
+        </li>
+        <li>
+          Promoted from frontend to full-stack engineer within 6 months due to
+          exceptional performance
+        </li>
+      </ul>
     </div>
 
     <h2>Technical Skills</h2>
     <div class="skills-section">
-        <div class="skill-category">
-            <strong>Expert (7+ years):</strong>
-            <p>TypeScript, React.js, Ruby on Rails, Storybook, Design Systems, Python, SQL, Node.js</p>
-        </div>
-        <div class="skill-category">
-            <strong>Proficient:</strong>
-            <p>Bun, TanStack Router, ECharts, Redux, Jest, Cypress, RSpec, GraphQL, MongoDB, PostgreSQL, Docker, Git, CI/CD, Azure DevOps</p>
-        </div>
-        <div class="skill-category">
-            <strong>Frameworks & Tools:</strong>
-            <p>Storybook, Playwright, Moon (monorepo), Elysia, Eden Treaty, Pulumi, New Relic, OAuth, Shell Script</p>
-        </div>
+      <div class="skill-category">
+        <strong>Expert (7+ years):</strong>
+        <p>
+          TypeScript, React.js, Ruby on Rails, Storybook, Design Systems,
+          Python, SQL, Node.js
+        </p>
+      </div>
+      <div class="skill-category">
+        <strong>Proficient:</strong>
+        <p>
+          Bun, TanStack Router, ECharts, Redux, Jest, Cypress, RSpec, GraphQL,
+          MongoDB, PostgreSQL, Docker, Git, CI/CD, Azure DevOps
+        </p>
+      </div>
+      <div class="skill-category">
+        <strong>Frameworks & Tools:</strong>
+        <p>
+          Storybook, Playwright, Moon (monorepo), Elysia, Eden Treaty, Pulumi,
+          New Relic, OAuth, Shell Script
+        </p>
+      </div>
     </div>
 
     <h2>Education</h2>
     <div class="education-item">
-        <div class="education-title">Bachelor of Computer Science</div>
-        <div class="education-details">UENF - Universidade Estadual Norte Fluminense, Brazil | 2018 - 2025</div>
-        <div class="education-details">Thesis: Comparative Analysis of Automatic Keyword Extraction Algorithms Using NLP Techniques</div>
+      <div class="education-title">Bachelor of Computer Science</div>
+      <div class="education-details">
+        UENF - Universidade Estadual Norte Fluminense, Brazil | 2018 - 2025
+      </div>
+      <div class="education-details">
+        Thesis: Comparative Analysis of Automatic Keyword Extraction Algorithms
+        Using NLP Techniques
+      </div>
     </div>
-    
+
     <div class="education-item">
-        <div class="education-title">Computer Assembly and Maintenance Technician</div>
-        <div class="education-details">SENAI - Professional Training and Coaching - Rio de Janeiro | 2013 - 2014</div>
+      <div class="education-title">
+        Computer Assembly and Maintenance Technician
+      </div>
+      <div class="education-details">
+        SENAI - Professional Training and Coaching - Rio de Janeiro | 2013 -
+        2014
+      </div>
     </div>
 
     <h2>Notable Achievements</h2>
-    <ul style="font-size: 14px;">
-        <li><strong>Hacking.Rio 2019 cluster Winner:</strong> Competed against 700+ participants, winning cluster solution led to founding of Avaliei! with Vibra Energia S.A.</li>
-        <li><strong>Stanford Code in Place 2020:</strong> Selected for competitive global programming course, final project featured in official gallery</li>
-        <li><strong>Technical Leadership:</strong> Mentored multiple developers across different companies, establishing best practices and knowledge sharing</li>
+    <ul style="font-size: 14px">
+      <li>
+        <strong>Hacking.Rio 2019 cluster Winner:</strong> Competed against 700+
+        participants, winning cluster solution led to founding of Avaliei! with
+        Vibra Energia S.A.
+      </li>
+      <li>
+        <strong>Stanford Code in Place 2020:</strong> Selected for competitive
+        global programming course, final project featured in official gallery
+      </li>
+      <li>
+        <strong>Technical Leadership:</strong> Mentored multiple developers
+        across different companies, establishing best practices and knowledge
+        sharing
+      </li>
     </ul>
 
     <h2>Languages</h2>
     <div class="languages">
-        <span><strong>Portuguese:</strong> Native</span>
-        <span><strong>English:</strong> Fluent</span>
-        <span><strong>Spanish:</strong> Advanced</span>
+      <span><strong>Portuguese:</strong> Native</span>
+      <span><strong>English:</strong> Fluent</span>
+      <span><strong>Spanish:</strong> Advanced</span>
     </div>
-</body>
+  </body>
 </html>
