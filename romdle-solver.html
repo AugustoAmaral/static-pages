@@ -1,0 +1,673 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Romdle Solver</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      max-width: 600px;
+      margin: 0 auto;
+      padding: 20px;
+      background: #1a1a2e;
+      color: #eee;
+      min-height: 100vh;
+    }
+
+    h1 {
+      text-align: center;
+      color: #ffd700;
+      margin-bottom: 10px;
+    }
+
+    .subtitle {
+      text-align: center;
+      color: #888;
+      margin-bottom: 30px;
+      font-size: 14px;
+    }
+
+    section {
+      background: #16213e;
+      padding: 20px;
+      border-radius: 10px;
+      margin-bottom: 20px;
+    }
+
+    h2 {
+      margin-top: 0;
+      font-size: 16px;
+      color: #ffd700;
+      border-bottom: 1px solid #333;
+      padding-bottom: 10px;
+    }
+
+    .attempt-container {
+      display: flex;
+      gap: 8px;
+      justify-content: center;
+      margin-bottom: 15px;
+    }
+
+    .letter-box {
+      width: 50px;
+      height: 50px;
+      border: 2px solid #444;
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      font-weight: bold;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: all 0.2s;
+      background: #1a1a2e;
+    }
+
+    .letter-box:hover {
+      border-color: #666;
+    }
+
+    .letter-box.red {
+      background: #3a3a3a;
+      color: #888;
+      border-color: #3a3a3a;
+    }
+
+    .letter-box.yellow {
+      background: #b59f3b;
+      color: #fff;
+      border-color: #b59f3b;
+    }
+
+    .letter-box.green {
+      background: #538d4e;
+      color: #fff;
+      border-color: #538d4e;
+    }
+
+    .input-row {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 10px;
+    }
+
+    input[type="text"] {
+      flex: 1;
+      padding: 10px 15px;
+      border: 2px solid #444;
+      border-radius: 6px;
+      background: #1a1a2e;
+      color: #eee;
+      font-size: 16px;
+      text-transform: uppercase;
+    }
+
+    input[type="text"]:focus {
+      outline: none;
+      border-color: #ffd700;
+    }
+
+    button {
+      padding: 10px 20px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 14px;
+      font-weight: bold;
+      transition: all 0.2s;
+    }
+
+    .btn-primary {
+      background: #ffd700;
+      color: #1a1a2e;
+    }
+
+    .btn-primary:hover {
+      background: #ffed4a;
+    }
+
+    .btn-secondary {
+      background: #444;
+      color: #eee;
+    }
+
+    .btn-secondary:hover {
+      background: #555;
+    }
+
+    .btn-danger {
+      background: #c0392b;
+      color: #fff;
+    }
+
+    .btn-danger:hover {
+      background: #e74c3c;
+    }
+
+    .btn-small {
+      padding: 6px 12px;
+      font-size: 12px;
+    }
+
+    .button-row {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .results {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 15px;
+    }
+
+    .result-word {
+      background: #0f3460;
+      padding: 8px 12px;
+      border-radius: 4px;
+      font-family: monospace;
+      font-size: 14px;
+      text-transform: uppercase;
+    }
+
+    .result-count {
+      color: #888;
+      font-size: 14px;
+      margin-top: 10px;
+    }
+
+    .word-count {
+      color: #888;
+      font-size: 14px;
+    }
+
+    .legend {
+      display: flex;
+      gap: 15px;
+      justify-content: center;
+      margin-bottom: 15px;
+      font-size: 12px;
+      color: #888;
+    }
+
+    .legend-item {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .legend-box {
+      width: 16px;
+      height: 16px;
+      border-radius: 3px;
+    }
+
+    .legend-box.red { background: #3a3a3a; }
+    .legend-box.yellow { background: #b59f3b; }
+    .legend-box.green { background: #538d4e; }
+
+    .no-results {
+      color: #888;
+      font-style: italic;
+    }
+
+    .history {
+      margin-top: 15px;
+    }
+
+    .history-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 8px;
+    }
+
+    .history-letters {
+      display: flex;
+      gap: 4px;
+    }
+
+    .history-letter {
+      width: 28px;
+      height: 28px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+      font-weight: bold;
+      border-radius: 4px;
+      text-transform: uppercase;
+    }
+
+    .history-letter.red { background: #3a3a3a; color: #888; }
+    .history-letter.yellow { background: #b59f3b; color: #fff; }
+    .history-letter.green { background: #538d4e; color: #fff; }
+
+    .hidden-input {
+      position: absolute;
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    .instructions {
+      font-size: 13px;
+      color: #888;
+      text-align: center;
+      margin-bottom: 10px;
+    }
+
+    .error {
+      color: #e74c3c;
+      font-size: 13px;
+      margin-top: 5px;
+    }
+  </style>
+</head>
+<body>
+  <h1>🎮 Romdle Solver</h1>
+  <p class="subtitle">Solver para Ragnarok Online Mobile Wordle</p>
+
+  <section>
+    <h2>🎯 Tentativa Atual</h2>
+    <p class="instructions">Digite uma palavra e clique nas letras para mudar as cores</p>
+    <div class="legend">
+      <div class="legend-item">
+        <div class="legend-box red"></div>
+        <span>Não existe</span>
+      </div>
+      <div class="legend-item">
+        <div class="legend-box yellow"></div>
+        <span>Posição errada</span>
+      </div>
+      <div class="legend-item">
+        <div class="legend-box green"></div>
+        <span>Correto</span>
+      </div>
+    </div>
+    
+    <div class="attempt-container" id="attemptContainer">
+      <div class="letter-box" data-index="0" data-color="none"></div>
+      <div class="letter-box" data-index="1" data-color="none"></div>
+      <div class="letter-box" data-index="2" data-color="none"></div>
+      <div class="letter-box" data-index="3" data-color="none"></div>
+      <div class="letter-box" data-index="4" data-color="none"></div>
+    </div>
+    <input type="text" id="hiddenInput" class="hidden-input" maxlength="5" autocomplete="off">
+    
+    <div class="button-row" style="justify-content: center;">
+      <button class="btn-primary" onclick="addAttempt()">Adicionar Tentativa</button>
+      <button class="btn-secondary" onclick="clearAttempt()">Limpar</button>
+    </div>
+
+    <div class="history" id="historyContainer"></div>
+    
+    <div style="margin-top: 15px;">
+      <button class="btn-danger btn-small" onclick="clearAllAttempts()">Limpar Todas Tentativas</button>
+    </div>
+  </section>
+
+  <section>
+    <h2>📋 Palavras Possíveis</h2>
+    <p class="result-count" id="resultCount"></p>
+    <div class="results" id="resultsContainer">
+      <span class="no-results">Digite uma tentativa para ver os resultados</span>
+    </div>
+  </section>
+
+  <section>
+    <h2>📚 Banco de Palavras</h2>
+    <p class="word-count" id="wordCount"></p>
+    
+    <div class="input-row">
+      <input type="text" id="newWordInput" placeholder="Nova palavra (5 letras)" maxlength="5">
+      <button class="btn-primary" onclick="addWord()">Adicionar</button>
+    </div>
+    <div id="addWordError" class="error"></div>
+    
+    <div class="button-row" style="margin-top: 15px;">
+      <button class="btn-secondary btn-small" onclick="exportWords()">📤 Exportar JSON</button>
+      <button class="btn-secondary btn-small" onclick="document.getElementById('importInput').click()">📥 Importar JSON</button>
+      <input type="file" id="importInput" accept=".json" style="display: none;" onchange="importWords(event)">
+    </div>
+  </section>
+
+  <script>
+    // State
+    let wordBank = [];
+    let attempts = [];
+    let currentWord = '';
+    let currentColors = ['none', 'none', 'none', 'none', 'none'];
+
+    // Color cycle: none -> red -> yellow -> green -> none
+    const colorCycle = ['none', 'red', 'yellow', 'green'];
+
+    // Initialize
+    function init() {
+      loadWordBank();
+      setupEventListeners();
+      updateWordCount();
+      updateResults();
+    }
+
+    function loadWordBank() {
+      const stored = localStorage.getItem('romdleWordBank');
+      if (stored) {
+        wordBank = JSON.parse(stored);
+      } else {
+        wordBank = ['AESIR'];
+        saveWordBank();
+      }
+    }
+
+    function saveWordBank() {
+      localStorage.setItem('romdleWordBank', JSON.stringify(wordBank));
+    }
+
+    function setupEventListeners() {
+      const container = document.getElementById('attemptContainer');
+      const boxes = container.querySelectorAll('.letter-box');
+      
+      // Click to cycle colors
+      boxes.forEach(box => {
+        box.addEventListener('click', () => {
+          if (!box.textContent) return;
+          
+          const index = parseInt(box.dataset.index);
+          const currentColor = box.dataset.color;
+          const nextColorIndex = (colorCycle.indexOf(currentColor) + 1) % colorCycle.length;
+          const nextColor = colorCycle[nextColorIndex];
+          
+          box.dataset.color = nextColor;
+          box.className = 'letter-box ' + (nextColor === 'none' ? '' : nextColor);
+          currentColors[index] = nextColor;
+          
+          updateResults();
+        });
+      });
+
+      // Typing anywhere updates the boxes
+      document.addEventListener('keydown', (e) => {
+        // Ignore if typing in input fields
+        if (e.target.tagName === 'INPUT' && e.target.id !== 'hiddenInput') return;
+        
+        if (e.key === 'Backspace') {
+          e.preventDefault();
+          if (currentWord.length > 0) {
+            currentWord = currentWord.slice(0, -1);
+            updateLetterBoxes();
+          }
+        } else if (e.key === 'Enter') {
+          e.preventDefault();
+          addAttempt();
+        } else if (/^[a-zA-Z]$/.test(e.key) && currentWord.length < 5) {
+          e.preventDefault();
+          currentWord += e.key.toUpperCase();
+          updateLetterBoxes();
+        }
+      });
+
+      // Enter key for adding words
+      document.getElementById('newWordInput').addEventListener('keydown', (e) => {
+        if (e.key === 'Enter') {
+          addWord();
+        }
+      });
+    }
+
+    function updateLetterBoxes() {
+      const boxes = document.querySelectorAll('#attemptContainer .letter-box');
+      boxes.forEach((box, i) => {
+        box.textContent = currentWord[i] || '';
+        if (!currentWord[i]) {
+          box.dataset.color = 'none';
+          box.className = 'letter-box';
+          currentColors[i] = 'none';
+        }
+      });
+      updateResults();
+    }
+
+    function addAttempt() {
+      if (currentWord.length !== 5) {
+        return;
+      }
+
+      // Check if at least one color is set
+      const hasColors = currentColors.some(c => c !== 'none');
+      if (!hasColors) {
+        return;
+      }
+
+      attempts.push({
+        word: currentWord,
+        colors: [...currentColors]
+      });
+
+      renderHistory();
+      clearAttempt();
+      updateResults();
+    }
+
+    function clearAttempt() {
+      currentWord = '';
+      currentColors = ['none', 'none', 'none', 'none', 'none'];
+      updateLetterBoxes();
+    }
+
+    function clearAllAttempts() {
+      attempts = [];
+      renderHistory();
+      updateResults();
+    }
+
+    function renderHistory() {
+      const container = document.getElementById('historyContainer');
+      
+      if (attempts.length === 0) {
+        container.innerHTML = '';
+        return;
+      }
+
+      container.innerHTML = attempts.map((attempt, attemptIndex) => `
+        <div class="history-item">
+          <div class="history-letters">
+            ${attempt.word.split('').map((letter, i) => `
+              <div class="history-letter ${attempt.colors[i]}">${letter}</div>
+            `).join('')}
+          </div>
+          <button class="btn-danger btn-small" onclick="removeAttempt(${attemptIndex})">×</button>
+        </div>
+      `).join('');
+    }
+
+    function removeAttempt(index) {
+      attempts.splice(index, 1);
+      renderHistory();
+      updateResults();
+    }
+
+    function updateResults() {
+      const container = document.getElementById('resultsContainer');
+      const countEl = document.getElementById('resultCount');
+      
+      let filtered = [...wordBank];
+
+      // Apply all attempts as filters
+      for (const attempt of attempts) {
+        filtered = filterWords(filtered, attempt.word, attempt.colors);
+      }
+
+      // Also apply current attempt if it has colors
+      if (currentWord.length === 5 && currentColors.some(c => c !== 'none')) {
+        filtered = filterWords(filtered, currentWord, currentColors);
+      }
+
+      countEl.textContent = `${filtered.length} palavra(s) possível(is) de ${wordBank.length}`;
+
+      if (filtered.length === 0) {
+        container.innerHTML = '<span class="no-results">Nenhuma palavra encontrada</span>';
+      } else {
+        container.innerHTML = filtered.map(w => `<span class="result-word">${w}</span>`).join('');
+      }
+    }
+
+    function filterWords(words, attempt, colors) {
+      return words.filter(word => {
+        const wordUpper = word.toUpperCase();
+        const attemptUpper = attempt.toUpperCase();
+        
+        // Track which letters in the target word have been "used"
+        const wordLetters = wordUpper.split('');
+        const used = [false, false, false, false, false];
+
+        // First pass: check greens (must match exactly)
+        for (let i = 0; i < 5; i++) {
+          if (colors[i] === 'green') {
+            if (wordLetters[i] !== attemptUpper[i]) {
+              return false;
+            }
+            used[i] = true;
+          }
+        }
+
+        // Second pass: check yellows (must exist elsewhere, not in this position)
+        for (let i = 0; i < 5; i++) {
+          if (colors[i] === 'yellow') {
+            const letter = attemptUpper[i];
+            
+            // Must NOT be in this position
+            if (wordLetters[i] === letter) {
+              return false;
+            }
+            
+            // Must exist somewhere else (not already used)
+            let found = false;
+            for (let j = 0; j < 5; j++) {
+              if (!used[j] && wordLetters[j] === letter) {
+                used[j] = true;
+                found = true;
+                break;
+              }
+            }
+            
+            if (!found) {
+              return false;
+            }
+          }
+        }
+
+        // Third pass: check reds (must not exist in unused positions)
+        for (let i = 0; i < 5; i++) {
+          if (colors[i] === 'red') {
+            const letter = attemptUpper[i];
+            
+            // Check if this letter exists in any unused position
+            for (let j = 0; j < 5; j++) {
+              if (!used[j] && wordLetters[j] === letter) {
+                return false;
+              }
+            }
+          }
+        }
+
+        return true;
+      });
+    }
+
+    // Word Bank Management
+    function addWord() {
+      const input = document.getElementById('newWordInput');
+      const errorEl = document.getElementById('addWordError');
+      const word = input.value.toUpperCase().trim();
+      
+      errorEl.textContent = '';
+
+      if (word.length !== 5) {
+        errorEl.textContent = 'A palavra deve ter exatamente 5 letras';
+        return;
+      }
+
+      if (!/^[A-Z]+$/.test(word)) {
+        errorEl.textContent = 'A palavra deve conter apenas letras';
+        return;
+      }
+
+      if (wordBank.includes(word)) {
+        errorEl.textContent = 'Esta palavra já existe no banco';
+        return;
+      }
+
+      wordBank.push(word);
+      wordBank.sort();
+      saveWordBank();
+      updateWordCount();
+      updateResults();
+      input.value = '';
+    }
+
+    function updateWordCount() {
+      document.getElementById('wordCount').textContent = `${wordBank.length} palavra(s) no banco`;
+    }
+
+    function exportWords() {
+      const json = JSON.stringify(wordBank, null, 2);
+      const blob = new Blob([json], { type: 'application/json' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = 'romdle-words.json';
+      a.click();
+      URL.revokeObjectURL(url);
+    }
+
+    function importWords(event) {
+      const file = event.target.files[0];
+      if (!file) return;
+
+      const reader = new FileReader();
+      reader.onload = (e) => {
+        try {
+          let imported = JSON.parse(e.target.result);
+          
+          if (!Array.isArray(imported)) {
+            alert('Formato inválido: deve ser um array de palavras');
+            return;
+          }
+
+          // Normalize and validate
+          imported = imported
+            .map(w => String(w).toUpperCase().trim())
+            .filter(w => w.length === 5 && /^[A-Z]+$/.test(w));
+
+          // Merge with existing (avoid duplicates)
+          const newWords = imported.filter(w => !wordBank.includes(w));
+          wordBank = [...wordBank, ...newWords].sort();
+          
+          saveWordBank();
+          updateWordCount();
+          updateResults();
+          
+          alert(`Importado! ${newWords.length} nova(s) palavra(s) adicionada(s).`);
+        } catch (err) {
+          alert('Erro ao importar: ' + err.message);
+        }
+      };
+      reader.readAsText(file);
+      
+      // Reset input so same file can be imported again
+      event.target.value = '';
+    }
+
+    // Start
+    init();
+  </script>
+</body>
+</html>
