@@ -157,9 +157,7 @@
   th { color: var(--text-secondary); font-weight: 600; cursor: pointer; user-select: none; position: sticky; top: 0; background: var(--surface-1); }
   th.sorted::after { content: " ▾"; color: var(--text-muted); }
   th.sorted.asc::after { content: " ▴"; }
-  tbody tr { cursor: pointer; }
   tbody tr:hover { background: var(--accent-soft); }
-  tbody tr.sel { background: var(--accent-soft); box-shadow: inset 2px 0 0 var(--series-1); }
   td.num { font-variant-numeric: tabular-nums; }
   .rar { display: inline-flex; align-items: center; gap: 6px; }
   .rar .dot { width: 9px; height: 9px; border-radius: 50%; }
@@ -168,7 +166,7 @@
   /* ---- tooltip ---- */
   #tip { position: fixed; pointer-events: none; z-index: 50; background: var(--surface-1);
     border: 1px solid var(--border); border-radius: 8px; padding: 8px 10px; font-size: 12px;
-    box-shadow: 0 4px 16px rgba(0,0,0,.18); opacity: 0; transition: opacity .08s; max-width: 260px; }
+    box-shadow: 0 4px 16px rgba(0,0,0,.18); opacity: 0; transition: opacity .08s; max-width: 300px; }
   #tip .t-name { font-weight: 600; margin-bottom: 3px; color: var(--text-primary); }
   #tip .t-row { display: flex; justify-content: space-between; gap: 14px; color: var(--text-secondary); }
   #tip .t-row b { color: var(--text-primary); font-variant-numeric: tabular-nums; }
@@ -198,6 +196,31 @@
     opacity: 0; pointer-events: none; transition: opacity .2s, transform .2s; z-index: 90; max-width: 90vw; }
   .toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
   .toast.err { border-left-color: var(--rar-MYTHIC); }
+
+  /* ---- tabs ---- */
+  .tabs { display: inline-flex; gap: 4px; background: var(--surface-1); border: 1px solid var(--border);
+    border-radius: 10px; padding: 4px; margin-bottom: 16px; }
+  .tabs button { border: none; background: none; border-radius: 7px; padding: 8px 16px; font-size: 13px;
+    font-weight: 550; color: var(--text-secondary); }
+  .tabs button.active { background: var(--series-1); color: #fff; }
+
+  /* ---- collapsible table card ---- */
+  details.table-card > summary { cursor: pointer; list-style: none; font-size: 15px; font-weight: 600;
+    display: flex; align-items: center; gap: 8px; color: var(--text-primary); }
+  details.table-card > summary::-webkit-details-marker { display: none; }
+  details.table-card > summary::before { content: "▶"; font-size: 10px; color: var(--text-muted); transition: transform .15s; }
+  details.table-card[open] > summary::before { transform: rotate(90deg); }
+  details.table-card .hint { font-weight: 400; }
+  details.table-card .table-wrap { margin-top: 12px; }
+
+  /* ---- loot breakdown inside the hover card ---- */
+  #tip .t-break { margin-top: 8px; padding-top: 8px; border-top: 1px solid var(--grid); }
+  #tip .t-break-title { font-size: 10.5px; color: var(--text-muted); text-transform: uppercase; letter-spacing: .04em; margin-bottom: 5px; }
+  #tip .t-bar-row { display: grid; grid-template-columns: 82px 1fr 40px; align-items: center; gap: 6px; margin-bottom: 3px; }
+  #tip .t-bar-name { font-size: 11px; color: var(--text-secondary); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  #tip .t-bar-track { height: 7px; background: var(--grid); border-radius: 4px; overflow: hidden; }
+  #tip .t-bar-fill { display: block; height: 100%; background: var(--series-2); border-radius: 4px; }
+  #tip .t-bar-val { font-size: 10.5px; color: var(--text-primary); font-variant-numeric: tabular-nums; text-align: right; }
 </style>
 </head>
 <body>
@@ -258,14 +281,6 @@
     <h2>2. Filtros</h2>
     <div class="filters">
       <div class="fgroup">
-        <label>Métrica de lucro</label>
-        <div class="seg" id="metricSeg">
-          <button data-metric="total" class="active">Total (loot + venda)</button>
-          <button data-metric="loot">Só loot / kill</button>
-          <button data-metric="sell">Só venda</button>
-        </div>
-      </div>
-      <div class="fgroup">
         <label>Buscar nome</label>
         <input type="text" id="search" placeholder="ex: Snorlax" style="width:150px" />
       </div>
@@ -294,8 +309,8 @@
       <div class="fgroup">
         <label>Hunt (mapa)</label>
         <div class="seg" id="huntStatusSeg">
-          <button data-hunt="all" class="active">Todos</button>
-          <button data-hunt="with">Com hunt</button>
+          <button data-hunt="all">Todos</button>
+          <button data-hunt="with" class="active">Com hunt</button>
           <button data-hunt="without">Sem hunt</button>
         </div>
       </div>
@@ -311,42 +326,41 @@
     </div>
   </section>
 
-  <!-- RANKING + BREAKDOWN -->
-  <div class="grid2" id="chartsRow" style="display:none">
-    <section class="card">
-      <div class="chart-head"><h2 id="rankTitle">3. Ranking de lucratividade</h2></div>
-      <div class="chart-sub" id="rankSub"></div>
-      <div id="rankChart"></div>
-    </section>
-    <section class="card">
-      <div class="chart-head"><h2>4. De onde vem o loot <span class="hint" id="bdName"></span></h2></div>
-      <div class="chart-sub">Contribuição esperada de cada drop por kill (chance × qtd média × preço).</div>
-      <div id="bdChart"></div>
-    </section>
-  </div>
-
-  <!-- SCATTER -->
-  <section class="card" id="scatterCard" style="display:none">
-    <div class="chart-head">
-      <h2>5. Esforço × Lucro <span class="hint">huntLevel × valor — cor por raridade</span></h2>
-      <label class="muted" style="font-size:12px;display:flex;gap:6px;align-items:center">
-        <input type="checkbox" id="logY" checked /> escala log (Y)
-      </label>
-    </div>
-    <div class="chart-sub">Canto inferior-esquerdo = fácil e barato; superior-esquerdo = fácil e lucrativo (o alvo pra eficiência).</div>
-    <div class="legend" id="scatterLegend"></div>
-    <div id="scatterChart"></div>
-  </section>
-
-  <!-- TABLE -->
-  <section class="card" id="tableCard" style="display:none">
-    <h2>6. Tabela completa <span class="hint" id="tableCount"></span></h2>
+  <!-- TABLE (collapsible, collapsed by default) -->
+  <details class="card table-card" id="tableCard" style="display:none">
+    <summary>Tabela completa <span class="hint" id="tableCount"></span></summary>
     <div class="table-wrap">
       <table id="table">
         <thead><tr id="theadRow"></tr></thead>
         <tbody id="tbody"></tbody>
       </table>
     </div>
+  </details>
+
+  <!-- TABS -->
+  <div class="tabs" id="tabs" style="display:none">
+    <button data-tab="lucro" class="active">💰 Lucro (loot/kill)</button>
+    <button data-tab="xp">⭐ XP</button>
+  </div>
+
+  <!-- RANKING (field depends on active tab) -->
+  <section class="card" id="rankCard" style="display:none">
+    <div class="chart-head"><h2 id="rankTitle">Ranking</h2></div>
+    <div class="chart-sub" id="rankSub"></div>
+    <div id="rankChart"></div>
+  </section>
+
+  <!-- SCATTER (effort × value; field depends on active tab) -->
+  <section class="card" id="scatterCard" style="display:none">
+    <div class="chart-head">
+      <h2 id="scatterH2"><span id="scatterTitle">Esforço × Lucro</span> <span class="hint" id="scatterHint"></span></h2>
+      <label class="muted" style="font-size:12px;display:flex;gap:6px;align-items:center">
+        <input type="checkbox" id="logY" checked /> escala log (Y)
+      </label>
+    </div>
+    <div class="chart-sub" id="scatterSub"></div>
+    <div class="legend" id="scatterLegend"></div>
+    <div id="scatterChart"></div>
   </section>
 </div>
 
@@ -408,19 +422,38 @@
     hasMarkers: false,
     areas: [],           // distinct hunt areas, e.g. ["kanto","outland"]
     huntNames: [],       // sorted unique hunt names for the datalist
-    metric: "total",     // total | loot | sell
-    computed: [],        // [{name, huntLevel, rarity, type1, type2, lootValue, sellValue, totalValue, hunts:[...], hasHunt, huntAreas, huntSlugs, breakdown:[...], id}]
+    tab: "lucro",        // lucro | xp — drives which value field the charts use
+    computed: [],        // [{name, huntLevel, rarity, type1, type2, lootValue, sellValue, totalValue, experience, hunts:[...], hasHunt, huntAreas, huntSlugs, breakdown:[...], id}]
     topN: 15,
-    selectedId: null,
     scatterLog: true,
-    filters: { rarity: new Set(RARITY_ORDER), type: "ALL", hlMin: null, hlMax: null, search: "",
-      huntStatus: "all", area: "ALL", hunt: "" },
-    sort: { key: "totalValue", dir: "desc" },
+    // MYTHIC/LEGENDARY off by default; hunt filter defaults to "with"
+    filters: { rarity: new Set(["COMMON", "UNCOMMON", "RARE", "EPIC"]), type: "ALL", hlMin: null, hlMax: null, search: "",
+      huntStatus: "with", area: "ALL", hunt: "" },
+    sort: { key: "lootValue", dir: "desc" },
+  };
+
+  // Tab config: each tab plots a different value field.
+  const TABS = {
+    lucro: {
+      field: "lootValue",
+      rankTitle: "Ranking de lucro — loot por kill",
+      rankSub: (n, total) => `Top ${n} de ${total} monstros filtrados. Passe o mouse numa barra pra ver de onde vem o loot.`,
+      scatterTitle: "Esforço × Lucro",
+      scatterHint: "huntLevel × loot/kill — cor por raridade",
+      scatterSub: "Canto inferior-esquerdo = fácil e pouco loot; superior-esquerdo = fácil e muito loot (o alvo pra eficiência).",
+    },
+    xp: {
+      field: "experience",
+      rankTitle: "Ranking de XP por kill",
+      rankSub: (n, total) => `Top ${n} de ${total} monstros filtrados. Passe o mouse numa barra pra ver detalhes.`,
+      scatterTitle: "Esforço × XP",
+      scatterHint: "huntLevel × XP — cor por raridade",
+      scatterSub: "Canto superior-esquerdo = fácil e muita XP (o alvo pra grind eficiente).",
+    },
   };
 
   const $ = (id) => document.getElementById(id);
-  const metricField = () => (state.metric === "loot" ? "lootValue" : state.metric === "sell" ? "sellValue" : "totalValue");
-  const metricLabel = () => (state.metric === "loot" ? "Loot / kill" : state.metric === "sell" ? "Valor de venda" : "Total (loot + venda)");
+  const curField = () => TABS[state.tab].field;
 
   // ---------- data loading ----------
   function normalize(json, key) {
@@ -668,8 +701,9 @@
     const chips = $("rarityChips");
     if (!chips.childElementCount) {
       RARITY_ORDER.forEach((r) => {
+        const on = state.filters.rarity.has(r);
         const el = document.createElement("span");
-        el.className = "chip on";
+        el.className = "chip " + (on ? "on" : "off");
         el.dataset.rarity = r;
         el.innerHTML = `<span class="dot" style="background:var(--rar-${r})"></span>${r}`;
         el.addEventListener("click", () => {
@@ -698,25 +732,21 @@
       $("huntFilters").style.display = "none";
     }
     $("filtersCard").style.display = "";
-    $("chartsRow").style.display = "";
-    $("scatterCard").style.display = "";
     $("tableCard").style.display = "";
+    $("tabs").style.display = "";
+    $("rankCard").style.display = "";
+    $("scatterCard").style.display = "";
   }
 
   // ---------- rendering ----------
   function renderAll() {
     if (!state.computed.length) return;
     const data = filtered();
-    renderInsight();
+    // insight is loot-specific; only relevant on the Lucro tab
+    if (state.tab === "lucro") renderInsight(); else $("insight").classList.remove("show");
     renderRanking(data);
     renderScatter(data);
     renderTable(data);
-    // keep selection valid; default to top of ranking
-    if (state.selectedId == null || !data.find((d) => d.id === state.selectedId)) {
-      const sorted = [...data].sort((a, b) => b[metricField()] - a[metricField()]);
-      state.selectedId = sorted.length ? sorted[0].id : null;
-    }
-    renderBreakdown();
   }
 
   function renderInsight() {
@@ -725,9 +755,9 @@
     const box = $("insight");
     if (maxSell > maxLoot * 5) {
       $("insightText").innerHTML =
-        `O <b>valor de venda</b> do Pokémon domina o total: loot por kill vai até <b>${nf0.format(Math.round(maxLoot))}</b> gold, ` +
-        `mas a venda chega a <b>${nf0.format(maxSell)}</b>. Então o ranking <b>“Total”</b> é essencialmente “qual vende mais caro” (capturar & vender). ` +
-        `Use <b>“Só loot / kill”</b> pra ver a lucratividade real de farmar drops.`;
+        `O ranking foca no <b>loot por kill</b> (farm real, vai até <b>${nf0.format(Math.round(maxLoot))}</b> gold). ` +
+        `O <b>valor de venda</b> do próprio Pokémon é muito maior (até <b>${nf0.format(maxSell)}</b>), mas depende de capturar & vender — ` +
+        `por isso fica só como coluna na tabela (“Venda” / “Total”), fora do ranking.`;
       box.classList.add("show");
     } else {
       box.classList.remove("show");
@@ -766,10 +796,11 @@
   function renderRanking(data) {
     const host = $("rankChart");
     clear(host);
-    const field = metricField();
+    const cfg = TABS[state.tab];
+    const field = cfg.field;
     const sorted = [...data].sort((a, b) => b[field] - a[field]).slice(0, state.topN);
-    $("rankTitle").textContent = `3. Ranking de lucratividade — ${metricLabel()}`;
-    $("rankSub").textContent = `Top ${sorted.length} de ${data.length} monstros filtrados. Clique numa barra para ver o breakdown.`;
+    $("rankTitle").textContent = cfg.rankTitle;
+    $("rankSub").textContent = cfg.rankSub(sorted.length, data.length);
     if (!sorted.length) { host.innerHTML = '<div class="empty">Nenhum monstro no filtro.</div>'; return; }
 
     const W = host.clientWidth || 540;
@@ -797,9 +828,7 @@
     sorted.forEach((d, i) => {
       const cy = padT + i * rowH + (rowH - barH) / 2;
       const w = x(d[field]) - mL;
-      const p = mk("path", { d: barPath(mL, cy, w, barH, 4), fill: "var(--series-1)", style: "cursor:pointer" });
-      if (d.id === state.selectedId) p.setAttribute("opacity", "1"); else p.setAttribute("opacity", "0.92");
-      p.addEventListener("click", () => { state.selectedId = d.id; renderAll(); });
+      const p = mk("path", { d: barPath(mL, cy, w, barH, 4), fill: "var(--series-1)", opacity: "0.92" });
       p.addEventListener("mousemove", (ev) => showTip(ev, tipCreature(d)));
       p.addEventListener("mouseleave", hideTip);
       svg.appendChild(p);
@@ -817,64 +846,15 @@
     host.appendChild(svg);
   }
 
-  // ---- breakdown (single hue) ----
-  function renderBreakdown() {
-    const host = $("bdChart");
-    clear(host);
-    const d = state.computed.find((c) => c.id === state.selectedId);
-    $("bdName").textContent = d ? "— " + d.name : "";
-    if (!d) { host.innerHTML = '<div class="empty">Selecione um monstro.</div>'; return; }
-    const rows = d.breakdown.filter((b) => b.contribution > 0).slice(0, 12);
-    if (!rows.length) {
-      host.innerHTML = `<div class="empty">${d.name} não tem loot com valor de venda &gt; 0.<br><span class="muted">Venda do Pokémon: ${nf0.format(d.sellValue)} gold.</span></div>`;
-      return;
-    }
-    const W = host.clientWidth || 540;
-    const rowH = 26, padT = 8, padB = 26, mL = 138, mR = 70;
-    const H = padT + padB + rows.length * rowH;
-    const plotW = Math.max(40, W - mL - mR);
-    const maxV = Math.max(1, ...rows.map((r) => r.contribution));
-    const ticks = niceTicks(maxV, 4);
-    const tickMax = ticks[ticks.length - 1] || maxV;
-    const x = (v) => mL + (v / tickMax) * plotW;
-    const svg = mk("svg", { viewBox: `0 0 ${W} ${H}`, width: W, height: H });
-
-    for (const t of ticks) {
-      svg.appendChild(mk("line", { x1: x(t), y1: padT, x2: x(t), y2: H - padB, stroke: "var(--grid)", "stroke-width": 1 }));
-      const tl = mk("text", { x: x(t), y: H - padB + 15, "text-anchor": "middle", "font-size": 10, fill: "var(--text-muted)" });
-      tl.textContent = fmtCompact(t); svg.appendChild(tl);
-    }
-    svg.appendChild(mk("line", { x1: mL, y1: padT, x2: mL, y2: H - padB, stroke: "var(--axis)", "stroke-width": 1 }));
-
-    const barH = 16;
-    rows.forEach((r, i) => {
-      const cy = padT + i * rowH + (rowH - barH) / 2;
-      const w = x(r.contribution) - mL;
-      const p = mk("path", { d: barPath(mL, cy, w, barH, 4), fill: "var(--series-2)" });
-      p.addEventListener("mousemove", (ev) => showTip(ev,
-        `<div class="t-name">${r.name}</div>` +
-        `<div class="t-row"><span>contribuição</span><b>${nf1.format(r.contribution)}</b></div>` +
-        `<div class="t-row"><span>chance</span><b>${nf1.format(r.chance * 100)}%</b></div>` +
-        `<div class="t-row"><span>qtd média</span><b>${nf1.format(r.qty)}</b></div>` +
-        `<div class="t-row"><span>preço un.</span><b>${nf0.format(r.price)}</b></div>`));
-      p.addEventListener("mouseleave", hideTip);
-      svg.appendChild(p);
-      const nm = mk("text", { x: mL - 8, y: cy + barH / 2 + 3.5, "text-anchor": "end", "font-size": 11.5, fill: "var(--text-secondary)" });
-      nm.textContent = r.name.length > 20 ? r.name.slice(0, 19) + "…" : r.name;
-      svg.appendChild(nm);
-      const vl = mk("text", { x: x(r.contribution) + 6, y: cy + barH / 2 + 3.5, "font-size": 11, fill: "var(--text-primary)" });
-      vl.style.fontVariantNumeric = "tabular-nums";
-      vl.textContent = nf1.format(r.contribution);
-      svg.appendChild(vl);
-    });
-    host.appendChild(svg);
-  }
-
   // ---- scatter (categorical by rarity) ----
   function renderScatter(data) {
     const host = $("scatterChart");
     clear(host);
-    const field = metricField();
+    const cfg = TABS[state.tab];
+    const field = cfg.field;
+    $("scatterTitle").textContent = cfg.scatterTitle;
+    $("scatterHint").textContent = cfg.scatterHint;
+    $("scatterSub").textContent = cfg.scatterSub;
     const pts = data.filter((d) => d.huntLevel > 0);
     // legend (rarities present)
     const present = RARITY_ORDER.filter((r) => pts.some((p) => p.rarity === r));
@@ -937,27 +917,41 @@
       const v = Math.max(p[field], log ? Math.pow(10, logMin) : 0);
       const c = mk("circle", {
         cx: xHL(p.huntLevel), cy: y(v), r: 5,
-        fill: `var(--rar-${p.rarity})`, stroke: "var(--surface-1)", "stroke-width": 2, style: "cursor:pointer",
+        fill: `var(--rar-${p.rarity})`, stroke: "var(--surface-1)", "stroke-width": 2,
       });
-      if (p.id === state.selectedId) { c.setAttribute("r", 7); c.setAttribute("stroke-width", 2.5); }
       c.addEventListener("mousemove", (ev) => showTip(ev, tipCreature(p)));
       c.addEventListener("mouseleave", hideTip);
-      c.addEventListener("click", () => { state.selectedId = p.id; renderAll(); });
       svg.appendChild(c);
     }
     host.appendChild(svg);
   }
 
+  const escHtml = (s) => String(s).replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+
   function tipCreature(d) {
-    return `<div class="t-name">${d.name}</div>` +
+    const rows = d.breakdown.filter((b) => b.contribution > 0).slice(0, 6);
+    const maxC = rows.length ? rows[0].contribution : 1;
+    const breakHtml = rows.length
+      ? `<div class="t-break"><div class="t-break-title">De onde vem o loot</div>` +
+        rows.map((r) =>
+          `<div class="t-bar-row">` +
+            `<span class="t-bar-name" title="${escHtml(r.name)}">${escHtml(r.name)}</span>` +
+            `<span class="t-bar-track"><span class="t-bar-fill" style="width:${Math.max(4, (r.contribution / maxC) * 100)}%"></span></span>` +
+            `<span class="t-bar-val">${nf1.format(r.contribution)}</span>` +
+          `</div>`).join("") +
+        `</div>`
+      : `<div class="t-break"><div class="t-break-title">Loot</div><span class="muted" style="font-size:11px">sem drop com valor de venda</span></div>`;
+    return `<div class="t-name">${escHtml(d.name)}</div>` +
       `<div class="t-row"><span>raridade</span><b>${d.rarity}</b></div>` +
       `<div class="t-row"><span>huntLevel</span><b>${d.huntLevel}</b></div>` +
+      `<div class="t-row"><span>XP</span><b>${nf0.format(d.experience)}</b></div>` +
       `<div class="t-row"><span>loot / kill</span><b>${nf1.format(d.lootValue)}</b></div>` +
       `<div class="t-row"><span>venda</span><b>${nf0.format(d.sellValue)}</b></div>` +
       `<div class="t-row"><span>total</span><b>${nf0.format(Math.round(d.totalValue))}</b></div>` +
       (state.hasMarkers
-        ? `<div class="t-row"><span>hunt</span><b>${d.hasHunt ? (d.huntAreas.join(", ") || "sim") + " (" + d.hunts.length + ")" : "não"}</b></div>`
-        : "");
+        ? `<div class="t-row"><span>hunt</span><b>${d.hasHunt ? escHtml(d.huntAreas.join(", ") || "sim") + " (" + d.hunts.length + ")" : "não"}</b></div>`
+        : "") +
+      breakHtml;
   }
 
   // ---- table ----
@@ -968,10 +962,11 @@
       { key: "rarity", label: "Raridade", l: true, fmt: (d) => `<span class="rar"><span class="dot" style="background:var(--rar-${d.rarity})"></span>${d.rarity}</span>` },
       { key: "type1", label: "Tipo", l: true, fmt: (d) => d.type1 + (d.type2 ? " / " + d.type2 : "") },
       { key: "huntLevel", label: "Hunt lv", num: true, fmt: (d) => nf0.format(d.huntLevel) },
+      { key: "experience", label: "XP", num: true, fmt: (d) => nf0.format(d.experience) },
       { key: "lootValue", label: "Loot / kill", num: true, fmt: (d) => nf1.format(d.lootValue) },
       { key: "sellValue", label: "Venda", num: true, fmt: (d) => nf0.format(d.sellValue) },
       { key: "totalValue", label: "Total", num: true, fmt: (d) => nf0.format(Math.round(d.totalValue)) },
-      { key: "topLoot", label: "Maior drop", l: true, fmt: (d) => `<span class="muted">${d.topLoot}</span>` },
+      { key: "topLoot", label: "Maior drop", l: true, fmt: (d) => `<span class="muted">${escHtml(d.topLoot)}</span>` },
     ];
     if (state.hasMarkers) {
       base.splice(4, 0, { key: "hasHunt", label: "Hunt", l: true, fmt: (d) =>
@@ -1017,9 +1012,9 @@
     clear(tb);
     for (const d of rows) {
       const tr = document.createElement("tr");
-      if (d.id === state.selectedId) tr.classList.add("sel");
       tr.innerHTML = COLS.map((c) => `<td class="${c.l ? "l" : "num"}">${c.fmt(d)}</td>`).join("");
-      tr.addEventListener("click", () => { state.selectedId = d.id; renderAll(); });
+      tr.addEventListener("mousemove", (ev) => showTip(ev, tipCreature(d)));
+      tr.addEventListener("mouseleave", hideTip);
       tb.appendChild(tr);
     }
   }
@@ -1086,13 +1081,15 @@
       } catch (e) { setStatus("JSON colado inválido: " + e.message, true); }
     });
 
-    // filters
-    $("metricSeg").addEventListener("click", (e) => {
-      const b = e.target.closest("button[data-metric]"); if (!b) return;
-      state.metric = b.dataset.metric;
-      [...$("metricSeg").children].forEach((x) => x.classList.toggle("active", x === b));
+    // tabs (Lucro / XP)
+    $("tabs").addEventListener("click", (e) => {
+      const b = e.target.closest("button[data-tab]"); if (!b) return;
+      state.tab = b.dataset.tab;
+      [...$("tabs").children].forEach((x) => x.classList.toggle("active", x === b));
       renderAll();
     });
+
+    // filters
     $("search").addEventListener("input", (e) => { state.filters.search = e.target.value; renderAll(); });
     $("typeSel").addEventListener("change", (e) => { state.filters.type = e.target.value; renderAll(); });
     $("hlMin").addEventListener("input", (e) => { state.filters.hlMin = e.target.value === "" ? null : Number(e.target.value); renderAll(); });
