@@ -1,0 +1,2043 @@
+{
+ "items": [
+  {
+   "id": 1,
+   "name": "Air Tank",
+   "icon": "https://pokexguides.com/images/items/drops/Air_Tank.png",
+   "category": "loot",
+   "rare": true,
+   "npcPrice": 1000
+  },
+  {
+   "id": 2,
+   "name": "Ancient Stone",
+   "icon": "/assets/stones/ancient_stone.gif",
+   "category": "stone",
+   "rare": true,
+   "npcPrice": 50000
+  },
+  {
+   "id": 3,
+   "name": "Armadillo Claw",
+   "icon": "https://pokexguides.com/images/items/drops/Armadillo_Claw.png",
+   "category": "loot",
+   "rare": false,
+   "npcPrice": 147
+  },
+  {
+   "id": 4,
+   "name": "Bag of Pollen",
+   "icon": "https://pokexguides.com/images/items/drops/Bag_of_Pollen.png",
+   "category": "loot",
+   "rare": false,
+   "npcPrice": 40
+  },
+  {
+   "id": 5,
+   "name": "Band Aid",
+   "icon": "https://pokexguides.com/images/items/drops/Band_Aid.png",
+   "category": "loot",
+   "rare": false,
+   "npcPrice": 1
+  },
+  {
+   "id": 6,
+   "name": "Bat Wing",
+   "icon": "https://pokexguides.com/images/items/drops/Bat_Wing.png",
+   "category": "loot",
+   "rare": false,
+   "npcPrice": 78
+  },
+  {
+   "id": 7,
+   "name": "Bee Sting",
+   "icon": "https://pokexguides.com/images/items/drops/Bee_Sting.png",
+   "category": "loot",
+   "rare": true,
+   "npcPrice": 54
+  },
+  {
+   "id": 8,
+   "name": "Belt of Champion",
+   "icon": "https://pokexguides.com/images/items/drops/Belt_of_Champion.png",
+   "category": "loot",
+   "rare": true,
+   "npcPrice": 1000
+  },
+  {
+   "id": 9,
+   "name": "Bird Beak",
+   "icon": "https://pokexguides.com/images/items/drops/Bird_Beak.png",
+   "category": "loot",
+   "rare": false,
+   "npcPrice": 30
+  },
+  {
+   "id": 10,
+   "name": "Bitten Apple",
+   "icon": "https://pokexguides.com/images/items/drops/Bitten_Apple.png",
+   "category": "loot",
+   "rare": false,
+   "npcPrice": 7
+  },
+  {
+   "id": 11,
+   "name": "Blue Fish Fin",
+   "icon": "https://pokexguides.com/images/items/drops/Blue_Fish_Fin.png",
+   "category": "loot",
+   "rare": true,
+   "npcPrice": 500
+  },
+  {
+   "id": 12,
+   "name": "Blue Vines",
+   "icon": "https://pokexguides.com/images/items/drops/Blue_Vines.png",
+   "category": "loot",
+   "rare": true,
+   "npcPrice": 500
+  },
+  {
+   "id": 13,
+   "name": "Bone",
+   "icon": "https://pokexguides.com/images/items/drops/Bone.png",
+   "category": "loot",
+   "rare": false,
+   "npcPrice": 123
+  },
+  {
+   "id": 14,
+   "name": "Bottles of Poison",
+   "icon": "https://pokexguides.com/images/items/drops/Bottles_of_Poison.png",
+   "category": "loot",
+   "rare": false,
+   "npcPrice": 1
+  },
+  {
+   "id": 15,
+   "name": "Bug Antenna",
+   "icon": "https://pokexguides.com/images/items/drops/Bug_Antenna.png",
+   "category": "loot",
+   "rare": false,
+   "npcPrice": 96
+  },
+  {
+   "id": 16,
+   "name": "Bug Gosme",
+   "icon": "https://pokexguides.com/images/items/drops/Bug_Gosme.png",
+   "category": "loot",
+   "rare": false,
+   "npcPrice": 1
+  },
+  {
+   "id": 17,
+   "name": "Bug Venom",
+   "icon": "https://pokexguides.com/images/items/drops/Bug_Venom.png",
+   "category": "loot",
+   "rare": false,
+   "npcPrice": 371
+  },
+  {
+   "id": 18,
+   "name": "Bulb",
+   "icon": "https://pokexguides.com/images/items/drops/Bulb.png",
+   "category": "loot",
+   "rare": true,
+   "npcPrice": 132
+  },
+  {
+   "id": 19,
+   "name": "Bull Tail",
+   "icon": "https://pokexguides.com/images/items/drops/Bull_Tail.png",
+   "category": "loot",
+   "rare": true,
+   "npcPrice": 500
+  },
+  {
+   "id": 20,
+   "name": "Butterfly Wing",
+   "icon": "https://pokexguides.com/images/items/drops/Butterfly_Wing.png",
+   "category": "loot",
+   "rare": true,
+   "npcPrice": 66
+  },
+  {
+   "id": 21,
+   "name": "Chansey Egg",
+   "icon": "https://pokexguides.com/images/items/drops/Chansey_Egg.png",
+   "category": "loot",
+   "rare": true,
+   "npcPrice": 500
+  },
+  {
+   "id": 22,
+   "name": "Chicken Feet",
+   "icon": "https://pokexguides.com/images/items/drops/Chicken_Feet.png",
+   "category": "loot",
+   "rare": true,
+   "npcPrice": 500
+  },
+  {
+   "id": 23,
+   "name": "Cocoon Stone",
+   "icon": "https://pokexguides.com/images/items/evolutions/Cocoon_Stone.gif",
+   "category": "stone",
+   "rare": true,
+   "npcPrice": 5000
+  },
+  {
+   "id": 24,
+   "name": "Colored Feather",
+   "icon": "https://pokexguides.com/images/items/drops/Colored_Feather.png",
+   "category": "loot",
+   "rare": true,
+   "npcPrice": 168
+  },
+  {
+   "id": 25,
+   "name": "Comb",
+   "icon": "https://pokexguides.com/images/items/drops/Comb.png",
+   "category": "loot",
+   "rare": false,
+   "npcPrice": 100
+  },
+  {
+   "id": 26,
+   "name": "Crab Claw",
+   "icon": "https://pokexguides.com/images/items/drops/Crab_Claw.png",
+   "category": "loot",
+   "rare": false,
+   "npcPrice": 90
+  },
+  {
+   "id": 27,
+   "name": "Crystal Cube",
+   "icon": "https://pokexguides.com/images/items/drops/Crystal_Cube.png",
+   "category": "loot",
+   "rare": true,
+   "npcPrice": 500
+  },
+  {
+   "id": 28,
+   "name": "Crystal Stone",
+   "icon": "https://pokexguides.com/images/items/evolutions/Crystal_Stone.gif",
+   "category": "stone",
+   "rare": true,
+   "npcPrice": 50000
+  },
+  {
+   "id": 29,
+   "name": "Crystal Tail",
+   "icon": "https://pokexguides.com/images/items/drops/Crystal_Tail.png",
+   "category": "loot",
+   "rare": true,
+   "npcPrice": 500
+  },
+  {
+   "id": 30,
+   "name": "Dark Gem",
+   "icon": "https://pokexguides.com/images/items/drops/Dark_Gem.png",
+   "category": "loot",
+   "rare": false,
+   "npcPrice": 1
+  },
+  {
+   "id": 31,
+   "name": "Darkness Stone",
+   "icon": "https://pokexguides.com/images/items/evolutions/Darkness_Stone.gif",
+   "category": "stone",
+   "rare": true,
+   "npcPrice": 5000
+  },
+  {
+   "id": 32,
+   "name": "Diving Mask",
+   "icon": "https://pokexguides.com/images/items/drops/Diving_Mask.png",
+   "category": "loot",
+   "rare": true,
+   "npcPrice": 1000
+  },
+  {
+   "id": 33,
+   "name": "Dodo Cube",
+   "icon": "https://pokexguides.com/images/items/drops/Dodo_Cube.png",
+   "category": "loot",
+   "rare": true,
+   "npcPrice": 500
+  },
+  {
+   "id": 34,
+   "name": "Dodrio Feather",
+   "icon": "https://pokexguides.com/images/items/drops/Dodrio_Feather.png",
+   "category": "loot",
+   "rare": false,
+   "npcPrice": 102
+  },
+  {
+   "id": 35,
+   "name": "Dome Fossil",
+   "icon": "https://pokexguides.com/images/items/drops/Dome_Fossil.png",
+   "category": "loot",
+   "rare": true,
+   "npcPrice": 500
+  },
+  {
+   "id": 36,
+   "name": "Dragon Scale",
+   "icon": "https://pokexguides.com/images/items/drops/Dragon_Scale.png",
+   "category": "loot",
+   "rare": false,
+   "npcPrice": 1
+  },
+  {
+   "id": 37,
+   "name": "Dragon Tail",
+   "icon": "https://pokexguides.com/images/items/drops/Dragon_Tail.png",
+   "category": "loot",
+   "rare": true,
+   "npcPrice": 500
+  },
+  {
+   "id": 38,
+   "name": "Dragon Tooth",
+   "icon": "https://pokexguides.com/images/items/drops/Dragon_Tooth.png",
+   "category": "loot",
+   "rare": true,
+   "npcPrice": 610
+  },
+  {
+   "id": 39,
+   "name": "Earth Ball",
+   "icon": "https://pokexguides.com/images/items/drops/Earth_Ball.png",
+   "category": "loot",
+   "rare": false,
+   "npcPrice": 1
+  },
+  {
+   "id": 40,
+   "name": "Earth Stone",
+   "icon": "https://pokexguides.com/images/items/evolutions/Earth_Stone.gif",
+   "category": "stone",
+   "rare": true,
+   "npcPrice": 5000
+  },
+  {
+   "id": 41,
+   "name": "Electric Box",
+   "icon": "https://pokexguides.com/images/items/drops/Electric_Box.png",
+   "category": "loot",
+   "rare": false,
+   "npcPrice": 20
+  },
+  {
+   "id": 42,
+   "name": "Electric Rat Tail",
+   "icon": "https://pokexguides.com/images/items/drops/Electric_Rat_Tail.png",
+   "category": "loot",
+   "rare": false,
+   "npcPrice": 132
+  },
+  {
+   "id": 43,
+   "name": "Electric Tail",
+   "icon": "https://pokexguides.com/images/items/drops/Electric_Tail.png",
+   "category": "loot",
+   "rare": true,
+   "npcPrice": 500
+  },
+  {
+   "id": 44,
+   "name": "Enchanted Gem",
+   "icon": "https://pokexguides.com/images/items/drops/Enchanted_Gem.png",
+   "category": "loot",
+   "rare": false,
+   "npcPrice": 1
+  },
+  {
+   "id": 45,
+   "name": "Enigma Stone",
+   "icon": "https://pokexguides.com/images/items/evolutions/Enigma_Stone.gif",
+   "category": "stone",
+   "rare": true,
+   "npcPrice": 5000
+  },
+  {
+   "id": 46,
+   "name": "Essence of Fire",
+   "icon": "https://pokexguides.com/images/items/drops/Essence_of_Fire.png",
+   "category": "loot",
+   "rare": false,
+   "npcPrice": 1
+  },
+  {
+   "id": 47,
+   "name": "Farfetchd Stick",
+   "icon": "https://pokexguides.com/images/items/drops/Farfetchd_Stick.png",
+   "category": "loot",
+   "rare": false,
+   "npcPrice": 300
+  },
+  {
+   "id": 48,
+   "name": "Feather",
+   "icon": "https://pokexguides.com/images/items/drops/Feather.png",
+   "category": "loot",
+   "rare": false,
+   "npcPrice": 8
+  },
+  {
+   "id": 49,
+   "name": "Feather Stone",
+   "icon": "/assets/stones/feather_stone.png",
+   "category": "stone",
+   "rare": true,
+   "npcPrice": 5000
+  },
+  {
+   "id": 50,
+   "name": "Female Ear",
+   "icon": "https://pokexguides.com/images/items/drops/Female_Ear.png",
+   "category": "loot",
+   "rare": true,
+   "npcPrice": 147
+  },
+  {
+   "id": 51,
+   "name": "Fins",
+   "icon": "https://pokexguides.com/images/items/drops/Fins.png",
+   "category": "loot",
+   "rare": true,
+   "npcPrice": 1000
+  },
+  {
+   "id": 52,
+   "name": "Fire Horse Foot",
+   "icon": "https://pokexguides.com/images/items/drops/Fire_Horse_Foot.png",
+   "category": "loot",
+   "rare": false,
+   "npcPrice": 114
+  },
+  {
+   "id": 53,
+   "name": "Fire Stone",
+   "icon": "https://pokexguides.com/images/items/evolutions/Fire_Stone.gif",
+   "category": "stone",
+   "rare": true,
+   "npcPrice": 5000
+  },
+  {
+   "id": 54,
+   "name": "Fire Tail",
+   "icon": "https://pokexguides.com/images/items/drops/Fire_Tail.png",
+   "category": "loot",
+   "rare": true,
+   "npcPrice": 132
+  },
+  {
+   "id": 55,
+   "name": "Fish Fin",
+   "icon": "https://pokexguides.com/images/items/drops/Fish_Fin.png",
+   "category": "loot",
+   "rare": true,
+   "npcPrice": 500
+  },
+  {
+   "id": 56,
+   "name": "Fox Tail",
+   "icon": "https://pokexguides.com/images/items/drops/Fox_Tail.png",
+   "category": "loot",
+   "rare": true,
+   "npcPrice": 1000
+  },
+  {
+   "id": 57,
+   "name": "Fur",
+   "icon": "https://pokexguides.com/images/items/drops/Fur.png",
+   "category": "loot",
+   "rare": false,
+   "npcPrice": 13
+  },
+  {
+   "id": 58,
+   "name": "Future Orb",
+   "icon": "https://pokexguides.com/images/items/drops/Future_Orb.png",
+   "category": "loot",
+   "rare": false,
+   "npcPrice": 16
+  },
+  {
+   "id": 59,
+   "name": "Ghost Essence",
+   "icon": "https://pokexguides.com/images/items/drops/Ghost_Essence.png",
+   "category": "loot",
+   "rare": false,
+   "npcPrice": 1
+  },
+  {
+   "id": 60,
+   "name": "Giant Fin",
+   "icon": "https://pokexguides.com/images/items/drops/Giant_Fin.png",
+   "category": "loot",
+   "rare": true,
+   "npcPrice": 500
+  },
+  {
+   "id": 61,
+   "name": "Giant Piece of Fur",
+   "icon": "https://pokexguides.com/images/items/drops/Giant_Piece_of_Fur.png",
+   "category": "loot",
+   "rare": false,
+   "npcPrice": 180
+  },
+  {
+   "id": 62,
+   "name": "Giant Ruby",
+   "icon": "https://pokexguides.com/images/items/drops/Giant_Ruby.png",
+   "category": "loot",
+   "rare": true,
+   "npcPrice": 200
+  },
+  {
+   "id": 63,
+   "name": "Goggles",
+   "icon": "https://pokexguides.com/images/items/drops/Goggles.png",
+   "category": "loot",
+   "rare": true,
+   "npcPrice": 500
+  },
+  {
+   "id": 64,
+   "name": "Gosme",
+   "icon": "https://pokexguides.com/images/items/drops/Gosme.png",
+   "category": "loot",
+   "rare": false,
+   "npcPrice": 78
+  },
+  {
+   "id": 65,
+   "name": "Gyarados Tail",
+   "icon": "https://pokexguides.com/images/items/drops/Gyarados_Tail.png",
+   "category": "loot",
+   "rare": true,
+   "npcPrice": 500
+  },
+  {
+   "id": 66,
+   "name": "Heart Stone",
+   "icon": "https://pokexguides.com/images/items/evolutions/Heart_Stone.gif",
+   "category": "stone",
+   "rare": true,
+   "npcPrice": 5000
+  },
+  {
+   "id": 67,
+   "name": "Helix Fossil",
+   "icon": "https://pokexguides.com/images/items/drops/Helix_Fossil.png",
+   "category": "loot",
+   "rare": true,
+   "npcPrice": 500
+  },
+  {
+   "id": 68,
+   "name": "Horn",
+   "icon": "https://pokexguides.com/images/items/drops/Horn.png",
+   "category": "loot",
+   "rare": false,
+   "npcPrice": 25
+  },
+  {
+   "id": 69,
+   "name": "Horn Drill",
+   "icon": "https://pokexguides.com/images/items/drops/Horn_Drill.png",
+   "category": "loot",
+   "rare": true,
+   "npcPrice": 500
+  },
+  {
+   "id": 70,
+   "name": "Ice Orb",
+   "icon": "https://pokexguides.com/images/items/drops/Ice_Orb.png",
+   "category": "loot",
+   "rare": false,
+   "npcPrice": 33
+  },
+  {
+   "id": 71,
+   "name": "Ice Stone",
+   "icon": "https://pokexguides.com/images/items/evolutions/Ice_Stone.gif",
+   "category": "stone",
+   "rare": true,
+   "npcPrice": 5000
+  },
+  {
+   "id": 72,
+   "name": "Iron Bracelet",
+   "icon": "https://pokexguides.com/images/items/drops/Iron_Bracelet.png",
+   "category": "loot",
+   "rare": true,
+   "npcPrice": 114
+  },
+  {
+   "id": 73,
+   "name": "Kanga Ear",
+   "icon": "https://pokexguides.com/images/items/drops/Kanga_Ear.png",
+   "category": "loot",
+   "rare": true,
+   "npcPrice": 500
+  },
+  {
+   "id": 74,
+   "name": "Karate Duck",
+   "icon": "https://pokexguides.com/images/items/drops/Karate_Duck.png",
+   "category": "loot",
+   "rare": false,
+   "npcPrice": 123
+  },
+  {
+   "id": 75,
+   "name": "Kick Machine",
+   "icon": "https://pokexguides.com/images/items/drops/Kick_Machine.png",
+   "category": "loot",
+   "rare": false,
+   "npcPrice": 135
+  },
+  {
+   "id": 76,
+   "name": "Leaf Stone",
+   "icon": "https://pokexguides.com/images/items/evolutions/Leaf_Stone.gif",
+   "category": "stone",
+   "rare": true,
+   "npcPrice": 5000
+  },
+  {
+   "id": 77,
+   "name": "Leaves",
+   "icon": "https://pokexguides.com/images/items/drops/Leaves.png",
+   "category": "loot",
+   "rare": false,
+   "npcPrice": 9
+  },
+  {
+   "id": 78,
+   "name": "Linearly Guided Hypnosis",
+   "icon": "https://pokexguides.com/images/items/drops/Linearly_Guided_Hypnosis.png",
+   "category": "loot",
+   "rare": false,
+   "npcPrice": 410
+  },
+  {
+   "id": 79,
+   "name": "Locksmith of Shell",
+   "icon": "https://pokexguides.com/images/items/drops/Locksmith_of_Shell.png",
+   "category": "loot",
+   "rare": false,
+   "npcPrice": 24
+  },
+  {
+   "id": 80,
+   "name": "Luck Medallion",
+   "icon": "https://pokexguides.com/images/items/drops/Luck_Medallion.png",
+   "category": "loot",
+   "rare": true,
+   "npcPrice": 1000
+  },
+  {
+   "id": 81,
+   "name": "Magikarp Fin",
+   "icon": "https://pokexguides.com/images/items/drops/Magikarp_Fin.png",
+   "category": "loot",
+   "rare": false,
+   "npcPrice": 3
+  },
+  {
+   "id": 82,
+   "name": "Magma Foot",
+   "icon": "https://pokexguides.com/images/items/drops/Magma_Foot.png",
+   "category": "loot",
+   "rare": true,
+   "npcPrice": 500
+  },
+  {
+   "id": 83,
+   "name": "Magnet",
+   "icon": "https://pokexguides.com/images/items/drops/Magnet.png",
+   "category": "loot",
+   "rare": false,
+   "npcPrice": 90
+  },
+  {
+   "id": 84,
+   "name": "Magnetic Cube",
+   "icon": "https://pokexguides.com/images/items/drops/Magnetic_Cube.png",
+   "category": "loot",
+   "rare": true,
+   "npcPrice": 500
+  },
+  {
+   "id": 85,
+   "name": "Male Ear",
+   "icon": "https://pokexguides.com/images/items/drops/Male_Ear.png",
+   "category": "loot",
+   "rare": true,
+   "npcPrice": 147
+  },
+  {
+   "id": 86,
+   "name": "Martial Arts Scroll",
+   "icon": "https://pokexguides.com/images/items/drops/Martial_Arts_Scroll.png",
+   "category": "loot",
+   "rare": false,
+   "npcPrice": 185
+  },
+  {
+   "id": 87,
+   "name": "Metal Stone",
+   "icon": "/assets/stones/metal_stone.png",
+   "category": "stone",
+   "rare": true,
+   "npcPrice": 50000
+  },
+  {
+   "id": 88,
+   "name": "Microphone",
+   "icon": "https://pokexguides.com/images/items/drops/Microphone.png",
+   "category": "loot",
+   "rare": true,
+   "npcPrice": 147
+  },
+  {
+   "id": 89,
+   "name": "Mimic Clothes",
+   "icon": "https://pokexguides.com/images/items/drops/Mimic_Clothes.png",
+   "category": "loot",
+   "rare": true,
+   "npcPrice": 500
+  },
+  {
+   "id": 90,
+   "name": "Mushroom",
+   "icon": "https://pokexguides.com/images/items/drops/Mushroom.png",
+   "category": "loot",
+   "rare": false,
+   "npcPrice": 114
+  },
+  {
+   "id": 91,
+   "name": "Nail",
+   "icon": "https://pokexguides.com/images/items/drops/Nail.png",
+   "category": "loot",
+   "rare": false,
+   "npcPrice": 10
+  },
+  {
+   "id": 92,
+   "name": "Neodymium Magnet",
+   "icon": "https://pokexguides.com/images/items/drops/Neodymium_Magnet.png",
+   "category": "loot",
+   "rare": true,
+   "npcPrice": 500
+  },
+  {
+   "id": 93,
+   "name": "Old Amber",
+   "icon": "https://pokexguides.com/images/items/drops/Old_Amber.png",
+   "category": "loot",
+   "rare": true,
+   "npcPrice": 500
+  },
+  {
+   "id": 94,
+   "name": "Onix Tail",
+   "icon": "https://pokexguides.com/images/items/drops/Onix_Tail.png",
+   "category": "loot",
+   "rare": false,
+   "npcPrice": 371
+  },
+  {
+   "id": 95,
+   "name": "Piece of Diglett",
+   "icon": "https://pokexguides.com/images/items/drops/Piece_of_Diglett.png",
+   "category": "loot",
+   "rare": false,
+   "npcPrice": 78
+  },
+  {
+   "id": 96,
+   "name": "Piece of Steel",
+   "icon": "https://pokexguides.com/images/items/drops/Piece_of_Steel.png",
+   "category": "loot",
+   "rare": false,
+   "npcPrice": 1
+  },
+  {
+   "id": 97,
+   "name": "Pinsir Horn",
+   "icon": "https://pokexguides.com/images/items/drops/Pinsir_Horn.png",
+   "category": "loot",
+   "rare": true,
+   "npcPrice": 500
+  },
+  {
+   "id": 98,
+   "name": "Plant Foot",
+   "icon": "https://pokexguides.com/images/items/drops/Plant_Foot.png",
+   "category": "loot",
+   "rare": true,
+   "npcPrice": 123
+  },
+  {
+   "id": 99,
+   "name": "Plant Tail",
+   "icon": "https://pokexguides.com/images/items/drops/Plant_Tail.png",
+   "category": "loot",
+   "rare": true,
+   "npcPrice": 114
+  },
+  {
+   "id": 100,
+   "name": "Pot Of Lava",
+   "icon": "https://pokexguides.com/images/items/drops/Pot_Of_Lava.png",
+   "category": "loot",
+   "rare": false,
+   "npcPrice": 18
+  },
+  {
+   "id": 101,
+   "name": "Pot of Lava",
+   "icon": "https://pokexguides.com/images/items/drops/Pot_of_Lava.png",
+   "category": "loot",
+   "rare": false,
+   "npcPrice": 18
+  },
+  {
+   "id": 102,
+   "name": "Pot of Moss Bug",
+   "icon": "https://pokexguides.com/images/items/drops/Pot_of_Moss_Bug.png",
+   "category": "loot",
+   "rare": false,
+   "npcPrice": 8
+  },
+  {
+   "id": 103,
+   "name": "Psychic Spoon",
+   "icon": "https://pokexguides.com/images/items/drops/Psychic_Spoon.png",
+   "category": "loot",
+   "rare": true,
+   "npcPrice": 180
+  },
+  {
+   "id": 104,
+   "name": "Psyduck Mug",
+   "icon": "https://pokexguides.com/images/items/drops/Psyduck_Mug.png",
+   "category": "loot",
+   "rare": false,
+   "npcPrice": 129
+  },
+  {
+   "id": 105,
+   "name": "Punch Machine",
+   "icon": "https://pokexguides.com/images/items/drops/Punch_Machine.png",
+   "category": "loot",
+   "rare": false,
+   "npcPrice": 135
+  },
+  {
+   "id": 106,
+   "name": "Punch Stone",
+   "icon": "https://pokexguides.com/images/items/evolutions/Punch_Stone.gif",
+   "category": "stone",
+   "rare": true,
+   "npcPrice": 5000
+  },
+  {
+   "id": 107,
+   "name": "Rat Tail",
+   "icon": "https://pokexguides.com/images/items/drops/Rat_Tail.png",
+   "category": "loot",
+   "rare": true,
+   "npcPrice": 54
+  },
+  {
+   "id": 108,
+   "name": "Red Wing",
+   "icon": "https://pokexguides.com/images/items/drops/Red_Wing.png",
+   "category": "loot",
+   "rare": true,
+   "npcPrice": 114
+  },
+  {
+   "id": 109,
+   "name": "Rock Stone",
+   "icon": "https://pokexguides.com/images/items/evolutions/Rock_Stone.gif",
+   "category": "stone",
+   "rare": true,
+   "npcPrice": 5000
+  },
+  {
+   "id": 110,
+   "name": "Rubber Ball",
+   "icon": "https://pokexguides.com/images/items/drops/Rubber_Ball.png",
+   "category": "loot",
+   "rare": false,
+   "npcPrice": 1
+  },
+  {
+   "id": 111,
+   "name": "Ruby",
+   "icon": "https://pokexguides.com/images/items/drops/Ruby.png",
+   "category": "loot",
+   "rare": false,
+   "npcPrice": 100
+  },
+  {
+   "id": 112,
+   "name": "Sandbag",
+   "icon": "https://pokexguides.com/images/items/drops/Sandbag.png",
+   "category": "loot",
+   "rare": false,
+   "npcPrice": 15
+  },
+  {
+   "id": 113,
+   "name": "Screw",
+   "icon": "https://pokexguides.com/images/items/drops/Screw.png",
+   "category": "loot",
+   "rare": false,
+   "npcPrice": 1
+  },
+  {
+   "id": 114,
+   "name": "Scythe",
+   "icon": "https://pokexguides.com/images/items/drops/Scythe.png",
+   "category": "loot",
+   "rare": true,
+   "npcPrice": 500
+  },
+  {
+   "id": 115,
+   "name": "Seahorse Tail",
+   "icon": "https://pokexguides.com/images/items/drops/Seahorse_Tail.png",
+   "category": "loot",
+   "rare": true,
+   "npcPrice": 500
+  },
+  {
+   "id": 116,
+   "name": "Seal Tail",
+   "icon": "https://pokexguides.com/images/items/drops/Seal_Tail.png",
+   "category": "loot",
+   "rare": false,
+   "npcPrice": 147
+  },
+  {
+   "id": 117,
+   "name": "Seed",
+   "icon": "https://pokexguides.com/images/items/drops/Seed.png",
+   "category": "loot",
+   "rare": false,
+   "npcPrice": 1
+  },
+  {
+   "id": 118,
+   "name": "Ski Poles",
+   "icon": "https://pokexguides.com/images/items/drops/Ski_Poles.png",
+   "category": "loot",
+   "rare": true,
+   "npcPrice": 1000
+  },
+  {
+   "id": 119,
+   "name": "Slow Tail",
+   "icon": "https://pokexguides.com/images/items/drops/Slow_Tail.png",
+   "category": "loot",
+   "rare": false,
+   "npcPrice": 225
+  },
+  {
+   "id": 120,
+   "name": "Small Stone",
+   "icon": "https://pokexguides.com/images/items/drops/Small_Stone.png",
+   "category": "loot",
+   "rare": false,
+   "npcPrice": 1
+  },
+  {
+   "id": 121,
+   "name": "Snake Tail",
+   "icon": "https://pokexguides.com/images/items/drops/Snake_Tail.png",
+   "category": "loot",
+   "rare": false,
+   "npcPrice": 78
+  },
+  {
+   "id": 122,
+   "name": "Snow Skis",
+   "icon": "https://pokexguides.com/images/items/drops/Snow_Skis.png",
+   "category": "loot",
+   "rare": true,
+   "npcPrice": 500
+  },
+  {
+   "id": 123,
+   "name": "Snowball",
+   "icon": "https://pokexguides.com/images/items/drops/Snowball.png",
+   "category": "loot",
+   "rare": false,
+   "npcPrice": 1
+  },
+  {
+   "id": 124,
+   "name": "Squirtle Hull",
+   "icon": "https://pokexguides.com/images/items/drops/Squirtle_Hull.png",
+   "category": "loot",
+   "rare": true,
+   "npcPrice": 132
+  },
+  {
+   "id": 125,
+   "name": "Sticky Hand",
+   "icon": "https://pokexguides.com/images/items/drops/Sticky_Hand.png",
+   "category": "loot",
+   "rare": false,
+   "npcPrice": 120
+  },
+  {
+   "id": 126,
+   "name": "Stone Orb",
+   "icon": "https://pokexguides.com/images/items/drops/Stone_Orb.png",
+   "category": "loot",
+   "rare": false,
+   "npcPrice": 17
+  },
+  {
+   "id": 127,
+   "name": "Strange Flower",
+   "icon": "https://pokexguides.com/images/items/drops/Strange_Flower.png",
+   "category": "loot",
+   "rare": true,
+   "npcPrice": 114
+  },
+  {
+   "id": 128,
+   "name": "Strange Rock",
+   "icon": "https://pokexguides.com/images/items/drops/Strange_Rock.png",
+   "category": "loot",
+   "rare": true,
+   "npcPrice": 159
+  },
+  {
+   "id": 129,
+   "name": "Strange Spike",
+   "icon": "https://pokexguides.com/images/items/drops/Strange_Spike.png",
+   "category": "loot",
+   "rare": false,
+   "npcPrice": 135
+  },
+  {
+   "id": 130,
+   "name": "Strange Thing",
+   "icon": "https://pokexguides.com/images/items/drops/Strange_Thing.png",
+   "category": "loot",
+   "rare": true,
+   "npcPrice": 147
+  },
+  {
+   "id": 131,
+   "name": "Straw",
+   "icon": "https://pokexguides.com/images/items/drops/Straw.png",
+   "category": "loot",
+   "rare": false,
+   "npcPrice": 1
+  },
+  {
+   "id": 132,
+   "name": "Tentacruel Tentacle",
+   "icon": "https://pokexguides.com/images/items/drops/Tentacruel_Tentacle.png",
+   "category": "loot",
+   "rare": true,
+   "npcPrice": 500
+  },
+  {
+   "id": 133,
+   "name": "Thunder Stone",
+   "icon": "https://pokexguides.com/images/items/evolutions/Thunder_Stone.gif",
+   "category": "stone",
+   "rare": true,
+   "npcPrice": 5000
+  },
+  {
+   "id": 134,
+   "name": "Tongue",
+   "icon": "https://pokexguides.com/images/items/drops/Tongue.png",
+   "category": "loot",
+   "rare": false,
+   "npcPrice": 410
+  },
+  {
+   "id": 135,
+   "name": "Tooth",
+   "icon": "https://pokexguides.com/images/items/drops/Tooth.png",
+   "category": "loot",
+   "rare": false,
+   "npcPrice": 8
+  },
+  {
+   "id": 136,
+   "name": "Topknot",
+   "icon": "https://pokexguides.com/images/items/drops/Topknot.png",
+   "category": "loot",
+   "rare": false,
+   "npcPrice": 147
+  },
+  {
+   "id": 137,
+   "name": "Traces of Ghost",
+   "icon": "https://pokexguides.com/images/items/drops/Traces_of_Ghost.png",
+   "category": "loot",
+   "rare": true,
+   "npcPrice": 180
+  },
+  {
+   "id": 138,
+   "name": "Venom Flute",
+   "icon": "https://pokexguides.com/images/items/drops/Venom_Flute.png",
+   "category": "loot",
+   "rare": false,
+   "npcPrice": 78
+  },
+  {
+   "id": 139,
+   "name": "Venom Stone",
+   "icon": "https://pokexguides.com/images/items/evolutions/Venom_Stone.gif",
+   "category": "stone",
+   "rare": true,
+   "npcPrice": 5000
+  },
+  {
+   "id": 140,
+   "name": "Water Gem",
+   "icon": "https://pokexguides.com/images/items/drops/Water_Gem.png",
+   "category": "loot",
+   "rare": false,
+   "npcPrice": 1
+  },
+  {
+   "id": 141,
+   "name": "Water Pendant",
+   "icon": "https://pokexguides.com/images/items/drops/Water_Pendant.png",
+   "category": "loot",
+   "rare": false,
+   "npcPrice": 10
+  },
+  {
+   "id": 142,
+   "name": "Water Stone",
+   "icon": "https://pokexguides.com/images/items/evolutions/Water_Stone.gif",
+   "category": "stone",
+   "rare": true,
+   "npcPrice": 5000
+  },
+  {
+   "id": 143,
+   "name": "Wool Ball",
+   "icon": "https://pokexguides.com/images/items/drops/Wool_Ball.png",
+   "category": "loot",
+   "rare": false,
+   "npcPrice": 69
+  },
+  {
+   "id": 200,
+   "name": "Small Potion",
+   "icon": "/assets/markitems/small_potion.png",
+   "category": "heal",
+   "rare": false,
+   "npcPrice": 50,
+   "healAmount": 60,
+   "priceGold": 5
+  },
+  {
+   "id": 201,
+   "name": "Great Potion",
+   "icon": "/assets/markitems/great_potion.png",
+   "category": "heal",
+   "rare": false,
+   "npcPrice": 150,
+   "healAmount": 150,
+   "priceGold": 10
+  },
+  {
+   "id": 202,
+   "name": "Ultra Potion",
+   "icon": "/assets/markitems/ultra_potion.png",
+   "category": "heal",
+   "rare": false,
+   "npcPrice": 400,
+   "healAmount": 400,
+   "priceGold": 22
+  },
+  {
+   "id": 203,
+   "name": "Hyper Potion",
+   "icon": "/assets/markitems/hyper_potion.png",
+   "category": "heal",
+   "rare": false,
+   "npcPrice": 800,
+   "healAmount": 1000,
+   "priceGold": 55
+  },
+  {
+   "id": 204,
+   "name": "Ultimate Potion",
+   "icon": "/assets/markitems/ultimate_potion.png",
+   "category": "heal",
+   "rare": false,
+   "npcPrice": 1500,
+   "healAmount": 3000,
+   "priceGold": 135
+  },
+  {
+   "id": 205,
+   "name": "Revive",
+   "icon": "/assets/markitems/revive.png",
+   "category": "revive",
+   "rare": false,
+   "npcPrice": 600,
+   "revivePct": 0.5,
+   "priceGold": 40
+  },
+  {
+   "id": 206,
+   "name": "Max Revive",
+   "icon": "/assets/markitems/max_revive.png",
+   "category": "revive",
+   "rare": true,
+   "npcPrice": 2500,
+   "revivePct": 1.0,
+   "priceGold": 350
+  },
+  {
+   "id": 207,
+   "name": "Medicine",
+   "icon": "/assets/markitems/medicine.png",
+   "category": "heal",
+   "rare": false,
+   "npcPrice": 0,
+   "healAmount": 20
+  },
+  {
+   "id": 208,
+   "name": "Moon Stone",
+   "icon": "",
+   "category": "stone",
+   "rare": false,
+   "npcPrice": 0
+  },
+  {
+   "id": 209,
+   "name": "Sun Stone",
+   "icon": "/assets/stones/sun_stone.png",
+   "category": "stone",
+   "rare": false,
+   "npcPrice": 0
+  },
+  {
+   "id": 5002,
+   "name": "Azure Shard",
+   "icon": "/assets/items/azure_shard.png",
+   "category": "loot",
+   "rare": false,
+   "npcPrice": 500
+  },
+  {
+   "id": 5008,
+   "name": "Big Bug Gosme",
+   "icon": "/assets/items/big_bug_gosme.gif",
+   "category": "clan",
+   "rare": false,
+   "npcPrice": 100
+  },
+  {
+   "id": 5009,
+   "name": "Big Enchanted Gem",
+   "icon": "/assets/items/big_enchanted_gem.gif",
+   "category": "clan",
+   "rare": false,
+   "npcPrice": 100
+  },
+  {
+   "id": 5010,
+   "name": "Big Poison Bottle",
+   "icon": "/assets/items/big_poison_bottle.png",
+   "category": "clan",
+   "rare": false,
+   "npcPrice": 100
+  },
+  {
+   "id": 5020,
+   "name": "Cerise Shard",
+   "icon": "/assets/items/cerise_shard.png",
+   "category": "loot",
+   "rare": false,
+   "npcPrice": 500
+  },
+  {
+   "id": 5024,
+   "name": "Corrupted Ice Orb",
+   "icon": "/assets/items/corrupted_ice_orb.gif",
+   "category": "loot",
+   "rare": false,
+   "npcPrice": 10
+  },
+  {
+   "id": 5025,
+   "name": "Corrupted Pot of Moss Bug",
+   "icon": "/assets/items/corrupted_pot_of_moss_bug.gif",
+   "category": "loot",
+   "rare": false,
+   "npcPrice": 10
+  },
+  {
+   "id": 5028,
+   "name": "Cyan Nightmare Gem",
+   "icon": "/assets/items/cyan_nightmare_gem.png",
+   "category": "loot",
+   "rare": false,
+   "npcPrice": 500
+  },
+  {
+   "id": 5041,
+   "name": "Farfetch'd Stick",
+   "icon": "",
+   "category": "loot",
+   "rare": false,
+   "npcPrice": 10
+  },
+  {
+   "id": 5054,
+   "name": "Googles",
+   "icon": "/assets/items/googles.png",
+   "category": "loot",
+   "rare": false,
+   "npcPrice": 500
+  },
+  {
+   "id": 5056,
+   "name": "Harlequin Shard",
+   "icon": "/assets/items/harlequin_shard.png",
+   "category": "loot",
+   "rare": false,
+   "npcPrice": 500
+  },
+  {
+   "id": 5069,
+   "name": "Malefic Essence",
+   "icon": "/assets/items/malefic_essence.png",
+   "category": "loot",
+   "rare": false,
+   "npcPrice": 500
+  },
+  {
+   "id": 5071,
+   "name": "Metal Scraps",
+   "icon": "/assets/items/metal_scraps.png",
+   "category": "loot",
+   "rare": false,
+   "npcPrice": 10
+  },
+  {
+   "id": 5075,
+   "name": "Naturia Essence",
+   "icon": "/assets/items/naturia_essence.png",
+   "category": "loot",
+   "rare": false,
+   "npcPrice": 10
+  },
+  {
+   "id": 5076,
+   "name": "Neutral Essence",
+   "icon": "/assets/items/neutral_essence.png",
+   "category": "loot",
+   "rare": false,
+   "npcPrice": 10
+  },
+  {
+   "id": 5077,
+   "name": "Nightmare Gem",
+   "icon": "/assets/items/nightmare_gem.png",
+   "category": "loot",
+   "rare": false,
+   "npcPrice": 10
+  },
+  {
+   "id": 5078,
+   "name": "Nightmare Ore",
+   "icon": "/assets/items/nightmare_ore.png",
+   "category": "loot",
+   "rare": false,
+   "npcPrice": 10
+  },
+  {
+   "id": 5087,
+   "name": "Psychic Mustache",
+   "icon": "/assets/items/psychic_mustache.png",
+   "category": "loot",
+   "rare": false,
+   "npcPrice": 10
+  },
+  {
+   "id": 5089,
+   "name": "Psycraft Essence",
+   "icon": "/assets/items/psycraft_essence.png",
+   "category": "loot",
+   "rare": false,
+   "npcPrice": 10
+  },
+  {
+   "id": 5101,
+   "name": "Seavell Essence",
+   "icon": "/assets/items/seavell_essence.png",
+   "category": "loot",
+   "rare": false,
+   "npcPrice": 10
+  },
+  {
+   "id": 5109,
+   "name": "Solid Ice Cube",
+   "icon": "/assets/items/solid_ice_cube.png",
+   "category": "clan",
+   "rare": false,
+   "npcPrice": 100
+  },
+  {
+   "id": 5200,
+   "name": "Rough Gemstone",
+   "icon": "/assets/stones/rough_gemstone.png",
+   "category": "stone",
+   "rare": false,
+   "npcPrice": 5000
+  },
+  {
+   "id": 5301,
+   "name": "Big Screw",
+   "icon": "/assets/items/big_screw.png",
+   "category": "clan",
+   "rare": false,
+   "npcPrice": 100
+  },
+  {
+   "id": 5302,
+   "name": "Compressed Fire",
+   "icon": "/assets/items/compressed_fire.gif",
+   "category": "clan",
+   "rare": false,
+   "npcPrice": 100
+  },
+  {
+   "id": 5303,
+   "name": "Pile of Seed",
+   "icon": "/assets/items/pile_of_seed.png",
+   "category": "clan",
+   "rare": false,
+   "npcPrice": 100
+  },
+  {
+   "id": 5304,
+   "name": "Compressed Steel",
+   "icon": "/assets/items/compressed_steel.png",
+   "category": "clan",
+   "rare": false,
+   "npcPrice": 100
+  },
+  {
+   "id": 5305,
+   "name": "Solid Water Gem",
+   "icon": "/assets/items/solid_water_gem.png",
+   "category": "clan",
+   "rare": false,
+   "npcPrice": 100
+  },
+  {
+   "id": 5307,
+   "name": "Compressed Straw",
+   "icon": "/assets/items/compressed_straw.png",
+   "category": "clan",
+   "rare": false,
+   "npcPrice": 100
+  },
+  {
+   "id": 5308,
+   "name": "Dragon Scale Collection",
+   "icon": "/assets/items/dragon_scale_collection.png",
+   "category": "clan",
+   "rare": false,
+   "npcPrice": 100
+  },
+  {
+   "id": 5309,
+   "name": "Solid Earth Piece",
+   "icon": "/assets/items/solid_earth_piece.png",
+   "category": "clan",
+   "rare": false,
+   "npcPrice": 100
+  },
+  {
+   "id": 5310,
+   "name": "Big Stone",
+   "icon": "/assets/items/big_stone.png",
+   "category": "clan",
+   "rare": false,
+   "npcPrice": 100
+  },
+  {
+   "id": 5311,
+   "name": "Injection",
+   "icon": "/assets/items/injection.png",
+   "category": "clan",
+   "rare": false,
+   "npcPrice": 100
+  },
+  {
+   "id": 5312,
+   "name": "Solid Rubber Ball",
+   "icon": "/assets/items/solid_rubber_ball.png",
+   "category": "clan",
+   "rare": false,
+   "npcPrice": 100
+  },
+  {
+   "id": 5313,
+   "name": "Compressed Ghost Essence",
+   "icon": "/assets/items/compressed_ghost_essence.gif",
+   "category": "clan",
+   "rare": false,
+   "npcPrice": 100
+  },
+  {
+   "id": 5314,
+   "name": "Solid Dark Gem",
+   "icon": "/assets/items/solid_dark_gem.gif",
+   "category": "clan",
+   "rare": false,
+   "npcPrice": 100
+  },
+  {
+   "id": 59194,
+   "name": "TM Disk Piece",
+   "icon": "",
+   "category": "loot",
+   "rare": false,
+   "npcPrice": 0
+  },
+  {
+   "id": 59200,
+   "name": "Normal-Type TM Disk",
+   "icon": "",
+   "category": "tm",
+   "rare": false,
+   "npcPrice": 0
+  },
+  {
+   "id": 59201,
+   "name": "Fire-Type TM Disk",
+   "icon": "",
+   "category": "tm",
+   "rare": false,
+   "npcPrice": 0
+  },
+  {
+   "id": 59202,
+   "name": "Water-Type TM Disk",
+   "icon": "",
+   "category": "tm",
+   "rare": false,
+   "npcPrice": 0
+  },
+  {
+   "id": 59203,
+   "name": "Grass-Type TM Disk",
+   "icon": "",
+   "category": "tm",
+   "rare": false,
+   "npcPrice": 0
+  },
+  {
+   "id": 59204,
+   "name": "Electric-Type TM Disk",
+   "icon": "",
+   "category": "tm",
+   "rare": false,
+   "npcPrice": 0
+  },
+  {
+   "id": 59205,
+   "name": "Ice-Type TM Disk",
+   "icon": "",
+   "category": "tm",
+   "rare": false,
+   "npcPrice": 0
+  },
+  {
+   "id": 59206,
+   "name": "Fighting-Type TM Disk",
+   "icon": "",
+   "category": "tm",
+   "rare": false,
+   "npcPrice": 0
+  },
+  {
+   "id": 59207,
+   "name": "Poison-Type TM Disk",
+   "icon": "",
+   "category": "tm",
+   "rare": false,
+   "npcPrice": 0
+  },
+  {
+   "id": 59208,
+   "name": "Ground-Type TM Disk",
+   "icon": "",
+   "category": "tm",
+   "rare": false,
+   "npcPrice": 0
+  },
+  {
+   "id": 59209,
+   "name": "Flying-Type TM Disk",
+   "icon": "",
+   "category": "tm",
+   "rare": false,
+   "npcPrice": 0
+  },
+  {
+   "id": 59210,
+   "name": "Psychic-Type TM Disk",
+   "icon": "",
+   "category": "tm",
+   "rare": false,
+   "npcPrice": 0
+  },
+  {
+   "id": 59211,
+   "name": "Bug-Type TM Disk",
+   "icon": "",
+   "category": "tm",
+   "rare": false,
+   "npcPrice": 0
+  },
+  {
+   "id": 59212,
+   "name": "Rock-Type TM Disk",
+   "icon": "",
+   "category": "tm",
+   "rare": false,
+   "npcPrice": 0
+  },
+  {
+   "id": 59213,
+   "name": "Ghost-Type TM Disk",
+   "icon": "",
+   "category": "tm",
+   "rare": false,
+   "npcPrice": 0
+  },
+  {
+   "id": 59214,
+   "name": "Dragon-Type TM Disk",
+   "icon": "",
+   "category": "tm",
+   "rare": false,
+   "npcPrice": 0
+  },
+  {
+   "id": 59215,
+   "name": "Dark-Type TM Disk",
+   "icon": "",
+   "category": "tm",
+   "rare": false,
+   "npcPrice": 0
+  },
+  {
+   "id": 59216,
+   "name": "Steel-Type TM Disk",
+   "icon": "",
+   "category": "tm",
+   "rare": false,
+   "npcPrice": 0
+  },
+  {
+   "id": 16257,
+   "name": "Shiny Venusaur Card",
+   "icon": "/assets/cards/16257.png",
+   "category": "card",
+   "rare": true,
+   "npcPrice": 0
+  },
+  {
+   "id": 16260,
+   "name": "Shiny Charizard Card",
+   "icon": "/assets/cards/16260.png",
+   "category": "card",
+   "rare": true,
+   "npcPrice": 0
+  },
+  {
+   "id": 16263,
+   "name": "Shiny Blastoise Card",
+   "icon": "/assets/cards/16263.png",
+   "category": "card",
+   "rare": true,
+   "npcPrice": 0
+  },
+  {
+   "id": 16269,
+   "name": "Shiny Beedrill Card",
+   "icon": "/assets/cards/16269.png",
+   "category": "card",
+   "rare": true,
+   "npcPrice": 0
+  },
+  {
+   "id": 16272,
+   "name": "Shiny Pidgeot Card",
+   "icon": "/assets/cards/16272.png",
+   "category": "card",
+   "rare": true,
+   "npcPrice": 0
+  },
+  {
+   "id": 16276,
+   "name": "Shiny Fearow Card",
+   "icon": "/assets/cards/16276.png",
+   "category": "card",
+   "rare": true,
+   "npcPrice": 0
+  },
+  {
+   "id": 16280,
+   "name": "Shiny Raichu Card",
+   "icon": "/assets/cards/16280.png",
+   "category": "card",
+   "rare": true,
+   "npcPrice": 0
+  },
+  {
+   "id": 16296,
+   "name": "Shiny Golbat Card",
+   "icon": "/assets/cards/16296.png",
+   "category": "card",
+   "rare": true,
+   "npcPrice": 0
+  },
+  {
+   "id": 16297,
+   "name": "Shiny Oddish Card",
+   "icon": "/assets/cards/16297.png",
+   "category": "card",
+   "rare": true,
+   "npcPrice": 0
+  },
+  {
+   "id": 16299,
+   "name": "Shiny Vileplume Card",
+   "icon": "/assets/cards/16299.png",
+   "category": "card",
+   "rare": true,
+   "npcPrice": 0
+  },
+  {
+   "id": 16300,
+   "name": "Shiny Paras Card",
+   "icon": "/assets/cards/16300.png",
+   "category": "card",
+   "rare": true,
+   "npcPrice": 0
+  },
+  {
+   "id": 16301,
+   "name": "Shiny Parasect Card",
+   "icon": "/assets/cards/16301.png",
+   "category": "card",
+   "rare": true,
+   "npcPrice": 0
+  },
+  {
+   "id": 16302,
+   "name": "Shiny Venonat Card",
+   "icon": "/assets/cards/16302.png",
+   "category": "card",
+   "rare": true,
+   "npcPrice": 0
+  },
+  {
+   "id": 16303,
+   "name": "Shiny Venomoth Card",
+   "icon": "/assets/cards/16303.png",
+   "category": "card",
+   "rare": true,
+   "npcPrice": 0
+  },
+  {
+   "id": 16313,
+   "name": "Shiny Arcanine Card",
+   "icon": "/assets/cards/16313.png",
+   "category": "card",
+   "rare": true,
+   "npcPrice": 0
+  },
+  {
+   "id": 16319,
+   "name": "Shiny Alakazam Card",
+   "icon": "/assets/cards/16319.png",
+   "category": "card",
+   "rare": true,
+   "npcPrice": 0
+  },
+  {
+   "id": 16322,
+   "name": "Shiny Machamp Card",
+   "icon": "/assets/cards/16322.png",
+   "category": "card",
+   "rare": true,
+   "npcPrice": 0
+  },
+  {
+   "id": 16326,
+   "name": "Shiny Tentacool Card",
+   "icon": "/assets/cards/16326.png",
+   "category": "card",
+   "rare": true,
+   "npcPrice": 0
+  },
+  {
+   "id": 16327,
+   "name": "Shiny Tentacruel Card",
+   "icon": "/assets/cards/16327.png",
+   "category": "card",
+   "rare": true,
+   "npcPrice": 0
+  },
+  {
+   "id": 16330,
+   "name": "Shiny Golem Card",
+   "icon": "/assets/cards/16330.png",
+   "category": "card",
+   "rare": true,
+   "npcPrice": 0
+  },
+  {
+   "id": 16337,
+   "name": "Shiny Farfetch'd Card",
+   "icon": "/assets/cards/16337.png",
+   "category": "card",
+   "rare": true,
+   "npcPrice": 0
+  },
+  {
+   "id": 16342,
+   "name": "Shiny Grimer Card",
+   "icon": "/assets/cards/16342.png",
+   "category": "card",
+   "rare": true,
+   "npcPrice": 0
+  },
+  {
+   "id": 16343,
+   "name": "Shiny Muk Card",
+   "icon": "/assets/cards/16343.png",
+   "category": "card",
+   "rare": true,
+   "npcPrice": 0
+  },
+  {
+   "id": 16348,
+   "name": "Shiny Gengar Card",
+   "icon": "/assets/cards/16348.png",
+   "category": "card",
+   "rare": true,
+   "npcPrice": 0
+  },
+  {
+   "id": 16349,
+   "name": "Shiny Onix Card",
+   "icon": "/assets/cards/16349.png",
+   "category": "card",
+   "rare": true,
+   "npcPrice": 0
+  },
+  {
+   "id": 16351,
+   "name": "Shiny Hypno Card",
+   "icon": "/assets/cards/16351.png",
+   "category": "card",
+   "rare": true,
+   "npcPrice": 0
+  },
+  {
+   "id": 16352,
+   "name": "Shiny Krabby Card",
+   "icon": "/assets/cards/16352.png",
+   "category": "card",
+   "rare": true,
+   "npcPrice": 0
+  },
+  {
+   "id": 16353,
+   "name": "Shiny Kingler Card",
+   "icon": "/assets/cards/16353.png",
+   "category": "card",
+   "rare": true,
+   "npcPrice": 0
+  },
+  {
+   "id": 16354,
+   "name": "Shiny Voltorb Card",
+   "icon": "/assets/cards/16354.png",
+   "category": "card",
+   "rare": true,
+   "npcPrice": 0
+  },
+  {
+   "id": 16355,
+   "name": "Shiny Electrode Card",
+   "icon": "/assets/cards/16355.png",
+   "category": "card",
+   "rare": true,
+   "npcPrice": 0
+  },
+  {
+   "id": 16358,
+   "name": "Shiny Cubone Card",
+   "icon": "/assets/cards/16358.png",
+   "category": "card",
+   "rare": true,
+   "npcPrice": 0
+  },
+  {
+   "id": 16359,
+   "name": "Shiny Marowak Card",
+   "icon": "/assets/cards/16359.png",
+   "category": "card",
+   "rare": true,
+   "npcPrice": 0
+  },
+  {
+   "id": 16366,
+   "name": "Shiny Rhydon Card",
+   "icon": "/assets/cards/16366.png",
+   "category": "card",
+   "rare": true,
+   "npcPrice": 0
+  },
+  {
+   "id": 16368,
+   "name": "Shiny Tangela Card",
+   "icon": "/assets/cards/16368.png",
+   "category": "card",
+   "rare": true,
+   "npcPrice": 0
+  },
+  {
+   "id": 16371,
+   "name": "Shiny Seadra Card",
+   "icon": "/assets/cards/16371.png",
+   "category": "card",
+   "rare": true,
+   "npcPrice": 0
+  },
+  {
+   "id": 16376,
+   "name": "Shiny Mr. Mime Card",
+   "icon": "/assets/cards/16376.png",
+   "category": "card",
+   "rare": true,
+   "npcPrice": 0
+  },
+  {
+   "id": 16377,
+   "name": "Shiny Scyther Card",
+   "icon": "/assets/cards/16377.png",
+   "category": "card",
+   "rare": true,
+   "npcPrice": 0
+  },
+  {
+   "id": 16378,
+   "name": "Shiny Jynx Card",
+   "icon": "/assets/cards/16378.png",
+   "category": "card",
+   "rare": true,
+   "npcPrice": 0
+  },
+  {
+   "id": 16379,
+   "name": "Shiny Electabuzz Card",
+   "icon": "/assets/cards/16379.png",
+   "category": "card",
+   "rare": true,
+   "npcPrice": 0
+  },
+  {
+   "id": 16380,
+   "name": "Shiny Magmar Card",
+   "icon": "/assets/cards/16380.png",
+   "category": "card",
+   "rare": true,
+   "npcPrice": 0
+  },
+  {
+   "id": 16381,
+   "name": "Shiny Pinsir Card",
+   "icon": "/assets/cards/16381.png",
+   "category": "card",
+   "rare": true,
+   "npcPrice": 0
+  },
+  {
+   "id": 16382,
+   "name": "Shiny Tauros Card",
+   "icon": "/assets/cards/16382.png",
+   "category": "card",
+   "rare": true,
+   "npcPrice": 0
+  },
+  {
+   "id": 16384,
+   "name": "Shiny Gyarados Card",
+   "icon": "/assets/cards/16384.png",
+   "category": "card",
+   "rare": true,
+   "npcPrice": 0
+  },
+  {
+   "id": 16396,
+   "name": "Shiny Aerodactyl Card",
+   "icon": "/assets/cards/16396.png",
+   "category": "card",
+   "rare": true,
+   "npcPrice": 0
+  },
+  {
+   "id": 16397,
+   "name": "Shiny Snorlax Card",
+   "icon": "/assets/cards/16397.png",
+   "category": "card",
+   "rare": true,
+   "npcPrice": 0
+  },
+  {
+   "id": 16401,
+   "name": "Shiny Dratini Card",
+   "icon": "/assets/cards/16401.png",
+   "category": "card",
+   "rare": true,
+   "npcPrice": 0
+  },
+  {
+   "id": 16402,
+   "name": "Shiny Dragonair Card",
+   "icon": "/assets/cards/16402.png",
+   "category": "card",
+   "rare": true,
+   "npcPrice": 0
+  }
+ ]
+}
