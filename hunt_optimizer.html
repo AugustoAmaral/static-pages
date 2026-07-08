@@ -165,10 +165,10 @@
 
   /* ---- tooltip ---- */
   #tip { position: fixed; pointer-events: none; z-index: 50; background: var(--surface-1);
-    border: 1px solid var(--border); border-radius: 8px; padding: 8px 10px; font-size: 12px;
-    box-shadow: 0 4px 16px rgba(0,0,0,.18); opacity: 0; transition: opacity .08s; max-width: 300px; }
-  #tip .t-name { font-weight: 600; margin-bottom: 3px; color: var(--text-primary); }
-  #tip .t-row { display: flex; justify-content: space-between; gap: 14px; color: var(--text-secondary); }
+    border: 1px solid var(--border); border-radius: 10px; padding: 12px 14px; font-size: 13px;
+    box-shadow: 0 6px 22px rgba(0,0,0,.22); opacity: 0; transition: opacity .08s; width: 360px; max-width: 92vw; }
+  #tip .t-name { font-weight: 650; font-size: 15px; margin-bottom: 6px; color: var(--text-primary); }
+  #tip .t-row { display: flex; justify-content: space-between; gap: 14px; color: var(--text-secondary); line-height: 1.5; }
   #tip .t-row b { color: var(--text-primary); font-variant-numeric: tabular-nums; }
 
   .theme-toggle { flex: none; }
@@ -214,13 +214,16 @@
   details.table-card .table-wrap { margin-top: 12px; }
 
   /* ---- loot breakdown inside the hover card ---- */
-  #tip .t-break { margin-top: 8px; padding-top: 8px; border-top: 1px solid var(--grid); }
-  #tip .t-break-title { font-size: 10.5px; color: var(--text-muted); text-transform: uppercase; letter-spacing: .04em; margin-bottom: 5px; }
-  #tip .t-bar-row { display: grid; grid-template-columns: 82px 1fr 40px; align-items: center; gap: 6px; margin-bottom: 3px; }
-  #tip .t-bar-name { font-size: 11px; color: var(--text-secondary); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
-  #tip .t-bar-track { height: 7px; background: var(--grid); border-radius: 4px; overflow: hidden; }
-  #tip .t-bar-fill { display: block; height: 100%; background: var(--series-2); border-radius: 4px; }
-  #tip .t-bar-val { font-size: 10.5px; color: var(--text-primary); font-variant-numeric: tabular-nums; text-align: right; }
+  #tip .t-break { margin-top: 10px; padding-top: 9px; border-top: 1px solid var(--grid); }
+  #tip .t-break-title { font-size: 11px; color: var(--text-muted); text-transform: uppercase; letter-spacing: .04em; margin-bottom: 7px; }
+  #tip .t-bar-item { margin-bottom: 8px; }
+  #tip .t-bar-row { display: grid; grid-template-columns: 108px 1fr 52px; align-items: center; gap: 8px; }
+  #tip .t-bar-name { font-size: 12.5px; color: var(--text-primary); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  #tip .t-bar-track { height: 9px; background: var(--grid); border-radius: 5px; overflow: hidden; }
+  #tip .t-bar-fill { display: block; height: 100%; background: var(--series-2); border-radius: 5px; }
+  #tip .t-bar-val { font-size: 12px; color: var(--text-primary); font-variant-numeric: tabular-nums; text-align: right; }
+  #tip .t-bar-sub { font-size: 11px; color: var(--text-muted); margin-top: 2px; font-variant-numeric: tabular-nums; }
+  #tip .t-more { font-size: 11px; color: var(--text-muted); margin-top: 2px; }
 </style>
 </head>
 <body>
@@ -315,8 +318,12 @@
         </div>
       </div>
       <div class="fgroup">
-        <label>Área</label>
-        <select id="areaSel"><option value="ALL">Todas</option></select>
+        <label>Área (remove duplicatas)</label>
+        <div class="seg" id="areaSeg">
+          <button data-area="ALL">Todos incluídos</button>
+          <button data-area="kanto" class="active">Só Kanto</button>
+          <button data-area="outland">Só Outland</button>
+        </div>
       </div>
       <div class="fgroup">
         <label>Hunt específica</label>
@@ -428,7 +435,7 @@
     scatterLog: true,
     // MYTHIC/LEGENDARY off by default; hunt filter defaults to "with"
     filters: { rarity: new Set(["COMMON", "UNCOMMON", "RARE", "EPIC"]), type: "ALL", hlMin: null, hlMax: null, search: "",
-      huntStatus: "with", area: "ALL", hunt: "" },
+      huntStatus: "with", area: "kanto", hunt: "" },
     sort: { key: "lootValue", dir: "desc" },
   };
 
@@ -612,16 +619,21 @@
     for (const it of items) {
       if (it && it.name != null) priceMap.set(String(it.name).trim().toLowerCase(), Number(it.npcPrice) || 0);
     }
-    // hunts grouped by looktype (skip city/label markers); creature<->hunt link is via looktype
+    // Link creature ↔ hunt by NAME first (each variant has its own named marker, e.g. "Charged Raichu"
+    // in outland vs "Raichu" in kanto), falling back to looktype for the few name-encoding mismatches
+    // (Nidoran ♀/♂, Farfetch'd). Skip city/label markers.
     const huntsByLt = new Map();
+    const huntsByName = new Map();
     const areaSet = new Set();
     const huntNameSet = new Set();
     for (const h of markers || []) {
       if (Number(h.looktype) === CITY_LOOKTYPE || Number(h.level) === 0) continue;
       const lt = Number(h.looktype);
-      if (!huntsByLt.has(lt)) huntsByLt.set(lt, []);
       const hunt = { slug: h.slug, name: h.name, area: h.area || "", level: Number(h.level) || 0 };
+      if (!huntsByLt.has(lt)) huntsByLt.set(lt, []);
       huntsByLt.get(lt).push(hunt);
+      const nm = (h.name || "").trim().toLowerCase();
+      if (nm) { if (!huntsByName.has(nm)) huntsByName.set(nm, []); huntsByName.get(nm).push(hunt); }
       if (hunt.area) areaSet.add(hunt.area);
       if (hunt.name) huntNameSet.add(hunt.name);
     }
@@ -640,11 +652,14 @@
         const chance = (Number(l.chance) || 0) / CHANCE_DENOM;
         const contribution = chance * qty * price;
         lootValue += contribution;
-        breakdown.push({ name: l.name, contribution, chance, qty, price });
+        breakdown.push({ name: l.name, contribution, chance, qty, price, min: Number(l.minCount) || 0, max: Number(l.maxCount) || 0 });
       }
       breakdown.sort((a, b) => b.contribution - a.contribution);
       const sellValue = Number(cr.sellValue) || 0;
-      const hunts = huntsByLt.get(Number(cr.looktype)) || [];
+      const nm = (cr.name || "").trim().toLowerCase();
+      const hunts = (huntsByName.get(nm) && huntsByName.get(nm).length)
+        ? huntsByName.get(nm)
+        : (huntsByLt.get(Number(cr.looktype)) || []);
       out.push({
         id: id++,
         name: cr.name || "(sem nome)",
@@ -718,13 +733,8 @@
     }
     // hunt filters (only when markers are loaded)
     if (state.hasMarkers) {
-      const areaSel = $("areaSel");
-      // rebuild area options to reflect current markers
-      areaSel.innerHTML = '<option value="ALL">Todas</option>';
-      state.areas.forEach((a) => {
-        const o = document.createElement("option"); o.value = a; o.textContent = a; areaSel.appendChild(o);
-      });
-      areaSel.value = state.areas.includes(state.filters.area) ? state.filters.area : "ALL";
+      // reflect the current area choice on the segmented control
+      [...$("areaSeg").children].forEach((b) => b.classList.toggle("active", b.dataset.area === state.filters.area));
       const dl = $("huntList");
       dl.innerHTML = state.huntNames.map((n) => `<option value="${n.replace(/"/g, "&quot;")}"></option>`).join("");
       $("huntFilters").style.display = "";
@@ -929,17 +939,21 @@
   const escHtml = (s) => String(s).replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
 
   function tipCreature(d) {
-    const rows = d.breakdown.filter((b) => b.contribution > 0).slice(0, 6);
-    const maxC = rows.length ? rows[0].contribution : 1;
-    const breakHtml = rows.length
-      ? `<div class="t-break"><div class="t-break-title">De onde vem o loot</div>` +
-        rows.map((r) =>
-          `<div class="t-bar-row">` +
-            `<span class="t-bar-name" title="${escHtml(r.name)}">${escHtml(r.name)}</span>` +
-            `<span class="t-bar-track"><span class="t-bar-fill" style="width:${Math.max(4, (r.contribution / maxC) * 100)}%"></span></span>` +
-            `<span class="t-bar-val">${nf1.format(r.contribution)}</span>` +
-          `</div>`).join("") +
-        `</div>`
+    const rows = d.breakdown.filter((b) => b.contribution > 0);
+    const shown = rows.slice(0, 6);
+    const maxC = shown.length ? shown[0].contribution : 1;
+    const itemHtml = shown.map((r) =>
+      `<div class="t-bar-item">` +
+        `<div class="t-bar-row">` +
+          `<span class="t-bar-name" title="${escHtml(r.name)}">${escHtml(r.name)}</span>` +
+          `<span class="t-bar-track"><span class="t-bar-fill" style="width:${Math.max(4, (r.contribution / maxC) * 100)}%"></span></span>` +
+          `<span class="t-bar-val">${nf1.format(r.contribution)}</span>` +
+        `</div>` +
+        `<div class="t-bar-sub">${r.min}–${r.max} un · ${nf1.format(r.chance * 100)}% chance · ${nf0.format(r.price)} gold/un</div>` +
+      `</div>`).join("");
+    const moreHtml = rows.length > 6 ? `<div class="t-more">+ ${rows.length - 6} outros drops menores</div>` : "";
+    const breakHtml = shown.length
+      ? `<div class="t-break"><div class="t-break-title">De onde vem o loot (esperado / kill)</div>${itemHtml}${moreHtml}</div>`
       : `<div class="t-break"><div class="t-break-title">Loot</div><span class="muted" style="font-size:11px">sem drop com valor de venda</span></div>`;
     return `<div class="t-name">${escHtml(d.name)}</div>` +
       `<div class="t-row"><span>raridade</span><b>${d.rarity}</b></div>` +
@@ -1104,7 +1118,12 @@
       [...$("huntStatusSeg").children].forEach((x) => x.classList.toggle("active", x === b));
       renderAll();
     });
-    $("areaSel").addEventListener("change", (e) => { state.filters.area = e.target.value; renderAll(); });
+    $("areaSeg").addEventListener("click", (e) => {
+      const b = e.target.closest("button[data-area]"); if (!b) return;
+      state.filters.area = b.dataset.area;
+      [...$("areaSeg").children].forEach((x) => x.classList.toggle("active", x === b));
+      renderAll();
+    });
     $("huntInput").addEventListener("input", (e) => { state.filters.hunt = e.target.value; renderAll(); });
 
     // re-render on resize (SVGs are measured in px)
