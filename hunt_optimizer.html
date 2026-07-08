@@ -1,0 +1,892 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Análise de Lucratividade — Creatures</title>
+<style>
+  /* ---- Design tokens (dataviz reference palette) ---- */
+  :root {
+    --page:        #f9f9f7;
+    --surface-1:   #fcfcfb;
+    --text-primary:   #0b0b0b;
+    --text-secondary: #52514e;
+    --text-muted:     #898781;
+    --grid:        #e1e0d9;
+    --axis:        #c3c2b7;
+    --border:      rgba(11,11,11,0.10);
+    --series-1:    #2a78d6;  /* ranking bars (blue) */
+    --series-2:    #1baf7a;  /* breakdown bars (aqua) */
+    --accent-soft: rgba(42,120,214,0.10);
+    /* rarity categorical slots, fixed order */
+    --rar-COMMON:    #2a78d6;
+    --rar-UNCOMMON:  #1baf7a;
+    --rar-RARE:      #eda100;
+    --rar-EPIC:      #008300;
+    --rar-LEGENDARY: #4a3aa7;
+    --rar-MYTHIC:    #e34948;
+    --good: #006300;
+  }
+  html.dark {
+    --page:        #0d0d0d;
+    --surface-1:   #1a1a19;
+    --text-primary:   #ffffff;
+    --text-secondary: #c3c2b7;
+    --text-muted:     #898781;
+    --grid:        #2c2c2a;
+    --axis:        #383835;
+    --border:      rgba(255,255,255,0.10);
+    --series-1:    #3987e5;
+    --series-2:    #199e70;
+    --accent-soft: rgba(57,135,229,0.16);
+    --rar-COMMON:    #3987e5;
+    --rar-UNCOMMON:  #199e70;
+    --rar-RARE:      #c98500;
+    --rar-EPIC:      #008300;
+    --rar-LEGENDARY: #9085e9;
+    --rar-MYTHIC:    #e66767;
+    --good: #0ca30c;
+  }
+
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+    background: var(--page);
+    color: var(--text-primary);
+    font-size: 14px;
+    line-height: 1.45;
+  }
+  .wrap { max-width: 1180px; margin: 0 auto; padding: 20px 20px 64px; }
+
+  header.top { display: flex; align-items: flex-start; justify-content: space-between; gap: 16px; margin-bottom: 18px; }
+  header.top h1 { font-size: 22px; margin: 0 0 2px; font-weight: 650; }
+  header.top p { margin: 0; color: var(--text-secondary); font-size: 13px; max-width: 720px; }
+
+  .card {
+    background: var(--surface-1);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 16px;
+    margin-bottom: 16px;
+  }
+  .card h2 { font-size: 15px; margin: 0 0 12px; font-weight: 600; }
+  .card h2 .hint { font-weight: 400; color: var(--text-muted); font-size: 12px; margin-left: 6px; }
+
+  /* ---- data source panel ---- */
+  .sources { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  @media (max-width: 720px) { .sources { grid-template-columns: 1fr; } }
+  .dropzone {
+    border: 1.5px dashed var(--axis);
+    border-radius: 10px;
+    padding: 14px;
+    text-align: center;
+    cursor: pointer;
+    transition: background .12s, border-color .12s;
+    color: var(--text-secondary);
+  }
+  .dropzone.drag { border-color: var(--series-1); background: var(--accent-soft); }
+  .dropzone.ok { border-style: solid; border-color: var(--good); }
+  .dropzone strong { color: var(--text-primary); display:block; font-size: 13px; }
+  .dropzone .state { font-size: 12px; margin-top: 4px; }
+  .dropzone .state.ok { color: var(--good); }
+
+  .source-actions { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin-top: 12px; }
+  button, select, input[type="number"], input[type="text"] {
+    font-family: inherit; font-size: 13px; color: var(--text-primary);
+    background: var(--surface-1); border: 1px solid var(--axis); border-radius: 8px;
+    padding: 7px 11px;
+  }
+  button { cursor: pointer; }
+  button.primary { background: var(--series-1); border-color: var(--series-1); color: #fff; font-weight: 550; }
+  button.primary:hover { filter: brightness(1.06); }
+  button:disabled { opacity: .5; cursor: not-allowed; }
+  button.link { background: none; border: none; color: var(--series-1); padding: 4px; text-decoration: underline; }
+  .status { font-size: 12.5px; color: var(--text-secondary); margin-top: 10px; min-height: 18px; }
+  .status.err { color: var(--rar-MYTHIC); }
+
+  details.paste { margin-top: 10px; }
+  details.paste summary { cursor: pointer; color: var(--text-secondary); font-size: 12.5px; }
+  .paste-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 10px; }
+  @media (max-width: 720px) { .paste-grid { grid-template-columns: 1fr; } }
+  textarea { width: 100%; min-height: 90px; font-family: ui-monospace, Menlo, monospace; font-size: 11px;
+    background: var(--surface-1); color: var(--text-primary); border: 1px solid var(--axis); border-radius: 8px; padding: 8px; resize: vertical; }
+
+  /* ---- insight callout ---- */
+  .insight { display: none; gap: 10px; align-items: flex-start; background: var(--accent-soft);
+    border: 1px solid var(--border); border-radius: 10px; padding: 12px 14px; margin-bottom: 16px; font-size: 13px; }
+  .insight.show { display: flex; }
+  .insight .icon { font-size: 16px; line-height: 1.2; }
+  .insight b { color: var(--text-primary); }
+
+  /* ---- filters bar ---- */
+  .filters { display: flex; flex-wrap: wrap; gap: 12px 18px; align-items: flex-end; }
+  .fgroup { display: flex; flex-direction: column; gap: 4px; }
+  .fgroup > label { font-size: 11px; text-transform: uppercase; letter-spacing: .04em; color: var(--text-muted); }
+  .seg { display: inline-flex; border: 1px solid var(--axis); border-radius: 8px; overflow: hidden; }
+  .seg button { border: none; border-radius: 0; background: var(--surface-1); padding: 7px 12px; color: var(--text-secondary); }
+  .seg button.active { background: var(--series-1); color: #fff; font-weight: 550; }
+  .seg button + button { border-left: 1px solid var(--axis); }
+  .chips { display: flex; flex-wrap: wrap; gap: 6px; }
+  .chip { display: inline-flex; align-items: center; gap: 6px; border: 1px solid var(--axis); border-radius: 999px;
+    padding: 4px 10px; cursor: pointer; font-size: 12px; color: var(--text-secondary); user-select: none; }
+  .chip.on { color: var(--text-primary); border-color: var(--text-muted); }
+  .chip .dot { width: 9px; height: 9px; border-radius: 50%; }
+  .chip.off { opacity: .4; }
+
+  /* ---- charts ---- */
+  .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  @media (max-width: 900px) { .grid2 { grid-template-columns: 1fr; } }
+  .chart-head { display:flex; align-items:center; justify-content: space-between; gap: 10px; margin-bottom: 6px; }
+  .chart-sub { font-size: 12px; color: var(--text-muted); margin: -4px 0 10px; }
+  svg { display: block; width: 100%; }
+  svg text { fill: var(--text-secondary); }
+  .legend { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 8px; font-size: 12px; color: var(--text-secondary); }
+  .legend .li { display: inline-flex; align-items: center; gap: 6px; }
+  .legend .dot { width: 10px; height: 10px; border-radius: 50%; }
+
+  .empty { color: var(--text-muted); font-size: 13px; padding: 24px 0; text-align: center; }
+
+  /* ---- table ---- */
+  .table-wrap { overflow-x: auto; }
+  table { width: 100%; border-collapse: collapse; font-size: 13px; }
+  th, td { text-align: right; padding: 7px 10px; border-bottom: 1px solid var(--grid); white-space: nowrap; }
+  th:first-child, td:first-child, th.l, td.l { text-align: left; }
+  th { color: var(--text-secondary); font-weight: 600; cursor: pointer; user-select: none; position: sticky; top: 0; background: var(--surface-1); }
+  th.sorted::after { content: " ▾"; color: var(--text-muted); }
+  th.sorted.asc::after { content: " ▴"; }
+  tbody tr { cursor: pointer; }
+  tbody tr:hover { background: var(--accent-soft); }
+  tbody tr.sel { background: var(--accent-soft); box-shadow: inset 2px 0 0 var(--series-1); }
+  td.num { font-variant-numeric: tabular-nums; }
+  .rar { display: inline-flex; align-items: center; gap: 6px; }
+  .rar .dot { width: 9px; height: 9px; border-radius: 50%; }
+  .muted { color: var(--text-muted); }
+
+  /* ---- tooltip ---- */
+  #tip { position: fixed; pointer-events: none; z-index: 50; background: var(--surface-1);
+    border: 1px solid var(--border); border-radius: 8px; padding: 8px 10px; font-size: 12px;
+    box-shadow: 0 4px 16px rgba(0,0,0,.18); opacity: 0; transition: opacity .08s; max-width: 260px; }
+  #tip .t-name { font-weight: 600; margin-bottom: 3px; color: var(--text-primary); }
+  #tip .t-row { display: flex; justify-content: space-between; gap: 14px; color: var(--text-secondary); }
+  #tip .t-row b { color: var(--text-primary); font-variant-numeric: tabular-nums; }
+
+  .theme-toggle { flex: none; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <div>
+      <h1>Análise de Lucratividade das Creatures</h1>
+      <p>Envie <code>creatures.json</code> e <code>items.json</code> (ou carregue da API) e o app calcula o lucro esperado por monstro e gera os gráficos. Objetivo: descobrir quem maximiza o lucro.</p>
+    </div>
+    <button class="theme-toggle" id="themeBtn" title="Alternar tema">🌗 Tema</button>
+  </header>
+
+  <!-- DATA SOURCE -->
+  <section class="card">
+    <h2>1. Dados <span class="hint">upload é o padrão · também dá pra carregar da API ou colar</span></h2>
+    <div class="sources">
+      <div class="dropzone" id="dzCreatures">
+        <strong>creatures.json</strong>
+        <div class="state" id="stCreatures">arraste o arquivo ou clique</div>
+        <input type="file" id="fileCreatures" accept=".json,application/json" hidden />
+      </div>
+      <div class="dropzone" id="dzItems">
+        <strong>items.json</strong>
+        <div class="state" id="stItems">arraste o arquivo ou clique</div>
+        <input type="file" id="fileItems" accept=".json,application/json" hidden />
+      </div>
+    </div>
+    <div class="source-actions">
+      <button class="primary" id="apiBtn">Carregar da API</button>
+      <span class="muted" style="font-size:12px">poke.idleworld.online/game</span>
+    </div>
+    <details class="paste">
+      <summary>ou colar o conteúdo manualmente</summary>
+      <div class="paste-grid">
+        <textarea id="pasteCreatures" placeholder="cole o JSON de creatures aqui"></textarea>
+        <textarea id="pasteItems" placeholder="cole o JSON de items aqui"></textarea>
+      </div>
+      <div style="margin-top:8px"><button id="pasteBtn">Processar colado</button></div>
+    </details>
+    <div class="status" id="status">Nenhum dado carregado ainda.</div>
+  </section>
+
+  <!-- INSIGHT -->
+  <div class="insight" id="insight">
+    <span class="icon">💡</span>
+    <div id="insightText"></div>
+  </div>
+
+  <!-- FILTERS -->
+  <section class="card" id="filtersCard" style="display:none">
+    <h2>2. Filtros</h2>
+    <div class="filters">
+      <div class="fgroup">
+        <label>Métrica de lucro</label>
+        <div class="seg" id="metricSeg">
+          <button data-metric="total" class="active">Total (loot + venda)</button>
+          <button data-metric="loot">Só loot / kill</button>
+          <button data-metric="sell">Só venda</button>
+        </div>
+      </div>
+      <div class="fgroup">
+        <label>Buscar nome</label>
+        <input type="text" id="search" placeholder="ex: Snorlax" style="width:150px" />
+      </div>
+      <div class="fgroup">
+        <label>Tipo</label>
+        <select id="typeSel"><option value="ALL">Todos</option></select>
+      </div>
+      <div class="fgroup">
+        <label>Hunt level</label>
+        <div style="display:flex;gap:6px;align-items:center">
+          <input type="number" id="hlMin" min="0" style="width:70px" placeholder="min" />
+          <span class="muted">–</span>
+          <input type="number" id="hlMax" min="0" style="width:70px" placeholder="max" />
+        </div>
+      </div>
+      <div class="fgroup">
+        <label>Top N (ranking)</label>
+        <input type="number" id="topN" min="1" max="299" value="15" style="width:70px" />
+      </div>
+    </div>
+    <div class="fgroup" style="margin-top:12px">
+      <label>Raridade</label>
+      <div class="chips" id="rarityChips"></div>
+    </div>
+  </section>
+
+  <!-- RANKING + BREAKDOWN -->
+  <div class="grid2" id="chartsRow" style="display:none">
+    <section class="card">
+      <div class="chart-head"><h2 id="rankTitle">3. Ranking de lucratividade</h2></div>
+      <div class="chart-sub" id="rankSub"></div>
+      <div id="rankChart"></div>
+    </section>
+    <section class="card">
+      <div class="chart-head"><h2>4. De onde vem o loot <span class="hint" id="bdName"></span></h2></div>
+      <div class="chart-sub">Contribuição esperada de cada drop por kill (chance × qtd média × preço).</div>
+      <div id="bdChart"></div>
+    </section>
+  </div>
+
+  <!-- SCATTER -->
+  <section class="card" id="scatterCard" style="display:none">
+    <div class="chart-head">
+      <h2>5. Esforço × Lucro <span class="hint">huntLevel × valor — cor por raridade</span></h2>
+      <label class="muted" style="font-size:12px;display:flex;gap:6px;align-items:center">
+        <input type="checkbox" id="logY" checked /> escala log (Y)
+      </label>
+    </div>
+    <div class="chart-sub">Canto inferior-esquerdo = fácil e barato; superior-esquerdo = fácil e lucrativo (o alvo pra eficiência).</div>
+    <div class="legend" id="scatterLegend"></div>
+    <div id="scatterChart"></div>
+  </section>
+
+  <!-- TABLE -->
+  <section class="card" id="tableCard" style="display:none">
+    <h2>6. Tabela completa <span class="hint" id="tableCount"></span></h2>
+    <div class="table-wrap">
+      <table id="table">
+        <thead><tr id="theadRow"></tr></thead>
+        <tbody id="tbody"></tbody>
+      </table>
+    </div>
+  </section>
+</div>
+
+<div id="tip"></div>
+
+<script>
+"use strict";
+(function () {
+  const CREATURES_URL = "https://poke.idleworld.online/game/creatures.json";
+  const ITEMS_URL = "https://poke.idleworld.online/game/items.json";
+  const CHANCE_DENOM = 100000; // loot chance is out of 100000
+  const RARITY_ORDER = ["COMMON", "UNCOMMON", "RARE", "EPIC", "LEGENDARY", "MYTHIC"];
+  const SVGNS = "http://www.w3.org/2000/svg";
+
+  const nf0 = new Intl.NumberFormat("pt-BR", { maximumFractionDigits: 0 });
+  const nf1 = new Intl.NumberFormat("pt-BR", { maximumFractionDigits: 1 });
+
+  // Compact number for axis/tips (pt-BR decimal comma).
+  function fmtCompact(n) {
+    const a = Math.abs(n);
+    if (a >= 1e6) return nf1.format(n / 1e6) + "M";
+    if (a >= 1e3) return nf1.format(n / 1e3) + "k";
+    return nf0.format(n);
+  }
+
+  // ---- state ----
+  const state = {
+    rawCreatures: null,
+    rawItems: null,
+    computed: [],        // [{name, huntLevel, rarity, type1, type2, lootValue, sellValue, totalValue, breakdown:[...], id}]
+    metric: "total",     // total | loot | sell
+    topN: 15,
+    selectedId: null,
+    scatterLog: true,
+    filters: { rarity: new Set(RARITY_ORDER), type: "ALL", hlMin: null, hlMax: null, search: "" },
+    sort: { key: "totalValue", dir: "desc" },
+  };
+
+  const $ = (id) => document.getElementById(id);
+  const metricField = () => (state.metric === "loot" ? "lootValue" : state.metric === "sell" ? "sellValue" : "totalValue");
+  const metricLabel = () => (state.metric === "loot" ? "Loot / kill" : state.metric === "sell" ? "Valor de venda" : "Total (loot + venda)");
+
+  // ---------- data loading ----------
+  function normalize(json, key) {
+    if (!json) return [];
+    if (Array.isArray(json)) return json;
+    if (Array.isArray(json[key])) return json[key];
+    if (Array.isArray(json.data)) return json.data;
+    return [];
+  }
+
+  async function fetchJson(url) {
+    // Try direct first (works if CORS ever enabled), then public CORS proxies.
+    const attempts = [
+      { u: url, label: "direto" },
+      { u: "https://api.allorigins.win/raw?url=" + encodeURIComponent(url), label: "proxy allorigins" },
+      { u: "https://corsproxy.io/?url=" + encodeURIComponent(url), label: "proxy corsproxy" },
+    ];
+    let lastErr;
+    for (const a of attempts) {
+      try {
+        const r = await fetch(a.u, { cache: "no-store" });
+        if (!r.ok) throw new Error("HTTP " + r.status);
+        return await r.json();
+      } catch (e) { lastErr = e; }
+    }
+    throw lastErr;
+  }
+
+  function setStatus(msg, isErr) {
+    const el = $("status");
+    el.textContent = msg;
+    el.className = "status" + (isErr ? " err" : "");
+  }
+
+  function markZone(which, ok, label) {
+    const dz = which === "creatures" ? $("dzCreatures") : $("dzItems");
+    const st = which === "creatures" ? $("stCreatures") : $("stItems");
+    dz.classList.toggle("ok", ok);
+    st.className = "state" + (ok ? " ok" : "");
+    st.textContent = label;
+  }
+
+  function tryCompute() {
+    const creatures = normalize(state.rawCreatures, "creatures");
+    const items = normalize(state.rawItems, "items");
+    if (!creatures.length || !items.length) {
+      setStatus(
+        `Faltando dados: ${creatures.length ? "" : "creatures "}${items.length ? "" : "items"} — carregue os dois.`,
+        creatures.length === 0 && items.length === 0 ? false : true
+      );
+      return;
+    }
+    compute(creatures, items);
+    setStatus(`✔ ${creatures.length} creatures e ${items.length} items carregados. Lucratividade calculada.`);
+    buildControls();
+    renderAll();
+  }
+
+  function compute(creatures, items) {
+    // price map by lowercased/trimmed name
+    const priceMap = new Map();
+    for (const it of items) {
+      if (it && it.name != null) priceMap.set(String(it.name).trim().toLowerCase(), Number(it.npcPrice) || 0);
+    }
+    const out = [];
+    let id = 0;
+    for (const cr of creatures) {
+      const breakdown = [];
+      let lootValue = 0;
+      for (const l of cr.loot || []) {
+        const price = priceMap.get(String(l.name || "").trim().toLowerCase()) || 0;
+        const qty = ((Number(l.minCount) || 0) + (Number(l.maxCount) || 0)) / 2;
+        const chance = (Number(l.chance) || 0) / CHANCE_DENOM;
+        const contribution = chance * qty * price;
+        lootValue += contribution;
+        breakdown.push({ name: l.name, contribution, chance, qty, price });
+      }
+      breakdown.sort((a, b) => b.contribution - a.contribution);
+      const sellValue = Number(cr.sellValue) || 0;
+      out.push({
+        id: id++,
+        name: cr.name || "(sem nome)",
+        huntLevel: Number(cr.huntLevel) || 0,
+        rarity: RARITY_ORDER.includes(cr.rarity) ? cr.rarity : (cr.rarity || "COMMON"),
+        type1: cr.type1 || "", type2: cr.type2 || "",
+        experience: Number(cr.experience) || 0,
+        lootValue, sellValue, totalValue: lootValue + sellValue,
+        topLoot: breakdown[0] ? breakdown[0].name : "—",
+        breakdown,
+      });
+    }
+    state.computed = out;
+  }
+
+  // ---------- filtering ----------
+  function filtered() {
+    const f = state.filters;
+    const q = f.search.trim().toLowerCase();
+    return state.computed.filter((c) => {
+      if (!f.rarity.has(c.rarity)) return false;
+      if (f.type !== "ALL" && c.type1 !== f.type && c.type2 !== f.type) return false;
+      if (f.hlMin != null && c.huntLevel < f.hlMin) return false;
+      if (f.hlMax != null && c.huntLevel > f.hlMax) return false;
+      if (q && !c.name.toLowerCase().includes(q)) return false;
+      return true;
+    });
+  }
+
+  // ---------- controls ----------
+  function buildControls() {
+    // types
+    const typeSel = $("typeSel");
+    if (typeSel.options.length <= 1) {
+      const types = new Set();
+      for (const c of state.computed) { if (c.type1) types.add(c.type1); if (c.type2) types.add(c.type2); }
+      [...types].sort().forEach((t) => {
+        const o = document.createElement("option"); o.value = t; o.textContent = t; typeSel.appendChild(o);
+      });
+    }
+    // rarity chips
+    const chips = $("rarityChips");
+    if (!chips.childElementCount) {
+      RARITY_ORDER.forEach((r) => {
+        const el = document.createElement("span");
+        el.className = "chip on";
+        el.dataset.rarity = r;
+        el.innerHTML = `<span class="dot" style="background:var(--rar-${r})"></span>${r}`;
+        el.addEventListener("click", () => {
+          const set = state.filters.rarity;
+          if (set.has(r)) set.delete(r); else set.add(r);
+          el.classList.toggle("on", set.has(r));
+          el.classList.toggle("off", !set.has(r));
+          renderAll();
+        });
+        chips.appendChild(el);
+      });
+    }
+    $("filtersCard").style.display = "";
+    $("chartsRow").style.display = "";
+    $("scatterCard").style.display = "";
+    $("tableCard").style.display = "";
+  }
+
+  // ---------- rendering ----------
+  function renderAll() {
+    if (!state.computed.length) return;
+    const data = filtered();
+    renderInsight();
+    renderRanking(data);
+    renderScatter(data);
+    renderTable(data);
+    // keep selection valid; default to top of ranking
+    if (state.selectedId == null || !data.find((d) => d.id === state.selectedId)) {
+      const sorted = [...data].sort((a, b) => b[metricField()] - a[metricField()]);
+      state.selectedId = sorted.length ? sorted[0].id : null;
+    }
+    renderBreakdown();
+  }
+
+  function renderInsight() {
+    const maxLoot = Math.max(0, ...state.computed.map((c) => c.lootValue));
+    const maxSell = Math.max(0, ...state.computed.map((c) => c.sellValue));
+    const box = $("insight");
+    if (maxSell > maxLoot * 5) {
+      $("insightText").innerHTML =
+        `O <b>valor de venda</b> do Pokémon domina o total: loot por kill vai até <b>${nf0.format(Math.round(maxLoot))}</b> gold, ` +
+        `mas a venda chega a <b>${nf0.format(maxSell)}</b>. Então o ranking <b>“Total”</b> é essencialmente “qual vende mais caro” (capturar & vender). ` +
+        `Use <b>“Só loot / kill”</b> pra ver a lucratividade real de farmar drops.`;
+      box.classList.add("show");
+    } else {
+      box.classList.remove("show");
+    }
+  }
+
+  // nice linear ticks
+  function niceTicks(max, count) {
+    if (max <= 0) return [0];
+    const raw = max / count;
+    const mag = Math.pow(10, Math.floor(Math.log10(raw)));
+    const norm = raw / mag;
+    const step = (norm >= 5 ? 10 : norm >= 2 ? 5 : norm >= 1 ? 2 : 1) * mag;
+    const top = Math.ceil(max / step) * step; // ensure the top tick always covers max
+    const ticks = [];
+    for (let v = 0; v <= top + step * 0.001; v += step) ticks.push(v);
+    return ticks;
+  }
+
+  // rounded-right-end horizontal bar path (square at baseline/left)
+  function barPath(x0, y, w, h, r) {
+    r = Math.max(0, Math.min(r, w, h / 2));
+    if (w <= 0.5) return `M${x0},${y} h0`;
+    return `M${x0},${y} h${w - r} a${r},${r} 0 0 1 ${r},${r} v${h - 2 * r} a${r},${r} 0 0 1 ${-r},${r} h${-(w - r)} z`;
+  }
+
+  function mk(tag, attrs) {
+    const e = document.createElementNS(SVGNS, tag);
+    for (const k in attrs) e.setAttribute(k, attrs[k]);
+    return e;
+  }
+
+  function clear(el) { while (el.firstChild) el.removeChild(el.firstChild); }
+
+  // ---- ranking (horizontal bars, single sequential hue) ----
+  function renderRanking(data) {
+    const host = $("rankChart");
+    clear(host);
+    const field = metricField();
+    const sorted = [...data].sort((a, b) => b[field] - a[field]).slice(0, state.topN);
+    $("rankTitle").textContent = `3. Ranking de lucratividade — ${metricLabel()}`;
+    $("rankSub").textContent = `Top ${sorted.length} de ${data.length} monstros filtrados. Clique numa barra para ver o breakdown.`;
+    if (!sorted.length) { host.innerHTML = '<div class="empty">Nenhum monstro no filtro.</div>'; return; }
+
+    const W = host.clientWidth || 540;
+    const rowH = 26, padT = 8, padB = 26, mL = 132, mR = 66;
+    const H = padT + padB + sorted.length * rowH;
+    const plotW = Math.max(40, W - mL - mR);
+    const maxV = Math.max(1, ...sorted.map((d) => d[field]));
+    const ticks = niceTicks(maxV, 4);
+    const tickMax = ticks[ticks.length - 1] || maxV;
+    const x = (v) => mL + (v / tickMax) * plotW;
+
+    const svg = mk("svg", { viewBox: `0 0 ${W} ${H}`, width: W, height: H });
+
+    // gridlines + tick labels
+    for (const t of ticks) {
+      svg.appendChild(mk("line", { x1: x(t), y1: padT, x2: x(t), y2: H - padB, stroke: "var(--grid)", "stroke-width": 1 }));
+      const tl = mk("text", { x: x(t), y: H - padB + 15, "text-anchor": "middle", "font-size": 10, fill: "var(--text-muted)" });
+      tl.textContent = fmtCompact(t);
+      svg.appendChild(tl);
+    }
+    // baseline
+    svg.appendChild(mk("line", { x1: mL, y1: padT, x2: mL, y2: H - padB, stroke: "var(--axis)", "stroke-width": 1 }));
+
+    const barH = 16;
+    sorted.forEach((d, i) => {
+      const cy = padT + i * rowH + (rowH - barH) / 2;
+      const w = x(d[field]) - mL;
+      const p = mk("path", { d: barPath(mL, cy, w, barH, 4), fill: "var(--series-1)", style: "cursor:pointer" });
+      if (d.id === state.selectedId) p.setAttribute("opacity", "1"); else p.setAttribute("opacity", "0.92");
+      p.addEventListener("click", () => { state.selectedId = d.id; renderAll(); });
+      p.addEventListener("mousemove", (ev) => showTip(ev, tipCreature(d)));
+      p.addEventListener("mouseleave", hideTip);
+      svg.appendChild(p);
+
+      // left label (name), ellipsized
+      const nm = mk("text", { x: mL - 8, y: cy + barH / 2 + 3.5, "text-anchor": "end", "font-size": 11.5, fill: "var(--text-secondary)" });
+      nm.textContent = d.name.length > 18 ? d.name.slice(0, 17) + "…" : d.name;
+      svg.appendChild(nm);
+      // value at tip
+      const vl = mk("text", { x: x(d[field]) + 6, y: cy + barH / 2 + 3.5, "text-anchor": "start", "font-size": 11, fill: "var(--text-primary)" });
+      vl.style.fontVariantNumeric = "tabular-nums";
+      vl.textContent = fmtCompact(d[field]);
+      svg.appendChild(vl);
+    });
+    host.appendChild(svg);
+  }
+
+  // ---- breakdown (single hue) ----
+  function renderBreakdown() {
+    const host = $("bdChart");
+    clear(host);
+    const d = state.computed.find((c) => c.id === state.selectedId);
+    $("bdName").textContent = d ? "— " + d.name : "";
+    if (!d) { host.innerHTML = '<div class="empty">Selecione um monstro.</div>'; return; }
+    const rows = d.breakdown.filter((b) => b.contribution > 0).slice(0, 12);
+    if (!rows.length) {
+      host.innerHTML = `<div class="empty">${d.name} não tem loot com valor de venda &gt; 0.<br><span class="muted">Venda do Pokémon: ${nf0.format(d.sellValue)} gold.</span></div>`;
+      return;
+    }
+    const W = host.clientWidth || 540;
+    const rowH = 26, padT = 8, padB = 26, mL = 138, mR = 70;
+    const H = padT + padB + rows.length * rowH;
+    const plotW = Math.max(40, W - mL - mR);
+    const maxV = Math.max(1, ...rows.map((r) => r.contribution));
+    const ticks = niceTicks(maxV, 4);
+    const tickMax = ticks[ticks.length - 1] || maxV;
+    const x = (v) => mL + (v / tickMax) * plotW;
+    const svg = mk("svg", { viewBox: `0 0 ${W} ${H}`, width: W, height: H });
+
+    for (const t of ticks) {
+      svg.appendChild(mk("line", { x1: x(t), y1: padT, x2: x(t), y2: H - padB, stroke: "var(--grid)", "stroke-width": 1 }));
+      const tl = mk("text", { x: x(t), y: H - padB + 15, "text-anchor": "middle", "font-size": 10, fill: "var(--text-muted)" });
+      tl.textContent = fmtCompact(t); svg.appendChild(tl);
+    }
+    svg.appendChild(mk("line", { x1: mL, y1: padT, x2: mL, y2: H - padB, stroke: "var(--axis)", "stroke-width": 1 }));
+
+    const barH = 16;
+    rows.forEach((r, i) => {
+      const cy = padT + i * rowH + (rowH - barH) / 2;
+      const w = x(r.contribution) - mL;
+      const p = mk("path", { d: barPath(mL, cy, w, barH, 4), fill: "var(--series-2)" });
+      p.addEventListener("mousemove", (ev) => showTip(ev,
+        `<div class="t-name">${r.name}</div>` +
+        `<div class="t-row"><span>contribuição</span><b>${nf1.format(r.contribution)}</b></div>` +
+        `<div class="t-row"><span>chance</span><b>${nf1.format(r.chance * 100)}%</b></div>` +
+        `<div class="t-row"><span>qtd média</span><b>${nf1.format(r.qty)}</b></div>` +
+        `<div class="t-row"><span>preço un.</span><b>${nf0.format(r.price)}</b></div>`));
+      p.addEventListener("mouseleave", hideTip);
+      svg.appendChild(p);
+      const nm = mk("text", { x: mL - 8, y: cy + barH / 2 + 3.5, "text-anchor": "end", "font-size": 11.5, fill: "var(--text-secondary)" });
+      nm.textContent = r.name.length > 20 ? r.name.slice(0, 19) + "…" : r.name;
+      svg.appendChild(nm);
+      const vl = mk("text", { x: x(r.contribution) + 6, y: cy + barH / 2 + 3.5, "font-size": 11, fill: "var(--text-primary)" });
+      vl.style.fontVariantNumeric = "tabular-nums";
+      vl.textContent = nf1.format(r.contribution);
+      svg.appendChild(vl);
+    });
+    host.appendChild(svg);
+  }
+
+  // ---- scatter (categorical by rarity) ----
+  function renderScatter(data) {
+    const host = $("scatterChart");
+    clear(host);
+    const field = metricField();
+    const pts = data.filter((d) => d.huntLevel > 0);
+    // legend (rarities present)
+    const present = RARITY_ORDER.filter((r) => pts.some((p) => p.rarity === r));
+    $("scatterLegend").innerHTML = present.map((r) =>
+      `<span class="li"><span class="dot" style="background:var(--rar-${r})"></span>${r}</span>`).join("");
+    if (!pts.length) { host.innerHTML = '<div class="empty">Nenhum monstro com huntLevel no filtro.</div>'; return; }
+
+    const W = host.clientWidth || 1000;
+    const H = 380, mL = 62, mR = 16, mT = 10, mB = 34;
+    const plotW = Math.max(40, W - mL - mR), plotH = H - mT - mB;
+    const maxHL = Math.max(10, ...pts.map((p) => p.huntLevel));
+    const maxV = Math.max(1, ...pts.map((p) => p[field]));
+    const log = state.scatterLog && maxV > 0;
+    const minPos = Math.max(1, Math.min(...pts.filter((p) => p[field] > 0).map((p) => p[field])) || 1);
+
+    const xHL = (h) => mL + (h / maxHL) * plotW;
+    const yLin = (v) => mT + plotH - (v / (niceTicks(maxV, 5).slice(-1)[0] || maxV)) * plotH;
+    const logMin = Math.floor(Math.log10(minPos)), logMax = Math.ceil(Math.log10(maxV));
+    const yLog = (v) => {
+      const lv = Math.log10(Math.max(v, Math.pow(10, logMin)));
+      return mT + plotH - ((lv - logMin) / (logMax - logMin || 1)) * plotH;
+    };
+    const y = (v) => (log ? yLog(v) : yLin(v));
+
+    const svg = mk("svg", { viewBox: `0 0 ${W} ${H}`, width: W, height: H });
+
+    // y grid + labels
+    if (log) {
+      for (let e = logMin; e <= logMax; e++) {
+        const yy = y(Math.pow(10, e));
+        svg.appendChild(mk("line", { x1: mL, y1: yy, x2: W - mR, y2: yy, stroke: "var(--grid)", "stroke-width": 1 }));
+        const tl = mk("text", { x: mL - 8, y: yy + 3.5, "text-anchor": "end", "font-size": 10, fill: "var(--text-muted)" });
+        tl.textContent = fmtCompact(Math.pow(10, e)); svg.appendChild(tl);
+      }
+    } else {
+      for (const t of niceTicks(maxV, 5)) {
+        const yy = yLin(t);
+        svg.appendChild(mk("line", { x1: mL, y1: yy, x2: W - mR, y2: yy, stroke: "var(--grid)", "stroke-width": 1 }));
+        const tl = mk("text", { x: mL - 8, y: yy + 3.5, "text-anchor": "end", "font-size": 10, fill: "var(--text-muted)" });
+        tl.textContent = fmtCompact(t); svg.appendChild(tl);
+      }
+    }
+    // x grid + labels
+    for (const t of niceTicks(maxHL, 5)) {
+      const xx = xHL(t);
+      svg.appendChild(mk("line", { x1: xx, y1: mT, x2: xx, y2: mT + plotH, stroke: "var(--grid)", "stroke-width": 1 }));
+      const tl = mk("text", { x: xx, y: H - mB + 16, "text-anchor": "middle", "font-size": 10, fill: "var(--text-muted)" });
+      tl.textContent = fmtCompact(t); svg.appendChild(tl);
+    }
+    // axis labels
+    const xlab = mk("text", { x: mL + plotW / 2, y: H - 2, "text-anchor": "middle", "font-size": 11, fill: "var(--text-muted)" });
+    xlab.textContent = "huntLevel →"; svg.appendChild(xlab);
+
+    // baseline/axis
+    svg.appendChild(mk("line", { x1: mL, y1: mT, x2: mL, y2: mT + plotH, stroke: "var(--axis)", "stroke-width": 1 }));
+    svg.appendChild(mk("line", { x1: mL, y1: mT + plotH, x2: W - mR, y2: mT + plotH, stroke: "var(--axis)", "stroke-width": 1 }));
+
+    // points (2px surface ring)
+    for (const p of pts) {
+      const v = Math.max(p[field], log ? Math.pow(10, logMin) : 0);
+      const c = mk("circle", {
+        cx: xHL(p.huntLevel), cy: y(v), r: 5,
+        fill: `var(--rar-${p.rarity})`, stroke: "var(--surface-1)", "stroke-width": 2, style: "cursor:pointer",
+      });
+      if (p.id === state.selectedId) { c.setAttribute("r", 7); c.setAttribute("stroke-width", 2.5); }
+      c.addEventListener("mousemove", (ev) => showTip(ev, tipCreature(p)));
+      c.addEventListener("mouseleave", hideTip);
+      c.addEventListener("click", () => { state.selectedId = p.id; renderAll(); });
+      svg.appendChild(c);
+    }
+    host.appendChild(svg);
+  }
+
+  function tipCreature(d) {
+    return `<div class="t-name">${d.name}</div>` +
+      `<div class="t-row"><span>raridade</span><b>${d.rarity}</b></div>` +
+      `<div class="t-row"><span>huntLevel</span><b>${d.huntLevel}</b></div>` +
+      `<div class="t-row"><span>loot / kill</span><b>${nf1.format(d.lootValue)}</b></div>` +
+      `<div class="t-row"><span>venda</span><b>${nf0.format(d.sellValue)}</b></div>` +
+      `<div class="t-row"><span>total</span><b>${nf0.format(Math.round(d.totalValue))}</b></div>`;
+  }
+
+  // ---- table ----
+  const COLS = [
+    { key: "name", label: "Monstro", l: true, fmt: (d) => d.name },
+    { key: "rarity", label: "Raridade", l: true, fmt: (d) => `<span class="rar"><span class="dot" style="background:var(--rar-${d.rarity})"></span>${d.rarity}</span>` },
+    { key: "type1", label: "Tipo", l: true, fmt: (d) => d.type1 + (d.type2 ? " / " + d.type2 : "") },
+    { key: "huntLevel", label: "Hunt lv", num: true, fmt: (d) => nf0.format(d.huntLevel) },
+    { key: "lootValue", label: "Loot / kill", num: true, fmt: (d) => nf1.format(d.lootValue) },
+    { key: "sellValue", label: "Venda", num: true, fmt: (d) => nf0.format(d.sellValue) },
+    { key: "totalValue", label: "Total", num: true, fmt: (d) => nf0.format(Math.round(d.totalValue)) },
+    { key: "topLoot", label: "Maior drop", l: true, fmt: (d) => `<span class="muted">${d.topLoot}</span>` },
+  ];
+
+  function renderTable(data) {
+    const thead = $("theadRow");
+    if (!thead.childElementCount) {
+      COLS.forEach((c) => {
+        const th = document.createElement("th");
+        th.textContent = c.label;
+        if (c.l) th.classList.add("l");
+        th.addEventListener("click", () => {
+          if (state.sort.key === c.key) state.sort.dir = state.sort.dir === "asc" ? "desc" : "asc";
+          else { state.sort.key = c.key; state.sort.dir = c.num ? "desc" : "asc"; }
+          renderTable(filtered());
+        });
+        thead.appendChild(th);
+      });
+    }
+    // header sort markers
+    [...thead.children].forEach((th, i) => {
+      th.classList.toggle("sorted", COLS[i].key === state.sort.key);
+      th.classList.toggle("asc", COLS[i].key === state.sort.key && state.sort.dir === "asc");
+    });
+
+    const dir = state.sort.dir === "asc" ? 1 : -1;
+    const key = state.sort.key;
+    const rows = [...data].sort((a, b) => {
+      const av = a[key], bv = b[key];
+      if (typeof av === "number") return (av - bv) * dir;
+      return String(av).localeCompare(String(bv)) * dir;
+    });
+    $("tableCount").textContent = `— ${rows.length} monstros`;
+    const tb = $("tbody");
+    clear(tb);
+    for (const d of rows) {
+      const tr = document.createElement("tr");
+      if (d.id === state.selectedId) tr.classList.add("sel");
+      tr.innerHTML = COLS.map((c) => `<td class="${c.l ? "l" : "num"}">${c.fmt(d)}</td>`).join("");
+      tr.addEventListener("click", () => { state.selectedId = d.id; renderAll(); });
+      tb.appendChild(tr);
+    }
+  }
+
+  // ---- tooltip ----
+  const tip = $("tip");
+  function showTip(ev, html) {
+    tip.innerHTML = html;
+    tip.style.opacity = "1";
+    const pad = 14;
+    let x = ev.clientX + pad, yv = ev.clientY + pad;
+    const r = tip.getBoundingClientRect();
+    if (x + r.width > window.innerWidth) x = ev.clientX - r.width - pad;
+    if (yv + r.height > window.innerHeight) yv = ev.clientY - r.height - pad;
+    tip.style.left = x + "px"; tip.style.top = yv + "px";
+  }
+  function hideTip() { tip.style.opacity = "0"; }
+
+  // ---------- wiring ----------
+  function wire() {
+    // theme
+    $("themeBtn").addEventListener("click", () => {
+      document.documentElement.classList.toggle("dark");
+      renderAll();
+    });
+    if (window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches)
+      document.documentElement.classList.add("dark");
+
+    // dropzones
+    setupZone("dzCreatures", "fileCreatures", "creatures");
+    setupZone("dzItems", "fileItems", "items");
+
+    // api
+    $("apiBtn").addEventListener("click", async () => {
+      const btn = $("apiBtn"); btn.disabled = true; const orig = btn.textContent;
+      btn.textContent = "Carregando…"; setStatus("Buscando da API (tentando direto, depois proxy)…");
+      try {
+        const [cr, it] = await Promise.all([fetchJson(CREATURES_URL), fetchJson(ITEMS_URL)]);
+        state.rawCreatures = cr; state.rawItems = it;
+        markZone("creatures", true, "carregado da API");
+        markZone("items", true, "carregado da API");
+        tryCompute();
+      } catch (e) {
+        setStatus("Falha ao carregar da API (provavelmente CORS/proxy indisponível): " + e.message + ". Use o upload.", true);
+      } finally { btn.disabled = false; btn.textContent = orig; }
+    });
+
+    // paste
+    $("pasteBtn").addEventListener("click", () => {
+      try {
+        const cv = $("pasteCreatures").value.trim(), iv = $("pasteItems").value.trim();
+        if (cv) { state.rawCreatures = JSON.parse(cv); markZone("creatures", true, "colado"); }
+        if (iv) { state.rawItems = JSON.parse(iv); markZone("items", true, "colado"); }
+        tryCompute();
+      } catch (e) { setStatus("JSON colado inválido: " + e.message, true); }
+    });
+
+    // filters
+    $("metricSeg").addEventListener("click", (e) => {
+      const b = e.target.closest("button[data-metric]"); if (!b) return;
+      state.metric = b.dataset.metric;
+      [...$("metricSeg").children].forEach((x) => x.classList.toggle("active", x === b));
+      renderAll();
+    });
+    $("search").addEventListener("input", (e) => { state.filters.search = e.target.value; renderAll(); });
+    $("typeSel").addEventListener("change", (e) => { state.filters.type = e.target.value; renderAll(); });
+    $("hlMin").addEventListener("input", (e) => { state.filters.hlMin = e.target.value === "" ? null : Number(e.target.value); renderAll(); });
+    $("hlMax").addEventListener("input", (e) => { state.filters.hlMax = e.target.value === "" ? null : Number(e.target.value); renderAll(); });
+    $("topN").addEventListener("input", (e) => { state.topN = Math.max(1, Number(e.target.value) || 15); renderAll(); });
+    $("logY").addEventListener("change", (e) => { state.scatterLog = e.target.checked; renderAll(); });
+
+    // re-render on resize (SVGs are measured in px)
+    let rt;
+    window.addEventListener("resize", () => { clearTimeout(rt); rt = setTimeout(() => { if (state.computed.length) renderAll(); }, 150); });
+  }
+
+  function setupZone(dzId, inputId, which) {
+    const dz = $(dzId), input = $(inputId);
+    dz.addEventListener("click", () => input.click());
+    input.addEventListener("change", () => { if (input.files[0]) readFile(input.files[0], which); });
+    ["dragenter", "dragover"].forEach((ev) => dz.addEventListener(ev, (e) => { e.preventDefault(); dz.classList.add("drag"); }));
+    ["dragleave", "drop"].forEach((ev) => dz.addEventListener(ev, (e) => { e.preventDefault(); dz.classList.remove("drag"); }));
+    dz.addEventListener("drop", (e) => { const f = e.dataTransfer.files[0]; if (f) readFile(f, which); });
+  }
+
+  function readFile(file, which) {
+    const reader = new FileReader();
+    reader.onload = () => {
+      try {
+        const json = JSON.parse(reader.result);
+        // lenient auto-detect if user drops the wrong file into a zone
+        const looksItems = json && (Array.isArray(json.items) || (Array.isArray(json) && json[0] && "npcPrice" in json[0]));
+        const looksCreatures = json && (Array.isArray(json.creatures) || (Array.isArray(json) && json[0] && "loot" in json[0]));
+        let target = which;
+        if (which === "creatures" && looksItems && !looksCreatures) target = "items";
+        if (which === "items" && looksCreatures && !looksItems) target = "creatures";
+        if (target === "creatures") { state.rawCreatures = json; markZone("creatures", true, file.name); }
+        else { state.rawItems = json; markZone("items", true, file.name); }
+        tryCompute();
+      } catch (e) { setStatus(`Erro ao ler ${file.name}: ${e.message}`, true); }
+    };
+    reader.readAsText(file);
+  }
+
+  wire();
+})();
+</script>
+</body>
+</html>
