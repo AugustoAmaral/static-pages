@@ -74,8 +74,10 @@
   .card h2 .hint { font-weight: 400; color: var(--text-muted); font-size: 12px; margin-left: 6px; }
 
   /* ---- data source panel ---- */
-  .sources { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .sources { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
   @media (max-width: 720px) { .sources { grid-template-columns: 1fr; } }
+  .dropzone .opt { display: inline-block; font-size: 9.5px; text-transform: uppercase; letter-spacing: .04em;
+    color: var(--text-muted); border: 1px solid var(--axis); border-radius: 999px; padding: 0 6px; margin-left: 6px; vertical-align: middle; }
   .dropzone {
     border: 1.5px dashed var(--axis);
     border-radius: 10px;
@@ -179,7 +181,7 @@
   <header class="top">
     <div>
       <h1>Análise de Lucratividade das Creatures</h1>
-      <p>Envie <code>creatures.json</code> e <code>items.json</code> (ou carregue da API) e o app calcula o lucro esperado por monstro e gera os gráficos. Objetivo: descobrir quem maximiza o lucro.</p>
+      <p>Envie <code>creatures.json</code> e <code>items.json</code> (ou carregue da API) e o app calcula o lucro esperado por monstro e gera os gráficos. Objetivo: descobrir quem maximiza o lucro. Opcionalmente, envie o <code>map-markers</code> pra filtrar por hunt.</p>
     </div>
     <button class="theme-toggle" id="themeBtn" title="Alternar tema">🌗 Tema</button>
   </header>
@@ -198,6 +200,11 @@
         <div class="state" id="stItems">arraste o arquivo ou clique</div>
         <input type="file" id="fileItems" accept=".json,application/json" hidden />
       </div>
+      <div class="dropzone" id="dzMarkers">
+        <strong>map-markers<span class="opt">opcional</span></strong>
+        <div class="state" id="stMarkers">hunts do mapa</div>
+        <input type="file" id="fileMarkers" accept=".json,application/json" hidden />
+      </div>
     </div>
     <div class="source-actions">
       <button class="primary" id="apiBtn">Carregar da API</button>
@@ -208,6 +215,7 @@
       <div class="paste-grid">
         <textarea id="pasteCreatures" placeholder="cole o JSON de creatures aqui"></textarea>
         <textarea id="pasteItems" placeholder="cole o JSON de items aqui"></textarea>
+        <textarea id="pasteMarkers" placeholder="cole o JSON de map-markers aqui (opcional)"></textarea>
       </div>
       <div style="margin-top:8px"><button id="pasteBtn">Processar colado</button></div>
     </details>
@@ -257,6 +265,25 @@
       <label>Raridade</label>
       <div class="chips" id="rarityChips"></div>
     </div>
+    <div id="huntFilters" class="filters" style="display:none; margin-top:12px; padding-top:12px; border-top:1px solid var(--grid)">
+      <div class="fgroup">
+        <label>Hunt (mapa)</label>
+        <div class="seg" id="huntStatusSeg">
+          <button data-hunt="all" class="active">Todos</button>
+          <button data-hunt="with">Com hunt</button>
+          <button data-hunt="without">Sem hunt</button>
+        </div>
+      </div>
+      <div class="fgroup">
+        <label>Área</label>
+        <select id="areaSel"><option value="ALL">Todas</option></select>
+      </div>
+      <div class="fgroup">
+        <label>Hunt específica</label>
+        <input type="text" id="huntInput" list="huntList" placeholder="ex: Bulbasaur" style="width:170px" />
+        <datalist id="huntList"></datalist>
+      </div>
+    </div>
   </section>
 
   <!-- RANKING + BREAKDOWN -->
@@ -305,6 +332,8 @@
 (function () {
   const CREATURES_URL = "https://poke.idleworld.online/game/creatures.json";
   const ITEMS_URL = "https://poke.idleworld.online/game/items.json";
+  const MARKERS_URL = "https://poke.idleworld.online/api/game/map-markers";
+  const CITY_LOOKTYPE = 1309; // city/label markers, not real pokemon hunts
   const CHANCE_DENOM = 100000; // loot chance is out of 100000
   const RARITY_ORDER = ["COMMON", "UNCOMMON", "RARE", "EPIC", "LEGENDARY", "MYTHIC"];
   const SVGNS = "http://www.w3.org/2000/svg";
@@ -324,12 +353,17 @@
   const state = {
     rawCreatures: null,
     rawItems: null,
-    computed: [],        // [{name, huntLevel, rarity, type1, type2, lootValue, sellValue, totalValue, breakdown:[...], id}]
+    rawMarkers: null,
+    hasMarkers: false,
+    areas: [],           // distinct hunt areas, e.g. ["kanto","outland"]
+    huntNames: [],       // sorted unique hunt names for the datalist
     metric: "total",     // total | loot | sell
+    computed: [],        // [{name, huntLevel, rarity, type1, type2, lootValue, sellValue, totalValue, hunts:[...], hasHunt, huntAreas, huntSlugs, breakdown:[...], id}]
     topN: 15,
     selectedId: null,
     scatterLog: true,
-    filters: { rarity: new Set(RARITY_ORDER), type: "ALL", hlMin: null, hlMax: null, search: "" },
+    filters: { rarity: new Set(RARITY_ORDER), type: "ALL", hlMin: null, hlMax: null, search: "",
+      huntStatus: "all", area: "ALL", hunt: "" },
     sort: { key: "totalValue", dir: "desc" },
   };
 
@@ -370,9 +404,10 @@
     el.className = "status" + (isErr ? " err" : "");
   }
 
+  const ZONES = { creatures: ["dzCreatures", "stCreatures"], items: ["dzItems", "stItems"], markers: ["dzMarkers", "stMarkers"] };
   function markZone(which, ok, label) {
-    const dz = which === "creatures" ? $("dzCreatures") : $("dzItems");
-    const st = which === "creatures" ? $("stCreatures") : $("stItems");
+    const [dzId, stId] = ZONES[which];
+    const dz = $(dzId), st = $(stId);
     dz.classList.toggle("ok", ok);
     st.className = "state" + (ok ? " ok" : "");
     st.textContent = label;
@@ -381,6 +416,7 @@
   function tryCompute() {
     const creatures = normalize(state.rawCreatures, "creatures");
     const items = normalize(state.rawItems, "items");
+    const markers = normalize(state.rawMarkers, "hunts"); // optional
     if (!creatures.length || !items.length) {
       setStatus(
         `Faltando dados: ${creatures.length ? "" : "creatures "}${items.length ? "" : "items"} — carregue os dois.`,
@@ -388,18 +424,39 @@
       );
       return;
     }
-    compute(creatures, items);
-    setStatus(`✔ ${creatures.length} creatures e ${items.length} items carregados. Lucratividade calculada.`);
+    compute(creatures, items, markers);
+    const withHunt = state.computed.filter((c) => c.hasHunt).length;
+    setStatus(
+      `✔ ${creatures.length} creatures e ${items.length} items carregados. Lucratividade calculada.` +
+      (state.hasMarkers ? ` ${markers.length} marcadores de hunt (${withHunt} com hunt, ${creatures.length - withHunt} sem).` : "")
+    );
     buildControls();
     renderAll();
   }
 
-  function compute(creatures, items) {
+  function compute(creatures, items, markers) {
     // price map by lowercased/trimmed name
     const priceMap = new Map();
     for (const it of items) {
       if (it && it.name != null) priceMap.set(String(it.name).trim().toLowerCase(), Number(it.npcPrice) || 0);
     }
+    // hunts grouped by looktype (skip city/label markers); creature<->hunt link is via looktype
+    const huntsByLt = new Map();
+    const areaSet = new Set();
+    const huntNameSet = new Set();
+    for (const h of markers || []) {
+      if (Number(h.looktype) === CITY_LOOKTYPE || Number(h.level) === 0) continue;
+      const lt = Number(h.looktype);
+      if (!huntsByLt.has(lt)) huntsByLt.set(lt, []);
+      const hunt = { slug: h.slug, name: h.name, area: h.area || "", level: Number(h.level) || 0 };
+      huntsByLt.get(lt).push(hunt);
+      if (hunt.area) areaSet.add(hunt.area);
+      if (hunt.name) huntNameSet.add(hunt.name);
+    }
+    state.hasMarkers = huntsByLt.size > 0;
+    state.areas = [...areaSet].sort();
+    state.huntNames = [...huntNameSet].sort((a, b) => a.localeCompare(b));
+
     const out = [];
     let id = 0;
     for (const cr of creatures) {
@@ -415,6 +472,7 @@
       }
       breakdown.sort((a, b) => b.contribution - a.contribution);
       const sellValue = Number(cr.sellValue) || 0;
+      const hunts = huntsByLt.get(Number(cr.looktype)) || [];
       out.push({
         id: id++,
         name: cr.name || "(sem nome)",
@@ -425,6 +483,11 @@
         lootValue, sellValue, totalValue: lootValue + sellValue,
         topLoot: breakdown[0] ? breakdown[0].name : "—",
         breakdown,
+        hunts,
+        hasHunt: hunts.length > 0,
+        huntAreas: [...new Set(hunts.map((h) => h.area).filter(Boolean))],
+        huntSlugs: hunts.map((h) => h.slug),
+        huntNamesLc: hunts.map((h) => (h.name || "").toLowerCase()),
       });
     }
     state.computed = out;
@@ -434,12 +497,19 @@
   function filtered() {
     const f = state.filters;
     const q = f.search.trim().toLowerCase();
+    const hunt = f.hunt.trim().toLowerCase();
     return state.computed.filter((c) => {
       if (!f.rarity.has(c.rarity)) return false;
       if (f.type !== "ALL" && c.type1 !== f.type && c.type2 !== f.type) return false;
       if (f.hlMin != null && c.huntLevel < f.hlMin) return false;
       if (f.hlMax != null && c.huntLevel > f.hlMax) return false;
       if (q && !c.name.toLowerCase().includes(q)) return false;
+      if (state.hasMarkers) {
+        if (f.huntStatus === "with" && !c.hasHunt) return false;
+        if (f.huntStatus === "without" && c.hasHunt) return false;
+        if (f.area !== "ALL" && !c.huntAreas.includes(f.area)) return false;
+        if (hunt && !c.huntNamesLc.some((n) => n === hunt)) return false;
+      }
       return true;
     });
   }
@@ -472,6 +542,21 @@
         });
         chips.appendChild(el);
       });
+    }
+    // hunt filters (only when markers are loaded)
+    if (state.hasMarkers) {
+      const areaSel = $("areaSel");
+      // rebuild area options to reflect current markers
+      areaSel.innerHTML = '<option value="ALL">Todas</option>';
+      state.areas.forEach((a) => {
+        const o = document.createElement("option"); o.value = a; o.textContent = a; areaSel.appendChild(o);
+      });
+      areaSel.value = state.areas.includes(state.filters.area) ? state.filters.area : "ALL";
+      const dl = $("huntList");
+      dl.innerHTML = state.huntNames.map((n) => `<option value="${n.replace(/"/g, "&quot;")}"></option>`).join("");
+      $("huntFilters").style.display = "";
+    } else {
+      $("huntFilters").style.display = "none";
     }
     $("filtersCard").style.display = "";
     $("chartsRow").style.display = "";
@@ -730,24 +815,39 @@
       `<div class="t-row"><span>huntLevel</span><b>${d.huntLevel}</b></div>` +
       `<div class="t-row"><span>loot / kill</span><b>${nf1.format(d.lootValue)}</b></div>` +
       `<div class="t-row"><span>venda</span><b>${nf0.format(d.sellValue)}</b></div>` +
-      `<div class="t-row"><span>total</span><b>${nf0.format(Math.round(d.totalValue))}</b></div>`;
+      `<div class="t-row"><span>total</span><b>${nf0.format(Math.round(d.totalValue))}</b></div>` +
+      (state.hasMarkers
+        ? `<div class="t-row"><span>hunt</span><b>${d.hasHunt ? (d.huntAreas.join(", ") || "sim") + " (" + d.hunts.length + ")" : "não"}</b></div>`
+        : "");
   }
 
   // ---- table ----
-  const COLS = [
-    { key: "name", label: "Monstro", l: true, fmt: (d) => d.name },
-    { key: "rarity", label: "Raridade", l: true, fmt: (d) => `<span class="rar"><span class="dot" style="background:var(--rar-${d.rarity})"></span>${d.rarity}</span>` },
-    { key: "type1", label: "Tipo", l: true, fmt: (d) => d.type1 + (d.type2 ? " / " + d.type2 : "") },
-    { key: "huntLevel", label: "Hunt lv", num: true, fmt: (d) => nf0.format(d.huntLevel) },
-    { key: "lootValue", label: "Loot / kill", num: true, fmt: (d) => nf1.format(d.lootValue) },
-    { key: "sellValue", label: "Venda", num: true, fmt: (d) => nf0.format(d.sellValue) },
-    { key: "totalValue", label: "Total", num: true, fmt: (d) => nf0.format(Math.round(d.totalValue)) },
-    { key: "topLoot", label: "Maior drop", l: true, fmt: (d) => `<span class="muted">${d.topLoot}</span>` },
-  ];
+  // columns are dynamic: the Hunt column only appears once map-markers are loaded
+  function cols() {
+    const base = [
+      { key: "name", label: "Monstro", l: true, fmt: (d) => d.name },
+      { key: "rarity", label: "Raridade", l: true, fmt: (d) => `<span class="rar"><span class="dot" style="background:var(--rar-${d.rarity})"></span>${d.rarity}</span>` },
+      { key: "type1", label: "Tipo", l: true, fmt: (d) => d.type1 + (d.type2 ? " / " + d.type2 : "") },
+      { key: "huntLevel", label: "Hunt lv", num: true, fmt: (d) => nf0.format(d.huntLevel) },
+      { key: "lootValue", label: "Loot / kill", num: true, fmt: (d) => nf1.format(d.lootValue) },
+      { key: "sellValue", label: "Venda", num: true, fmt: (d) => nf0.format(d.sellValue) },
+      { key: "totalValue", label: "Total", num: true, fmt: (d) => nf0.format(Math.round(d.totalValue)) },
+      { key: "topLoot", label: "Maior drop", l: true, fmt: (d) => `<span class="muted">${d.topLoot}</span>` },
+    ];
+    if (state.hasMarkers) {
+      base.splice(4, 0, { key: "hasHunt", label: "Hunt", l: true, fmt: (d) =>
+        d.hasHunt
+          ? `${d.huntAreas.join(", ") || "hunt"} <span class="muted">(${d.hunts.length})</span>`
+          : `<span class="muted">sem hunt</span>` });
+    }
+    return base;
+  }
 
   function renderTable(data) {
+    const COLS = cols();
     const thead = $("theadRow");
-    if (!thead.childElementCount) {
+    if (thead.childElementCount !== COLS.length) {
+      clear(thead);
       COLS.forEach((c) => {
         const th = document.createElement("th");
         th.textContent = c.label;
@@ -812,6 +912,7 @@
     // dropzones
     setupZone("dzCreatures", "fileCreatures", "creatures");
     setupZone("dzItems", "fileItems", "items");
+    setupZone("dzMarkers", "fileMarkers", "markers");
 
     // api
     $("apiBtn").addEventListener("click", async () => {
@@ -822,6 +923,11 @@
         state.rawCreatures = cr; state.rawItems = it;
         markZone("creatures", true, "carregado da API");
         markZone("items", true, "carregado da API");
+        // map-markers is optional — don't fail the whole load if it can't be fetched
+        try {
+          state.rawMarkers = await fetchJson(MARKERS_URL);
+          markZone("markers", true, "carregado da API");
+        } catch (e) { markZone("markers", false, "falhou (opcional)"); }
         tryCompute();
       } catch (e) {
         setStatus("Falha ao carregar da API (provavelmente CORS/proxy indisponível): " + e.message + ". Use o upload.", true);
@@ -831,9 +937,10 @@
     // paste
     $("pasteBtn").addEventListener("click", () => {
       try {
-        const cv = $("pasteCreatures").value.trim(), iv = $("pasteItems").value.trim();
+        const cv = $("pasteCreatures").value.trim(), iv = $("pasteItems").value.trim(), mv = $("pasteMarkers").value.trim();
         if (cv) { state.rawCreatures = JSON.parse(cv); markZone("creatures", true, "colado"); }
         if (iv) { state.rawItems = JSON.parse(iv); markZone("items", true, "colado"); }
+        if (mv) { state.rawMarkers = JSON.parse(mv); markZone("markers", true, "colado"); }
         tryCompute();
       } catch (e) { setStatus("JSON colado inválido: " + e.message, true); }
     });
@@ -851,6 +958,16 @@
     $("hlMax").addEventListener("input", (e) => { state.filters.hlMax = e.target.value === "" ? null : Number(e.target.value); renderAll(); });
     $("topN").addEventListener("input", (e) => { state.topN = Math.max(1, Number(e.target.value) || 15); renderAll(); });
     $("logY").addEventListener("change", (e) => { state.scatterLog = e.target.checked; renderAll(); });
+
+    // hunt filters
+    $("huntStatusSeg").addEventListener("click", (e) => {
+      const b = e.target.closest("button[data-hunt]"); if (!b) return;
+      state.filters.huntStatus = b.dataset.hunt;
+      [...$("huntStatusSeg").children].forEach((x) => x.classList.toggle("active", x === b));
+      renderAll();
+    });
+    $("areaSel").addEventListener("change", (e) => { state.filters.area = e.target.value; renderAll(); });
+    $("huntInput").addEventListener("input", (e) => { state.filters.hunt = e.target.value; renderAll(); });
 
     // re-render on resize (SVGs are measured in px)
     let rt;
@@ -871,13 +988,16 @@
     reader.onload = () => {
       try {
         const json = JSON.parse(reader.result);
-        // lenient auto-detect if user drops the wrong file into a zone
+        // lenient auto-detect so a file dropped in the wrong zone still lands correctly
+        const looksMarkers = json && (Array.isArray(json.hunts) || (json.map && json.hunts));
         const looksItems = json && (Array.isArray(json.items) || (Array.isArray(json) && json[0] && "npcPrice" in json[0]));
         const looksCreatures = json && (Array.isArray(json.creatures) || (Array.isArray(json) && json[0] && "loot" in json[0]));
         let target = which;
-        if (which === "creatures" && looksItems && !looksCreatures) target = "items";
-        if (which === "items" && looksCreatures && !looksItems) target = "creatures";
-        if (target === "creatures") { state.rawCreatures = json; markZone("creatures", true, file.name); }
+        if (looksMarkers) target = "markers";
+        else if (looksItems && !looksCreatures) target = "items";
+        else if (looksCreatures && !looksItems) target = "creatures";
+        if (target === "markers") { state.rawMarkers = json; markZone("markers", true, file.name); }
+        else if (target === "creatures") { state.rawCreatures = json; markZone("creatures", true, file.name); }
         else { state.rawItems = json; markZone("items", true, file.name); }
         tryCompute();
       } catch (e) { setStatus(`Erro ao ler ${file.name}: ${e.message}`, true); }
