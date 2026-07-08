@@ -174,6 +174,30 @@
   #tip .t-row b { color: var(--text-primary); font-variant-numeric: tabular-nums; }
 
   .theme-toggle { flex: none; }
+
+  /* ---- data freshness: warning banner, modal, toast ---- */
+  .warn-banner { display: block; margin-top: 10px; padding: 10px 12px; border-radius: 8px; font-size: 12.5px;
+    background: rgba(250,178,25,0.12); border: 1px solid rgba(250,178,25,0.55); color: var(--text-primary); }
+  .warn-banner b { color: var(--text-primary); }
+
+  .modal-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.45); z-index: 100;
+    display: flex; align-items: center; justify-content: center; padding: 20px; }
+  .modal { background: var(--surface-1); border: 1px solid var(--border); border-radius: 14px; padding: 22px;
+    max-width: 480px; width: 100%; box-shadow: 0 12px 40px rgba(0,0,0,.3); }
+  .modal h3 { margin: 0 0 8px; font-size: 17px; font-weight: 650; }
+  .modal p { margin: 0 0 16px; color: var(--text-secondary); font-size: 13.5px; }
+  .modal p b { color: var(--text-primary); }
+  .modal-actions { display: flex; gap: 10px; flex-wrap: wrap; }
+  .modal-actions button { flex: 1; min-width: 150px; padding: 9px 12px; }
+  .issues-link { display: inline-block; margin-top: 14px; font-size: 12.5px; color: var(--series-1); text-decoration: none; }
+  .issues-link:hover { text-decoration: underline; }
+
+  .toast { position: fixed; left: 50%; bottom: 24px; transform: translateX(-50%) translateY(20px);
+    background: var(--surface-1); border: 1px solid var(--border); border-left: 3px solid var(--good);
+    border-radius: 10px; padding: 12px 16px; font-size: 13px; box-shadow: 0 6px 24px rgba(0,0,0,.2);
+    opacity: 0; pointer-events: none; transition: opacity .2s, transform .2s; z-index: 90; max-width: 90vw; }
+  .toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
+  .toast.err { border-left-color: var(--rar-MYTHIC); }
 </style>
 </head>
 <body>
@@ -181,45 +205,46 @@
   <header class="top">
     <div>
       <h1>Análise de Lucratividade das Creatures</h1>
-      <p>Envie <code>creatures.json</code> e <code>items.json</code> (ou carregue da API) e o app calcula o lucro esperado por monstro e gera os gráficos. Objetivo: descobrir quem maximiza o lucro. Opcionalmente, envie o <code>map-markers</code> pra filtrar por hunt.</p>
+      <p>Os dados são carregados automaticamente do repositório e verificados contra a API oficial do jogo. Objetivo: descobrir quem maximiza o lucro. Também dá pra filtrar por hunt do mapa.</p>
     </div>
     <button class="theme-toggle" id="themeBtn" title="Alternar tema">🌗 Tema</button>
   </header>
 
   <!-- DATA SOURCE -->
   <section class="card">
-    <h2>1. Dados <span class="hint">upload é o padrão · também dá pra carregar da API ou colar</span></h2>
-    <div class="sources">
-      <div class="dropzone" id="dzCreatures">
-        <strong>creatures.json</strong>
-        <div class="state" id="stCreatures">arraste o arquivo ou clique</div>
-        <input type="file" id="fileCreatures" accept=".json,application/json" hidden />
-      </div>
-      <div class="dropzone" id="dzItems">
-        <strong>items.json</strong>
-        <div class="state" id="stItems">arraste o arquivo ou clique</div>
-        <input type="file" id="fileItems" accept=".json,application/json" hidden />
-      </div>
-      <div class="dropzone" id="dzMarkers">
-        <strong>map-markers<span class="opt">opcional</span></strong>
-        <div class="state" id="stMarkers">hunts do mapa</div>
-        <input type="file" id="fileMarkers" accept=".json,application/json" hidden />
-      </div>
-    </div>
+    <h2>1. Dados <span class="hint" id="dataMeta">carregando do repositório…</span></h2>
     <div class="source-actions">
-      <button class="primary" id="apiBtn">Carregar da API</button>
-      <span class="muted" style="font-size:12px">poke.idleworld.online/game</span>
+      <button class="primary" id="reloadBtn">🔄 Verificar dados oficiais</button>
+      <span class="muted" style="font-size:12px">snapshot no GitHub · confere contra poke.idleworld.online</span>
     </div>
-    <details class="paste">
-      <summary>ou colar o conteúdo manualmente</summary>
-      <div class="paste-grid">
+    <div class="status" id="status">Carregando…</div>
+    <div id="dataWarning" class="warn-banner" style="display:none"></div>
+    <details class="paste" id="manualDetails">
+      <summary>Carregar arquivos manualmente (avançado)</summary>
+      <div class="sources" style="margin-top:10px">
+        <div class="dropzone" id="dzCreatures">
+          <strong>creatures.json</strong>
+          <div class="state" id="stCreatures">arraste o arquivo ou clique</div>
+          <input type="file" id="fileCreatures" accept=".json,application/json" hidden />
+        </div>
+        <div class="dropzone" id="dzItems">
+          <strong>items.json</strong>
+          <div class="state" id="stItems">arraste o arquivo ou clique</div>
+          <input type="file" id="fileItems" accept=".json,application/json" hidden />
+        </div>
+        <div class="dropzone" id="dzMarkers">
+          <strong>map-markers<span class="opt">opcional</span></strong>
+          <div class="state" id="stMarkers">hunts do mapa</div>
+          <input type="file" id="fileMarkers" accept=".json,application/json" hidden />
+        </div>
+      </div>
+      <div class="paste-grid" style="margin-top:10px">
         <textarea id="pasteCreatures" placeholder="cole o JSON de creatures aqui"></textarea>
         <textarea id="pasteItems" placeholder="cole o JSON de items aqui"></textarea>
         <textarea id="pasteMarkers" placeholder="cole o JSON de map-markers aqui (opcional)"></textarea>
       </div>
       <div style="margin-top:8px"><button id="pasteBtn">Processar colado</button></div>
     </details>
-    <div class="status" id="status">Nenhum dado carregado ainda.</div>
   </section>
 
   <!-- INSIGHT -->
@@ -325,14 +350,38 @@
   </section>
 </div>
 
+<!-- diff modal -->
+<div id="modal" class="modal-overlay" style="display:none">
+  <div class="modal">
+    <h3 id="modalTitle">Os dados oficiais mudaram</h3>
+    <p id="modalBody"></p>
+    <div class="modal-actions">
+      <button id="modalKeep">Manter dados atuais</button>
+      <button class="primary" id="modalRecalc">Recalcular com os novos dados</button>
+    </div>
+    <a id="issuesLink" class="issues-link" target="_blank" rel="noopener">📝 Lembrete: atualizar os JSONs no GitHub (abrir issue)</a>
+  </div>
+</div>
+
+<div id="toast" class="toast"></div>
+
 <div id="tip"></div>
 
 <script>
 "use strict";
 (function () {
+  // Official game API (no CORS → must go through a proxy)
   const CREATURES_URL = "https://poke.idleworld.online/game/creatures.json";
   const ITEMS_URL = "https://poke.idleworld.online/game/items.json";
   const MARKERS_URL = "https://poke.idleworld.online/api/game/map-markers";
+  // Augusto's committed snapshot (raw GitHub, CORS ok) — the canonical source the app loads on start
+  const GH_BASE = "https://raw.githubusercontent.com/AugustoAmaral/static-pages/refs/heads/main/assets";
+  const GH_CREATURES = GH_BASE + "/creatures.json";
+  const GH_ITEMS = GH_BASE + "/items.json";
+  const GH_MARKERS = GH_BASE + "/map-markers.json";
+  const ISSUES_URL = "https://github.com/AugustoAmaral/static-pages/issues/new?title=" +
+    encodeURIComponent("Atualizar snapshot dos JSONs (dados oficiais mudaram)") +
+    "&body=" + encodeURIComponent("Os dados oficiais do jogo divergem do snapshot em assets/. Recurl e commit dos arquivos:\n- creatures.json\n- items.json\n- map-markers.json");
   const CITY_LOOKTYPE = 1309; // city/label markers, not real pokemon hunts
   const CHANCE_DENOM = 100000; // loot chance is out of 100000
   const RARITY_ORDER = ["COMMON", "UNCOMMON", "RARE", "EPIC", "LEGENDARY", "MYTHIC"];
@@ -354,6 +403,8 @@
     rawCreatures: null,
     rawItems: null,
     rawMarkers: null,
+    githubRaw: null,     // { c, i, m } snapshot loaded from GitHub (canonical baseline)
+    officialRaw: null,   // { c, i, m } freshly fetched from the official API for comparison
     hasMarkers: false,
     areas: [],           // distinct hunt areas, e.g. ["kanto","outland"]
     huntNames: [],       // sorted unique hunt names for the datalist
@@ -380,17 +431,23 @@
     return [];
   }
 
-  async function fetchJson(url) {
-    // Try direct first (works if CORS ever enabled), then public CORS proxies.
-    const attempts = [
-      { u: url, label: "direto" },
-      { u: "https://api.allorigins.win/raw?url=" + encodeURIComponent(url), label: "proxy allorigins" },
-      { u: "https://corsproxy.io/?url=" + encodeURIComponent(url), label: "proxy corsproxy" },
+  // GitHub raw sends CORS headers → fetch directly.
+  async function fetchDirect(url) {
+    const r = await fetch(url, { cache: "no-store" });
+    if (!r.ok) throw new Error("HTTP " + r.status);
+    return r.json();
+  }
+
+  // Official API has no CORS → go straight through public proxies (direct never works from the browser).
+  async function fetchViaProxy(url) {
+    const proxies = [
+      "https://api.allorigins.win/raw?url=" + encodeURIComponent(url),
+      "https://corsproxy.io/?url=" + encodeURIComponent(url),
     ];
     let lastErr;
-    for (const a of attempts) {
+    for (const u of proxies) {
       try {
-        const r = await fetch(a.u, { cache: "no-store" });
+        const r = await fetch(u, { cache: "no-store" });
         if (!r.ok) throw new Error("HTTP " + r.status);
         return await r.json();
       } catch (e) { lastErr = e; }
@@ -398,10 +455,92 @@
     throw lastErr;
   }
 
+  // Order-insensitive deep compare (sorts object keys; keeps array order).
+  function stableStringify(v) {
+    if (Array.isArray(v)) return "[" + v.map(stableStringify).join(",") + "]";
+    if (v && typeof v === "object") {
+      return "{" + Object.keys(v).sort().map((k) => JSON.stringify(k) + ":" + stableStringify(v[k])).join(",") + "}";
+    }
+    return JSON.stringify(v);
+  }
+  const sameData = (a, b) => stableStringify(a) === stableStringify(b);
+
+  // ---------- freshness flow (GitHub snapshot → verify against official API) ----------
+  async function bootstrap() {
+    const btn = $("reloadBtn"); btn.disabled = true;
+    hideWarning();
+    setStatus("Carregando dados do repositório (GitHub)…");
+    setSource("carregando do repositório…");
+    let gh;
+    try {
+      const [c, i, m] = await Promise.all([fetchDirect(GH_CREATURES), fetchDirect(GH_ITEMS), fetchDirect(GH_MARKERS)]);
+      gh = { c, i, m };
+    } catch (e) {
+      setStatus("Falha ao carregar os dados do repositório: " + e.message + ". Carregue manualmente abaixo.", true);
+      setSource("erro no repositório");
+      $("manualDetails").open = true;
+      btn.disabled = false;
+      return;
+    }
+    state.githubRaw = gh;
+    state.rawCreatures = gh.c; state.rawItems = gh.i; state.rawMarkers = gh.m;
+    tryCompute(); // renders from the snapshot immediately
+    setSource("fonte: snapshot do GitHub");
+    await verifyAgainstOfficial();
+    btn.disabled = false;
+  }
+
+  async function verifyAgainstOfficial() {
+    setStatus($("status").textContent + " Verificando dados oficiais (via proxy)…");
+    let off;
+    try {
+      const [c, i, m] = await Promise.all([fetchViaProxy(CREATURES_URL), fetchViaProxy(ITEMS_URL), fetchViaProxy(MARKERS_URL)]);
+      off = { c, i, m };
+    } catch (e) {
+      showWarning(
+        "⚠️ Não foi possível verificar os dados oficiais — o request ao servidor do jogo (via proxy) falhou. " +
+        "Os dados exibidos vêm do snapshot e <b>podem estar desatualizados</b>."
+      );
+      return;
+    }
+    state.officialRaw = off;
+    const diffs = [];
+    if (!sameData(state.githubRaw.c, off.c)) diffs.push("creatures");
+    if (!sameData(state.githubRaw.i, off.i)) diffs.push("items");
+    if (!sameData(state.githubRaw.m, off.m)) diffs.push("map-markers");
+    if (diffs.length === 0) {
+      hideWarning();
+      toast("✔ Verificado: os dados estão atualizados.");
+    } else {
+      openDiffModal(diffs);
+    }
+  }
+
+  function openDiffModal(diffs) {
+    $("modalBody").innerHTML =
+      `Os dados oficiais mudaram desde o último snapshot (diferença em: <b>${diffs.join(", ")}</b>). ` +
+      `Você pode continuar com o snapshot atual ou recalcular tudo já com os dados oficiais recém-baixados.`;
+    $("issuesLink").href = ISSUES_URL;
+    $("modal").style.display = "flex";
+  }
+  function closeModal() { $("modal").style.display = "none"; }
+
   function setStatus(msg, isErr) {
     const el = $("status");
     el.textContent = msg;
     el.className = "status" + (isErr ? " err" : "");
+  }
+  function setSource(txt) { $("dataMeta").textContent = txt; }
+  function showWarning(html) { const w = $("dataWarning"); w.innerHTML = html; w.style.display = "block"; }
+  function hideWarning() { $("dataWarning").style.display = "none"; }
+
+  let toastTimer = null;
+  function toast(msg, isErr) {
+    const t = $("toast");
+    t.textContent = msg;
+    t.className = "toast show" + (isErr ? " err" : "");
+    if (toastTimer) clearTimeout(toastTimer);
+    toastTimer = setTimeout(() => { t.className = "toast" + (isErr ? " err" : ""); }, 3800);
   }
 
   const ZONES = { creatures: ["dzCreatures", "stCreatures"], items: ["dzItems", "stItems"], markers: ["dzMarkers", "stMarkers"] };
@@ -914,24 +1053,25 @@
     setupZone("dzItems", "fileItems", "items");
     setupZone("dzMarkers", "fileMarkers", "markers");
 
-    // api
-    $("apiBtn").addEventListener("click", async () => {
-      const btn = $("apiBtn"); btn.disabled = true; const orig = btn.textContent;
-      btn.textContent = "Carregando…"; setStatus("Buscando da API (tentando direto, depois proxy)…");
-      try {
-        const [cr, it] = await Promise.all([fetchJson(CREATURES_URL), fetchJson(ITEMS_URL)]);
-        state.rawCreatures = cr; state.rawItems = it;
-        markZone("creatures", true, "carregado da API");
-        markZone("items", true, "carregado da API");
-        // map-markers is optional — don't fail the whole load if it can't be fetched
-        try {
-          state.rawMarkers = await fetchJson(MARKERS_URL);
-          markZone("markers", true, "carregado da API");
-        } catch (e) { markZone("markers", false, "falhou (opcional)"); }
+    // reload: re-load the GitHub snapshot, then verify against the official API
+    $("reloadBtn").addEventListener("click", () => bootstrap());
+
+    // diff modal actions
+    $("modalKeep").addEventListener("click", () => {
+      closeModal();
+      showWarning("Os dados oficiais estão diferentes do snapshot — você optou por <b>manter o snapshot atual</b>. Eles podem estar desatualizados.");
+      toast("Mantendo o snapshot atual.");
+    });
+    $("modalRecalc").addEventListener("click", () => {
+      const off = state.officialRaw;
+      if (off) {
+        state.rawCreatures = off.c; state.rawItems = off.i; state.rawMarkers = off.m;
         tryCompute();
-      } catch (e) {
-        setStatus("Falha ao carregar da API (provavelmente CORS/proxy indisponível): " + e.message + ". Use o upload.", true);
-      } finally { btn.disabled = false; btn.textContent = orig; }
+        setSource("fonte: API oficial (recalculado)");
+      }
+      hideWarning();
+      closeModal();
+      toast("Recalculado com os dados oficiais.");
     });
 
     // paste
@@ -942,6 +1082,7 @@
         if (iv) { state.rawItems = JSON.parse(iv); markZone("items", true, "colado"); }
         if (mv) { state.rawMarkers = JSON.parse(mv); markZone("markers", true, "colado"); }
         tryCompute();
+        setSource("fonte: dados manuais (colados)");
       } catch (e) { setStatus("JSON colado inválido: " + e.message, true); }
     });
 
@@ -1000,12 +1141,14 @@
         else if (target === "creatures") { state.rawCreatures = json; markZone("creatures", true, file.name); }
         else { state.rawItems = json; markZone("items", true, file.name); }
         tryCompute();
+        setSource("fonte: arquivos manuais (upload)");
       } catch (e) { setStatus(`Erro ao ler ${file.name}: ${e.message}`, true); }
     };
     reader.readAsText(file);
   }
 
   wire();
+  bootstrap(); // auto-load the GitHub snapshot and verify against the official API
 })();
 </script>
 </body>
