@@ -1664,6 +1664,15 @@
    "npcPrice": 0
   },
   {
+   "id": 44417,
+   "name": "Strange Pheromone",
+   "icon": "/assets/items/strange_pheromone.png",
+   "category": "loot",
+   "rare": false,
+   "npcPrice": 1000000,
+   "description": "Um feromônio misterioso com um aroma incomum. Parece estimular os instintos dos Pokémon, tornando-os mais receptivos durante o breeding"
+  },
+  {
    "id": 16257,
    "name": "Shiny Venusaur Card",
    "icon": "/assets/cards/16257.png",
