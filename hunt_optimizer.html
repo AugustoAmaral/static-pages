@@ -420,6 +420,18 @@
   ];
   const CAPTURE_K = 1.75; // tuning constant baked into piwtools
 
+  // Hunt efficiency — see docs/superpowers/specs/2026-07-14-hunt-efficiency-design.md.
+  // KEEP IN SYNC with scripts/hunt-model.mjs.
+  const GH_HUNTCFG = GH_BASE + "/hunt-configs.json";
+  const MODEL_DEFAULTS = { tileS: 0.6, respawnS: 60, F: 1.23, xpMult: 1, killTimeS: 0 };
+  function killsPerMin(route, n, p) {
+    const { tileS, respawnS, F, killTimeS } = Object.assign({}, MODEL_DEFAULTS, p || {});
+    if (!n || route == null) return 0;
+    const lapWalk = (route * tileS) / F;
+    const cycle = lapWalk + n * killTimeS;
+    return (n * 60) / Math.max(cycle, respawnS);
+  }
+
   const nf0 = new Intl.NumberFormat("pt-BR", { maximumFractionDigits: 0 });
   const nf1 = new Intl.NumberFormat("pt-BR", { maximumFractionDigits: 1 });
 
@@ -449,6 +461,9 @@
     filters: { rarity: new Set(["COMMON", "UNCOMMON", "RARE", "EPIC"]), type: "ALL", hlMin: null, hlMax: null, search: "",
       huntStatus: "with", area: "kanto", hunt: "" },
     sort: { key: "lootValue", dir: "desc" },
+    huntConfigs: null, // { slug: {n, route, spawns} } from the snapshot
+    huntStale: false,  // true once official data diverges (per-hour numbers may be off)
+    params: { tileS: 0.6, respawnS: 60, F: 1.23, xpMult: 1, killTimeS: 0 },
   };
 
   // Tab config: each tab plots a different value field.
@@ -542,7 +557,11 @@
     setSource("carregando do repositório…");
     let gh;
     try {
-      const [c, i, m] = await Promise.all([fetchDirect(GH_CREATURES), fetchDirect(GH_ITEMS), fetchDirect(GH_MARKERS)]);
+      const [c, i, m, hc] = await Promise.all([
+        fetchDirect(GH_CREATURES), fetchDirect(GH_ITEMS), fetchDirect(GH_MARKERS),
+        fetchDirect(GH_HUNTCFG).catch(() => null),
+      ]);
+      state.huntConfigs = hc;
       gh = { c, i, m };
     } catch (e) {
       setStatus("Falha ao carregar os dados do repositório: " + e.message + ". Carregue manualmente abaixo.", true);
@@ -715,6 +734,19 @@
       const hunts = (huntsByName.get(nm) && huntsByName.get(nm).length)
         ? huntsByName.get(nm)
         : (huntsByLt.get(Number(cr.looktype)) || []);
+      const hc = state.huntConfigs;
+      const areaSlug = hc && hunts.length
+        ? (hunts.find((h) => h.area === state.filters.area) || hunts[0]).slug : null;
+      const hcfg = hc && areaSlug ? hc[areaSlug] : null;
+      let killsPerMinV = 0, xpPerHour = 0, goldPerHour = 0, huntRoute = null, huntN = 0, regime = null;
+      if (hcfg) {
+        huntRoute = hcfg.route; huntN = hcfg.n;
+        killsPerMinV = killsPerMin(hcfg.route, hcfg.n, state.params);
+        const lapWalk = (hcfg.route * state.params.tileS) / state.params.F;
+        regime = lapWalk + hcfg.n * state.params.killTimeS <= state.params.respawnS ? "respawn" : "size";
+        xpPerHour = killsPerMinV * 60 * (Number(cr.experience) || 0) * state.params.xpMult;
+        goldPerHour = killsPerMinV * 60 * (lootValue + captureNet);
+      }
       out.push({
         id: id++,
         name: cr.name || "(sem nome)",
@@ -730,6 +762,7 @@
         captureRates: cap.rates,         // { poke, great, super, ultra } as 0–1
         captureNet,                      // per-kill net gold from capturing (venda*chance − ball price)
         profitTotal,                     // lootValue + captureNet — field plotted by the Lucro total tab
+        killsPerMinV, xpPerHour, goldPerHour, huntRoute, huntN, regime,
         topLoot: breakdown[0] ? breakdown[0].name : "—",
         breakdown,
         hunts,
