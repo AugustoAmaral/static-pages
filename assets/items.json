@@ -1211,7 +1211,7 @@
    "category": "revive",
    "rare": true,
    "npcPrice": 2500,
-   "revivePct": 1.0,
+   "revivePct": 1,
    "priceGold": 350
   },
   {

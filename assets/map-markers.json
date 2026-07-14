@@ -1,1 +1,4418 @@
-{"map":{"w":1788,"h":3364},"hunts":[{"slug":"cerulean","name":"Cerulean","looktype":1309,"level":0,"pixel":[589,355],"area":"kanto","range":[3976,3432,4119,3523,7]},{"slug":"pewter","name":"Lavender","looktype":1309,"level":0,"pixel":[785,515],"area":"kanto","range":[4236,3608,4286,3638,5]},{"slug":"viridian","name":"Viridian","looktype":1309,"level":0,"pixel":[215,600],"area":"kanto","range":[3684,3687,3762,3735,7]},{"slug":"cassino","name":"Cassino","looktype":1309,"level":0,"pixel":[520,531],"area":"kanto","range":[3973,3633,3993,3661,6]},{"slug":"bulbasaur","name":"Bulbasaur","looktype":25,"level":20,"pixel":[365,662],"area":"kanto","range":[3814,3758,3865,3785,7]},{"slug":"ivysaur","name":"Ivysaur","looktype":24,"level":40,"pixel":[337,693],"area":"kanto","range":[3819,3759,3870,3786,6]},{"slug":"venusaur","name":"Venusaur","looktype":22,"level":80,"pixel":[412,683],"area":"kanto","range":[3865,3825,3916,3852,6]},{"slug":"charmander","name":"Charmander","looktype":29,"level":20,"pixel":[190,884],"area":"kanto","range":[3650,3988,3694,4014,7]},{"slug":"charmeleon","name":"Charmeleon","looktype":23,"level":40,"pixel":[207,922],"area":"kanto","range":[3724,4002,3768,4029,7]},{"slug":"charizard","name":"Charizard","looktype":67,"level":80,"pixel":[61,43],"area":"kanto","range":[3502,3154,3553,3185,6]},{"slug":"squirtle","name":"Squirtle","looktype":2,"level":20,"pixel":[825,229],"area":"kanto","range":[4279,3370,4331,3402,7]},{"slug":"wartortle","name":"Wartortle","looktype":6,"level":40,"pixel":[860,179],"area":"kanto","range":[4251,3317,4303,3349,6]},{"slug":"blastoise","name":"Blastoise","looktype":55,"level":150,"pixel":[836,108],"area":"kanto","range":[4319,3332,4371,3364,5]},{"slug":"caterpie","name":"Caterpie","looktype":32,"level":1,"pixel":[728,690],"area":"kanto","range":[3718,3625,3770,3658,7]},{"slug":"metapod","name":"Metapod","looktype":31,"level":10,"pixel":[183,520],"area":"kanto","range":[3673,3591,3724,3622,7]},{"slug":"butterfree","name":"Butterfree","looktype":40,"level":30,"pixel":[402,842],"area":"kanto","range":[3718,3584,3770,3616,7]},{"slug":"weedle","name":"Weedle","looktype":21,"level":1,"pixel":[476,362],"area":"kanto","range":[3696,3625,3747,3656,7]},{"slug":"kakuna","name":"Kakuna","looktype":60,"level":10,"pixel":[432,372],"area":"kanto","range":[4148,3598,4200,3630,7]},{"slug":"beedrill","name":"Beedrill","looktype":3563,"level":30,"pixel":[446,327],"area":"kanto","range":[3906,3449,3958,3481,7]},{"slug":"pidgey","name":"Pidgey","looktype":30,"level":1,"pixel":[689,392],"area":"kanto","range":[4162,3488,4214,3520,7]},{"slug":"pidgeotto","name":"Pidgeotto","looktype":5,"level":20,"pixel":[723,392],"area":"kanto","range":[4178,3497,4229,3527,6]},{"slug":"pidgeot","name":"Pidgeot","looktype":80,"level":80,"pixel":[664,170],"area":"kanto","range":[4115,3275,4155,3300,4]},{"slug":"rattata","name":"Rattata","looktype":36,"level":1,"pixel":[599,390],"area":"kanto","range":[4068,3476,4120,3508,8]},{"slug":"raticate","name":"Raticate","looktype":69,"level":30,"pixel":[571,385],"area":"kanto","range":[4006,3425,4050,3452,9]},{"slug":"spearow","name":"Spearow","looktype":27,"level":10,"pixel":[141,438],"area":"kanto","range":[3701,4952,3746,4979,6]},{"slug":"fearow","name":"Fearow","looktype":17,"level":50,"pixel":[135,376],"area":"kanto","range":[3599,3431,3643,3459,7]},{"slug":"ekans","name":"Ekans","looktype":7,"level":10,"pixel":[507,416],"area":"kanto","range":[3949,3523,3994,3550,7]},{"slug":"arbok","name":"Arbok","looktype":39,"level":40,"pixel":[439,435],"area":"kanto","range":[3906,3536,3950,3563,6]},{"slug":"pikachu","name":"Pikachu","looktype":59,"level":60,"pixel":[1088,202],"area":"kanto","range":[4577,3244,4633,3279,6]},{"slug":"raichu","name":"Raichu","looktype":50,"level":80,"pixel":[1166,148],"area":"kanto","range":[4645,3323,4690,3351,6]},{"slug":"sandshrew","name":"Sandshrew","looktype":43,"level":20,"pixel":[699,354],"area":"kanto","range":[4138,3433,4182,3461,7]},{"slug":"sandslash","name":"Sandslash","looktype":115,"level":60,"pixel":[742,295],"area":"kanto","range":[4147,3397,4203,3432,5]},{"slug":"nidoranfe","name":"Nidoranfe","looktype":70,"level":10,"pixel":[116,620],"area":"kanto","range":[3600,3695,3644,3722,7]},{"slug":"nidorina","name":"Nidorina","looktype":71,"level":30,"pixel":[134,594],"area":"kanto","range":[3600,3695,3644,3722,7]},{"slug":"nidoqueen","name":"Nidoqueen","looktype":79,"level":80,"pixel":[604,758],"area":"kanto","range":[4028,3918,4085,3954,7]},{"slug":"nidoranma","name":"Nidoranma","looktype":66,"level":10,"pixel":[164,571],"area":"kanto","range":[3600,3695,3644,3722,7]},{"slug":"nidorino","name":"Nidorino","looktype":78,"level":30,"pixel":[191,555],"area":"kanto","range":[3600,3695,3644,3722,7]},{"slug":"nidoking","name":"Nidoking","looktype":35,"level":80,"pixel":[605,798],"area":"kanto","range":[4028,3918,4085,3954,7]},{"slug":"clefairy","name":"Clefairy","looktype":73,"level":40,"pixel":[299,366],"area":"kanto","range":[3835,3464,3879,3490,5]},{"slug":"clefable","name":"Clefable","looktype":68,"level":80,"pixel":[382,353],"area":"kanto","range":[3816,3467,3860,3494,3]},{"slug":"vulpix","name":"Vulpix","looktype":62,"level":20,"pixel":[302,924],"area":"kanto","range":[3747,4015,3791,4042,7]},{"slug":"ninetales","name":"Ninetales","looktype":114,"level":100,"pixel":[236,896],"area":"kanto","range":[3760,3983,3804,4012,3]},{"slug":"jigglypuff","name":"Jigglypuff","looktype":203,"level":40,"pixel":[731,1411],"area":"kanto","range":[3705,4483,3749,4510,7]},{"slug":"wigglytuff","name":"Wigglytuff","looktype":64,"level":80,"pixel":[728,1455],"area":"kanto","range":[3735,4531,3786,4558,7]},{"slug":"zubat","name":"Zubat","looktype":44,"level":10,"pixel":[358,382],"area":"kanto","range":[3830,3460,3895,3494,6]},{"slug":"golbat","name":"Golbat","looktype":122,"level":40,"pixel":[335,344],"area":"kanto","range":[3752,3467,3817,3502,6]},{"slug":"oddish","name":"Oddish","looktype":56,"level":1,"pixel":[653,426],"area":"kanto","range":[4140,3532,4191,3560,7]},{"slug":"gloom","name":"Gloom","looktype":74,"level":30,"pixel":[541,437],"area":"kanto","range":[4005,3523,4069,3557,7]},{"slug":"vileplume","name":"Vileplume","looktype":89,"level":60,"pixel":[453,647],"area":"kanto","range":[3674,6101,3719,6129,7]},{"slug":"paras","name":"Paras","looktype":81,"level":1,"pixel":[253,439],"area":"kanto","range":[3932,3515,3976,3542,7]},{"slug":"parasect","name":"Parasect","looktype":95,"level":50,"pixel":[266,406],"area":"kanto","range":[3712,3537,3757,3565,7]},{"slug":"venonat","name":"Venonat","looktype":52,"level":20,"pixel":[794,842],"area":"kanto","range":[4231,3959,4275,3987,7]},{"slug":"venomoth","name":"Venomoth","looktype":49,"level":60,"pixel":[760,859],"area":"kanto","range":[4250,3938,4294,3966,7]},{"slug":"diglett","name":"Diglett","looktype":82,"level":10,"pixel":[671,309],"area":"kanto","range":[4142,3448,4186,3476,7]},{"slug":"dugtrio","name":"Dugtrio","looktype":83,"level":40,"pixel":[661,348],"area":"kanto","range":[4150,3458,4194,3485,6]},{"slug":"meowth","name":"Meowth","looktype":105,"level":20,"pixel":[129,138],"area":"kanto","range":[4166,3624,4211,3651,7]},{"slug":"persian","name":"Persian","looktype":3,"level":50,"pixel":[159,86],"area":"kanto","range":[3593,3225,3638,3253,6]},{"slug":"psyduck","name":"Psyduck","looktype":100,"level":20,"pixel":[882,756],"area":"kanto","range":[4354,3840,4399,3868,7]},{"slug":"golduck","name":"Golduck","looktype":99,"level":80,"pixel":[880,688],"area":"kanto","range":[3881,6086,3937,6120,7]},{"slug":"mankey","name":"Mankey","looktype":106,"level":10,"pixel":[124,683],"area":"kanto","range":[3595,3760,3640,3787,7]},{"slug":"primeape","name":"Primeape","looktype":103,"level":30,"pixel":[144,653],"area":"kanto","range":[3603,3770,3647,3797,6]},{"slug":"growlithe","name":"Growlithe","looktype":109,"level":30,"pixel":[282,882],"area":"kanto","range":[3749,3998,3805,4033,7]},{"slug":"arcanine","name":"Arcanine","looktype":91,"level":100,"pixel":[265,844],"area":"kanto","range":[3730,3956,3786,3991,7]},{"slug":"poliwag","name":"Poliwag","looktype":111,"level":1,"pixel":[543,905],"area":"kanto","range":[3999,4005,4043,4032,7]},{"slug":"poliwhirl","name":"Poliwhirl","looktype":212,"level":30,"pixel":[430,949],"area":"kanto","range":[3925,4018,3981,4052,7]},{"slug":"poliwrath","name":"Poliwrath","looktype":104,"level":80,"pixel":[466,960],"area":"kanto","range":[3907,4045,3963,4080,6]},{"slug":"abra","name":"Abra","looktype":262,"level":10,"pixel":[1176,588],"area":"kanto","range":[4618,3674,4673,3709,7]},{"slug":"kadabra","name":"Kadabra","looktype":219,"level":50,"pixel":[1099,639],"area":"kanto","range":[4571,3655,4627,3689,7]},{"slug":"alakazam","name":"Alakazam","looktype":218,"level":100,"pixel":[1088,531],"area":"kanto","range":[4515,3616,4571,3651,8]},{"slug":"machop","name":"Machop","looktype":118,"level":20,"pixel":[108,549],"area":"kanto","range":[3561,3634,3617,3668,7]},{"slug":"machoke","name":"Machoke","looktype":113,"level":40,"pixel":[81,508],"area":"kanto","range":[3977,3254,4033,3289,7]},{"slug":"machamp","name":"Machamp","looktype":121,"level":80,"pixel":[800,340],"area":"kanto","range":[4220,3456,4276,3491,4]},{"slug":"bellsprout","name":"Bellsprout","looktype":250,"level":1,"pixel":[577,423],"area":"kanto","range":[3980,3714,4036,3748,7]},{"slug":"weepinbell","name":"Weepinbell","looktype":37,"level":30,"pixel":[520,596],"area":"kanto","range":[3987,3679,4043,3714,7]},{"slug":"victreebel","name":"Victreebel","looktype":240,"level":60,"pixel":[354,215],"area":"kanto","range":[3815,3306,3857,3337,6]},{"slug":"tentacool","name":"Tentacool","looktype":96,"level":10,"pixel":[807,607],"area":"kanto","range":[4299,3732,4344,3759,8]},{"slug":"tentacruel","name":"Tentacruel","looktype":108,"level":80,"pixel":[786,644],"area":"kanto","range":[4328,3717,4384,3752,8]},{"slug":"geodude","name":"Geodude","looktype":196,"level":1,"pixel":[761,409],"area":"kanto","range":[4227,3540,4283,3575,7]},{"slug":"graveler","name":"Graveler","looktype":247,"level":40,"pixel":[767,367],"area":"kanto","range":[4219,3556,4275,3591,7]},{"slug":"golem","name":"Golem","looktype":116,"level":80,"pixel":[789,452],"area":"kanto","range":[4228,3582,4284,3616,4]},{"slug":"ponyta","name":"Ponyta","looktype":16,"level":20,"pixel":[163,829],"area":"kanto","range":[3631,3945,3687,3980,7]},{"slug":"rapidash","name":"Rapidash","looktype":2116,"level":80,"pixel":[225,852],"area":"kanto","range":[3730,3955,3775,3983,5]},{"slug":"brave_blastoise","name":"Brave Blastoise","looktype":55,"level":150,"pixel":[175,93],"area":"outland","range":[2670,2856,2748,2898,7]},{"slug":"tribal_feraligatr","name":"Tribal Feraligatr","looktype":329,"level":150,"pixel":[137,54],"area":"outland","range":[2670,2856,2748,2898,7]},{"slug":"ancient_meganium","name":"Ancient Meganium","looktype":320,"level":150,"pixel":[211,142],"area":"outland","range":[2729,2906,2808,2948,7]},{"slug":"brave_venusaur","name":"Brave Venusaur","looktype":22,"level":150,"pixel":[272,143],"area":"outland","range":[2748,2912,2827,2953,6]},{"slug":"war_heracross","name":"War Heracross","looktype":373,"level":150,"pixel":[228,233],"area":"outland","range":[2695,3007,2760,3042,6]},{"slug":"furious_scyther","name":"Furious Scyther","looktype":15,"level":150,"pixel":[161,256],"area":"outland","range":[2690,3010,2755,3045,7]},{"slug":"enigmatic_girafarig","name":"Enigmatic Girafarig","looktype":362,"level":150,"pixel":[121,154],"area":"outland","range":[2625,2891,2690,2926,7]},{"slug":"charged_raichu","name":"Charged Raichu","looktype":50,"level":150,"pixel":[129,112],"area":"outland","range":[2642,3136,2721,3178,10]},{"slug":"furious_ampharos","name":"Furious Ampharos","looktype":361,"level":150,"pixel":[143,128],"area":"outland","range":[2642,3136,2721,3178,10]},{"slug":"magnetic_electabuzz","name":"Magnetic Electabuzz","looktype":281,"level":150,"pixel":[158,112],"area":"outland","range":[2642,3136,2721,3178,10]},{"slug":"ancient_dragonair","name":"Ancient Dragonair","looktype":61,"level":150,"pixel":[201,463],"area":"outland","range":[2696,3250,2789,3299,4]},{"slug":"evil_cloyster","name":"Evil Cloyster","looktype":72,"level":150,"pixel":[144,521],"area":"outland","range":[2634,3230,2726,3280,7]},{"slug":"freezing_dewgong","name":"Freezing Dewgong","looktype":110,"level":150,"pixel":[155,458],"area":"outland","range":[2634,3230,2726,3280,7]},{"slug":"psy_jynx","name":"Psy Jynx","looktype":282,"level":150,"pixel":[54,497],"area":"outland","range":[2634,3230,2726,3280,7]},{"slug":"heavy_piloswine","name":"Heavy Piloswine","looktype":390,"level":150,"pixel":[94,455],"area":"outland","range":[2634,3230,2726,3280,7]},{"slug":"milch_miltank","name":"Milch-Miltank","looktype":408,"level":150,"pixel":[217,401],"area":"outland","range":[2726,3167,2792,3202,7]},{"slug":"roll_donphan","name":"Roll Donphan","looktype":405,"level":150,"pixel":[121,316],"area":"outland","range":[2619,3158,2684,3192,7]},{"slug":"furious_sandslash","name":"Furious Sandslash","looktype":115,"level":150,"pixel":[143,401],"area":"outland","range":[2619,3158,2684,3192,7]},{"slug":"hard_golem","name":"Hard Golem","looktype":116,"level":150,"pixel":[353,349],"area":"outland","range":[2973,3081,3048,3121,6]},{"slug":"brute_rhydon","name":"Brute Rhydon","looktype":200,"level":150,"pixel":[407,352],"area":"outland","range":[2863,3092,2952,3140,6]},{"slug":"brave_charizard","name":"Brave Charizard","looktype":67,"level":150,"pixel":[237,326],"area":"outland","range":[2735,3081,2834,3143,6]},{"slug":"enraged_typhlosion","name":"Enraged Typhlosion","looktype":323,"level":150,"pixel":[177,350],"area":"outland","range":[2678,3132,2738,3164,7]},{"slug":"brave_nidoking","name":"Brave Nidoking","looktype":35,"level":150,"pixel":[399,209],"area":"outland","range":[2901,2964,2980,3006,7]},{"slug":"brave_nidoqueen","name":"Brave Nidoqueen","looktype":79,"level":150,"pixel":[371,181],"area":"outland","range":[2901,2964,2980,3006,7]},{"slug":"dark_crobat","name":"Dark Crobat","looktype":338,"level":150,"pixel":[273,468],"area":"outland","range":[2772,3269,2846,3309,6]},{"slug":"trickmaster_gengar","name":"Trickmaster Gengar","looktype":244,"level":150,"pixel":[368,235],"area":"outland","range":[2832,2950,2920,2997,8]},{"slug":"banshee_misdreavus","name":"Banshee Misdreavus","looktype":366,"level":150,"pixel":[346,222],"area":"outland","range":[2831,3022,2906,3062,8]},{"slug":"slowpoke","name":"Slowpoke","looktype":75,"level":10,"pixel":[560,1879],"area":"kanto","range":[3573,4946,3630,4981,7]},{"slug":"slowbro","name":"Slowbro","looktype":41,"level":60,"pixel":[620,1878],"area":"kanto","range":[3573,4946,3630,4981,7]},{"slug":"magnemite","name":"Magnemite","looktype":217,"level":10,"pixel":[724,456],"area":"kanto","range":[4165,3552,4221,3587,7]},{"slug":"magneton","name":"Magneton","looktype":223,"level":80,"pixel":[853,368],"area":"kanto","range":[4306,3495,4373,3540,1]},{"slug":"farfetch_d","name":"Farfetch'D","looktype":57,"level":50,"pixel":[734,735],"area":"kanto","range":[4048,6112,4115,6154,5]},{"slug":"doduo","name":"Doduo","looktype":26,"level":10,"pixel":[651,776],"area":"kanto","range":[4118,3885,4174,3920,7]},{"slug":"dodrio","name":"Dodrio","looktype":120,"level":60,"pixel":[651,735],"area":"kanto","range":[4120,6095,4177,6130,6]},{"slug":"seel","name":"Seel","looktype":101,"level":20,"pixel":[536,1068],"area":"kanto","range":[4108,4024,4166,4061,7]},{"slug":"dewgong","name":"Dewgong","looktype":110,"level":60,"pixel":[498,1006],"area":"kanto","range":[3948,4099,4015,4141,7]},{"slug":"grimer","name":"Grimer","looktype":214,"level":10,"pixel":[475,437],"area":"kanto","range":[3862,3527,3918,3561,7]},{"slug":"muk","name":"Muk","looktype":47,"level":80,"pixel":[405,417],"area":"kanto","range":[3853,3541,3921,3583,9]},{"slug":"shellder","name":"Shellder","looktype":54,"level":10,"pixel":[662,931],"area":"kanto","range":[4041,4100,4097,4135,7]},{"slug":"cloyster","name":"Cloyster","looktype":72,"level":60,"pixel":[592,998],"area":"kanto","range":[3960,4110,4028,4152,3]},{"slug":"gastly","name":"Gastly","looktype":48,"level":20,"pixel":[822,532],"area":"kanto","range":[4259,3609,4315,3644,7]},{"slug":"haunter","name":"Haunter","looktype":65,"level":50,"pixel":[822,490],"area":"kanto","range":[4276,3616,4344,3658,8]},{"slug":"gengar","name":"Gengar","looktype":244,"level":100,"pixel":[190,314],"area":"kanto","range":[3578,3408,3646,3450,8]},{"slug":"onix","name":"Onix","looktype":248,"level":60,"pixel":[618,1923],"area":"kanto","range":[3650,5059,3706,5094,12]},{"slug":"drowzee","name":"Drowzee","looktype":94,"level":30,"pixel":[1135,613],"area":"kanto","range":[4569,3694,4625,3728,7]},{"slug":"hypno","name":"Hypno","looktype":119,"level":60,"pixel":[1142,546],"area":"kanto","range":[4573,3653,4629,3687,6]},{"slug":"krabby","name":"Krabby","looktype":112,"level":10,"pixel":[598,1359],"area":"kanto","range":[4039,5882,4095,5917,7]},{"slug":"kingler","name":"Kingler","looktype":245,"level":60,"pixel":[1150,2713],"area":"kanto","range":[4116,5914,4172,5949,7]},{"slug":"voltorb","name":"Voltorb","looktype":123,"level":10,"pixel":[893,369],"area":"kanto","range":[4308,3494,4357,3542,7]},{"slug":"electrode","name":"Electrode","looktype":125,"level":40,"pixel":[851,407],"area":"kanto","range":[4308,3494,4357,3542,6]},{"slug":"exeggcute","name":"Exeggcute","looktype":213,"level":10,"pixel":[1031,589],"area":"kanto","range":[4510,3718,4574,3757,7]},{"slug":"exeggutor","name":"Exeggutor","looktype":46,"level":100,"pixel":[1031,662],"area":"kanto","range":[3772,3314,3835,3353,7]},{"slug":"cubone","name":"Cubone","looktype":124,"level":20,"pixel":[732,338],"area":"kanto","range":[4138,3412,4203,3454,6]},{"slug":"marowak","name":"Marowak","looktype":197,"level":50,"pixel":[703,294],"area":"kanto","range":[4127,3422,4194,3464,8]},{"slug":"hitmonlee","name":"Hitmonlee","looktype":20,"level":60,"pixel":[463,1840],"area":"kanto","range":[3540,4905,3608,4947,5]},{"slug":"hitmonchan","name":"Hitmonchan","looktype":38,"level":60,"pixel":[518,1839],"area":"kanto","range":[3539,4904,3607,4947,6]},{"slug":"lickitung","name":"Lickitung","looktype":11,"level":60,"pixel":[606,844],"area":"kanto","range":[4015,3908,4083,3950,6]},{"slug":"koffing","name":"Koffing","looktype":228,"level":10,"pixel":[508,377],"area":"kanto","range":[3897,3532,3953,3566,6]},{"slug":"weezing","name":"Weezing","looktype":231,"level":60,"pixel":[460,399],"area":"kanto","range":[3927,3508,3983,3543,6]},{"slug":"rhyhorn","name":"Rhyhorn","looktype":77,"level":30,"pixel":[811,417],"area":"kanto","range":[4228,3521,4296,3563,6]},{"slug":"rhydon","name":"Rhydon","looktype":200,"level":80,"pixel":[811,376],"area":"kanto","range":[4234,3506,4301,3547,2]},{"slug":"tangela","name":"Tangela","looktype":18,"level":50,"pixel":[646,387],"area":"kanto","range":[3976,3533,4056,3582,7]},{"slug":"kangaskhan","name":"Kangaskhan","looktype":198,"level":80,"pixel":[559,781],"area":"kanto","range":[3979,3912,4047,3954,7]},{"slug":"staryu","name":"Staryu","looktype":42,"level":20,"pixel":[943,700],"area":"kanto","range":[4348,3833,4427,3883,7]},{"slug":"starmie","name":"Starmie","looktype":249,"level":80,"pixel":[942,772],"area":"kanto","range":[4403,3872,4471,3913,7]},{"slug":"mr_mime","name":"Mr. Mime","looktype":246,"level":80,"pixel":[561,839],"area":"kanto","range":[4021,3937,4077,3971,6]},{"slug":"scyther","name":"Scyther","looktype":15,"level":100,"pixel":[525,811],"area":"kanto","range":[3982,3915,4037,3949,6]},{"slug":"jynx","name":"Jynx","looktype":282,"level":100,"pixel":[476,1051],"area":"kanto","range":[4059,4055,4138,4104,5]},{"slug":"electabuzz","name":"Electabuzz","looktype":281,"level":100,"pixel":[892,407],"area":"kanto","range":[4306,3498,4373,3539,1]},{"slug":"magmar","name":"Magmar","looktype":76,"level":100,"pixel":[256,939],"area":"kanto","range":[3640,4012,3707,4054,7]},{"slug":"pinsir","name":"Pinsir","looktype":53,"level":100,"pixel":[265,513],"area":"kanto","range":[3670,3610,3738,3652,7]},{"slug":"tauros","name":"Tauros","looktype":93,"level":60,"pixel":[685,757],"area":"kanto","range":[3475,4990,3543,5033,7]},{"slug":"gyarados","name":"Gyarados","looktype":117,"level":100,"pixel":[829,643],"area":"kanto","range":[4214,3799,4275,3854,8]},{"slug":"lapras","name":"Lapras","looktype":193,"level":100,"pixel":[593,956],"area":"kanto","range":[4043,4068,4099,4103,6]},{"slug":"omanyte","name":"Omanyte","looktype":92,"level":20,"pixel":[1248,971],"area":"kanto","range":[4338,4002,4394,4037,7]},{"slug":"omastar","name":"Omastar","looktype":192,"level":80,"pixel":[1299,970],"area":"kanto","range":[4338,4002,4394,4037,7]},{"slug":"kabuto","name":"Kabuto","looktype":98,"level":20,"pixel":[1300,918],"area":"kanto","range":[4338,4002,4394,4037,7]},{"slug":"kabutops","name":"Kabutops","looktype":164,"level":80,"pixel":[1249,917],"area":"kanto","range":[4338,4002,4394,4037,7]},{"slug":"aerodactyl","name":"Aerodactyl","looktype":10,"level":100,"pixel":[1035,338],"area":"kanto","range":[4440,3404,4484,3429,5]},{"slug":"snorlax","name":"Snorlax","looktype":51,"level":100,"pixel":[619,2946],"area":"kanto","range":[3645,5995,3701,6030,7]},{"slug":"dratini","name":"Dratini","looktype":58,"level":30,"pixel":[515,954],"area":"kanto","range":[3971,4101,4038,4143,5]},{"slug":"dragonair","name":"Dragonair","looktype":61,"level":80,"pixel":[553,954],"area":"kanto","range":[3971,4101,4038,4143,5]},{"slug":"dragonite","name":"Dragonite","looktype":211,"level":100,"pixel":[547,1003],"area":"kanto","range":[3971,4101,4038,4143,5]},{"slug":"chikorita","name":"Chikorita","looktype":318,"level":20,"pixel":[1001,1466],"area":"kanto","range":[3997,4534,4075,4576,7]},{"slug":"bayleef","name":"Bayleef","looktype":319,"level":40,"pixel":[676,2527],"area":"kanto","range":[3997,4506,4075,4548,7]},{"slug":"meganium","name":"Meganium","looktype":320,"level":80,"pixel":[998,1420],"area":"kanto","range":[4042,4468,4137,4524,4]},{"slug":"cyndaquil","name":"Cyndaquil","looktype":321,"level":20,"pixel":[502,1715],"area":"kanto","range":[3538,4723,3617,4765,7]},{"slug":"quilava","name":"Quilava","looktype":322,"level":40,"pixel":[544,1716],"area":"kanto","range":[3605,4775,3707,4831,6]},{"slug":"typhlosion","name":"Typhlosion","looktype":323,"level":80,"pixel":[600,1721],"area":"kanto","range":[3605,4775,3707,4831,5]},{"slug":"totodile","name":"Totodile","looktype":327,"level":20,"pixel":[1101,2745],"area":"kanto","range":[4127,5764,4206,5806,7]},{"slug":"croconaw","name":"Croconaw","looktype":328,"level":40,"pixel":[1035,2636],"area":"kanto","range":[4152,5815,4231,5857,7]},{"slug":"feraligatr","name":"Feraligatr","looktype":329,"level":80,"pixel":[1096,2630],"area":"kanto","range":[4099,5729,4178,5771,6]},{"slug":"noctowl","name":"Noctowl","looktype":333,"level":60,"pixel":[324,2725],"area":"kanto","range":[3345,5771,3437,5820,6]},{"slug":"crobat","name":"Crobat","looktype":338,"level":80,"pixel":[950,1771],"area":"kanto","range":[4000,4822,4065,4856,7]},{"slug":"chinchou","name":"Chinchou","looktype":339,"level":10,"pixel":[795,2551],"area":"kanto","range":[4237,3704,4316,3746,8]},{"slug":"lanturn","name":"Lanturn","looktype":340,"level":80,"pixel":[1003,1513],"area":"kanto","range":[4237,3704,4316,3746,8]},{"slug":"pichu","name":"Pichu","looktype":341,"level":20,"pixel":[1023,192],"area":"kanto","range":[4473,3294,4538,3329,7]},{"slug":"cleffa","name":"Cleffa","looktype":343,"level":20,"pixel":[342,2651],"area":"kanto","range":[3347,5755,3409,5790,7]},{"slug":"igglybuff","name":"Igglybuff","looktype":342,"level":20,"pixel":[683,1423],"area":"kanto","range":[3751,4489,3816,4524,7]},{"slug":"natu","name":"Natu","looktype":346,"level":30,"pixel":[510,3228],"area":"kanto","range":[3531,6273,3610,6315,7]},{"slug":"xatu","name":"Xatu","looktype":347,"level":80,"pixel":[550,3225],"area":"kanto","range":[3531,6273,3610,6315,7]},{"slug":"mareep","name":"Mareep","looktype":349,"level":20,"pixel":[643,1441],"area":"kanto","range":[3687,4487,3752,4522,7]},{"slug":"flaaffy","name":"Flaaffy","looktype":350,"level":40,"pixel":[674,1477],"area":"kanto","range":[3683,4545,3775,4595,6]},{"slug":"ampharos","name":"Ampharos","looktype":361,"level":80,"pixel":[714,1500],"area":"kanto","range":[3736,4508,3829,4557,6]},{"slug":"bellossom","name":"Bellossom","looktype":355,"level":50,"pixel":[964,1478],"area":"kanto","range":[4077,4496,4156,4537,6]},{"slug":"marill","name":"Marill","looktype":351,"level":20,"pixel":[91,2829],"area":"kanto","range":[3332,6044,3411,6086,7]},{"slug":"azumarill","name":"Azumarill","looktype":352,"level":60,"pixel":[122,2765],"area":"kanto","range":[3332,6044,3411,6086,7]},{"slug":"politoed","name":"Politoed","looktype":359,"level":70,"pixel":[863,3021],"area":"kanto","range":[3871,6072,3950,6114,7]},{"slug":"sunflora","name":"Sunflora","looktype":354,"level":30,"pixel":[733,2504],"area":"kanto","range":[3724,6155,3775,6182,7]},{"slug":"quagsire","name":"Quagsire","looktype":381,"level":60,"pixel":[1298,2854],"area":"kanto","range":[4090,5925,4169,5966,7]},{"slug":"misdreavus","name":"Misdreavus","looktype":366,"level":100,"pixel":[639,1969],"area":"kanto","range":[3643,3406,3722,3448,8]},{"slug":"wobbuffet","name":"Wobbuffet","looktype":382,"level":100,"pixel":[537,3161],"area":"kanto","range":[3557,6228,3622,6263,7]},{"slug":"girafarig","name":"Girafarig","looktype":362,"level":80,"pixel":[625,3227],"area":"kanto","range":[3680,6214,3759,6256,7]},{"slug":"pineco","name":"Pineco","looktype":367,"level":10,"pixel":[1576,2957],"area":"kanto","range":[4512,6081,4590,6123,7]},{"slug":"forretress","name":"Forretress","looktype":368,"level":80,"pixel":[1518,3024],"area":"kanto","range":[4512,6081,4590,6123,7]},{"slug":"gligar","name":"Gligar","looktype":383,"level":40,"pixel":[718,2575],"area":"kanto","range":[4050,4777,4115,4811,6]},{"slug":"steelix","name":"Steelix","looktype":369,"level":100,"pixel":[655,1919],"area":"kanto","range":[3607,5001,3699,5051,13]},{"slug":"snubbull","name":"Snubbull","looktype":410,"level":30,"pixel":[965,1721],"area":"kanto","range":[3967,4780,4046,4822,7]},{"slug":"granbull","name":"Granbull","looktype":2883,"level":80,"pixel":[986,1679],"area":"kanto","range":[4009,4750,4087,4792,6]},{"slug":"scizor","name":"Scizor","looktype":370,"level":100,"pixel":[1611,3057],"area":"kanto","range":[4557,6078,4623,6113,7]},{"slug":"heracross","name":"Heracross","looktype":373,"level":100,"pixel":[1472,3077],"area":"kanto","range":[4508,6111,4586,6153,6]},{"slug":"teddiursa","name":"Teddiursa","looktype":371,"level":30,"pixel":[987,1821],"area":"kanto","range":[4011,4834,4090,4876,4]},{"slug":"ursaring","name":"Ursaring","looktype":372,"level":100,"pixel":[1035,1786],"area":"kanto","range":[4011,4834,4090,4876,4]},{"slug":"slugma","name":"Slugma","looktype":396,"level":10,"pixel":[617,1678],"area":"kanto","range":[3604,4734,3683,4776,7]},{"slug":"magcargo","name":"Magcargo","looktype":397,"level":80,"pixel":[652,1692],"area":"kanto","range":[3604,4734,3683,4776,7]},{"slug":"swinub","name":"Swinub","looktype":389,"level":10,"pixel":[657,1027],"area":"kanto","range":[4044,4123,4123,4165,7]},{"slug":"piloswine","name":"Piloswine","looktype":390,"level":80,"pixel":[597,1053],"area":"kanto","range":[4044,4123,4123,4165,7]},{"slug":"mantine","name":"Mantine","looktype":392,"level":100,"pixel":[976,1549],"area":"kanto","range":[4245,3719,4364,3783,8]},{"slug":"skarmory","name":"Skarmory","looktype":398,"level":100,"pixel":[393,2740],"area":"kanto","range":[3365,5777,3457,5826,5]},{"slug":"houndour","name":"Houndour","looktype":394,"level":20,"pixel":[646,1741],"area":"kanto","range":[3545,4760,3623,4801,6]},{"slug":"houndoom","name":"Houndoom","looktype":395,"level":100,"pixel":[695,1742],"area":"kanto","range":[3545,4760,3623,4801,6]},{"slug":"kingdra","name":"Kingdra","looktype":406,"level":100,"pixel":[1029,1548],"area":"kanto","range":[4245,3719,4364,3783,8]},{"slug":"phanpy","name":"Phanpy","looktype":479,"level":20,"pixel":[592,1639],"area":"kanto","range":[3609,4652,3687,4694,7]},{"slug":"donphan","name":"Donphan","looktype":405,"level":80,"pixel":[531,1631],"area":"kanto","range":[3609,4652,3687,4694,7]},{"slug":"tyrogue","name":"Tyrogue","looktype":384,"level":30,"pixel":[457,1897],"area":"kanto","range":[3533,4918,3598,4953,6]},{"slug":"hitmontop","name":"Hitmontop","looktype":414,"level":60,"pixel":[505,1897],"area":"kanto","range":[3550,4905,3616,4940,4]},{"slug":"smoochum","name":"Smoochum","looktype":402,"level":30,"pixel":[633,973],"area":"kanto","range":[4068,4057,4133,4092,5]},{"slug":"elekid","name":"Elekid","looktype":3674,"level":30,"pixel":[873,334],"area":"kanto","range":[4301,3499,4379,3541,5]},{"slug":"magby","name":"Magby","looktype":386,"level":30,"pixel":[693,1692],"area":"kanto","range":[3604,4734,3683,4776,7]},{"slug":"miltank","name":"Miltank","looktype":408,"level":80,"pixel":[1056,1716],"area":"kanto","range":[3996,4868,4075,4910,6]},{"slug":"larvitar","name":"Larvitar","looktype":400,"level":30,"pixel":[681,1643],"area":"kanto","range":[3671,4661,3736,4695,5]},{"slug":"pupitar","name":"Pupitar","looktype":401,"level":60,"pixel":[906,2624],"area":"kanto","range":[3671,4661,3736,4695,5]},{"slug":"tyranitar","name":"Tyranitar","looktype":416,"level":100,"pixel":[654,1601],"area":"kanto","range":[3671,4661,3736,4695,5]},{"slug":"taekwondo_hitmonchan","name":"Taekwondo Hitmonchan","looktype":38,"level":150,"pixel":[449,287],"area":"outland","range":[2967,3075,3046,3117,8]},{"slug":"taekwondo_hitmonlee","name":"Taekwondo Hitmonlee","looktype":20,"level":150,"pixel":[441,260],"area":"outland","range":[2967,3075,3046,3117,8]},{"slug":"taekwondo_hitmontop","name":"Taekwondo Hitmontop","looktype":414,"level":150,"pixel":[477,268],"area":"outland","range":[2975,3012,3054,3055,8]},{"slug":"brave_arcanine","name":"Brave Arcanine","looktype":91,"level":150,"pixel":[277,273],"area":"outland","range":[2756,3042,2835,3084,7]},{"slug":"furious_magmar","name":"Furious Magmar","looktype":76,"level":150,"pixel":[332,291],"area":"outland","range":[2819,3086,2897,3128,10]},{"slug":"ancient_pupitar","name":"Ancient Pupitar","looktype":401,"level":150,"pixel":[450,320],"area":"outland","range":[2965,3058,3044,3100,6]},{"slug":"brave_steelix","name":"Brave Steelix","looktype":369,"level":150,"pixel":[385,318],"area":"outland","range":[2885,3088,2978,3137,9]},{"slug":"furious_wigglytuff","name":"Furious Wigglytuff","looktype":64,"level":150,"pixel":[284,377],"area":"outland","range":[2869,3084,2948,3126,7]},{"slug":"ancient_xatu","name":"Ancient Xatu","looktype":347,"level":150,"pixel":[83,205],"area":"outland","range":[2581,2974,2660,3016,7]},{"slug":"brave_alakazam","name":"Brave Alakazam","looktype":218,"level":150,"pixel":[83,230],"area":"outland","range":[2576,2977,2682,3033,8]},{"slug":"ancient_hypno","name":"Ancient Hypno","looktype":119,"level":150,"pixel":[83,176],"area":"outland","range":[2576,2977,2682,3033,8]},{"slug":"furious_gyarados","name":"Furious Gyarados","looktype":117,"level":150,"pixel":[216,69],"area":"outland","range":[2664,2834,2730,2869,9]},{"slug":"brave_mantine","name":"Brave Mantine","looktype":392,"level":150,"pixel":[242,69],"area":"outland","range":[2664,2834,2730,2869,9]},{"slug":"ancient_pinsir","name":"Ancient Pinsir","looktype":53,"level":150,"pixel":[169,188],"area":"outland","range":[2664,2933,2743,2975,7]},{"slug":"brave_clefable","name":"Brave Clefable","looktype":68,"level":150,"pixel":[343,378],"area":"outland","range":[2869,3084,2948,3126,7]},{"slug":"ancient_granbull","name":"Ancient Granbull","looktype":2883,"level":150,"pixel":[316,370],"area":"outland","range":[2846,3101,2938,3150,4]},{"slug":"furious_skarmory","name":"Furious Skarmory","looktype":398,"level":150,"pixel":[354,471],"area":"outland","range":[2768,3252,2847,3294,5]},{"slug":"brave_noctowl","name":"Brave Noctowl","looktype":333,"level":150,"pixel":[346,543],"area":"outland","range":[2768,3252,2847,3294,5]},{"slug":"furious_pidgeot","name":"Furious Pidgeot","looktype":80,"level":150,"pixel":[276,543],"area":"outland","range":[2768,3252,2847,3294,5]},{"slug":"ancient_marowak","name":"Ancient Marowak","looktype":197,"level":150,"pixel":[86,310],"area":"outland","range":[2626,3060,2699,3102,7]}]}
+{
+ "map": {
+  "w": 1788,
+  "h": 3364
+ },
+ "hunts": [
+  {
+   "slug": "cerulean",
+   "name": "Cerulean",
+   "looktype": 1309,
+   "level": 0,
+   "pixel": [
+    589,
+    355
+   ],
+   "area": "kanto",
+   "range": [
+    3976,
+    3432,
+    4119,
+    3523,
+    7
+   ]
+  },
+  {
+   "slug": "pewter",
+   "name": "Lavender",
+   "looktype": 1309,
+   "level": 0,
+   "pixel": [
+    785,
+    515
+   ],
+   "area": "kanto",
+   "range": [
+    4236,
+    3608,
+    4286,
+    3638,
+    5
+   ]
+  },
+  {
+   "slug": "viridian",
+   "name": "Viridian",
+   "looktype": 1309,
+   "level": 0,
+   "pixel": [
+    215,
+    600
+   ],
+   "area": "kanto",
+   "range": [
+    3684,
+    3687,
+    3762,
+    3735,
+    7
+   ]
+  },
+  {
+   "slug": "cassino",
+   "name": "Cassino",
+   "looktype": 1309,
+   "level": 0,
+   "pixel": [
+    520,
+    531
+   ],
+   "area": "kanto",
+   "range": [
+    3973,
+    3633,
+    3993,
+    3661,
+    6
+   ]
+  },
+  {
+   "slug": "bulbasaur",
+   "name": "Bulbasaur",
+   "looktype": 25,
+   "level": 20,
+   "pixel": [
+    365,
+    662
+   ],
+   "area": "kanto",
+   "range": [
+    3814,
+    3758,
+    3865,
+    3785,
+    7
+   ]
+  },
+  {
+   "slug": "ivysaur",
+   "name": "Ivysaur",
+   "looktype": 24,
+   "level": 40,
+   "pixel": [
+    337,
+    693
+   ],
+   "area": "kanto",
+   "range": [
+    3819,
+    3759,
+    3870,
+    3786,
+    6
+   ]
+  },
+  {
+   "slug": "venusaur",
+   "name": "Venusaur",
+   "looktype": 22,
+   "level": 80,
+   "pixel": [
+    412,
+    683
+   ],
+   "area": "kanto",
+   "range": [
+    3865,
+    3825,
+    3916,
+    3852,
+    6
+   ]
+  },
+  {
+   "slug": "charmander",
+   "name": "Charmander",
+   "looktype": 29,
+   "level": 20,
+   "pixel": [
+    190,
+    884
+   ],
+   "area": "kanto",
+   "range": [
+    3650,
+    3988,
+    3694,
+    4014,
+    7
+   ]
+  },
+  {
+   "slug": "charmeleon",
+   "name": "Charmeleon",
+   "looktype": 23,
+   "level": 40,
+   "pixel": [
+    207,
+    922
+   ],
+   "area": "kanto",
+   "range": [
+    3724,
+    4002,
+    3768,
+    4029,
+    7
+   ]
+  },
+  {
+   "slug": "charizard",
+   "name": "Charizard",
+   "looktype": 67,
+   "level": 80,
+   "pixel": [
+    61,
+    43
+   ],
+   "area": "kanto",
+   "range": [
+    3502,
+    3154,
+    3553,
+    3185,
+    6
+   ]
+  },
+  {
+   "slug": "squirtle",
+   "name": "Squirtle",
+   "looktype": 2,
+   "level": 20,
+   "pixel": [
+    825,
+    229
+   ],
+   "area": "kanto",
+   "range": [
+    4279,
+    3370,
+    4331,
+    3402,
+    7
+   ]
+  },
+  {
+   "slug": "wartortle",
+   "name": "Wartortle",
+   "looktype": 6,
+   "level": 40,
+   "pixel": [
+    860,
+    179
+   ],
+   "area": "kanto",
+   "range": [
+    4251,
+    3317,
+    4303,
+    3349,
+    6
+   ]
+  },
+  {
+   "slug": "blastoise",
+   "name": "Blastoise",
+   "looktype": 55,
+   "level": 150,
+   "pixel": [
+    836,
+    108
+   ],
+   "area": "kanto",
+   "range": [
+    4319,
+    3332,
+    4371,
+    3364,
+    5
+   ]
+  },
+  {
+   "slug": "caterpie",
+   "name": "Caterpie",
+   "looktype": 32,
+   "level": 1,
+   "pixel": [
+    728,
+    690
+   ],
+   "area": "kanto",
+   "range": [
+    3718,
+    3625,
+    3770,
+    3658,
+    7
+   ]
+  },
+  {
+   "slug": "metapod",
+   "name": "Metapod",
+   "looktype": 31,
+   "level": 10,
+   "pixel": [
+    183,
+    520
+   ],
+   "area": "kanto",
+   "range": [
+    3673,
+    3591,
+    3724,
+    3622,
+    7
+   ]
+  },
+  {
+   "slug": "butterfree",
+   "name": "Butterfree",
+   "looktype": 40,
+   "level": 30,
+   "pixel": [
+    402,
+    842
+   ],
+   "area": "kanto",
+   "range": [
+    3718,
+    3584,
+    3770,
+    3616,
+    7
+   ]
+  },
+  {
+   "slug": "weedle",
+   "name": "Weedle",
+   "looktype": 21,
+   "level": 1,
+   "pixel": [
+    476,
+    362
+   ],
+   "area": "kanto",
+   "range": [
+    3696,
+    3625,
+    3747,
+    3656,
+    7
+   ]
+  },
+  {
+   "slug": "kakuna",
+   "name": "Kakuna",
+   "looktype": 60,
+   "level": 10,
+   "pixel": [
+    432,
+    372
+   ],
+   "area": "kanto",
+   "range": [
+    4148,
+    3598,
+    4200,
+    3630,
+    7
+   ]
+  },
+  {
+   "slug": "beedrill",
+   "name": "Beedrill",
+   "looktype": 3563,
+   "level": 30,
+   "pixel": [
+    446,
+    327
+   ],
+   "area": "kanto",
+   "range": [
+    3906,
+    3449,
+    3958,
+    3481,
+    7
+   ]
+  },
+  {
+   "slug": "pidgey",
+   "name": "Pidgey",
+   "looktype": 30,
+   "level": 1,
+   "pixel": [
+    689,
+    392
+   ],
+   "area": "kanto",
+   "range": [
+    4162,
+    3488,
+    4214,
+    3520,
+    7
+   ]
+  },
+  {
+   "slug": "pidgeotto",
+   "name": "Pidgeotto",
+   "looktype": 5,
+   "level": 20,
+   "pixel": [
+    723,
+    392
+   ],
+   "area": "kanto",
+   "range": [
+    4178,
+    3497,
+    4229,
+    3527,
+    6
+   ]
+  },
+  {
+   "slug": "pidgeot",
+   "name": "Pidgeot",
+   "looktype": 80,
+   "level": 80,
+   "pixel": [
+    664,
+    170
+   ],
+   "area": "kanto",
+   "range": [
+    4115,
+    3275,
+    4155,
+    3300,
+    4
+   ]
+  },
+  {
+   "slug": "rattata",
+   "name": "Rattata",
+   "looktype": 36,
+   "level": 1,
+   "pixel": [
+    599,
+    390
+   ],
+   "area": "kanto",
+   "range": [
+    4068,
+    3476,
+    4120,
+    3508,
+    8
+   ]
+  },
+  {
+   "slug": "raticate",
+   "name": "Raticate",
+   "looktype": 69,
+   "level": 30,
+   "pixel": [
+    571,
+    385
+   ],
+   "area": "kanto",
+   "range": [
+    4006,
+    3425,
+    4050,
+    3452,
+    9
+   ]
+  },
+  {
+   "slug": "spearow",
+   "name": "Spearow",
+   "looktype": 27,
+   "level": 10,
+   "pixel": [
+    141,
+    438
+   ],
+   "area": "kanto",
+   "range": [
+    3701,
+    4952,
+    3746,
+    4979,
+    6
+   ]
+  },
+  {
+   "slug": "fearow",
+   "name": "Fearow",
+   "looktype": 17,
+   "level": 50,
+   "pixel": [
+    135,
+    376
+   ],
+   "area": "kanto",
+   "range": [
+    3599,
+    3431,
+    3643,
+    3459,
+    7
+   ]
+  },
+  {
+   "slug": "ekans",
+   "name": "Ekans",
+   "looktype": 7,
+   "level": 10,
+   "pixel": [
+    507,
+    416
+   ],
+   "area": "kanto",
+   "range": [
+    3949,
+    3523,
+    3994,
+    3550,
+    7
+   ]
+  },
+  {
+   "slug": "arbok",
+   "name": "Arbok",
+   "looktype": 39,
+   "level": 40,
+   "pixel": [
+    439,
+    435
+   ],
+   "area": "kanto",
+   "range": [
+    3906,
+    3536,
+    3950,
+    3563,
+    6
+   ]
+  },
+  {
+   "slug": "pikachu",
+   "name": "Pikachu",
+   "looktype": 59,
+   "level": 60,
+   "pixel": [
+    1088,
+    202
+   ],
+   "area": "kanto",
+   "range": [
+    4577,
+    3244,
+    4633,
+    3279,
+    6
+   ]
+  },
+  {
+   "slug": "raichu",
+   "name": "Raichu",
+   "looktype": 50,
+   "level": 80,
+   "pixel": [
+    1166,
+    148
+   ],
+   "area": "kanto",
+   "range": [
+    4645,
+    3323,
+    4690,
+    3351,
+    6
+   ]
+  },
+  {
+   "slug": "sandshrew",
+   "name": "Sandshrew",
+   "looktype": 43,
+   "level": 20,
+   "pixel": [
+    699,
+    354
+   ],
+   "area": "kanto",
+   "range": [
+    4138,
+    3433,
+    4182,
+    3461,
+    7
+   ]
+  },
+  {
+   "slug": "sandslash",
+   "name": "Sandslash",
+   "looktype": 115,
+   "level": 60,
+   "pixel": [
+    742,
+    295
+   ],
+   "area": "kanto",
+   "range": [
+    4147,
+    3397,
+    4203,
+    3432,
+    5
+   ]
+  },
+  {
+   "slug": "nidoranfe",
+   "name": "Nidoranfe",
+   "looktype": 70,
+   "level": 10,
+   "pixel": [
+    116,
+    620
+   ],
+   "area": "kanto",
+   "range": [
+    3600,
+    3695,
+    3644,
+    3722,
+    7
+   ]
+  },
+  {
+   "slug": "nidorina",
+   "name": "Nidorina",
+   "looktype": 71,
+   "level": 30,
+   "pixel": [
+    134,
+    594
+   ],
+   "area": "kanto",
+   "range": [
+    3600,
+    3695,
+    3644,
+    3722,
+    7
+   ]
+  },
+  {
+   "slug": "nidoqueen",
+   "name": "Nidoqueen",
+   "looktype": 79,
+   "level": 80,
+   "pixel": [
+    604,
+    758
+   ],
+   "area": "kanto",
+   "range": [
+    4028,
+    3918,
+    4085,
+    3954,
+    7
+   ]
+  },
+  {
+   "slug": "nidoranma",
+   "name": "Nidoranma",
+   "looktype": 66,
+   "level": 10,
+   "pixel": [
+    164,
+    571
+   ],
+   "area": "kanto",
+   "range": [
+    3600,
+    3695,
+    3644,
+    3722,
+    7
+   ]
+  },
+  {
+   "slug": "nidorino",
+   "name": "Nidorino",
+   "looktype": 78,
+   "level": 30,
+   "pixel": [
+    191,
+    555
+   ],
+   "area": "kanto",
+   "range": [
+    3600,
+    3695,
+    3644,
+    3722,
+    7
+   ]
+  },
+  {
+   "slug": "nidoking",
+   "name": "Nidoking",
+   "looktype": 35,
+   "level": 80,
+   "pixel": [
+    605,
+    798
+   ],
+   "area": "kanto",
+   "range": [
+    4028,
+    3918,
+    4085,
+    3954,
+    7
+   ]
+  },
+  {
+   "slug": "clefairy",
+   "name": "Clefairy",
+   "looktype": 73,
+   "level": 40,
+   "pixel": [
+    299,
+    366
+   ],
+   "area": "kanto",
+   "range": [
+    3835,
+    3464,
+    3879,
+    3490,
+    5
+   ]
+  },
+  {
+   "slug": "clefable",
+   "name": "Clefable",
+   "looktype": 68,
+   "level": 80,
+   "pixel": [
+    382,
+    353
+   ],
+   "area": "kanto",
+   "range": [
+    3816,
+    3467,
+    3860,
+    3494,
+    3
+   ]
+  },
+  {
+   "slug": "vulpix",
+   "name": "Vulpix",
+   "looktype": 62,
+   "level": 20,
+   "pixel": [
+    302,
+    924
+   ],
+   "area": "kanto",
+   "range": [
+    3747,
+    4015,
+    3791,
+    4042,
+    7
+   ]
+  },
+  {
+   "slug": "ninetales",
+   "name": "Ninetales",
+   "looktype": 114,
+   "level": 100,
+   "pixel": [
+    236,
+    896
+   ],
+   "area": "kanto",
+   "range": [
+    3760,
+    3983,
+    3804,
+    4012,
+    3
+   ]
+  },
+  {
+   "slug": "jigglypuff",
+   "name": "Jigglypuff",
+   "looktype": 203,
+   "level": 40,
+   "pixel": [
+    731,
+    1411
+   ],
+   "area": "kanto",
+   "range": [
+    3705,
+    4483,
+    3749,
+    4510,
+    7
+   ]
+  },
+  {
+   "slug": "wigglytuff",
+   "name": "Wigglytuff",
+   "looktype": 64,
+   "level": 80,
+   "pixel": [
+    728,
+    1455
+   ],
+   "area": "kanto",
+   "range": [
+    3735,
+    4531,
+    3786,
+    4558,
+    7
+   ]
+  },
+  {
+   "slug": "zubat",
+   "name": "Zubat",
+   "looktype": 44,
+   "level": 10,
+   "pixel": [
+    358,
+    382
+   ],
+   "area": "kanto",
+   "range": [
+    3830,
+    3460,
+    3895,
+    3494,
+    6
+   ]
+  },
+  {
+   "slug": "golbat",
+   "name": "Golbat",
+   "looktype": 122,
+   "level": 40,
+   "pixel": [
+    335,
+    344
+   ],
+   "area": "kanto",
+   "range": [
+    3752,
+    3467,
+    3817,
+    3502,
+    6
+   ]
+  },
+  {
+   "slug": "oddish",
+   "name": "Oddish",
+   "looktype": 56,
+   "level": 1,
+   "pixel": [
+    653,
+    426
+   ],
+   "area": "kanto",
+   "range": [
+    4140,
+    3532,
+    4191,
+    3560,
+    7
+   ]
+  },
+  {
+   "slug": "gloom",
+   "name": "Gloom",
+   "looktype": 74,
+   "level": 30,
+   "pixel": [
+    541,
+    437
+   ],
+   "area": "kanto",
+   "range": [
+    4005,
+    3523,
+    4069,
+    3557,
+    7
+   ]
+  },
+  {
+   "slug": "vileplume",
+   "name": "Vileplume",
+   "looktype": 89,
+   "level": 60,
+   "pixel": [
+    453,
+    647
+   ],
+   "area": "kanto",
+   "range": [
+    3674,
+    6101,
+    3719,
+    6129,
+    7
+   ]
+  },
+  {
+   "slug": "paras",
+   "name": "Paras",
+   "looktype": 81,
+   "level": 1,
+   "pixel": [
+    253,
+    439
+   ],
+   "area": "kanto",
+   "range": [
+    3932,
+    3515,
+    3976,
+    3542,
+    7
+   ]
+  },
+  {
+   "slug": "parasect",
+   "name": "Parasect",
+   "looktype": 95,
+   "level": 50,
+   "pixel": [
+    266,
+    406
+   ],
+   "area": "kanto",
+   "range": [
+    3712,
+    3537,
+    3757,
+    3565,
+    7
+   ]
+  },
+  {
+   "slug": "venonat",
+   "name": "Venonat",
+   "looktype": 52,
+   "level": 20,
+   "pixel": [
+    794,
+    842
+   ],
+   "area": "kanto",
+   "range": [
+    4231,
+    3959,
+    4275,
+    3987,
+    7
+   ]
+  },
+  {
+   "slug": "venomoth",
+   "name": "Venomoth",
+   "looktype": 49,
+   "level": 60,
+   "pixel": [
+    760,
+    859
+   ],
+   "area": "kanto",
+   "range": [
+    4250,
+    3938,
+    4294,
+    3966,
+    7
+   ]
+  },
+  {
+   "slug": "diglett",
+   "name": "Diglett",
+   "looktype": 82,
+   "level": 10,
+   "pixel": [
+    671,
+    309
+   ],
+   "area": "kanto",
+   "range": [
+    4142,
+    3448,
+    4186,
+    3476,
+    7
+   ]
+  },
+  {
+   "slug": "dugtrio",
+   "name": "Dugtrio",
+   "looktype": 83,
+   "level": 40,
+   "pixel": [
+    661,
+    348
+   ],
+   "area": "kanto",
+   "range": [
+    4150,
+    3458,
+    4194,
+    3485,
+    6
+   ]
+  },
+  {
+   "slug": "meowth",
+   "name": "Meowth",
+   "looktype": 105,
+   "level": 20,
+   "pixel": [
+    129,
+    138
+   ],
+   "area": "kanto",
+   "range": [
+    4166,
+    3624,
+    4211,
+    3651,
+    7
+   ]
+  },
+  {
+   "slug": "persian",
+   "name": "Persian",
+   "looktype": 3,
+   "level": 50,
+   "pixel": [
+    159,
+    86
+   ],
+   "area": "kanto",
+   "range": [
+    3593,
+    3225,
+    3638,
+    3253,
+    6
+   ]
+  },
+  {
+   "slug": "psyduck",
+   "name": "Psyduck",
+   "looktype": 100,
+   "level": 20,
+   "pixel": [
+    882,
+    756
+   ],
+   "area": "kanto",
+   "range": [
+    4354,
+    3840,
+    4399,
+    3868,
+    7
+   ]
+  },
+  {
+   "slug": "golduck",
+   "name": "Golduck",
+   "looktype": 99,
+   "level": 80,
+   "pixel": [
+    880,
+    688
+   ],
+   "area": "kanto",
+   "range": [
+    3881,
+    6086,
+    3937,
+    6120,
+    7
+   ]
+  },
+  {
+   "slug": "mankey",
+   "name": "Mankey",
+   "looktype": 106,
+   "level": 10,
+   "pixel": [
+    124,
+    683
+   ],
+   "area": "kanto",
+   "range": [
+    3595,
+    3760,
+    3640,
+    3787,
+    7
+   ]
+  },
+  {
+   "slug": "primeape",
+   "name": "Primeape",
+   "looktype": 103,
+   "level": 30,
+   "pixel": [
+    144,
+    653
+   ],
+   "area": "kanto",
+   "range": [
+    3603,
+    3770,
+    3647,
+    3797,
+    6
+   ]
+  },
+  {
+   "slug": "growlithe",
+   "name": "Growlithe",
+   "looktype": 109,
+   "level": 30,
+   "pixel": [
+    282,
+    882
+   ],
+   "area": "kanto",
+   "range": [
+    3749,
+    3998,
+    3805,
+    4033,
+    7
+   ]
+  },
+  {
+   "slug": "arcanine",
+   "name": "Arcanine",
+   "looktype": 91,
+   "level": 100,
+   "pixel": [
+    265,
+    844
+   ],
+   "area": "kanto",
+   "range": [
+    3730,
+    3956,
+    3786,
+    3991,
+    7
+   ]
+  },
+  {
+   "slug": "poliwag",
+   "name": "Poliwag",
+   "looktype": 111,
+   "level": 1,
+   "pixel": [
+    543,
+    905
+   ],
+   "area": "kanto",
+   "range": [
+    3999,
+    4005,
+    4043,
+    4032,
+    7
+   ]
+  },
+  {
+   "slug": "poliwhirl",
+   "name": "Poliwhirl",
+   "looktype": 212,
+   "level": 30,
+   "pixel": [
+    430,
+    949
+   ],
+   "area": "kanto",
+   "range": [
+    3925,
+    4018,
+    3981,
+    4052,
+    7
+   ]
+  },
+  {
+   "slug": "poliwrath",
+   "name": "Poliwrath",
+   "looktype": 104,
+   "level": 80,
+   "pixel": [
+    466,
+    960
+   ],
+   "area": "kanto",
+   "range": [
+    3907,
+    4045,
+    3963,
+    4080,
+    6
+   ]
+  },
+  {
+   "slug": "abra",
+   "name": "Abra",
+   "looktype": 262,
+   "level": 10,
+   "pixel": [
+    1176,
+    588
+   ],
+   "area": "kanto",
+   "range": [
+    4618,
+    3674,
+    4673,
+    3709,
+    7
+   ]
+  },
+  {
+   "slug": "kadabra",
+   "name": "Kadabra",
+   "looktype": 219,
+   "level": 50,
+   "pixel": [
+    1099,
+    639
+   ],
+   "area": "kanto",
+   "range": [
+    4571,
+    3655,
+    4627,
+    3689,
+    7
+   ]
+  },
+  {
+   "slug": "alakazam",
+   "name": "Alakazam",
+   "looktype": 218,
+   "level": 100,
+   "pixel": [
+    1088,
+    531
+   ],
+   "area": "kanto",
+   "range": [
+    4515,
+    3616,
+    4571,
+    3651,
+    8
+   ]
+  },
+  {
+   "slug": "machop",
+   "name": "Machop",
+   "looktype": 118,
+   "level": 20,
+   "pixel": [
+    108,
+    549
+   ],
+   "area": "kanto",
+   "range": [
+    3561,
+    3634,
+    3617,
+    3668,
+    7
+   ]
+  },
+  {
+   "slug": "machoke",
+   "name": "Machoke",
+   "looktype": 113,
+   "level": 40,
+   "pixel": [
+    81,
+    508
+   ],
+   "area": "kanto",
+   "range": [
+    3977,
+    3254,
+    4033,
+    3289,
+    7
+   ]
+  },
+  {
+   "slug": "machamp",
+   "name": "Machamp",
+   "looktype": 121,
+   "level": 80,
+   "pixel": [
+    800,
+    340
+   ],
+   "area": "kanto",
+   "range": [
+    4220,
+    3456,
+    4276,
+    3491,
+    4
+   ]
+  },
+  {
+   "slug": "bellsprout",
+   "name": "Bellsprout",
+   "looktype": 250,
+   "level": 1,
+   "pixel": [
+    577,
+    423
+   ],
+   "area": "kanto",
+   "range": [
+    3980,
+    3714,
+    4036,
+    3748,
+    7
+   ]
+  },
+  {
+   "slug": "weepinbell",
+   "name": "Weepinbell",
+   "looktype": 37,
+   "level": 30,
+   "pixel": [
+    520,
+    596
+   ],
+   "area": "kanto",
+   "range": [
+    3987,
+    3679,
+    4043,
+    3714,
+    7
+   ]
+  },
+  {
+   "slug": "victreebel",
+   "name": "Victreebel",
+   "looktype": 240,
+   "level": 60,
+   "pixel": [
+    354,
+    215
+   ],
+   "area": "kanto",
+   "range": [
+    3815,
+    3306,
+    3857,
+    3337,
+    6
+   ]
+  },
+  {
+   "slug": "tentacool",
+   "name": "Tentacool",
+   "looktype": 96,
+   "level": 10,
+   "pixel": [
+    807,
+    607
+   ],
+   "area": "kanto",
+   "range": [
+    4299,
+    3732,
+    4344,
+    3759,
+    8
+   ]
+  },
+  {
+   "slug": "tentacruel",
+   "name": "Tentacruel",
+   "looktype": 108,
+   "level": 80,
+   "pixel": [
+    786,
+    644
+   ],
+   "area": "kanto",
+   "range": [
+    4328,
+    3717,
+    4384,
+    3752,
+    8
+   ]
+  },
+  {
+   "slug": "geodude",
+   "name": "Geodude",
+   "looktype": 196,
+   "level": 1,
+   "pixel": [
+    761,
+    409
+   ],
+   "area": "kanto",
+   "range": [
+    4227,
+    3540,
+    4283,
+    3575,
+    7
+   ]
+  },
+  {
+   "slug": "graveler",
+   "name": "Graveler",
+   "looktype": 247,
+   "level": 40,
+   "pixel": [
+    767,
+    367
+   ],
+   "area": "kanto",
+   "range": [
+    4219,
+    3556,
+    4275,
+    3591,
+    7
+   ]
+  },
+  {
+   "slug": "golem",
+   "name": "Golem",
+   "looktype": 116,
+   "level": 80,
+   "pixel": [
+    789,
+    452
+   ],
+   "area": "kanto",
+   "range": [
+    4228,
+    3582,
+    4284,
+    3616,
+    4
+   ]
+  },
+  {
+   "slug": "ponyta",
+   "name": "Ponyta",
+   "looktype": 16,
+   "level": 20,
+   "pixel": [
+    163,
+    829
+   ],
+   "area": "kanto",
+   "range": [
+    3631,
+    3945,
+    3687,
+    3980,
+    7
+   ]
+  },
+  {
+   "slug": "rapidash",
+   "name": "Rapidash",
+   "looktype": 2116,
+   "level": 80,
+   "pixel": [
+    225,
+    852
+   ],
+   "area": "kanto",
+   "range": [
+    3730,
+    3955,
+    3775,
+    3983,
+    5
+   ]
+  },
+  {
+   "slug": "brave_blastoise",
+   "name": "Brave Blastoise",
+   "looktype": 55,
+   "level": 150,
+   "pixel": [
+    175,
+    93
+   ],
+   "area": "outland",
+   "range": [
+    2670,
+    2856,
+    2748,
+    2898,
+    7
+   ]
+  },
+  {
+   "slug": "tribal_feraligatr",
+   "name": "Tribal Feraligatr",
+   "looktype": 329,
+   "level": 150,
+   "pixel": [
+    137,
+    54
+   ],
+   "area": "outland",
+   "range": [
+    2670,
+    2856,
+    2748,
+    2898,
+    7
+   ]
+  },
+  {
+   "slug": "ancient_meganium",
+   "name": "Ancient Meganium",
+   "looktype": 320,
+   "level": 150,
+   "pixel": [
+    211,
+    142
+   ],
+   "area": "outland",
+   "range": [
+    2729,
+    2906,
+    2808,
+    2948,
+    7
+   ]
+  },
+  {
+   "slug": "brave_venusaur",
+   "name": "Brave Venusaur",
+   "looktype": 22,
+   "level": 150,
+   "pixel": [
+    272,
+    143
+   ],
+   "area": "outland",
+   "range": [
+    2748,
+    2912,
+    2827,
+    2953,
+    6
+   ]
+  },
+  {
+   "slug": "war_heracross",
+   "name": "War Heracross",
+   "looktype": 373,
+   "level": 150,
+   "pixel": [
+    228,
+    233
+   ],
+   "area": "outland",
+   "range": [
+    2695,
+    3007,
+    2760,
+    3042,
+    6
+   ]
+  },
+  {
+   "slug": "furious_scyther",
+   "name": "Furious Scyther",
+   "looktype": 15,
+   "level": 150,
+   "pixel": [
+    161,
+    256
+   ],
+   "area": "outland",
+   "range": [
+    2690,
+    3010,
+    2755,
+    3045,
+    7
+   ]
+  },
+  {
+   "slug": "enigmatic_girafarig",
+   "name": "Enigmatic Girafarig",
+   "looktype": 362,
+   "level": 150,
+   "pixel": [
+    121,
+    154
+   ],
+   "area": "outland",
+   "range": [
+    2625,
+    2891,
+    2690,
+    2926,
+    7
+   ]
+  },
+  {
+   "slug": "charged_raichu",
+   "name": "Charged Raichu",
+   "looktype": 50,
+   "level": 150,
+   "pixel": [
+    129,
+    112
+   ],
+   "area": "outland",
+   "range": [
+    2642,
+    3136,
+    2721,
+    3178,
+    10
+   ]
+  },
+  {
+   "slug": "furious_ampharos",
+   "name": "Furious Ampharos",
+   "looktype": 361,
+   "level": 150,
+   "pixel": [
+    143,
+    128
+   ],
+   "area": "outland",
+   "range": [
+    2642,
+    3136,
+    2721,
+    3178,
+    10
+   ]
+  },
+  {
+   "slug": "magnetic_electabuzz",
+   "name": "Magnetic Electabuzz",
+   "looktype": 281,
+   "level": 150,
+   "pixel": [
+    158,
+    112
+   ],
+   "area": "outland",
+   "range": [
+    2642,
+    3136,
+    2721,
+    3178,
+    10
+   ]
+  },
+  {
+   "slug": "ancient_dragonair",
+   "name": "Ancient Dragonair",
+   "looktype": 61,
+   "level": 150,
+   "pixel": [
+    201,
+    463
+   ],
+   "area": "outland",
+   "range": [
+    2696,
+    3250,
+    2789,
+    3299,
+    4
+   ]
+  },
+  {
+   "slug": "evil_cloyster",
+   "name": "Evil Cloyster",
+   "looktype": 72,
+   "level": 150,
+   "pixel": [
+    144,
+    521
+   ],
+   "area": "outland",
+   "range": [
+    2634,
+    3230,
+    2726,
+    3280,
+    7
+   ]
+  },
+  {
+   "slug": "freezing_dewgong",
+   "name": "Freezing Dewgong",
+   "looktype": 110,
+   "level": 150,
+   "pixel": [
+    155,
+    458
+   ],
+   "area": "outland",
+   "range": [
+    2634,
+    3230,
+    2726,
+    3280,
+    7
+   ]
+  },
+  {
+   "slug": "psy_jynx",
+   "name": "Psy Jynx",
+   "looktype": 282,
+   "level": 150,
+   "pixel": [
+    54,
+    497
+   ],
+   "area": "outland",
+   "range": [
+    2634,
+    3230,
+    2726,
+    3280,
+    7
+   ]
+  },
+  {
+   "slug": "heavy_piloswine",
+   "name": "Heavy Piloswine",
+   "looktype": 390,
+   "level": 150,
+   "pixel": [
+    94,
+    455
+   ],
+   "area": "outland",
+   "range": [
+    2634,
+    3230,
+    2726,
+    3280,
+    7
+   ]
+  },
+  {
+   "slug": "milch_miltank",
+   "name": "Milch-Miltank",
+   "looktype": 408,
+   "level": 150,
+   "pixel": [
+    217,
+    401
+   ],
+   "area": "outland",
+   "range": [
+    2726,
+    3167,
+    2792,
+    3202,
+    7
+   ]
+  },
+  {
+   "slug": "roll_donphan",
+   "name": "Roll Donphan",
+   "looktype": 405,
+   "level": 150,
+   "pixel": [
+    121,
+    316
+   ],
+   "area": "outland",
+   "range": [
+    2619,
+    3158,
+    2684,
+    3192,
+    7
+   ]
+  },
+  {
+   "slug": "furious_sandslash",
+   "name": "Furious Sandslash",
+   "looktype": 115,
+   "level": 150,
+   "pixel": [
+    143,
+    401
+   ],
+   "area": "outland",
+   "range": [
+    2619,
+    3158,
+    2684,
+    3192,
+    7
+   ]
+  },
+  {
+   "slug": "hard_golem",
+   "name": "Hard Golem",
+   "looktype": 116,
+   "level": 150,
+   "pixel": [
+    353,
+    349
+   ],
+   "area": "outland",
+   "range": [
+    2973,
+    3081,
+    3048,
+    3121,
+    6
+   ]
+  },
+  {
+   "slug": "brute_rhydon",
+   "name": "Brute Rhydon",
+   "looktype": 200,
+   "level": 150,
+   "pixel": [
+    407,
+    352
+   ],
+   "area": "outland",
+   "range": [
+    2863,
+    3092,
+    2952,
+    3140,
+    6
+   ]
+  },
+  {
+   "slug": "brave_charizard",
+   "name": "Brave Charizard",
+   "looktype": 67,
+   "level": 150,
+   "pixel": [
+    237,
+    326
+   ],
+   "area": "outland",
+   "range": [
+    2735,
+    3081,
+    2834,
+    3143,
+    6
+   ]
+  },
+  {
+   "slug": "enraged_typhlosion",
+   "name": "Enraged Typhlosion",
+   "looktype": 323,
+   "level": 150,
+   "pixel": [
+    177,
+    350
+   ],
+   "area": "outland",
+   "range": [
+    2678,
+    3132,
+    2738,
+    3164,
+    7
+   ]
+  },
+  {
+   "slug": "brave_nidoking",
+   "name": "Brave Nidoking",
+   "looktype": 35,
+   "level": 150,
+   "pixel": [
+    399,
+    209
+   ],
+   "area": "outland",
+   "range": [
+    2901,
+    2964,
+    2980,
+    3006,
+    7
+   ]
+  },
+  {
+   "slug": "brave_nidoqueen",
+   "name": "Brave Nidoqueen",
+   "looktype": 79,
+   "level": 150,
+   "pixel": [
+    371,
+    181
+   ],
+   "area": "outland",
+   "range": [
+    2901,
+    2964,
+    2980,
+    3006,
+    7
+   ]
+  },
+  {
+   "slug": "dark_crobat",
+   "name": "Dark Crobat",
+   "looktype": 338,
+   "level": 150,
+   "pixel": [
+    273,
+    468
+   ],
+   "area": "outland",
+   "range": [
+    2772,
+    3269,
+    2846,
+    3309,
+    6
+   ]
+  },
+  {
+   "slug": "trickmaster_gengar",
+   "name": "Trickmaster Gengar",
+   "looktype": 244,
+   "level": 150,
+   "pixel": [
+    368,
+    235
+   ],
+   "area": "outland",
+   "range": [
+    2832,
+    2950,
+    2920,
+    2997,
+    8
+   ]
+  },
+  {
+   "slug": "banshee_misdreavus",
+   "name": "Banshee Misdreavus",
+   "looktype": 366,
+   "level": 150,
+   "pixel": [
+    346,
+    222
+   ],
+   "area": "outland",
+   "range": [
+    2831,
+    3022,
+    2906,
+    3062,
+    8
+   ]
+  },
+  {
+   "slug": "slowpoke",
+   "name": "Slowpoke",
+   "looktype": 75,
+   "level": 10,
+   "pixel": [
+    560,
+    1879
+   ],
+   "area": "kanto",
+   "range": [
+    3573,
+    4946,
+    3630,
+    4981,
+    7
+   ]
+  },
+  {
+   "slug": "slowbro",
+   "name": "Slowbro",
+   "looktype": 41,
+   "level": 60,
+   "pixel": [
+    620,
+    1878
+   ],
+   "area": "kanto",
+   "range": [
+    3573,
+    4946,
+    3630,
+    4981,
+    7
+   ]
+  },
+  {
+   "slug": "magnemite",
+   "name": "Magnemite",
+   "looktype": 217,
+   "level": 10,
+   "pixel": [
+    724,
+    456
+   ],
+   "area": "kanto",
+   "range": [
+    4165,
+    3552,
+    4221,
+    3587,
+    7
+   ]
+  },
+  {
+   "slug": "magneton",
+   "name": "Magneton",
+   "looktype": 223,
+   "level": 80,
+   "pixel": [
+    853,
+    368
+   ],
+   "area": "kanto",
+   "range": [
+    4306,
+    3495,
+    4373,
+    3540,
+    1
+   ]
+  },
+  {
+   "slug": "farfetch_d",
+   "name": "Farfetch'D",
+   "looktype": 57,
+   "level": 50,
+   "pixel": [
+    734,
+    735
+   ],
+   "area": "kanto",
+   "range": [
+    4048,
+    6112,
+    4115,
+    6154,
+    5
+   ]
+  },
+  {
+   "slug": "doduo",
+   "name": "Doduo",
+   "looktype": 26,
+   "level": 10,
+   "pixel": [
+    651,
+    776
+   ],
+   "area": "kanto",
+   "range": [
+    4118,
+    3885,
+    4174,
+    3920,
+    7
+   ]
+  },
+  {
+   "slug": "dodrio",
+   "name": "Dodrio",
+   "looktype": 120,
+   "level": 60,
+   "pixel": [
+    651,
+    735
+   ],
+   "area": "kanto",
+   "range": [
+    4120,
+    6095,
+    4177,
+    6130,
+    6
+   ]
+  },
+  {
+   "slug": "seel",
+   "name": "Seel",
+   "looktype": 101,
+   "level": 20,
+   "pixel": [
+    536,
+    1068
+   ],
+   "area": "kanto",
+   "range": [
+    4108,
+    4024,
+    4166,
+    4061,
+    7
+   ]
+  },
+  {
+   "slug": "dewgong",
+   "name": "Dewgong",
+   "looktype": 110,
+   "level": 60,
+   "pixel": [
+    498,
+    1006
+   ],
+   "area": "kanto",
+   "range": [
+    3948,
+    4099,
+    4015,
+    4141,
+    7
+   ]
+  },
+  {
+   "slug": "grimer",
+   "name": "Grimer",
+   "looktype": 214,
+   "level": 10,
+   "pixel": [
+    475,
+    437
+   ],
+   "area": "kanto",
+   "range": [
+    3862,
+    3527,
+    3918,
+    3561,
+    7
+   ]
+  },
+  {
+   "slug": "muk",
+   "name": "Muk",
+   "looktype": 47,
+   "level": 80,
+   "pixel": [
+    405,
+    417
+   ],
+   "area": "kanto",
+   "range": [
+    3853,
+    3541,
+    3921,
+    3583,
+    9
+   ]
+  },
+  {
+   "slug": "shellder",
+   "name": "Shellder",
+   "looktype": 54,
+   "level": 10,
+   "pixel": [
+    662,
+    931
+   ],
+   "area": "kanto",
+   "range": [
+    4041,
+    4100,
+    4097,
+    4135,
+    7
+   ]
+  },
+  {
+   "slug": "cloyster",
+   "name": "Cloyster",
+   "looktype": 72,
+   "level": 60,
+   "pixel": [
+    592,
+    998
+   ],
+   "area": "kanto",
+   "range": [
+    3960,
+    4110,
+    4028,
+    4152,
+    3
+   ]
+  },
+  {
+   "slug": "gastly",
+   "name": "Gastly",
+   "looktype": 48,
+   "level": 20,
+   "pixel": [
+    822,
+    532
+   ],
+   "area": "kanto",
+   "range": [
+    4259,
+    3609,
+    4315,
+    3644,
+    7
+   ]
+  },
+  {
+   "slug": "haunter",
+   "name": "Haunter",
+   "looktype": 65,
+   "level": 50,
+   "pixel": [
+    822,
+    490
+   ],
+   "area": "kanto",
+   "range": [
+    4276,
+    3616,
+    4344,
+    3658,
+    8
+   ]
+  },
+  {
+   "slug": "gengar",
+   "name": "Gengar",
+   "looktype": 244,
+   "level": 100,
+   "pixel": [
+    190,
+    314
+   ],
+   "area": "kanto",
+   "range": [
+    3578,
+    3408,
+    3646,
+    3450,
+    8
+   ]
+  },
+  {
+   "slug": "onix",
+   "name": "Onix",
+   "looktype": 248,
+   "level": 60,
+   "pixel": [
+    618,
+    1923
+   ],
+   "area": "kanto",
+   "range": [
+    3650,
+    5059,
+    3706,
+    5094,
+    12
+   ]
+  },
+  {
+   "slug": "drowzee",
+   "name": "Drowzee",
+   "looktype": 94,
+   "level": 30,
+   "pixel": [
+    1135,
+    613
+   ],
+   "area": "kanto",
+   "range": [
+    4569,
+    3694,
+    4625,
+    3728,
+    7
+   ]
+  },
+  {
+   "slug": "hypno",
+   "name": "Hypno",
+   "looktype": 119,
+   "level": 60,
+   "pixel": [
+    1142,
+    546
+   ],
+   "area": "kanto",
+   "range": [
+    4573,
+    3653,
+    4629,
+    3687,
+    6
+   ]
+  },
+  {
+   "slug": "krabby",
+   "name": "Krabby",
+   "looktype": 112,
+   "level": 10,
+   "pixel": [
+    598,
+    1359
+   ],
+   "area": "kanto",
+   "range": [
+    4039,
+    5882,
+    4095,
+    5917,
+    7
+   ]
+  },
+  {
+   "slug": "kingler",
+   "name": "Kingler",
+   "looktype": 245,
+   "level": 60,
+   "pixel": [
+    1150,
+    2713
+   ],
+   "area": "kanto",
+   "range": [
+    4116,
+    5914,
+    4172,
+    5949,
+    7
+   ]
+  },
+  {
+   "slug": "voltorb",
+   "name": "Voltorb",
+   "looktype": 123,
+   "level": 10,
+   "pixel": [
+    893,
+    369
+   ],
+   "area": "kanto",
+   "range": [
+    4308,
+    3494,
+    4357,
+    3542,
+    7
+   ]
+  },
+  {
+   "slug": "electrode",
+   "name": "Electrode",
+   "looktype": 125,
+   "level": 40,
+   "pixel": [
+    851,
+    407
+   ],
+   "area": "kanto",
+   "range": [
+    4308,
+    3494,
+    4357,
+    3542,
+    6
+   ]
+  },
+  {
+   "slug": "exeggcute",
+   "name": "Exeggcute",
+   "looktype": 213,
+   "level": 10,
+   "pixel": [
+    1031,
+    589
+   ],
+   "area": "kanto",
+   "range": [
+    4510,
+    3718,
+    4574,
+    3757,
+    7
+   ]
+  },
+  {
+   "slug": "exeggutor",
+   "name": "Exeggutor",
+   "looktype": 46,
+   "level": 100,
+   "pixel": [
+    1031,
+    662
+   ],
+   "area": "kanto",
+   "range": [
+    3772,
+    3314,
+    3835,
+    3353,
+    7
+   ]
+  },
+  {
+   "slug": "cubone",
+   "name": "Cubone",
+   "looktype": 124,
+   "level": 20,
+   "pixel": [
+    732,
+    338
+   ],
+   "area": "kanto",
+   "range": [
+    4138,
+    3412,
+    4203,
+    3454,
+    6
+   ]
+  },
+  {
+   "slug": "marowak",
+   "name": "Marowak",
+   "looktype": 197,
+   "level": 50,
+   "pixel": [
+    703,
+    294
+   ],
+   "area": "kanto",
+   "range": [
+    4127,
+    3422,
+    4194,
+    3464,
+    8
+   ]
+  },
+  {
+   "slug": "hitmonlee",
+   "name": "Hitmonlee",
+   "looktype": 20,
+   "level": 60,
+   "pixel": [
+    463,
+    1840
+   ],
+   "area": "kanto",
+   "range": [
+    3540,
+    4905,
+    3608,
+    4947,
+    5
+   ]
+  },
+  {
+   "slug": "hitmonchan",
+   "name": "Hitmonchan",
+   "looktype": 38,
+   "level": 60,
+   "pixel": [
+    518,
+    1839
+   ],
+   "area": "kanto",
+   "range": [
+    3539,
+    4904,
+    3607,
+    4947,
+    6
+   ]
+  },
+  {
+   "slug": "lickitung",
+   "name": "Lickitung",
+   "looktype": 11,
+   "level": 60,
+   "pixel": [
+    606,
+    844
+   ],
+   "area": "kanto",
+   "range": [
+    4015,
+    3908,
+    4083,
+    3950,
+    6
+   ]
+  },
+  {
+   "slug": "koffing",
+   "name": "Koffing",
+   "looktype": 228,
+   "level": 10,
+   "pixel": [
+    508,
+    377
+   ],
+   "area": "kanto",
+   "range": [
+    3897,
+    3532,
+    3953,
+    3566,
+    6
+   ]
+  },
+  {
+   "slug": "weezing",
+   "name": "Weezing",
+   "looktype": 231,
+   "level": 60,
+   "pixel": [
+    460,
+    399
+   ],
+   "area": "kanto",
+   "range": [
+    3927,
+    3508,
+    3983,
+    3543,
+    6
+   ]
+  },
+  {
+   "slug": "rhyhorn",
+   "name": "Rhyhorn",
+   "looktype": 77,
+   "level": 30,
+   "pixel": [
+    811,
+    417
+   ],
+   "area": "kanto",
+   "range": [
+    4228,
+    3521,
+    4296,
+    3563,
+    6
+   ]
+  },
+  {
+   "slug": "rhydon",
+   "name": "Rhydon",
+   "looktype": 200,
+   "level": 80,
+   "pixel": [
+    811,
+    376
+   ],
+   "area": "kanto",
+   "range": [
+    4234,
+    3506,
+    4301,
+    3547,
+    2
+   ]
+  },
+  {
+   "slug": "tangela",
+   "name": "Tangela",
+   "looktype": 18,
+   "level": 50,
+   "pixel": [
+    646,
+    387
+   ],
+   "area": "kanto",
+   "range": [
+    3976,
+    3533,
+    4056,
+    3582,
+    7
+   ]
+  },
+  {
+   "slug": "kangaskhan",
+   "name": "Kangaskhan",
+   "looktype": 198,
+   "level": 80,
+   "pixel": [
+    559,
+    781
+   ],
+   "area": "kanto",
+   "range": [
+    3979,
+    3912,
+    4047,
+    3954,
+    7
+   ]
+  },
+  {
+   "slug": "staryu",
+   "name": "Staryu",
+   "looktype": 42,
+   "level": 20,
+   "pixel": [
+    943,
+    700
+   ],
+   "area": "kanto",
+   "range": [
+    4348,
+    3833,
+    4427,
+    3883,
+    7
+   ]
+  },
+  {
+   "slug": "starmie",
+   "name": "Starmie",
+   "looktype": 249,
+   "level": 80,
+   "pixel": [
+    942,
+    772
+   ],
+   "area": "kanto",
+   "range": [
+    4403,
+    3872,
+    4471,
+    3913,
+    7
+   ]
+  },
+  {
+   "slug": "mr_mime",
+   "name": "Mr. Mime",
+   "looktype": 246,
+   "level": 80,
+   "pixel": [
+    561,
+    839
+   ],
+   "area": "kanto",
+   "range": [
+    4021,
+    3937,
+    4077,
+    3971,
+    6
+   ]
+  },
+  {
+   "slug": "scyther",
+   "name": "Scyther",
+   "looktype": 15,
+   "level": 100,
+   "pixel": [
+    525,
+    811
+   ],
+   "area": "kanto",
+   "range": [
+    3982,
+    3915,
+    4037,
+    3949,
+    6
+   ]
+  },
+  {
+   "slug": "jynx",
+   "name": "Jynx",
+   "looktype": 282,
+   "level": 100,
+   "pixel": [
+    476,
+    1051
+   ],
+   "area": "kanto",
+   "range": [
+    4059,
+    4055,
+    4138,
+    4104,
+    5
+   ]
+  },
+  {
+   "slug": "electabuzz",
+   "name": "Electabuzz",
+   "looktype": 281,
+   "level": 100,
+   "pixel": [
+    892,
+    407
+   ],
+   "area": "kanto",
+   "range": [
+    4306,
+    3498,
+    4373,
+    3539,
+    1
+   ]
+  },
+  {
+   "slug": "magmar",
+   "name": "Magmar",
+   "looktype": 76,
+   "level": 100,
+   "pixel": [
+    256,
+    939
+   ],
+   "area": "kanto",
+   "range": [
+    3640,
+    4012,
+    3707,
+    4054,
+    7
+   ]
+  },
+  {
+   "slug": "pinsir",
+   "name": "Pinsir",
+   "looktype": 53,
+   "level": 100,
+   "pixel": [
+    265,
+    513
+   ],
+   "area": "kanto",
+   "range": [
+    3670,
+    3610,
+    3738,
+    3652,
+    7
+   ]
+  },
+  {
+   "slug": "tauros",
+   "name": "Tauros",
+   "looktype": 93,
+   "level": 60,
+   "pixel": [
+    685,
+    757
+   ],
+   "area": "kanto",
+   "range": [
+    3475,
+    4990,
+    3543,
+    5033,
+    7
+   ]
+  },
+  {
+   "slug": "gyarados",
+   "name": "Gyarados",
+   "looktype": 117,
+   "level": 100,
+   "pixel": [
+    829,
+    643
+   ],
+   "area": "kanto",
+   "range": [
+    4214,
+    3799,
+    4275,
+    3854,
+    8
+   ]
+  },
+  {
+   "slug": "lapras",
+   "name": "Lapras",
+   "looktype": 193,
+   "level": 100,
+   "pixel": [
+    593,
+    956
+   ],
+   "area": "kanto",
+   "range": [
+    4043,
+    4068,
+    4099,
+    4103,
+    6
+   ]
+  },
+  {
+   "slug": "omanyte",
+   "name": "Omanyte",
+   "looktype": 92,
+   "level": 20,
+   "pixel": [
+    1248,
+    971
+   ],
+   "area": "kanto",
+   "range": [
+    4338,
+    4002,
+    4394,
+    4037,
+    7
+   ]
+  },
+  {
+   "slug": "omastar",
+   "name": "Omastar",
+   "looktype": 192,
+   "level": 80,
+   "pixel": [
+    1299,
+    970
+   ],
+   "area": "kanto",
+   "range": [
+    4338,
+    4002,
+    4394,
+    4037,
+    7
+   ]
+  },
+  {
+   "slug": "kabuto",
+   "name": "Kabuto",
+   "looktype": 98,
+   "level": 20,
+   "pixel": [
+    1300,
+    918
+   ],
+   "area": "kanto",
+   "range": [
+    4338,
+    4002,
+    4394,
+    4037,
+    7
+   ]
+  },
+  {
+   "slug": "kabutops",
+   "name": "Kabutops",
+   "looktype": 164,
+   "level": 80,
+   "pixel": [
+    1249,
+    917
+   ],
+   "area": "kanto",
+   "range": [
+    4338,
+    4002,
+    4394,
+    4037,
+    7
+   ]
+  },
+  {
+   "slug": "aerodactyl",
+   "name": "Aerodactyl",
+   "looktype": 10,
+   "level": 100,
+   "pixel": [
+    1035,
+    338
+   ],
+   "area": "kanto",
+   "range": [
+    4440,
+    3404,
+    4484,
+    3429,
+    5
+   ]
+  },
+  {
+   "slug": "snorlax",
+   "name": "Snorlax",
+   "looktype": 51,
+   "level": 100,
+   "pixel": [
+    619,
+    2946
+   ],
+   "area": "kanto",
+   "range": [
+    3645,
+    5995,
+    3701,
+    6030,
+    7
+   ]
+  },
+  {
+   "slug": "dratini",
+   "name": "Dratini",
+   "looktype": 58,
+   "level": 30,
+   "pixel": [
+    515,
+    954
+   ],
+   "area": "kanto",
+   "range": [
+    3971,
+    4101,
+    4038,
+    4143,
+    5
+   ]
+  },
+  {
+   "slug": "dragonair",
+   "name": "Dragonair",
+   "looktype": 61,
+   "level": 80,
+   "pixel": [
+    553,
+    954
+   ],
+   "area": "kanto",
+   "range": [
+    3971,
+    4101,
+    4038,
+    4143,
+    5
+   ]
+  },
+  {
+   "slug": "dragonite",
+   "name": "Dragonite",
+   "looktype": 211,
+   "level": 100,
+   "pixel": [
+    547,
+    1003
+   ],
+   "area": "kanto",
+   "range": [
+    3971,
+    4101,
+    4038,
+    4143,
+    5
+   ]
+  },
+  {
+   "slug": "chikorita",
+   "name": "Chikorita",
+   "looktype": 318,
+   "level": 20,
+   "pixel": [
+    1001,
+    1466
+   ],
+   "area": "kanto",
+   "range": [
+    3997,
+    4534,
+    4075,
+    4576,
+    7
+   ]
+  },
+  {
+   "slug": "bayleef",
+   "name": "Bayleef",
+   "looktype": 319,
+   "level": 40,
+   "pixel": [
+    676,
+    2527
+   ],
+   "area": "kanto",
+   "range": [
+    3997,
+    4506,
+    4075,
+    4548,
+    7
+   ]
+  },
+  {
+   "slug": "meganium",
+   "name": "Meganium",
+   "looktype": 320,
+   "level": 80,
+   "pixel": [
+    998,
+    1420
+   ],
+   "area": "kanto",
+   "range": [
+    4042,
+    4468,
+    4137,
+    4524,
+    4
+   ]
+  },
+  {
+   "slug": "cyndaquil",
+   "name": "Cyndaquil",
+   "looktype": 321,
+   "level": 20,
+   "pixel": [
+    502,
+    1715
+   ],
+   "area": "kanto",
+   "range": [
+    3538,
+    4723,
+    3617,
+    4765,
+    7
+   ]
+  },
+  {
+   "slug": "quilava",
+   "name": "Quilava",
+   "looktype": 322,
+   "level": 40,
+   "pixel": [
+    544,
+    1716
+   ],
+   "area": "kanto",
+   "range": [
+    3605,
+    4775,
+    3707,
+    4831,
+    6
+   ]
+  },
+  {
+   "slug": "typhlosion",
+   "name": "Typhlosion",
+   "looktype": 323,
+   "level": 80,
+   "pixel": [
+    600,
+    1721
+   ],
+   "area": "kanto",
+   "range": [
+    3605,
+    4775,
+    3707,
+    4831,
+    5
+   ]
+  },
+  {
+   "slug": "totodile",
+   "name": "Totodile",
+   "looktype": 327,
+   "level": 20,
+   "pixel": [
+    1101,
+    2745
+   ],
+   "area": "kanto",
+   "range": [
+    4127,
+    5764,
+    4206,
+    5806,
+    7
+   ]
+  },
+  {
+   "slug": "croconaw",
+   "name": "Croconaw",
+   "looktype": 328,
+   "level": 40,
+   "pixel": [
+    1035,
+    2636
+   ],
+   "area": "kanto",
+   "range": [
+    4152,
+    5815,
+    4231,
+    5857,
+    7
+   ]
+  },
+  {
+   "slug": "feraligatr",
+   "name": "Feraligatr",
+   "looktype": 329,
+   "level": 80,
+   "pixel": [
+    1096,
+    2630
+   ],
+   "area": "kanto",
+   "range": [
+    4099,
+    5729,
+    4178,
+    5771,
+    6
+   ]
+  },
+  {
+   "slug": "noctowl",
+   "name": "Noctowl",
+   "looktype": 333,
+   "level": 60,
+   "pixel": [
+    324,
+    2725
+   ],
+   "area": "kanto",
+   "range": [
+    3345,
+    5771,
+    3437,
+    5820,
+    6
+   ]
+  },
+  {
+   "slug": "crobat",
+   "name": "Crobat",
+   "looktype": 338,
+   "level": 80,
+   "pixel": [
+    950,
+    1771
+   ],
+   "area": "kanto",
+   "range": [
+    4000,
+    4822,
+    4065,
+    4856,
+    7
+   ]
+  },
+  {
+   "slug": "chinchou",
+   "name": "Chinchou",
+   "looktype": 339,
+   "level": 10,
+   "pixel": [
+    795,
+    2551
+   ],
+   "area": "kanto",
+   "range": [
+    4237,
+    3704,
+    4316,
+    3746,
+    8
+   ]
+  },
+  {
+   "slug": "lanturn",
+   "name": "Lanturn",
+   "looktype": 340,
+   "level": 80,
+   "pixel": [
+    1003,
+    1513
+   ],
+   "area": "kanto",
+   "range": [
+    4237,
+    3704,
+    4316,
+    3746,
+    8
+   ]
+  },
+  {
+   "slug": "pichu",
+   "name": "Pichu",
+   "looktype": 341,
+   "level": 20,
+   "pixel": [
+    1023,
+    192
+   ],
+   "area": "kanto",
+   "range": [
+    4473,
+    3294,
+    4538,
+    3329,
+    7
+   ]
+  },
+  {
+   "slug": "cleffa",
+   "name": "Cleffa",
+   "looktype": 343,
+   "level": 20,
+   "pixel": [
+    342,
+    2651
+   ],
+   "area": "kanto",
+   "range": [
+    3347,
+    5755,
+    3409,
+    5790,
+    7
+   ]
+  },
+  {
+   "slug": "igglybuff",
+   "name": "Igglybuff",
+   "looktype": 342,
+   "level": 20,
+   "pixel": [
+    683,
+    1423
+   ],
+   "area": "kanto",
+   "range": [
+    3751,
+    4489,
+    3816,
+    4524,
+    7
+   ]
+  },
+  {
+   "slug": "natu",
+   "name": "Natu",
+   "looktype": 346,
+   "level": 30,
+   "pixel": [
+    510,
+    3228
+   ],
+   "area": "kanto",
+   "range": [
+    3531,
+    6273,
+    3610,
+    6315,
+    7
+   ]
+  },
+  {
+   "slug": "xatu",
+   "name": "Xatu",
+   "looktype": 347,
+   "level": 80,
+   "pixel": [
+    550,
+    3225
+   ],
+   "area": "kanto",
+   "range": [
+    3531,
+    6273,
+    3610,
+    6315,
+    7
+   ]
+  },
+  {
+   "slug": "mareep",
+   "name": "Mareep",
+   "looktype": 349,
+   "level": 20,
+   "pixel": [
+    643,
+    1441
+   ],
+   "area": "kanto",
+   "range": [
+    3687,
+    4487,
+    3752,
+    4522,
+    7
+   ]
+  },
+  {
+   "slug": "flaaffy",
+   "name": "Flaaffy",
+   "looktype": 350,
+   "level": 40,
+   "pixel": [
+    674,
+    1477
+   ],
+   "area": "kanto",
+   "range": [
+    3683,
+    4545,
+    3775,
+    4595,
+    6
+   ]
+  },
+  {
+   "slug": "ampharos",
+   "name": "Ampharos",
+   "looktype": 361,
+   "level": 80,
+   "pixel": [
+    714,
+    1500
+   ],
+   "area": "kanto",
+   "range": [
+    3736,
+    4508,
+    3829,
+    4557,
+    6
+   ]
+  },
+  {
+   "slug": "bellossom",
+   "name": "Bellossom",
+   "looktype": 355,
+   "level": 50,
+   "pixel": [
+    964,
+    1478
+   ],
+   "area": "kanto",
+   "range": [
+    4077,
+    4496,
+    4156,
+    4537,
+    6
+   ]
+  },
+  {
+   "slug": "marill",
+   "name": "Marill",
+   "looktype": 351,
+   "level": 20,
+   "pixel": [
+    91,
+    2829
+   ],
+   "area": "kanto",
+   "range": [
+    3332,
+    6044,
+    3411,
+    6086,
+    7
+   ]
+  },
+  {
+   "slug": "azumarill",
+   "name": "Azumarill",
+   "looktype": 352,
+   "level": 60,
+   "pixel": [
+    122,
+    2765
+   ],
+   "area": "kanto",
+   "range": [
+    3332,
+    6044,
+    3411,
+    6086,
+    7
+   ]
+  },
+  {
+   "slug": "politoed",
+   "name": "Politoed",
+   "looktype": 359,
+   "level": 70,
+   "pixel": [
+    863,
+    3021
+   ],
+   "area": "kanto",
+   "range": [
+    3871,
+    6072,
+    3950,
+    6114,
+    7
+   ]
+  },
+  {
+   "slug": "sunflora",
+   "name": "Sunflora",
+   "looktype": 354,
+   "level": 30,
+   "pixel": [
+    733,
+    2504
+   ],
+   "area": "kanto",
+   "range": [
+    3724,
+    6155,
+    3775,
+    6182,
+    7
+   ]
+  },
+  {
+   "slug": "quagsire",
+   "name": "Quagsire",
+   "looktype": 381,
+   "level": 60,
+   "pixel": [
+    1298,
+    2854
+   ],
+   "area": "kanto",
+   "range": [
+    4090,
+    5925,
+    4169,
+    5966,
+    7
+   ]
+  },
+  {
+   "slug": "misdreavus",
+   "name": "Misdreavus",
+   "looktype": 366,
+   "level": 100,
+   "pixel": [
+    639,
+    1969
+   ],
+   "area": "kanto",
+   "range": [
+    3643,
+    3406,
+    3722,
+    3448,
+    8
+   ]
+  },
+  {
+   "slug": "wobbuffet",
+   "name": "Wobbuffet",
+   "looktype": 382,
+   "level": 100,
+   "pixel": [
+    537,
+    3161
+   ],
+   "area": "kanto",
+   "range": [
+    3557,
+    6228,
+    3622,
+    6263,
+    7
+   ]
+  },
+  {
+   "slug": "girafarig",
+   "name": "Girafarig",
+   "looktype": 362,
+   "level": 80,
+   "pixel": [
+    625,
+    3227
+   ],
+   "area": "kanto",
+   "range": [
+    3680,
+    6214,
+    3759,
+    6256,
+    7
+   ]
+  },
+  {
+   "slug": "pineco",
+   "name": "Pineco",
+   "looktype": 367,
+   "level": 10,
+   "pixel": [
+    1576,
+    2957
+   ],
+   "area": "kanto",
+   "range": [
+    4512,
+    6081,
+    4590,
+    6123,
+    7
+   ]
+  },
+  {
+   "slug": "forretress",
+   "name": "Forretress",
+   "looktype": 368,
+   "level": 80,
+   "pixel": [
+    1518,
+    3024
+   ],
+   "area": "kanto",
+   "range": [
+    4512,
+    6081,
+    4590,
+    6123,
+    7
+   ]
+  },
+  {
+   "slug": "gligar",
+   "name": "Gligar",
+   "looktype": 383,
+   "level": 40,
+   "pixel": [
+    718,
+    2575
+   ],
+   "area": "kanto",
+   "range": [
+    4050,
+    4777,
+    4115,
+    4811,
+    6
+   ]
+  },
+  {
+   "slug": "steelix",
+   "name": "Steelix",
+   "looktype": 369,
+   "level": 100,
+   "pixel": [
+    655,
+    1919
+   ],
+   "area": "kanto",
+   "range": [
+    3607,
+    5001,
+    3699,
+    5051,
+    13
+   ]
+  },
+  {
+   "slug": "snubbull",
+   "name": "Snubbull",
+   "looktype": 410,
+   "level": 30,
+   "pixel": [
+    965,
+    1721
+   ],
+   "area": "kanto",
+   "range": [
+    3967,
+    4780,
+    4046,
+    4822,
+    7
+   ]
+  },
+  {
+   "slug": "granbull",
+   "name": "Granbull",
+   "looktype": 2883,
+   "level": 80,
+   "pixel": [
+    986,
+    1679
+   ],
+   "area": "kanto",
+   "range": [
+    4009,
+    4750,
+    4087,
+    4792,
+    6
+   ]
+  },
+  {
+   "slug": "scizor",
+   "name": "Scizor",
+   "looktype": 370,
+   "level": 100,
+   "pixel": [
+    1611,
+    3057
+   ],
+   "area": "kanto",
+   "range": [
+    4557,
+    6078,
+    4623,
+    6113,
+    7
+   ]
+  },
+  {
+   "slug": "heracross",
+   "name": "Heracross",
+   "looktype": 373,
+   "level": 100,
+   "pixel": [
+    1472,
+    3077
+   ],
+   "area": "kanto",
+   "range": [
+    4508,
+    6111,
+    4586,
+    6153,
+    6
+   ]
+  },
+  {
+   "slug": "teddiursa",
+   "name": "Teddiursa",
+   "looktype": 371,
+   "level": 30,
+   "pixel": [
+    987,
+    1821
+   ],
+   "area": "kanto",
+   "range": [
+    4011,
+    4834,
+    4090,
+    4876,
+    4
+   ]
+  },
+  {
+   "slug": "ursaring",
+   "name": "Ursaring",
+   "looktype": 372,
+   "level": 100,
+   "pixel": [
+    1035,
+    1786
+   ],
+   "area": "kanto",
+   "range": [
+    4011,
+    4834,
+    4090,
+    4876,
+    4
+   ]
+  },
+  {
+   "slug": "slugma",
+   "name": "Slugma",
+   "looktype": 396,
+   "level": 10,
+   "pixel": [
+    617,
+    1678
+   ],
+   "area": "kanto",
+   "range": [
+    3604,
+    4734,
+    3683,
+    4776,
+    7
+   ]
+  },
+  {
+   "slug": "magcargo",
+   "name": "Magcargo",
+   "looktype": 397,
+   "level": 80,
+   "pixel": [
+    652,
+    1692
+   ],
+   "area": "kanto",
+   "range": [
+    3604,
+    4734,
+    3683,
+    4776,
+    7
+   ]
+  },
+  {
+   "slug": "swinub",
+   "name": "Swinub",
+   "looktype": 389,
+   "level": 10,
+   "pixel": [
+    657,
+    1027
+   ],
+   "area": "kanto",
+   "range": [
+    4044,
+    4123,
+    4123,
+    4165,
+    7
+   ]
+  },
+  {
+   "slug": "piloswine",
+   "name": "Piloswine",
+   "looktype": 390,
+   "level": 80,
+   "pixel": [
+    597,
+    1053
+   ],
+   "area": "kanto",
+   "range": [
+    4044,
+    4123,
+    4123,
+    4165,
+    7
+   ]
+  },
+  {
+   "slug": "mantine",
+   "name": "Mantine",
+   "looktype": 392,
+   "level": 100,
+   "pixel": [
+    976,
+    1549
+   ],
+   "area": "kanto",
+   "range": [
+    4245,
+    3719,
+    4364,
+    3783,
+    8
+   ]
+  },
+  {
+   "slug": "skarmory",
+   "name": "Skarmory",
+   "looktype": 398,
+   "level": 100,
+   "pixel": [
+    393,
+    2740
+   ],
+   "area": "kanto",
+   "range": [
+    3365,
+    5777,
+    3457,
+    5826,
+    5
+   ]
+  },
+  {
+   "slug": "houndour",
+   "name": "Houndour",
+   "looktype": 394,
+   "level": 20,
+   "pixel": [
+    646,
+    1741
+   ],
+   "area": "kanto",
+   "range": [
+    3545,
+    4760,
+    3623,
+    4801,
+    6
+   ]
+  },
+  {
+   "slug": "houndoom",
+   "name": "Houndoom",
+   "looktype": 395,
+   "level": 100,
+   "pixel": [
+    695,
+    1742
+   ],
+   "area": "kanto",
+   "range": [
+    3545,
+    4760,
+    3623,
+    4801,
+    6
+   ]
+  },
+  {
+   "slug": "kingdra",
+   "name": "Kingdra",
+   "looktype": 406,
+   "level": 100,
+   "pixel": [
+    1029,
+    1548
+   ],
+   "area": "kanto",
+   "range": [
+    4245,
+    3719,
+    4364,
+    3783,
+    8
+   ]
+  },
+  {
+   "slug": "phanpy",
+   "name": "Phanpy",
+   "looktype": 479,
+   "level": 20,
+   "pixel": [
+    592,
+    1639
+   ],
+   "area": "kanto",
+   "range": [
+    3609,
+    4652,
+    3687,
+    4694,
+    7
+   ]
+  },
+  {
+   "slug": "donphan",
+   "name": "Donphan",
+   "looktype": 405,
+   "level": 80,
+   "pixel": [
+    531,
+    1631
+   ],
+   "area": "kanto",
+   "range": [
+    3609,
+    4652,
+    3687,
+    4694,
+    7
+   ]
+  },
+  {
+   "slug": "tyrogue",
+   "name": "Tyrogue",
+   "looktype": 384,
+   "level": 30,
+   "pixel": [
+    457,
+    1897
+   ],
+   "area": "kanto",
+   "range": [
+    3533,
+    4918,
+    3598,
+    4953,
+    6
+   ]
+  },
+  {
+   "slug": "hitmontop",
+   "name": "Hitmontop",
+   "looktype": 414,
+   "level": 60,
+   "pixel": [
+    505,
+    1897
+   ],
+   "area": "kanto",
+   "range": [
+    3550,
+    4905,
+    3616,
+    4940,
+    4
+   ]
+  },
+  {
+   "slug": "smoochum",
+   "name": "Smoochum",
+   "looktype": 402,
+   "level": 30,
+   "pixel": [
+    633,
+    973
+   ],
+   "area": "kanto",
+   "range": [
+    4068,
+    4057,
+    4133,
+    4092,
+    5
+   ]
+  },
+  {
+   "slug": "elekid",
+   "name": "Elekid",
+   "looktype": 3674,
+   "level": 30,
+   "pixel": [
+    873,
+    334
+   ],
+   "area": "kanto",
+   "range": [
+    4301,
+    3499,
+    4379,
+    3541,
+    5
+   ]
+  },
+  {
+   "slug": "magby",
+   "name": "Magby",
+   "looktype": 386,
+   "level": 30,
+   "pixel": [
+    693,
+    1692
+   ],
+   "area": "kanto",
+   "range": [
+    3604,
+    4734,
+    3683,
+    4776,
+    7
+   ]
+  },
+  {
+   "slug": "miltank",
+   "name": "Miltank",
+   "looktype": 408,
+   "level": 80,
+   "pixel": [
+    1056,
+    1716
+   ],
+   "area": "kanto",
+   "range": [
+    3996,
+    4868,
+    4075,
+    4910,
+    6
+   ]
+  },
+  {
+   "slug": "larvitar",
+   "name": "Larvitar",
+   "looktype": 400,
+   "level": 30,
+   "pixel": [
+    681,
+    1643
+   ],
+   "area": "kanto",
+   "range": [
+    3671,
+    4661,
+    3736,
+    4695,
+    5
+   ]
+  },
+  {
+   "slug": "pupitar",
+   "name": "Pupitar",
+   "looktype": 401,
+   "level": 60,
+   "pixel": [
+    906,
+    2624
+   ],
+   "area": "kanto",
+   "range": [
+    3671,
+    4661,
+    3736,
+    4695,
+    5
+   ]
+  },
+  {
+   "slug": "tyranitar",
+   "name": "Tyranitar",
+   "looktype": 416,
+   "level": 100,
+   "pixel": [
+    654,
+    1601
+   ],
+   "area": "kanto",
+   "range": [
+    3671,
+    4661,
+    3736,
+    4695,
+    5
+   ]
+  },
+  {
+   "slug": "taekwondo_hitmonchan",
+   "name": "Taekwondo Hitmonchan",
+   "looktype": 38,
+   "level": 150,
+   "pixel": [
+    449,
+    287
+   ],
+   "area": "outland",
+   "range": [
+    2967,
+    3075,
+    3046,
+    3117,
+    8
+   ]
+  },
+  {
+   "slug": "taekwondo_hitmonlee",
+   "name": "Taekwondo Hitmonlee",
+   "looktype": 20,
+   "level": 150,
+   "pixel": [
+    441,
+    260
+   ],
+   "area": "outland",
+   "range": [
+    2967,
+    3075,
+    3046,
+    3117,
+    8
+   ]
+  },
+  {
+   "slug": "taekwondo_hitmontop",
+   "name": "Taekwondo Hitmontop",
+   "looktype": 414,
+   "level": 150,
+   "pixel": [
+    477,
+    268
+   ],
+   "area": "outland",
+   "range": [
+    2975,
+    3012,
+    3054,
+    3055,
+    8
+   ]
+  },
+  {
+   "slug": "brave_arcanine",
+   "name": "Brave Arcanine",
+   "looktype": 91,
+   "level": 150,
+   "pixel": [
+    277,
+    273
+   ],
+   "area": "outland",
+   "range": [
+    2756,
+    3042,
+    2835,
+    3084,
+    7
+   ]
+  },
+  {
+   "slug": "furious_magmar",
+   "name": "Furious Magmar",
+   "looktype": 76,
+   "level": 150,
+   "pixel": [
+    332,
+    291
+   ],
+   "area": "outland",
+   "range": [
+    2819,
+    3086,
+    2897,
+    3128,
+    10
+   ]
+  },
+  {
+   "slug": "ancient_pupitar",
+   "name": "Ancient Pupitar",
+   "looktype": 401,
+   "level": 150,
+   "pixel": [
+    450,
+    320
+   ],
+   "area": "outland",
+   "range": [
+    2965,
+    3058,
+    3044,
+    3100,
+    6
+   ]
+  },
+  {
+   "slug": "brave_steelix",
+   "name": "Brave Steelix",
+   "looktype": 369,
+   "level": 150,
+   "pixel": [
+    385,
+    318
+   ],
+   "area": "outland",
+   "range": [
+    2885,
+    3088,
+    2978,
+    3137,
+    9
+   ]
+  },
+  {
+   "slug": "furious_wigglytuff",
+   "name": "Furious Wigglytuff",
+   "looktype": 64,
+   "level": 150,
+   "pixel": [
+    284,
+    377
+   ],
+   "area": "outland",
+   "range": [
+    2869,
+    3084,
+    2948,
+    3126,
+    7
+   ]
+  },
+  {
+   "slug": "ancient_xatu",
+   "name": "Ancient Xatu",
+   "looktype": 347,
+   "level": 150,
+   "pixel": [
+    83,
+    205
+   ],
+   "area": "outland",
+   "range": [
+    2581,
+    2974,
+    2660,
+    3016,
+    7
+   ]
+  },
+  {
+   "slug": "brave_alakazam",
+   "name": "Brave Alakazam",
+   "looktype": 218,
+   "level": 150,
+   "pixel": [
+    83,
+    230
+   ],
+   "area": "outland",
+   "range": [
+    2576,
+    2977,
+    2682,
+    3033,
+    8
+   ]
+  },
+  {
+   "slug": "ancient_hypno",
+   "name": "Ancient Hypno",
+   "looktype": 119,
+   "level": 150,
+   "pixel": [
+    83,
+    176
+   ],
+   "area": "outland",
+   "range": [
+    2576,
+    2977,
+    2682,
+    3033,
+    8
+   ]
+  },
+  {
+   "slug": "furious_gyarados",
+   "name": "Furious Gyarados",
+   "looktype": 117,
+   "level": 150,
+   "pixel": [
+    216,
+    69
+   ],
+   "area": "outland",
+   "range": [
+    2664,
+    2834,
+    2730,
+    2869,
+    9
+   ]
+  },
+  {
+   "slug": "brave_mantine",
+   "name": "Brave Mantine",
+   "looktype": 392,
+   "level": 150,
+   "pixel": [
+    242,
+    69
+   ],
+   "area": "outland",
+   "range": [
+    2664,
+    2834,
+    2730,
+    2869,
+    9
+   ]
+  },
+  {
+   "slug": "ancient_pinsir",
+   "name": "Ancient Pinsir",
+   "looktype": 53,
+   "level": 150,
+   "pixel": [
+    169,
+    188
+   ],
+   "area": "outland",
+   "range": [
+    2664,
+    2933,
+    2743,
+    2975,
+    7
+   ]
+  },
+  {
+   "slug": "brave_clefable",
+   "name": "Brave Clefable",
+   "looktype": 68,
+   "level": 150,
+   "pixel": [
+    343,
+    378
+   ],
+   "area": "outland",
+   "range": [
+    2869,
+    3084,
+    2948,
+    3126,
+    7
+   ]
+  },
+  {
+   "slug": "ancient_granbull",
+   "name": "Ancient Granbull",
+   "looktype": 2883,
+   "level": 150,
+   "pixel": [
+    316,
+    370
+   ],
+   "area": "outland",
+   "range": [
+    2846,
+    3101,
+    2938,
+    3150,
+    4
+   ]
+  },
+  {
+   "slug": "furious_skarmory",
+   "name": "Furious Skarmory",
+   "looktype": 398,
+   "level": 150,
+   "pixel": [
+    354,
+    471
+   ],
+   "area": "outland",
+   "range": [
+    2768,
+    3252,
+    2847,
+    3294,
+    5
+   ]
+  },
+  {
+   "slug": "brave_noctowl",
+   "name": "Brave Noctowl",
+   "looktype": 333,
+   "level": 150,
+   "pixel": [
+    346,
+    543
+   ],
+   "area": "outland",
+   "range": [
+    2768,
+    3252,
+    2847,
+    3294,
+    5
+   ]
+  },
+  {
+   "slug": "furious_pidgeot",
+   "name": "Furious Pidgeot",
+   "looktype": 80,
+   "level": 150,
+   "pixel": [
+    276,
+    543
+   ],
+   "area": "outland",
+   "range": [
+    2768,
+    3252,
+    2847,
+    3294,
+    5
+   ]
+  },
+  {
+   "slug": "ancient_marowak",
+   "name": "Ancient Marowak",
+   "looktype": 197,
+   "level": 150,
+   "pixel": [
+    86,
+    310
+   ],
+   "area": "outland",
+   "range": [
+    2626,
+    3060,
+    2699,
+    3102,
+    7
+   ]
+  }
+ ]
+}
