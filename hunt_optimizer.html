@@ -347,6 +347,7 @@
   <!-- TABS -->
   <div class="tabs" id="tabs" style="display:none">
     <button data-tab="lucro" class="active">💰 Lucro (loot/kill)</button>
+    <button data-tab="lucroTotal">💵 Lucro total</button>
     <button data-tab="xp">⭐ XP</button>
     <button data-tab="captura">🎯 Captura</button>
   </div>
@@ -440,8 +441,8 @@
     hasMarkers: false,
     areas: [],           // distinct hunt areas, e.g. ["kanto","outland"]
     huntNames: [],       // sorted unique hunt names for the datalist
-    tab: "lucro",        // lucro | xp | captura — drives which value field the charts use
-    computed: [],        // [{name, huntLevel, rarity, type1, type2, lootValue, sellValue, totalValue, experience, capturePct, captureRate, bestBall, captureRates, hunts:[...], hasHunt, huntAreas, huntSlugs, breakdown:[...], id}]
+    tab: "lucro",        // lucro | lucroTotal | xp | captura — drives which value field the charts use
+    computed: [],        // [{name, huntLevel, rarity, type1, type2, lootValue, sellValue, totalValue, profitTotal, captureNet, experience, capturePct, captureRate, bestBall, captureRates, hunts:[...], hasHunt, huntAreas, huntSlugs, breakdown:[...], id}]
     topN: 15,
     scatterLog: true,
     // MYTHIC/LEGENDARY off by default; hunt filter defaults to "with"
@@ -467,6 +468,14 @@
       scatterTitle: "Esforço × XP",
       scatterHint: "huntLevel × XP — cor por raridade",
       scatterSub: "Canto superior-esquerdo = fácil e muita XP (o alvo pra grind eficiente).",
+    },
+    lucroTotal: {
+      field: "profitTotal",
+      rankTitle: "Ranking de lucro total — loot + captura + venda",
+      rankSub: (n, total) => `Top ${n} de ${total} monstros filtrados. Loot/kill + venda esperada capturando com a melhor ball − custo da ball. Mesma ordem que o piwtools usa pra "melhor hunt".`,
+      scatterTitle: "Esforço × Lucro total",
+      scatterHint: "huntLevel × lucro total/kill — cor por raridade",
+      scatterSub: "Superior-esquerdo = fácil e muito lucro somando loot + captura & venda (o alvo pra farm de gold).",
     },
     captura: {
       field: "capturePct",
@@ -698,6 +707,10 @@
       const priceNpc = Number(cr.priceNpc) || 0;
       const captureValue = priceNpc > 0 ? priceNpc : sellValue;
       const cap = bestCapture(captureValue, sellValue);
+      // piwtools money model, per kill: net gold from throwing the best ball = venda*chance − preço da ball.
+      // Only counts when the monster is sellable (unsellable → no capture, no ball spent).
+      const captureNet = sellValue > 0 ? sellValue * cap.best.rate - cap.best.ball.price : 0;
+      const profitTotal = lootValue + captureNet;
       const nm = (cr.name || "").trim().toLowerCase();
       const hunts = (huntsByName.get(nm) && huntsByName.get(nm).length)
         ? huntsByName.get(nm)
@@ -715,6 +728,8 @@
         captureRate: cap.best.rate,      // 0–1, best ball
         bestBall: cap.best.ball,         // { key, name, price }
         captureRates: cap.rates,         // { poke, great, super, ultra } as 0–1
+        captureNet,                      // per-kill net gold from capturing (venda*chance − ball price)
+        profitTotal,                     // lootValue + captureNet — field plotted by the Lucro total tab
         topLoot: breakdown[0] ? breakdown[0].name : "—",
         breakdown,
         hunts,
@@ -814,7 +829,7 @@
       $("insightText").innerHTML =
         `O ranking foca no <b>loot por kill</b> (farm real, vai até <b>${nf0.format(Math.round(maxLoot))}</b> gold). ` +
         `O <b>valor de venda</b> do próprio Pokémon é muito maior (até <b>${nf0.format(maxSell)}</b>), mas depende de capturar & vender — ` +
-        `por isso fica só como coluna na tabela (“Venda” / “Total”), fora do ranking.`;
+        `por isso este ranking o ignora. Veja a aba <b>💵 Lucro total</b> pra ranquear já contando a captura e a venda.`;
       box.classList.add("show");
     } else {
       box.classList.remove("show");
@@ -1016,6 +1031,7 @@
               `<span class="t-bar-val">${nf1.format(pct)}%</span>` +
             `</div></div>`;
           }).join("") +
+          `<div class="t-bar-sub" style="margin-top:4px">líquido com a melhor ball: <b>${d.captureNet >= 0 ? "+" : ""}${nf1.format(d.captureNet)}</b> gold/kill (já no lucro total)</div>` +
         `</div>`
       : "";
     return `<div class="t-name">${escHtml(d.name)}</div>` +
@@ -1024,7 +1040,7 @@
       `<div class="t-row"><span>XP</span><b>${nf0.format(d.experience)}</b></div>` +
       `<div class="t-row"><span>loot / kill</span><b>${nf1.format(d.lootValue)}</b></div>` +
       `<div class="t-row"><span>venda</span><b>${nf0.format(d.sellValue)}</b></div>` +
-      `<div class="t-row"><span>total</span><b>${nf0.format(Math.round(d.totalValue))}</b></div>` +
+      `<div class="t-row"><span>lucro total / kill</span><b>${nf0.format(Math.round(d.profitTotal))}</b></div>` +
       (state.hasMarkers
         ? `<div class="t-row"><span>hunt</span><b>${d.hasHunt ? escHtml(d.huntAreas.join(", ") || "sim") + " (" + d.hunts.length + ")" : "não"}</b></div>`
         : "") +
@@ -1044,6 +1060,7 @@
       { key: "lootValue", label: "Loot / kill", num: true, fmt: (d) => nf1.format(d.lootValue) },
       { key: "sellValue", label: "Venda", num: true, fmt: (d) => nf0.format(d.sellValue) },
       { key: "totalValue", label: "Total", num: true, fmt: (d) => nf0.format(Math.round(d.totalValue)) },
+      { key: "profitTotal", label: "Lucro total", num: true, fmt: (d) => nf0.format(Math.round(d.profitTotal)) },
       { key: "capturePct", label: "Captura", num: true, fmt: (d) =>
         d.sellValue > 0
           ? `${nf1.format(d.capturePct)}% <span class="muted">${escHtml(d.bestBall.name)}</span>`
