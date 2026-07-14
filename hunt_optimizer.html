@@ -203,6 +203,8 @@
   .tabs button { border: none; background: none; border-radius: 7px; padding: 8px 16px; font-size: 13px;
     font-weight: 550; color: var(--text-secondary); }
   .tabs button.active { background: var(--series-1); color: #fff; }
+  .ai-badge { font-size: 9px; font-weight: 700; letter-spacing: .03em; padding: 1px 4px; margin-left: 4px;
+    border-radius: 4px; background: linear-gradient(90deg,#7c3aed,#2563eb); color: #fff; vertical-align: middle; }
 
   /* ---- collapsible table card ---- */
   details.table-card > summary { cursor: pointer; list-style: none; font-size: 15px; font-weight: 600;
@@ -350,6 +352,8 @@
     <button data-tab="lucroTotal">💵 Lucro total</button>
     <button data-tab="xp">⭐ XP</button>
     <button data-tab="captura">🎯 Captura</button>
+    <button data-tab="xpHora">✨ XP/hora <span class="ai-badge">AI</span></button>
+    <button data-tab="goldHora">✨ Gold/hora <span class="ai-badge">AI</span></button>
   </div>
 
   <!-- RANKING (field depends on active tab) -->
@@ -500,6 +504,20 @@
       scatterTitle: "Esforço × Captura",
       scatterHint: "huntLevel × chance de captura — cor por raridade",
       scatterSub: "Bichos baratos capturam fácil; caros/raros quase nunca. É um proxy pelo valor do monstro, não a taxa real do jogo.",
+    },
+    xpHora: {
+      field: "xpPerHour", fmt: fmtCompact,
+      rankTitle: "Ranking de XP por hora ✨",
+      rankSub: (n, total) => `Top ${n} de ${total}. kills/min × XP/kill, contando densidade e respawn da hunt. Estimado de snapshot — pode variar.`,
+      scatterTitle: "Esforço × XP/hora", scatterHint: "huntLevel × XP/h — cor por raridade",
+      scatterSub: "Superior-esquerdo = fácil e muita XP por hora (o alvo pra grind).",
+    },
+    goldHora: {
+      field: "goldPerHour", fmt: fmtCompact,
+      rankTitle: "Ranking de Gold por hora ✨",
+      rankSub: (n, total) => `Top ${n} de ${total}. kills/min × (loot + captura) por hora. Estimado de snapshot — pode variar.`,
+      scatterTitle: "Esforço × Gold/hora", scatterHint: "huntLevel × Gold/h — cor por raridade",
+      scatterSub: "Superior-esquerdo = fácil e muito gold por hora.",
     },
   };
 
@@ -1077,6 +1095,12 @@
       (state.hasMarkers
         ? `<div class="t-row"><span>hunt</span><b>${d.hasHunt ? escHtml(d.huntAreas.join(", ") || "sim") + " (" + d.hunts.length + ")" : "não"}</b></div>`
         : "") +
+      (d.huntN
+        ? `<div class="t-row"><span>kills/min</span><b>${nf1.format(d.killsPerMinV)} (${d.regime === "respawn" ? "respawn-lim." : "tamanho-lim."})</b></div>` +
+          `<div class="t-row"><span>XP/hora</span><b>${nf0.format(Math.round(d.xpPerHour))}</b></div>` +
+          `<div class="t-row"><span>Gold/hora</span><b>${nf0.format(Math.round(d.goldPerHour))}</b></div>` +
+          `<div class="t-bar-sub">volta ~${nf0.format(d.huntRoute)} tiles · ${d.huntN} spawns · respawn ${state.params.respawnS}s</div>`
+        : "") +
       capHtml +
       breakHtml;
   }
@@ -1098,6 +1122,10 @@
         d.sellValue > 0
           ? `${nf1.format(d.capturePct)}% <span class="muted">${escHtml(d.bestBall.name)}</span>`
           : `<span class="muted">—</span>` },
+      { key: "killsPerMinV", label: "Kills/min", num: true, fmt: (d) =>
+        d.huntN ? `${nf1.format(d.killsPerMinV)} <span class="rar" style="font-size:10px;color:${d.regime==='respawn'?'var(--rar-COMMON)':'var(--text-muted)'}">${d.regime==='respawn'?'respawn':'tamanho'}</span>` : `<span class="muted">—</span>` },
+      { key: "xpPerHour", label: "XP/h ✨", num: true, fmt: (d) => d.huntN ? fmtCompact(d.xpPerHour) : `<span class="muted">—</span>` },
+      { key: "goldPerHour", label: "Gold/h ✨", num: true, fmt: (d) => d.huntN ? fmtCompact(d.goldPerHour) : `<span class="muted">—</span>` },
       { key: "topLoot", label: "Maior drop", l: true, fmt: (d) => `<span class="muted">${escHtml(d.topLoot)}</span>` },
     ];
     if (state.hasMarkers) {
