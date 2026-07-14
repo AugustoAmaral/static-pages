@@ -348,6 +348,7 @@
   <div class="tabs" id="tabs" style="display:none">
     <button data-tab="lucro" class="active">💰 Lucro (loot/kill)</button>
     <button data-tab="xp">⭐ XP</button>
+    <button data-tab="captura">🎯 Captura</button>
   </div>
 
   <!-- RANKING (field depends on active tab) -->
@@ -408,6 +409,16 @@
   const RARITY_ORDER = ["COMMON", "UNCOMMON", "RARE", "EPIC", "LEGENDARY", "MYTHIC"];
   const SVGNS = "http://www.w3.org/2000/svg";
 
+  // Capture chance — reverse-engineered from piwtools.vercel.app. It does NOT use the game's
+  // captureBase field: it's a heuristic where the rate saturates with ball price / creature value.
+  const BALLS = [
+    { key: "poke", name: "Poke", price: 5 },
+    { key: "great", name: "Great", price: 20 },
+    { key: "super", name: "Super", price: 50 },
+    { key: "ultra", name: "Ultra", price: 130 },
+  ];
+  const CAPTURE_K = 1.75; // tuning constant baked into piwtools
+
   const nf0 = new Intl.NumberFormat("pt-BR", { maximumFractionDigits: 0 });
   const nf1 = new Intl.NumberFormat("pt-BR", { maximumFractionDigits: 1 });
 
@@ -429,8 +440,8 @@
     hasMarkers: false,
     areas: [],           // distinct hunt areas, e.g. ["kanto","outland"]
     huntNames: [],       // sorted unique hunt names for the datalist
-    tab: "lucro",        // lucro | xp — drives which value field the charts use
-    computed: [],        // [{name, huntLevel, rarity, type1, type2, lootValue, sellValue, totalValue, experience, hunts:[...], hasHunt, huntAreas, huntSlugs, breakdown:[...], id}]
+    tab: "lucro",        // lucro | xp | captura — drives which value field the charts use
+    computed: [],        // [{name, huntLevel, rarity, type1, type2, lootValue, sellValue, totalValue, experience, capturePct, captureRate, bestBall, captureRates, hunts:[...], hasHunt, huntAreas, huntSlugs, breakdown:[...], id}]
     topN: 15,
     scatterLog: true,
     // MYTHIC/LEGENDARY off by default; hunt filter defaults to "with"
@@ -456,6 +467,15 @@
       scatterTitle: "Esforço × XP",
       scatterHint: "huntLevel × XP — cor por raridade",
       scatterSub: "Canto superior-esquerdo = fácil e muita XP (o alvo pra grind eficiente).",
+    },
+    captura: {
+      field: "capturePct",
+      fmt: (v) => nf1.format(v) + "%",
+      rankTitle: "Ranking de chance de captura",
+      rankSub: (n, total) => `Top ${n} de ${total} monstros filtrados. % da melhor ball (a que mais rende por kill). Estimativa do piwtools — não é a mecânica real do jogo.`,
+      scatterTitle: "Esforço × Captura",
+      scatterHint: "huntLevel × chance de captura — cor por raridade",
+      scatterSub: "Bichos baratos capturam fácil; caros/raros quase nunca. É um proxy pelo valor do monstro, não a taxa real do jogo.",
     },
   };
 
@@ -613,6 +633,25 @@
     renderAll();
   }
 
+  // piwtools capture formula: clamp01(1 - e^(-K * ballPrice / value)); value = priceNpc || sellValue.
+  // Unsellable monsters (sellValue <= 0) can't be captured for profit → 0.
+  function captureRate(value, sellValue, ballPrice) {
+    if (sellValue <= 0 || value <= 0) return 0;
+    return Math.min(1, Math.max(0, 1 - Math.exp(-CAPTURE_K * ballPrice / value)));
+  }
+  // Best ball = the one that maximizes profit per kill (sellValue*rate - ballPrice), exactly like piwtools.
+  function bestCapture(value, sellValue) {
+    const rates = {};
+    let best = { ball: BALLS[0], rate: 0, valuePerKill: -Infinity };
+    for (const b of BALLS) {
+      const rate = captureRate(value, sellValue, b.price);
+      rates[b.key] = rate;
+      const vpk = sellValue * rate - b.price;
+      if (vpk > best.valuePerKill) best = { ball: b, rate, valuePerKill: vpk };
+    }
+    return { best, rates };
+  }
+
   function compute(creatures, items, markers) {
     // price map by lowercased/trimmed name
     const priceMap = new Map();
@@ -656,6 +695,9 @@
       }
       breakdown.sort((a, b) => b.contribution - a.contribution);
       const sellValue = Number(cr.sellValue) || 0;
+      const priceNpc = Number(cr.priceNpc) || 0;
+      const captureValue = priceNpc > 0 ? priceNpc : sellValue;
+      const cap = bestCapture(captureValue, sellValue);
       const nm = (cr.name || "").trim().toLowerCase();
       const hunts = (huntsByName.get(nm) && huntsByName.get(nm).length)
         ? huntsByName.get(nm)
@@ -668,6 +710,11 @@
         type1: cr.type1 || "", type2: cr.type2 || "",
         experience: Number(cr.experience) || 0,
         lootValue, sellValue, totalValue: lootValue + sellValue,
+        priceNpc, captureValue,
+        capturePct: cap.best.rate * 100, // field plotted by the Captura tab
+        captureRate: cap.best.rate,      // 0–1, best ball
+        bestBall: cap.best.ball,         // { key, name, price }
+        captureRates: cap.rates,         // { poke, great, super, ultra } as 0–1
         topLoot: breakdown[0] ? breakdown[0].name : "—",
         breakdown,
         hunts,
@@ -808,6 +855,7 @@
     clear(host);
     const cfg = TABS[state.tab];
     const field = cfg.field;
+    const valFmt = cfg.fmt || fmtCompact;
     const sorted = [...data].sort((a, b) => b[field] - a[field]).slice(0, state.topN);
     $("rankTitle").textContent = cfg.rankTitle;
     $("rankSub").textContent = cfg.rankSub(sorted.length, data.length);
@@ -828,7 +876,7 @@
     for (const t of ticks) {
       svg.appendChild(mk("line", { x1: x(t), y1: padT, x2: x(t), y2: H - padB, stroke: "var(--grid)", "stroke-width": 1 }));
       const tl = mk("text", { x: x(t), y: H - padB + 15, "text-anchor": "middle", "font-size": 10, fill: "var(--text-muted)" });
-      tl.textContent = fmtCompact(t);
+      tl.textContent = valFmt(t);
       svg.appendChild(tl);
     }
     // baseline
@@ -850,7 +898,7 @@
       // value at tip
       const vl = mk("text", { x: x(d[field]) + 6, y: cy + barH / 2 + 3.5, "text-anchor": "start", "font-size": 11, fill: "var(--text-primary)" });
       vl.style.fontVariantNumeric = "tabular-nums";
-      vl.textContent = fmtCompact(d[field]);
+      vl.textContent = valFmt(d[field]);
       svg.appendChild(vl);
     });
     host.appendChild(svg);
@@ -862,6 +910,7 @@
     clear(host);
     const cfg = TABS[state.tab];
     const field = cfg.field;
+    const valFmt = cfg.fmt || fmtCompact;
     $("scatterTitle").textContent = cfg.scatterTitle;
     $("scatterHint").textContent = cfg.scatterHint;
     $("scatterSub").textContent = cfg.scatterSub;
@@ -897,14 +946,14 @@
         const yy = y(Math.pow(10, e));
         svg.appendChild(mk("line", { x1: mL, y1: yy, x2: W - mR, y2: yy, stroke: "var(--grid)", "stroke-width": 1 }));
         const tl = mk("text", { x: mL - 8, y: yy + 3.5, "text-anchor": "end", "font-size": 10, fill: "var(--text-muted)" });
-        tl.textContent = fmtCompact(Math.pow(10, e)); svg.appendChild(tl);
+        tl.textContent = valFmt(Math.pow(10, e)); svg.appendChild(tl);
       }
     } else {
       for (const t of niceTicks(maxV, 5)) {
         const yy = yLin(t);
         svg.appendChild(mk("line", { x1: mL, y1: yy, x2: W - mR, y2: yy, stroke: "var(--grid)", "stroke-width": 1 }));
         const tl = mk("text", { x: mL - 8, y: yy + 3.5, "text-anchor": "end", "font-size": 10, fill: "var(--text-muted)" });
-        tl.textContent = fmtCompact(t); svg.appendChild(tl);
+        tl.textContent = valFmt(t); svg.appendChild(tl);
       }
     }
     // x grid + labels
@@ -955,6 +1004,20 @@
     const breakHtml = shown.length
       ? `<div class="t-break"><div class="t-break-title">De onde vem o loot (esperado / kill)</div>${itemHtml}${moreHtml}</div>`
       : `<div class="t-break"><div class="t-break-title">Loot</div><span class="muted" style="font-size:11px">sem drop com valor de venda</span></div>`;
+    // capture breakdown per ball (⭐ marks the best profit/kill ball, like piwtools)
+    const capHtml = d.sellValue > 0
+      ? `<div class="t-break"><div class="t-break-title">Chance de captura por ball</div>` +
+          BALLS.map((b) => {
+            const pct = (d.captureRates[b.key] || 0) * 100;
+            const isBest = b.key === d.bestBall.key;
+            return `<div class="t-bar-item"><div class="t-bar-row">` +
+              `<span class="t-bar-name">${b.name}${isBest ? " ⭐" : ""}</span>` +
+              `<span class="t-bar-track"><span class="t-bar-fill" style="width:${Math.max(2, pct)}%;background:var(--series-1)"></span></span>` +
+              `<span class="t-bar-val">${nf1.format(pct)}%</span>` +
+            `</div></div>`;
+          }).join("") +
+        `</div>`
+      : "";
     return `<div class="t-name">${escHtml(d.name)}</div>` +
       `<div class="t-row"><span>raridade</span><b>${d.rarity}</b></div>` +
       `<div class="t-row"><span>huntLevel</span><b>${d.huntLevel}</b></div>` +
@@ -965,6 +1028,7 @@
       (state.hasMarkers
         ? `<div class="t-row"><span>hunt</span><b>${d.hasHunt ? escHtml(d.huntAreas.join(", ") || "sim") + " (" + d.hunts.length + ")" : "não"}</b></div>`
         : "") +
+      capHtml +
       breakHtml;
   }
 
@@ -980,6 +1044,10 @@
       { key: "lootValue", label: "Loot / kill", num: true, fmt: (d) => nf1.format(d.lootValue) },
       { key: "sellValue", label: "Venda", num: true, fmt: (d) => nf0.format(d.sellValue) },
       { key: "totalValue", label: "Total", num: true, fmt: (d) => nf0.format(Math.round(d.totalValue)) },
+      { key: "capturePct", label: "Captura", num: true, fmt: (d) =>
+        d.sellValue > 0
+          ? `${nf1.format(d.capturePct)}% <span class="muted">${escHtml(d.bestBall.name)}</span>`
+          : `<span class="muted">—</span>` },
       { key: "topLoot", label: "Maior drop", l: true, fmt: (d) => `<span class="muted">${escHtml(d.topLoot)}</span>` },
     ];
     if (state.hasMarkers) {
