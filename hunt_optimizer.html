@@ -650,6 +650,7 @@
       `Você pode continuar com o snapshot atual ou recalcular tudo já com os dados oficiais recém-baixados.`;
     $("issuesLink").href = ISSUES_URL;
     $("modal").style.display = "flex";
+    renderAll();
   }
   function closeModal() { $("modal").style.display = "none"; }
 
@@ -1311,7 +1312,7 @@
       const b = e.target.closest("button[data-area]"); if (!b) return;
       state.filters.area = b.dataset.area;
       [...$("areaSeg").children].forEach((x) => x.classList.toggle("active", x === b));
-      renderAll();
+      tryCompute();
     });
     $("huntInput").addEventListener("input", (e) => { state.filters.hunt = e.target.value; renderAll(); });
 
