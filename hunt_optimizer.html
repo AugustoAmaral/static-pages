@@ -631,8 +631,10 @@
     if (!sameData(state.githubRaw.i, off.i)) diffs.push("items");
     if (!sameData(state.githubRaw.m, off.m)) diffs.push("map-markers");
     if (diffs.length === 0) {
+      clearHuntStale();
       hideWarning();
       toast("✔ Verificado: os dados estão atualizados.");
+      renderAll();
     } else {
       openDiffModal(diffs);
     }
@@ -659,6 +661,14 @@
   function setSource(txt) { $("dataMeta").textContent = txt; }
   function showWarning(html) { const w = $("dataWarning"); w.innerHTML = html; w.style.display = "block"; }
   function hideWarning() { $("dataWarning").style.display = "none"; }
+  function clearHuntStale() {
+    state.huntStale = false;
+    const note = $("aiNote");
+    if (note) {
+      note.classList.remove("stale");
+      note.title = "Kills/min, XP/h e Gold/h são estimados de um snapshot das 240 hunts (não dá pra recarregar tudo do servidor a cada visita, e a API não tem CORS). Rode scripts/rebuild-data.mjs pra atualizar.";
+    }
+  }
 
   let toastTimer = null;
   function toast(msg, isErr) {
@@ -1244,6 +1254,7 @@
       const off = state.officialRaw;
       if (off) {
         state.rawCreatures = off.c; state.rawItems = off.i; state.rawMarkers = off.m;
+        clearHuntStale();
         tryCompute();
         setSource("fonte: API oficial (recalculado)");
       }
