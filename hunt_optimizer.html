@@ -205,6 +205,9 @@
   .tabs button.active { background: var(--series-1); color: #fff; }
   .ai-badge { font-size: 9px; font-weight: 700; letter-spacing: .03em; padding: 1px 4px; margin-left: 4px;
     border-radius: 4px; background: linear-gradient(90deg,#7c3aed,#2563eb); color: #fff; vertical-align: middle; }
+  .stale { text-decoration: line-through; opacity: .6; }
+  .ai-note { font-size: 11px; color: var(--text-muted); margin: 6px 0 0; display: inline-flex; gap: 6px; align-items: center; cursor: help; }
+  .ai-note .dot { width: 6px; height: 6px; border-radius: 50%; background: linear-gradient(90deg,#7c3aed,#2563eb); }
 
   /* ---- collapsible table card ---- */
   details.table-card > summary { cursor: pointer; list-style: none; font-size: 15px; font-weight: 600;
@@ -310,6 +313,16 @@
       <label>Raridade</label>
       <div class="chips" id="rarityChips"></div>
     </div>
+    <div class="fgroup" style="margin-top:12px; padding-top:12px; border-top:1px solid var(--grid)">
+      <label>Parâmetros ✨ (kills/min, XP/h, Gold/h)</label>
+      <div style="display:flex; flex-wrap:wrap; gap:10px; align-items:end">
+        <div><label style="font-size:11px">walk (s/tile)</label><input type="number" id="pWalk" step="0.05" value="0.6" style="width:70px"></div>
+        <div><label style="font-size:11px">respawn (s)</label><input type="number" id="pRespawn" step="1" value="60" style="width:70px"></div>
+        <div><label style="font-size:11px">eficiência F</label><input type="number" id="pF" step="0.01" value="1.23" style="width:70px"></div>
+        <div><label style="font-size:11px">XP mult (VIP 1.5)</label><input type="number" id="pXpMult" step="0.1" value="1" style="width:80px"></div>
+        <div><label style="font-size:11px">kill-time (s, 0=hitkill)</label><input type="number" id="pKillTime" step="0.1" value="0" style="width:90px"></div>
+      </div>
+    </div>
     <div id="huntFilters" class="filters" style="display:none; margin-top:12px; padding-top:12px; border-top:1px solid var(--grid)">
       <div class="fgroup">
         <label>Hunt (mapa)</label>
@@ -355,6 +368,9 @@
     <button data-tab="xpHora">✨ XP/hora <span class="ai-badge">AI</span></button>
     <button data-tab="goldHora">✨ Gold/hora <span class="ai-badge">AI</span></button>
   </div>
+  <p class="ai-note" id="aiNote" style="display:none"
+     title="Kills/min, XP/h e Gold/h são estimados de um snapshot das 240 hunts (não dá pra recarregar tudo do servidor a cada visita, e a API não tem CORS). Rode scripts/rebuild-data.mjs pra atualizar.">
+    <span class="dot"></span> ✨ Métricas por hora estimadas de snapshot — passe o mouse pra entender.</p>
 
   <!-- RANKING (field depends on active tab) -->
   <section class="card" id="rankCard" style="display:none">
@@ -623,6 +639,10 @@
   }
 
   function openDiffModal(diffs) {
+    state.huntStale = true;
+    const note = $("aiNote");
+    if (note) { note.style.display = "inline-flex"; note.classList.add("stale");
+      note.title = "Os dados oficiais mudaram — os números por hora vêm de um snapshot antigo e podem estar desatualizados. Rode scripts/rebuild-data.mjs."; }
     $("modalBody").innerHTML =
       `Os dados oficiais mudaram desde o último snapshot (diferença em: <b>${diffs.join(", ")}</b>). ` +
       `Você pode continuar com o snapshot atual ou recalcular tudo já com os dados oficiais recém-baixados.`;
@@ -857,6 +877,7 @@
     $("filtersCard").style.display = "";
     $("tableCard").style.display = "";
     $("tabs").style.display = "";
+    $("aiNote").style.display = "inline-flex";
     $("rankCard").style.display = "";
     $("scatterCard").style.display = "";
   }
@@ -1122,10 +1143,12 @@
         d.sellValue > 0
           ? `${nf1.format(d.capturePct)}% <span class="muted">${escHtml(d.bestBall.name)}</span>`
           : `<span class="muted">—</span>` },
-      { key: "killsPerMinV", label: "Kills/min", num: true, fmt: (d) =>
-        d.huntN ? `${nf1.format(d.killsPerMinV)} <span class="rar" style="font-size:10px;color:${d.regime==='respawn'?'var(--rar-COMMON)':'var(--text-muted)'}">${d.regime==='respawn'?'respawn':'tamanho'}</span>` : `<span class="muted">—</span>` },
-      { key: "xpPerHour", label: "XP/h ✨", num: true, fmt: (d) => d.huntN ? fmtCompact(d.xpPerHour) : `<span class="muted">—</span>` },
-      { key: "goldPerHour", label: "Gold/h ✨", num: true, fmt: (d) => d.huntN ? fmtCompact(d.goldPerHour) : `<span class="muted">—</span>` },
+      { key: "killsPerMinV", label: "Kills/min", num: true, fmt: (d) => !d.huntN ? `<span class="muted">—</span>`
+        : `<span class="${state.huntStale ? "stale" : ""}">${nf1.format(d.killsPerMinV)} <span class="rar" style="font-size:10px;color:${d.regime==='respawn'?'var(--rar-COMMON)':'var(--text-muted)'}">${d.regime==='respawn'?'respawn':'tamanho'}</span></span>` },
+      { key: "xpPerHour", label: "XP/h ✨", num: true, fmt: (d) => !d.huntN ? `<span class="muted">—</span>`
+        : `<span class="${state.huntStale ? "stale" : ""}">${fmtCompact(d.xpPerHour)}</span>` },
+      { key: "goldPerHour", label: "Gold/h ✨", num: true, fmt: (d) => !d.huntN ? `<span class="muted">—</span>`
+        : `<span class="${state.huntStale ? "stale" : ""}">${fmtCompact(d.goldPerHour)}</span>` },
       { key: "topLoot", label: "Maior drop", l: true, fmt: (d) => `<span class="muted">${escHtml(d.topLoot)}</span>` },
     ];
     if (state.hasMarkers) {
@@ -1256,6 +1279,15 @@
     $("hlMax").addEventListener("input", (e) => { state.filters.hlMax = e.target.value === "" ? null : Number(e.target.value); renderAll(); });
     $("topN").addEventListener("input", (e) => { state.topN = Math.max(1, Number(e.target.value) || 15); renderAll(); });
     $("logY").addEventListener("change", (e) => { state.scatterLog = e.target.checked; renderAll(); });
+
+    // parameters panel (walk/respawn/efficiency/xp mult/kill-time)
+    const recompute = () => { tryCompute(); };
+    const bindParam = (id, key) => $(id).addEventListener("input", (e) => {
+      const v = Number(e.target.value); if (!Number.isFinite(v)) return;
+      state.params[key] = v; recompute();
+    });
+    bindParam("pWalk", "tileS"); bindParam("pRespawn", "respawnS"); bindParam("pF", "F");
+    bindParam("pXpMult", "xpMult"); bindParam("pKillTime", "killTimeS");
 
     // hunt filters
     $("huntStatusSeg").addEventListener("click", (e) => {
