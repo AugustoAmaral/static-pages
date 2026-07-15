@@ -1,9 +1,11 @@
 # Catch-rate reverse engineering (Poke Idle World)
 
-**Status:** Phase 2 complete. Best model: **odds-form `p/(1−p) = 1.5·ballPrice/priceNpc`**
-(≡ `p = 3·price/(3·price + 2·value)`), near-perfect on all cells with value ≥ 200.
-Open: a "newbie anomaly" — value-5 species catch at 84% where the model predicts 60%.
-Phase 3 designed to resolve it.
+**Status:** Phase 3 complete. The constant-k logistic broke: per-ball strength is not
+`k·price`. Best current description: **`odds = A(ball)/priceNpc`** with empirical
+**A ≈ {Poké 5.5, Great 29, Super 69, Ultra 201}** (consistent with `A ≈ price^1.1`) —
+perfect on all 9 cells with value ≥ 60. Value-5 species live in a separate explosive
+branch (84% with Poké, 99.7% with Great). Phase 4 discriminates the remaining two
+model families.
 **Related:** `docs/superpowers/specs/2026-07-14-hunt-efficiency-design.md` (respawn/walk/spawn mechanics), `hunt_optimizer.html` (Captura & Gold/h tabs currently use the piwtools heuristic — to be replaced once Phase 2 lands).
 
 ## Method
@@ -130,9 +132,62 @@ Reading: if A/B overperform while C fits → the boost is tied to level-1/starte
 hunts. If A/B/C all fit → the anomaly is confined to value≈5 and D's ball-scaling
 pins its functional form.
 
-## Outcome (to fill after Phase 3)
+## Phase 3 — low-value region & anomaly driver (2026-07-15, evening)
+
+Setup: 4 accounts, ~1h each. 2,250 valid trials.
+
+| cell | value | huntLevel | trials | catches | observed | 95% CI | k=1.54 predicted |
+| --- | ---: | ---: | ---: | ---: | ---: | --- | ---: |
+| Paras / Poké | 60 | 1 | 749 | 64 | 8.54% | 6.75–10.76% | 11.4% |
+| Bellsprout / Poké | 80 | 1 | 516 | 32 | 6.20% | 4.43–8.62% | 8.8% |
+| Spearow / Poké | 100 | 10 | 616 | 32 | 5.19% | 3.70–7.24% | 7.1% |
+| Rattata / Great | 5 | 1 | 369 | 368 | **99.73%** | 98.48–99.95% | 86.0% |
+
+### Hypotheses killed
+
+- **huntLevel-1 boost: dead.** Paras/Bellsprout (hLv 1) and Spearow (hLv 10) imply
+  the same per-ball constant (k_Poké = 1.12 / 1.06 / 1.10) — no newbie-hunt effect.
+- **84% cap: dead.** Rattata with Great hit 99.73% (368/369).
+- **Constant-k logistic (`odds = k·price/value`, k universal): dead.** Poké cells at
+  value 60–100 give k ≈ 1.10; Ultra cells at value 200–11,000 give k ≈ 1.55.
+  Ball strength is not proportional to price.
+
+### Current best description
+
+Per-ball strength table, `odds = A(ball)/priceNpc`, fits **all 9 cells with
+value ≥ 60** within CI:
+
+| ball | A (empirical) | A/price | `price^1.1` |
+| --- | ---: | ---: | ---: |
+| Poké | 5.5 | 1.10 | 5.9 |
+| Great | 29 | 1.45 | 27.0 |
+| Super | 69 | 1.38 | 74.4 |
+| Ultra | 201 | 1.55 | 211 |
+
+The one-parameter form **`odds = price^1.1 / priceNpc`** is inside every cell's CI.
+
+**Value-5 branch:** observed odds are ×4.8 (Poké) and ×63 (Great) above the table —
+a qualitatively different regime. A compound-roll model `p = 1−(1−k/v)^(price^a)`
+(k=1.62, a=0.93) explains value-5 naturally but misses Paras/Bellsprout/Abra-Ultra.
+No species exists with priceNpc between 5 and 60, so the branch boundary cannot be
+mapped by species; it must be probed by ball tier at value 5.
+
+## Phase 4 — design (next)
+
+Discriminates ball-table/`price^1.1` vs compound-roll, and probes the value-5 branch:
+
+| account | hunt | value | ball | ball-table predicts | compound predicts |
+| --- | --- | ---: | --- | ---: | ---: |
+| A | Paras | 60 | Great | 32.6% | 35.8% |
+| B | Paras | 60 | Super | 53.5% | 64.8% |
+| C | Paras | 60 | Ultra | **77.0%** | **92.0%** |
+| D | Rattata | 5 | Super | (branch) | ~100% (failures ⇒ cap exists) |
+
+Paras/Ultra is the decisive cell (15pp separation, far beyond CI width at n≈700).
+
+## Outcome (to fill after Phase 4)
 
 Final formula + constants → replace the piwtools heuristic in
 `hunt_optimizer.html` (`bestCapture`/`captureRate`) and re-derive the Captura,
-Lucro total and Gold/hora tabs. As of Phase 2 the working formula for the
-normal regime is `p = 1.5·bp/(v + 1.5·bp)` with bp = ball price, v = priceNpc.
+Lucro total and Gold/hora tabs. As of Phase 3 the working formula for the
+normal regime (value ≥ 60) is `odds = A(ball)/priceNpc` with the table above.
