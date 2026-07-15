@@ -1876,7 +1876,7 @@
    "huntLevel": 20,
    "evolvesToId": 18,
    "evolveLevel": 80,
-   "priceNpc": 3000,
+   "priceNpc": 1500,
    "sellValue": 1500,
    "experience": 248,
    "loot": [
@@ -5320,7 +5320,7 @@
    "huntLevel": 50,
    "evolvesToId": 0,
    "evolveLevel": 0,
-   "priceNpc": 7250,
+   "priceNpc": 5060,
    "sellValue": 5060,
    "experience": 1508,
    "loot": [
@@ -6498,7 +6498,7 @@
    "huntLevel": 30,
    "evolvesToId": 0,
    "evolveLevel": 0,
-   "priceNpc": 7250,
+   "priceNpc": 5300,
    "sellValue": 5300,
    "experience": 548,
    "loot": [
@@ -8981,7 +8981,7 @@
    "huntLevel": 80,
    "evolvesToId": 0,
    "evolveLevel": 0,
-   "priceNpc": 12500,
+   "priceNpc": 11500,
    "sellValue": 11500,
    "experience": 3848,
    "loot": [
@@ -9435,7 +9435,7 @@
    "huntLevel": 80,
    "evolvesToId": 0,
    "evolveLevel": 0,
-   "priceNpc": 5400,
+   "priceNpc": 10400,
    "sellValue": 10400,
    "experience": 3848,
    "loot": [
@@ -11392,7 +11392,7 @@
    "huntLevel": 60,
    "evolvesToId": 0,
    "evolveLevel": 0,
-   "priceNpc": 6000,
+   "priceNpc": 11000,
    "sellValue": 11000,
    "experience": 2168,
    "loot": [
@@ -12792,7 +12792,7 @@
    "huntLevel": 60,
    "evolvesToId": 0,
    "evolveLevel": 0,
-   "priceNpc": 3000,
+   "priceNpc": 10000,
    "sellValue": 10000,
    "experience": 2168,
    "loot": [
@@ -14071,7 +14071,7 @@
    "huntLevel": 80,
    "evolvesToId": 0,
    "evolveLevel": 0,
-   "priceNpc": 3000,
+   "priceNpc": 10000,
    "sellValue": 10000,
    "experience": 3848,
    "loot": [
@@ -20321,7 +20321,7 @@
    "huntLevel": 80,
    "evolvesToId": 0,
    "evolveLevel": 0,
-   "priceNpc": 6000,
+   "priceNpc": 11000,
    "sellValue": 11000,
    "experience": 3848,
    "loot": [
@@ -22053,7 +22053,7 @@
    "huntLevel": 70,
    "evolvesToId": 0,
    "evolveLevel": 0,
-   "priceNpc": 8000,
+   "priceNpc": 13000,
    "sellValue": 13000,
    "experience": 2948,
    "loot": [
@@ -27786,7 +27786,7 @@
    "huntLevel": 1,
    "evolvesToId": 0,
    "evolveLevel": 0,
-   "priceNpc": 0,
+   "priceNpc": 2000000,
    "sellValue": 2000,
    "experience": 8,
    "loot": [
@@ -27990,7 +27990,7 @@
    "huntLevel": 60,
    "evolvesToId": 0,
    "evolveLevel": 0,
-   "priceNpc": 60000,
+   "priceNpc": 65500,
    "sellValue": 65500,
    "experience": 2168,
    "loot": [
@@ -28099,7 +28099,7 @@
    "huntLevel": 30,
    "evolvesToId": 124,
    "evolveLevel": 80,
-   "priceNpc": 4500,
+   "priceNpc": 20000,
    "sellValue": 20000,
    "experience": 548,
    "loot": [
@@ -28223,7 +28223,7 @@
    "huntLevel": 30,
    "evolvesToId": 125,
    "evolveLevel": 100,
-   "priceNpc": 4500,
+   "priceNpc": 20000,
    "sellValue": 20000,
    "experience": 548,
    "loot": [
@@ -28325,7 +28325,7 @@
    "huntLevel": 30,
    "evolvesToId": 126,
    "evolveLevel": 100,
-   "priceNpc": 4500,
+   "priceNpc": 20000,
    "sellValue": 20000,
    "experience": 548,
    "loot": [
@@ -33578,7 +33578,7 @@
    "huntLevel": 150,
    "evolvesToId": 0,
    "evolveLevel": 0,
-   "priceNpc": 60000,
+   "priceNpc": 65500,
    "sellValue": 65500,
    "captureBase": 107,
    "experience": 13508,
@@ -33695,7 +33695,7 @@
    "huntLevel": 150,
    "evolvesToId": 0,
    "evolveLevel": 0,
-   "priceNpc": 60000,
+   "priceNpc": 65500,
    "sellValue": 65500,
    "captureBase": 106,
    "experience": 13508,
@@ -33788,7 +33788,7 @@
    "huntLevel": 150,
    "evolvesToId": 0,
    "evolveLevel": 0,
-   "priceNpc": 60000,
+   "priceNpc": 65500,
    "sellValue": 65500,
    "captureBase": 237,
    "experience": 13508,
@@ -34810,7 +34810,7 @@
    "huntLevel": 150,
    "evolvesToId": 0,
    "evolveLevel": 0,
-   "priceNpc": 6000,
+   "priceNpc": 11000,
    "sellValue": 11000,
    "captureBase": 97,
    "experience": 13508,
