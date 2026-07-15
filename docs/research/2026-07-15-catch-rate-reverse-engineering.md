@@ -1,11 +1,18 @@
 # Catch-rate reverse engineering (Poke Idle World)
 
-**Status:** Phase 3 complete. The constant-k logistic broke: per-ball strength is not
-`k·price`. Best current description: **`odds = A(ball)/priceNpc`** with empirical
-**A ≈ {Poké 5.5, Great 29, Super 69, Ultra 201}** (consistent with `A ≈ price^1.1`) —
-perfect on all 9 cells with value ≥ 60. Value-5 species live in a separate explosive
-branch (84% with Poké, 99.7% with Great). Phase 4 discriminates the remaining two
-model families.
+**Status:** Phase 4 complete — model found. It is a mainline-Pokémon-style capped
+power law in the ball's **`catchRate` (1/2/3/4)**, not the price:
+
+```
+p = min(1,  C · catchRate^a / priceNpc^b )     C ≈ 3.48,  a ≈ 2.05 (~cr²),  b ≈ 0.90
+```
+
+Fitted by binomial MLE over 16 cells / ~14,000 trials spanning value 5→11,000 and all
+four balls: **12/16 cells within their 95% CI** (2 of the 4 "misses" are saturation
+artifacts where the model predicts exactly 100% against 99.7–99.85% observed). This
+beats every price-based / logistic / compound-roll alternative by ΔAIC ≥ 55.
+Residual mysteries: Abra/Ultra underpredicted (14.8% vs 20.2%) and Paras/Great
+overpredicted (36.5% vs 31.8%) — likely a small HP/rounding term in the true formula.
 **Related:** `docs/superpowers/specs/2026-07-14-hunt-efficiency-design.md` (respawn/walk/spawn mechanics), `hunt_optimizer.html` (Captura & Gold/h tabs currently use the piwtools heuristic — to be replaced once Phase 2 lands).
 
 ## Method
@@ -172,22 +179,71 @@ a qualitatively different regime. A compound-roll model `p = 1−(1−k/v)^(pric
 No species exists with priceNpc between 5 and 60, so the branch boundary cannot be
 mapped by species; it must be probed by ball tier at value 5.
 
-## Phase 4 — design (next)
+## Phase 4 — ball sweep on a fixed species (2026-07-15, night)
 
-Discriminates ball-table/`price^1.1` vs compound-roll, and probes the value-5 branch:
+Setup: 4 accounts, ~1h each (large n). 5,124 valid trials.
 
-| account | hunt | value | ball | ball-table predicts | compound predicts |
-| --- | --- | ---: | --- | ---: | ---: |
-| A | Paras | 60 | Great | 32.6% | 35.8% |
-| B | Paras | 60 | Super | 53.5% | 64.8% |
-| C | Paras | 60 | Ultra | **77.0%** | **92.0%** |
-| D | Rattata | 5 | Super | (branch) | ~100% (failures ⇒ cap exists) |
+| cell | value | ball | catchRate | trials | catches | observed | 95% CI |
+| --- | ---: | --- | ---: | ---: | ---: | ---: | --- |
+| Paras / Great | 60 | Great | 2 | 1379 | 438 | 31.76% | 29.36–34.27% |
+| Paras / Super | 60 | Super | 3 | 1313 | 1100 | 83.78% | 81.69–85.67% |
+| Paras / Ultra | 60 | Ultra | 4 | 1318 | 1316 | 99.85% | 99.45–99.96% |
+| Rattata / Super | 5 | Super | 3 | 845 | 845 | 100.00% | 99.55–100.00% |
 
-Paras/Ultra is the decisive cell (15pp separation, far beyond CI width at n≈700).
+The Paras ball sweep is what broke the separable `A(ball)/value` model: at fixed
+value 60, Super (83.8%) and Ultra (99.85%) came in far above the Abra-derived table
+(53.5% / 77%), while Poké/Great matched. A per-ball constant cannot explain this —
+the ball's effect grows super-linearly, which is the `catchRate^~2` power law.
 
-## Outcome (to fill after Phase 4)
+### The model (final)
 
-Final formula + constants → replace the piwtools heuristic in
-`hunt_optimizer.html` (`bestCapture`/`captureRate`) and re-derive the Captura,
-Lucro total and Gold/hora tabs. As of Phase 3 the working formula for the
-normal regime (value ≥ 60) is `odds = A(ball)/priceNpc` with the table above.
+Refit over all 16 cells (Phases 1–4). Winner by a wide margin:
+
+`p = min(1, C · catchRate^a / priceNpc^b)`, MLE **C = 3.48, a = 2.05, b = 0.898**.
+
+| ball | catchRate | catchRate^2.05 | price ratio (why Phase 1 fooled us) |
+| --- | ---: | ---: | ---: |
+| Poké | 1 | 1.0 | 1 |
+| Great | 2 | 4.1 | 4 |
+| Super | 3 | 9.6 | 10 |
+| Ultra | 4 | 17.4 | 26 |
+
+At value 800 (Phase 1's only species) `catchRate²` (1,4,9,16) is nearly collinear
+with the price ratios (1,4,10,26) — so price fit there by coincidence. The full
+value range disambiguates: `catchRate^2` wins, price loses by ΔAIC ≫ 50.
+
+### Model comparison (16 cells, binomial MLE)
+
+| family | best form | ΔAIC |
+| --- | --- | ---: |
+| **mainline power law** | `min(1, C·cr^a / v^b)` | **0** |
+| power law, `s`-exponent | `min(1, (C·cr^a/v^b)^s)` | +1.4 |
+| mainline w/ price | `min(1, (C·price^a/v)^s)` | +55.7 |
+| compound roll (cr) | `1−(1−k/v)^(cr^a)` | +65 |
+| compound roll (price) | `1−(1−k/v)^(price^a)` | +135 |
+| odds power `(k·price/v)^g` | — | +318 |
+
+### Findings (established)
+
+- **The ball variable is `catchRate` (1/2/3/4), in a ~square power law**, not price.
+  Corrects Phase 1's price conclusion (an artifact of testing only value=800).
+- **Value is `priceNpc` with exponent ≈0.9** (near 1). Confirmed across value 5→11000.
+- **Saturating cap at 1** (mainline shape) — explains the value-5 "explosion" and the
+  Paras Super/Ultra overshoot as the same thing: high `cr^2/value` saturates fast.
+- The "newbie anomaly" dissolves: Rattata/Pidgey at 84% is just `min(1, 3.48·1/5^0.9)`
+  ≈ 82%, not a special branch. No huntLevel effect (Phase 3 already showed this).
+
+### Open residuals (~few pp, not blocking)
+
+Abra/Ultra sits above the curve (20.2% vs 14.8%) and Paras/Great below (31.8% vs
+36.5%). A true mainline formula has an HP term `(3·maxHP−2·HP)/3·maxHP` and integer
+rounding of a 0–255 rate; either could produce residuals of this size. Not worth more
+farming unless we want the exact server constants.
+
+## Outcome
+
+**Ship-ready.** Replace the piwtools heuristic in `hunt_optimizer.html`
+(`captureRate`/`bestCapture`) with `p = min(1, 3.48 · catchRate^2.05 / priceNpc^0.898)`
+and re-derive the Captura, Lucro total and Gold/hora tabs. This is validated across
+14k trials and is dramatically more accurate than the shipped piwtools form
+(`1−e^(−1.75·price/value)`), which mis-modeled both the ball axis and the saturation.
