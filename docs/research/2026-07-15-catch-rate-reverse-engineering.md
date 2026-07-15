@@ -240,10 +240,29 @@ Abra/Ultra sits above the curve (20.2% vs 14.8%) and Paras/Great below (31.8% vs
 rounding of a 0–255 rate; either could produce residuals of this size. Not worth more
 farming unless we want the exact server constants.
 
-## Outcome
+## Outcome — SHIPPED
 
-**Ship-ready.** Replace the piwtools heuristic in `hunt_optimizer.html`
-(`captureRate`/`bestCapture`) with `p = min(1, 3.48 · catchRate^2.05 / priceNpc^0.898)`
-and re-derive the Captura, Lucro total and Gold/hora tabs. This is validated across
-14k trials and is dramatically more accurate than the shipped piwtools form
-(`1−e^(−1.75·price/value)`), which mis-modeled both the ball axis and the saturation.
+`hunt_optimizer.html` now uses the measured formula
+`p = min(1, 3.48 · catchRate^2.05 / priceNpc^0.898)` in `captureRate`/`bestCapture`
+(BALLS carry `catchRate`; ball price is only the cost term). The Captura, Lucro total
+and Gold/hora tabs are re-derived from it. This is validated across 14k trials and is
+far more accurate than the old piwtools form (`1−e^(−1.75·price/value)`), which
+mis-modeled both the ball axis and the saturation.
+
+### Ball catalog (from the WS `balls` frame) — confirms the mainline system
+
+| ball | id | catchRate | price | notes |
+| --- | ---: | ---: | ---: | --- |
+| Poké | 1 | 1 | 5 | buyable |
+| Great | 2 | 2 | 20 | buyable |
+| Super | 3 | 3 | 50 | buyable |
+| Ultra | 4 | 4 | 130 | buyable |
+| Idle | 6 | 5 | 400 | not buyable; `catchRate²` ⇒ ≈1.58× Ultra |
+| Master | 5 | 255 | 0 | not buyable; 255 = mainline "guaranteed" — free, so price is provably irrelevant |
+
+Master Ball (catchRate 255, **price 0**) is the clincher that the driver is the
+`catchRate` field, not price. Only the 4 buyable balls enter the tool's best-ball
+economics. **Shiny catch rate:** the formula keys on species `priceNpc` (a species
+constant, not the individual), and `catch-result` frames carry no shiny flag, so the
+predicted rate is identical for shiny and normal — unverified (0 shiny trials in
+~14k; shinies are far too rare to sample by farming).

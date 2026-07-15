@@ -430,15 +430,17 @@
   const RARITY_ORDER = ["COMMON", "UNCOMMON", "RARE", "EPIC", "LEGENDARY", "MYTHIC"];
   const SVGNS = "http://www.w3.org/2000/svg";
 
-  // Capture chance — reverse-engineered from piwtools.vercel.app. It does NOT use the game's
-  // captureBase field: it's a heuristic where the rate saturates with ball price / creature value.
+  // Capture chance — measured by MLE over ~14k auto-catch trials (see
+  // docs/research/2026-07-15-catch-rate-reverse-engineering.md). Mainline-style
+  // capped power law in the ball's catchRate (1/2/3/4), NOT its price:
+  //   p = min(1, C · catchRate^A / priceNpc^B).  price is only the ball's COST.
   const BALLS = [
-    { key: "poke", name: "Poke", price: 5 },
-    { key: "great", name: "Great", price: 20 },
-    { key: "super", name: "Super", price: 50 },
-    { key: "ultra", name: "Ultra", price: 130 },
+    { key: "poke", name: "Poke", price: 5, catchRate: 1 },
+    { key: "great", name: "Great", price: 20, catchRate: 2 },
+    { key: "super", name: "Super", price: 50, catchRate: 3 },
+    { key: "ultra", name: "Ultra", price: 130, catchRate: 4 },
   ];
-  const CAPTURE_K = 1.75; // tuning constant baked into piwtools
+  const CATCH_C = 3.48, CATCH_A = 2.05, CATCH_B = 0.898; // fitted constants
 
   // Hunt efficiency — see docs/superpowers/specs/2026-07-14-hunt-efficiency-design.md.
   // KEEP IN SYNC with scripts/hunt-model.mjs.
@@ -710,18 +712,18 @@
     renderAll();
   }
 
-  // piwtools capture formula: clamp01(1 - e^(-K * ballPrice / value)); value = priceNpc || sellValue.
-  // Unsellable monsters (sellValue <= 0) can't be captured for profit → 0.
-  function captureRate(value, sellValue, ballPrice) {
+  // Measured catch formula: clamp01(C * catchRate^A / value^B); value = priceNpc || sellValue.
+  // Unsellable monsters (sellValue <= 0) have no capture profit → treated as 0 here.
+  function captureRate(value, sellValue, ball) {
     if (sellValue <= 0 || value <= 0) return 0;
-    return Math.min(1, Math.max(0, 1 - Math.exp(-CAPTURE_K * ballPrice / value)));
+    return Math.min(1, Math.max(0, CATCH_C * Math.pow(ball.catchRate, CATCH_A) / Math.pow(value, CATCH_B)));
   }
-  // Best ball = the one that maximizes profit per kill (sellValue*rate - ballPrice), exactly like piwtools.
+  // Best ball = the one that maximizes profit per kill (sellValue*rate - ballPrice).
   function bestCapture(value, sellValue) {
     const rates = {};
     let best = { ball: BALLS[0], rate: 0, valuePerKill: -Infinity };
     for (const b of BALLS) {
-      const rate = captureRate(value, sellValue, b.price);
+      const rate = captureRate(value, sellValue, b);
       rates[b.key] = rate;
       const vpk = sellValue * rate - b.price;
       if (vpk > best.valuePerKill) best = { ball: b, rate, valuePerKill: vpk };
