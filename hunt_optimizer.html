@@ -435,10 +435,11 @@
   // capped power law in the ball's catchRate (1/2/3/4), NOT its price:
   //   p = min(1, C · catchRate^A / priceNpc^B).  price is only the ball's COST.
   const BALLS = [
-    { key: "poke", name: "Poke", price: 5, catchRate: 1 },
-    { key: "great", name: "Great", price: 20, catchRate: 2 },
-    { key: "super", name: "Super", price: 50, catchRate: 3 },
-    { key: "ultra", name: "Ultra", price: 130, catchRate: 4 },
+    { key: "poke", name: "Poke", price: 5, catchRate: 1, buyable: true },
+    { key: "great", name: "Great", price: 20, catchRate: 2, buyable: true },
+    { key: "super", name: "Super", price: 50, catchRate: 3, buyable: true },
+    { key: "ultra", name: "Ultra", price: 130, catchRate: 4, buyable: true },
+    { key: "idle", name: "Idle", price: 400, catchRate: 5, buyable: false }, // idle reward, not in shop
   ];
   const CATCH_C = 3.48, CATCH_A = 2.05, CATCH_B = 0.898; // fitted constants
 
@@ -719,12 +720,15 @@
     return Math.min(1, Math.max(0, CATCH_C * Math.pow(ball.catchRate, CATCH_A) / Math.pow(value, CATCH_B)));
   }
   // Best ball = the one that maximizes profit per kill (sellValue*rate - ballPrice).
+  // Non-buyable balls (Idle/reward) get a rate for display but never win "best ball",
+  // since the profit economics assume you buy the ball.
   function bestCapture(value, sellValue) {
     const rates = {};
     let best = { ball: BALLS[0], rate: 0, valuePerKill: -Infinity };
     for (const b of BALLS) {
       const rate = captureRate(value, sellValue, b);
       rates[b.key] = rate;
+      if (!b.buyable) continue;
       const vpk = sellValue * rate - b.price;
       if (vpk > best.valuePerKill) best = { ball: b, rate, valuePerKill: vpk };
     }
@@ -1104,14 +1108,15 @@
     const breakHtml = shown.length
       ? `<div class="t-break"><div class="t-break-title">De onde vem o loot (esperado / kill)</div>${itemHtml}${moreHtml}</div>`
       : `<div class="t-break"><div class="t-break-title">Loot</div><span class="muted" style="font-size:11px">sem drop com valor de venda</span></div>`;
-    // capture breakdown per ball (⭐ marks the best profit/kill ball, like piwtools)
+    // capture breakdown per ball (⭐ marks the best profit/kill ball; measured formula)
     const capHtml = d.sellValue > 0
       ? `<div class="t-break"><div class="t-break-title">Chance de captura por ball</div>` +
           BALLS.map((b) => {
             const pct = (d.captureRates[b.key] || 0) * 100;
             const isBest = b.key === d.bestBall.key;
+            const tag = isBest ? " ⭐" : (b.buyable ? "" : ` <span class="muted" style="font-size:10px">·evento</span>`);
             return `<div class="t-bar-item"><div class="t-bar-row">` +
-              `<span class="t-bar-name">${b.name}${isBest ? " ⭐" : ""}</span>` +
+              `<span class="t-bar-name">${b.name}${tag}</span>` +
               `<span class="t-bar-track"><span class="t-bar-fill" style="width:${Math.max(2, pct)}%;background:var(--series-1)"></span></span>` +
               `<span class="t-bar-val">${nf1.format(pct)}%</span>` +
             `</div></div>`;
