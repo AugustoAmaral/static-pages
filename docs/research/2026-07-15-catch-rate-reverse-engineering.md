@@ -1,6 +1,9 @@
 # Catch-rate reverse engineering (Poke Idle World)
 
-**Status:** Phase 1 complete (ball structure). Phase 2 pending (value axis + field + saturation).
+**Status:** Phase 2 complete. Best model: **odds-form `p/(1−p) = 1.5·ballPrice/priceNpc`**
+(≡ `p = 3·price/(3·price + 2·value)`), near-perfect on all cells with value ≥ 200.
+Open: a "newbie anomaly" — value-5 species catch at 84% where the model predicts 60%.
+Phase 3 designed to resolve it.
 **Related:** `docs/superpowers/specs/2026-07-14-hunt-efficiency-design.md` (respawn/walk/spawn mechanics), `hunt_optimizer.html` (Captura & Gold/h tabs currently use the piwtools heuristic — to be replaced once Phase 2 lands).
 
 ## Method
@@ -71,25 +74,65 @@ Model comparison (binomial MLE over the 4 cells):
 - **A5 — trials are homogeneous:** all Phase-1 throws were auto-catch on corpse
   (one throw per kill), so HP-at-throw is constant and irrelevant.
 
-## Phase 2 — design (next)
+## Phase 2 — value axis, field, saturation (2026-07-15, same day)
 
-One account per cell, ~1h each, auto-catch with the stated ball:
+Setup: 4 accounts, one (hunt, ball) cell each, ~1h. 2,126 valid trials.
 
-| account | hunt | value | ball | decides | predictions (k=1.39 exp · linear-price) |
-| --- | --- | ---: | --- | --- | --- |
-| A | Krabby | 200 | Ultra | A3: exp vs linear | **59.5%** vs ~90% |
-| B | Rattata | 5 | Poké | A3: saturation ceiling | ~75% vs 100% flat |
-| C | Pidgey | 5 / 60 | Poké | A2: priceNpc vs sellValue | ~75% (priceNpc) vs ~11% (sellValue) |
-| D | Hypno | 11,000 | Ultra | A1: value exponent (800→11k leverage) | 1.63% (α=1) |
+| cell | value (priceNpc) | trials | catches | observed | 95% CI |
+| --- | ---: | ---: | ---: | ---: | --- |
+| Krabby / Ultra | 200 | 651 | 329 | 50.54% | 46.71–54.36% |
+| Rattata / Poké | 5 | 347 | 292 | 84.15% | 79.94–87.62% |
+| Pidgey / Poké | 5 (sell 60) | 508 | 427 | 84.06% | 80.62–86.98% |
+| Hypno / Ultra | 11,000 | 620 | 11 | 1.77% | 0.99–3.15% |
 
-Practical notes: Krabby/Hypno Ultra cells burn ~110–117k gold/h in balls (partly
-recouped by selling catches). Rattata/Pidgey Poké cells catch at high rates —
-expect hundreds of caught pokemon per hour; watch storage limits mid-session
-(if storage caps auto-catch, the trial stream stops silently — check the
-capture's `catch-result` cadence).
+### Resolutions
 
-## Outcome (to fill after Phase 2)
+- **A2 resolved — the field is `priceNpc`.** Pidgey (priceNpc 5, sellValue 60)
+  caught at 84.06% vs Rattata (5/5) at 84.15% — statistically identical. The
+  sellValue hypothesis predicted ~11% for Pidgey. Dead.
+- **A3 resolved — saturating, and NOT the exponential.** Krabby/Ultra observed
+  50.54%; linear-in-price predicted ~90% (dead), the exp form with Phase-1's
+  k=1.39 predicted 59.5% (outside CI). The **odds-linear (logistic) form** fits:
+  `odds = k·price/value` → Krabby predicted 49.4% at k=1.5. On the six cells with
+  value ≥ 200 the logistic gives deviance **0.83 on 5 df** (near-perfect) vs 8.44
+  for the exp form. Fitted **k = 1.540, 95% CI [1.384, 1.710]** — consistent with
+  **k = 1.5 exactly**, i.e. `p = 3·price/(3·price + 2·priceNpc)`, which predicts
+  0.93/3.61/8.57/19.60/49.37/1.74% vs observed 1.15/3.50/7.95/20.16/50.54/1.77%.
+- **A1 resolved (value exponent = 1).** Krabby vs Abra at the same ball and same
+  huntLevel: observed odds ratio 4.04 vs value ratio 4.00.
+- **HP hypothesis killed.** Rattata/Pidgey mobs have maxHp 120 — the same as
+  low-level Abra mobs — yet catch at 84% vs 1.15% (same ball). Mob HP is not in
+  the formula (all throws are on-kill anyway).
+
+### The remaining puzzle — "newbie anomaly"
+
+Value-5 species (Rattata, Pidgey; both huntLevel-1 hunts) catch at **84%** where
+the model predicts **60%** (odds 5.3 observed vs 1.5 predicted — a ×3.5 boost).
+Confirmed on two different accounts independently. Candidate explanations:
+a boosted branch for starter/level-1 hunts; an effective-value offset
+(`value − c`, c≈3.5, negligible for value ≥ 60); or a per-ball floor. The
+boundary of the anomaly is unknown — everything between value 5 and 200 is
+unmeasured.
+
+## Phase 3 — design (next)
+
+Map the low-value region and the anomaly's driver. One account per cell, ~1h,
+all cheap cells (Poké/Great):
+
+| account | hunt | priceNpc | huntLevel | ball | model predicts | tests |
+| --- | --- | ---: | ---: | --- | ---: | --- |
+| A | Paras | 60 | 1 | Poké | 11.4% | hLv-1 boost? (low value, newbie hunt) |
+| B | Bellsprout | 80 | 1 | Poké | 8.8% | hLv-1 boost, second point |
+| C | Spearow | 100 | 10 | Poké | 7.1% | control (similar value, hLv 10) |
+| D | Rattata | 5 | 1 | **Great** | 86.0% | anomaly's ball-scaling: odds-boost ⇒ ~95%; p-cap ⇒ ~84% |
+
+Reading: if A/B overperform while C fits → the boost is tied to level-1/starter
+hunts. If A/B/C all fit → the anomaly is confined to value≈5 and D's ball-scaling
+pins its functional form.
+
+## Outcome (to fill after Phase 3)
 
 Final formula + constants → replace the piwtools heuristic in
 `hunt_optimizer.html` (`bestCapture`/`captureRate`) and re-derive the Captura,
-Lucro total and Gold/hora tabs.
+Lucro total and Gold/hora tabs. As of Phase 2 the working formula for the
+normal regime is `p = 1.5·bp/(v + 1.5·bp)` with bp = ball price, v = priceNpc.
