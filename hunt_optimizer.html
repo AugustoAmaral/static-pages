@@ -114,13 +114,6 @@
   textarea { width: 100%; min-height: 90px; font-family: ui-monospace, Menlo, monospace; font-size: 11px;
     background: var(--surface-1); color: var(--text-primary); border: 1px solid var(--axis); border-radius: 8px; padding: 8px; resize: vertical; }
 
-  /* ---- insight callout ---- */
-  .insight { display: none; gap: 10px; align-items: flex-start; background: var(--accent-soft);
-    border: 1px solid var(--border); border-radius: 10px; padding: 12px 14px; margin-bottom: 16px; font-size: 13px; }
-  .insight.show { display: flex; }
-  .insight .icon { font-size: 16px; line-height: 1.2; }
-  .insight b { color: var(--text-primary); }
-
   /* ---- filters bar ---- */
   .filters { display: flex; flex-wrap: wrap; gap: 12px 18px; align-items: flex-end; }
   .fgroup { display: flex; flex-direction: column; gap: 4px; }
@@ -203,11 +196,7 @@
   .tabs button { border: none; background: none; border-radius: 7px; padding: 8px 16px; font-size: 13px;
     font-weight: 550; color: var(--text-secondary); }
   .tabs button.active { background: var(--series-1); color: #fff; }
-  .ai-badge { font-size: 9px; font-weight: 700; letter-spacing: .03em; padding: 1px 4px; margin-left: 4px;
-    border-radius: 4px; background: linear-gradient(90deg,#7c3aed,#2563eb); color: #fff; vertical-align: middle; }
   .stale { text-decoration: line-through; opacity: .6; }
-  .ai-note { font-size: 11px; color: var(--text-muted); margin: 6px 0 0; display: inline-flex; gap: 6px; align-items: center; cursor: help; }
-  .ai-note .dot { width: 6px; height: 6px; border-radius: 50%; background: linear-gradient(90deg,#7c3aed,#2563eb); }
 
   /* ---- collapsible table card ---- */
   details.table-card > summary { cursor: pointer; list-style: none; font-size: 15px; font-weight: 600;
@@ -277,12 +266,6 @@
       <div style="margin-top:8px"><button id="pasteBtn">Processar colado</button></div>
     </details>
   </section>
-
-  <!-- INSIGHT -->
-  <div class="insight" id="insight">
-    <span class="icon">💡</span>
-    <div id="insightText"></div>
-  </div>
 
   <!-- FILTERS -->
   <section class="card" id="filtersCard" style="display:none">
@@ -361,16 +344,10 @@
 
   <!-- TABS -->
   <div class="tabs" id="tabs" style="display:none">
-    <button data-tab="lucro" class="active">💰 Lucro (loot/kill)</button>
-    <button data-tab="lucroTotal">💵 Lucro total</button>
-    <button data-tab="xp">⭐ XP</button>
+    <button data-tab="xpHora" class="active">⭐ XP/hora</button>
+    <button data-tab="goldHora">💰 Gold/hora</button>
     <button data-tab="captura">🎯 Captura</button>
-    <button data-tab="xpHora">✨ XP/hora <span class="ai-badge">AI</span></button>
-    <button data-tab="goldHora">✨ Gold/hora <span class="ai-badge">AI</span></button>
   </div>
-  <p class="ai-note" id="aiNote" style="display:none"
-     title="Kills/min, XP/h e Gold/h são estimados de um snapshot das 240 hunts (não dá pra recarregar tudo do servidor a cada visita, e a API não tem CORS). Rode scripts/rebuild-data.mjs pra atualizar.">
-    <span class="dot"></span> ✨ Métricas por hora estimadas de snapshot — passe o mouse pra entender.</p>
 
   <!-- RANKING (field depends on active tab) -->
   <section class="card" id="rankCard" style="display:none">
@@ -476,7 +453,7 @@
     hasMarkers: false,
     areas: [],           // distinct hunt areas, e.g. ["kanto","outland"]
     huntNames: [],       // sorted unique hunt names for the datalist
-    tab: "lucro",        // lucro | lucroTotal | xp | captura — drives which value field the charts use
+    tab: "xpHora",       // xpHora | goldHora | captura — drives which value field the charts use
     computed: [],        // [{name, huntLevel, rarity, type1, type2, lootValue, sellValue, totalValue, profitTotal, captureNet, experience, capturePct, captureRate, bestBall, captureRates, hunts:[...], hasHunt, huntAreas, huntSlugs, breakdown:[...], id}]
     topN: 15,
     scatterLog: true,
@@ -491,52 +468,28 @@
 
   // Tab config: each tab plots a different value field.
   const TABS = {
-    lucro: {
-      field: "lootValue",
-      rankTitle: "Ranking de lucro — loot por kill",
-      rankSub: (n, total) => `Top ${n} de ${total} monstros filtrados. Passe o mouse numa barra pra ver de onde vem o loot.`,
-      scatterTitle: "Esforço × Lucro",
-      scatterHint: "huntLevel × loot/kill — cor por raridade",
-      scatterSub: "Canto inferior-esquerdo = fácil e pouco loot; superior-esquerdo = fácil e muito loot (o alvo pra eficiência).",
-    },
-    xp: {
-      field: "experience",
-      rankTitle: "Ranking de XP por kill",
-      rankSub: (n, total) => `Top ${n} de ${total} monstros filtrados. Passe o mouse numa barra pra ver detalhes.`,
-      scatterTitle: "Esforço × XP",
-      scatterHint: "huntLevel × XP — cor por raridade",
-      scatterSub: "Canto superior-esquerdo = fácil e muita XP (o alvo pra grind eficiente).",
-    },
-    lucroTotal: {
-      field: "profitTotal",
-      rankTitle: "Ranking de lucro total — loot + captura + venda",
-      rankSub: (n, total) => `Top ${n} de ${total} monstros filtrados. Loot/kill + venda esperada capturando com a melhor ball − custo da ball. Mesma ordem que o piwtools usa pra "melhor hunt".`,
-      scatterTitle: "Esforço × Lucro total",
-      scatterHint: "huntLevel × lucro total/kill — cor por raridade",
-      scatterSub: "Superior-esquerdo = fácil e muito lucro somando loot + captura & venda (o alvo pra farm de gold).",
-    },
-    captura: {
-      field: "capturePct",
-      fmt: (v) => nf1.format(v) + "%",
-      rankTitle: "Ranking de chance de captura",
-      rankSub: (n, total) => `Top ${n} de ${total} monstros filtrados. % da melhor ball (a que mais rende por kill). Estimativa do piwtools — não é a mecânica real do jogo.`,
-      scatterTitle: "Esforço × Captura",
-      scatterHint: "huntLevel × chance de captura — cor por raridade",
-      scatterSub: "Bichos baratos capturam fácil; caros/raros quase nunca. É um proxy pelo valor do monstro, não a taxa real do jogo.",
-    },
     xpHora: {
       field: "xpPerHour", fmt: fmtCompact,
-      rankTitle: "Ranking de XP por hora ✨",
-      rankSub: (n, total) => `Top ${n} de ${total}. kills/min × XP/kill, contando densidade e respawn da hunt. Estimado de snapshot — pode variar.`,
+      rankTitle: "Ranking de XP por hora",
+      rankSub: (n, total) => `Top ${n} de ${total}. kills/min × XP por kill, contando densidade e respawn da hunt.`,
       scatterTitle: "Esforço × XP/hora", scatterHint: "huntLevel × XP/h — cor por raridade",
       scatterSub: "Superior-esquerdo = fácil e muita XP por hora (o alvo pra grind).",
     },
     goldHora: {
       field: "goldPerHour", fmt: fmtCompact,
-      rankTitle: "Ranking de Gold por hora ✨",
-      rankSub: (n, total) => `Top ${n} de ${total}. kills/min × (loot + captura) por hora. Estimado de snapshot — pode variar.`,
+      rankTitle: "Ranking de Gold por hora",
+      rankSub: (n, total) => `Top ${n} de ${total}. kills/min × gold por kill (loot + captura, conforme o toggle).`,
       scatterTitle: "Esforço × Gold/hora", scatterHint: "huntLevel × Gold/h — cor por raridade",
       scatterSub: "Superior-esquerdo = fácil e muito gold por hora.",
+    },
+    captura: {
+      field: "capturePct",
+      fmt: (v) => nf1.format(v) + "%",
+      rankTitle: "Ranking de chance de captura",
+      rankSub: (n, total) => `Top ${n} de ${total}. % da melhor ball (a que mais rende por kill), pela fórmula medida no jogo.`,
+      scatterTitle: "Esforço × Captura",
+      scatterHint: "huntLevel × chance de captura — cor por raridade",
+      scatterSub: "Chance da melhor ball pela fórmula medida (power law no catchRate).",
     },
   };
 
@@ -645,9 +598,6 @@
 
   function openDiffModal(diffs) {
     state.huntStale = true;
-    const note = $("aiNote");
-    if (note) { note.style.display = "inline-flex"; note.classList.add("stale");
-      note.title = "Os dados oficiais mudaram — os números por hora vêm de um snapshot antigo e podem estar desatualizados. Rode scripts/rebuild-data.mjs."; }
     $("modalBody").innerHTML =
       `Os dados oficiais mudaram desde o último snapshot (diferença em: <b>${diffs.join(", ")}</b>). ` +
       `Você pode continuar com o snapshot atual ou recalcular tudo já com os dados oficiais recém-baixados.`;
@@ -667,11 +617,6 @@
   function hideWarning() { $("dataWarning").style.display = "none"; }
   function clearHuntStale() {
     state.huntStale = false;
-    const note = $("aiNote");
-    if (note) {
-      note.classList.remove("stale");
-      note.title = "Kills/min, XP/h e Gold/h são estimados de um snapshot das 240 hunts (não dá pra recarregar tudo do servidor a cada visita, e a API não tem CORS). Rode scripts/rebuild-data.mjs pra atualizar.";
-    }
   }
 
   let toastTimer = null;
@@ -894,7 +839,6 @@
     $("filtersCard").style.display = "";
     $("tableCard").style.display = "";
     $("tabs").style.display = "";
-    $("aiNote").style.display = "inline-flex";
     $("rankCard").style.display = "";
     $("scatterCard").style.display = "";
   }
@@ -903,26 +847,9 @@
   function renderAll() {
     if (!state.computed.length) return;
     const data = filtered();
-    // insight is loot-specific; only relevant on the Lucro tab
-    if (state.tab === "lucro") renderInsight(); else $("insight").classList.remove("show");
     renderRanking(data);
     renderScatter(data);
     renderTable(data);
-  }
-
-  function renderInsight() {
-    const maxLoot = Math.max(0, ...state.computed.map((c) => c.lootValue));
-    const maxSell = Math.max(0, ...state.computed.map((c) => c.sellValue));
-    const box = $("insight");
-    if (maxSell > maxLoot * 5) {
-      $("insightText").innerHTML =
-        `O ranking foca no <b>loot por kill</b> (farm real, vai até <b>${nf0.format(Math.round(maxLoot))}</b> gold). ` +
-        `O <b>valor de venda</b> do próprio Pokémon é muito maior (até <b>${nf0.format(maxSell)}</b>), mas depende de capturar & vender — ` +
-        `por isso este ranking o ignora. Veja a aba <b>💵 Lucro total</b> pra ranquear já contando a captura e a venda.`;
-      box.classList.add("show");
-    } else {
-      box.classList.remove("show");
-    }
   }
 
   // nice linear ticks
