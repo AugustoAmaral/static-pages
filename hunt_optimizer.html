@@ -464,6 +464,8 @@
     huntConfigs: null, // { slug: {n, route, spawns} } from the snapshot
     huntStale: false,  // true once official data diverges (per-hour numbers may be off)
     params: { tileS: 0.6, respawnS: 60, F: 1.23, xpMult: 1, killTimeS: 0 },
+    vip: false,        // ×1.5 XP (measured VIP bonus) — drives params.xpMult
+    countCatch: true,  // Gold/h ranks loot+captureNet (true) or loot only (false)
   };
 
   // Tab config: each tab plots a different value field.
@@ -494,7 +496,8 @@
   };
 
   const $ = (id) => document.getElementById(id);
-  const curField = () => TABS[state.tab].field;
+  const curField = () => (state.tab === "goldHora" && !state.countCatch)
+    ? "goldPerHourNoCatch" : TABS[state.tab].field;
 
   // ---------- data loading ----------
   function normalize(json, key) {
@@ -738,7 +741,7 @@
       const areaSlug = hc && hunts.length
         ? (hunts.find((h) => h.area === state.filters.area) || hunts[0]).slug : null;
       const hcfg = hc && areaSlug ? hc[areaSlug] : null;
-      let killsPerMinV = 0, xpPerHour = 0, goldPerHour = 0, huntRoute = null, huntN = 0, regime = null;
+      let killsPerMinV = 0, xpPerHour = 0, goldPerHour = 0, goldPerHourNoCatch = 0, huntRoute = null, huntN = 0, regime = null;
       if (hcfg) {
         huntRoute = hcfg.route; huntN = hcfg.n;
         killsPerMinV = killsPerMin(hcfg.route, hcfg.n, state.params);
@@ -746,6 +749,7 @@
         regime = lapWalk + hcfg.n * state.params.killTimeS <= state.params.respawnS ? "respawn" : "size";
         xpPerHour = killsPerMinV * 60 * (Number(cr.experience) || 0) * state.params.xpMult;
         goldPerHour = killsPerMinV * 60 * (lootValue + captureNet);
+        goldPerHourNoCatch = killsPerMinV * 60 * lootValue;
       }
       out.push({
         id: id++,
@@ -762,7 +766,7 @@
         captureRates: cap.rates,         // { poke, great, super, ultra } as 0–1
         captureNet,                      // per-kill net gold from capturing (venda*chance − ball price)
         profitTotal,                     // lootValue + captureNet — field plotted by the Lucro total tab
-        killsPerMinV, xpPerHour, goldPerHour, huntRoute, huntN, regime,
+        killsPerMinV, xpPerHour, goldPerHour, goldPerHourNoCatch, huntRoute, huntN, regime,
         topLoot: breakdown[0] ? breakdown[0].name : "—",
         breakdown,
         hunts,
@@ -885,7 +889,7 @@
     const host = $("rankChart");
     clear(host);
     const cfg = TABS[state.tab];
-    const field = cfg.field;
+    const field = curField();
     const valFmt = cfg.fmt || fmtCompact;
     const sorted = [...data].sort((a, b) => b[field] - a[field]).slice(0, state.topN);
     $("rankTitle").textContent = cfg.rankTitle;
@@ -940,7 +944,7 @@
     const host = $("scatterChart");
     clear(host);
     const cfg = TABS[state.tab];
-    const field = cfg.field;
+    const field = curField();
     const valFmt = cfg.fmt || fmtCompact;
     $("scatterTitle").textContent = cfg.scatterTitle;
     $("scatterHint").textContent = cfg.scatterHint;
