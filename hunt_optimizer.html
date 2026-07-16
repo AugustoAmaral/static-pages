@@ -192,7 +192,9 @@
   /* ---- tooltip ---- */
   #tip { position: fixed; pointer-events: none; z-index: 50; background: var(--surface-1);
     border: 1px solid var(--border); border-radius: 10px; padding: 12px 14px; font-size: 13px;
-    box-shadow: 0 6px 22px rgba(0,0,0,.22); opacity: 0; transition: opacity .08s; width: 360px; max-width: 92vw; }
+    box-shadow: 0 6px 22px rgba(0,0,0,.22); opacity: 0; transition: opacity .08s; width: 360px;
+    max-width: min(380px, calc(100vw - 12px)); overflow-y: auto; }
+  @media (hover: none) { #tip { pointer-events: auto; } }
   #tip .t-name { font-weight: 650; font-size: 15px; margin-bottom: 6px; color: var(--text-primary); }
   #tip .t-row { display: flex; justify-content: space-between; gap: 14px; color: var(--text-secondary); line-height: 1.5; }
   #tip .t-row b { color: var(--text-primary); font-variant-numeric: tabular-nums; }
@@ -1017,23 +1019,23 @@
   const escHtml = (s) => String(s).replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
 
   function tipCreature(d) {
-    const rows = d.breakdown.filter((b) => b.contribution > 0);
-    const shown = rows.slice(0, 6);
-    const maxC = shown.length ? shown[0].contribution : 1;
-    const itemHtml = shown.map((r) =>
-      `<div class="t-bar-item">` +
-        `<div class="t-bar-row">` +
-          `<span class="t-bar-name" title="${escHtml(r.name)}">${escHtml(r.name)}</span>` +
-          `<span class="t-bar-track"><span class="t-bar-fill" style="width:${Math.max(4, (r.contribution / maxC) * 100)}%"></span></span>` +
-          `<span class="t-bar-val">${nf1.format(r.contribution)}</span>` +
-        `</div>` +
-        `<div class="t-bar-sub">${r.min}–${r.max} un · ${nf1.format(r.chance * 100)}% chance · ${nf0.format(r.price)} gold/un</div>` +
-      `</div>`).join("");
-    const moreHtml = rows.length > 6 ? `<div class="t-more">+ ${rows.length - 6} outros drops menores</div>` : "";
+    // gold breakdown: loot items + capture·sell as one comparable list
+    const rows = d.breakdown.filter((b) => b.contribution > 0).map((b) => ({
+      name: b.name, gold: b.contribution, sub: `${b.min}–${b.max} un · ${nf1.format(b.chance * 100)}% · ${nf0.format(b.price)} gold/un` }));
+    if (d.captureNet > 0) rows.push({ name: "captura · venda", gold: d.captureNet,
+      sub: `${nf1.format(d.capturePct)}% de ${nf0.format(d.sellValue)} − ball ${nf0.format(d.bestBall.price)}` });
+    rows.sort((a, b) => b.gold - a.gold);
+    const shown = rows.slice(0, 7);
+    const maxC = shown.length ? shown[0].gold : 1;
+    const goldHtml = shown.map((r) =>
+      `<div class="t-bar-item"><div class="t-bar-row">` +
+        `<span class="t-bar-name" title="${escHtml(r.name)}">${escHtml(r.name)}</span>` +
+        `<span class="t-bar-track"><span class="t-bar-fill" style="width:${Math.max(4, (r.gold / maxC) * 100)}%"></span></span>` +
+        `<span class="t-bar-val">${nf1.format(r.gold)}</span>` +
+      `</div><div class="t-bar-sub">${r.sub}</div></div>`).join("");
+    const moreHtml = rows.length > 7 ? `<div class="t-more">+ ${rows.length - 7} outros drops menores</div>` : "";
     const breakHtml = shown.length
-      ? `<div class="t-break"><div class="t-break-title">De onde vem o loot (esperado / kill)</div>${itemHtml}${moreHtml}</div>`
-      : `<div class="t-break"><div class="t-break-title">Loot</div><span class="muted" style="font-size:11px">sem drop com valor de venda</span></div>`;
-    // capture breakdown per ball (⭐ marks the best profit/kill ball; measured formula)
+      ? `<div class="t-break"><div class="t-break-title">De onde vem o gold (por kill)</div>${goldHtml}${moreHtml}</div>` : "";
     const capHtml = d.sellValue > 0
       ? `<div class="t-break"><div class="t-break-title">Chance de captura por ball</div>` +
           BALLS.map((b) => {
@@ -1046,27 +1048,21 @@
               `<span class="t-bar-val">${nf1.format(pct)}%</span>` +
             `</div></div>`;
           }).join("") +
-          `<div class="t-bar-sub" style="margin-top:4px">líquido com a melhor ball: <b>${d.captureNet >= 0 ? "+" : ""}${nf1.format(d.captureNet)}</b> gold/kill (já no lucro total)</div>` +
         `</div>`
       : "";
-    return `<div class="t-name">${escHtml(d.name)}</div>` +
-      `<div class="t-row"><span>raridade</span><b>${d.rarity}</b></div>` +
-      `<div class="t-row"><span>huntLevel</span><b>${d.huntLevel}</b></div>` +
-      `<div class="t-row"><span>XP</span><b>${nf0.format(d.experience)}</b></div>` +
-      `<div class="t-row"><span>loot / kill</span><b>${nf1.format(d.lootValue)}</b></div>` +
-      `<div class="t-row"><span>venda</span><b>${nf0.format(d.sellValue)}</b></div>` +
-      `<div class="t-row"><span>lucro total / kill</span><b>${nf0.format(Math.round(d.profitTotal))}</b></div>` +
-      (state.hasMarkers
-        ? `<div class="t-row"><span>hunt</span><b>${d.hasHunt ? escHtml(d.huntAreas.join(", ") || "sim") + " (" + d.hunts.length + ")" : "não"}</b></div>`
-        : "") +
-      (d.huntN
-        ? `<div class="t-row"><span>kills/min</span><b>${nf1.format(d.killsPerMinV)} (${d.regime === "respawn" ? "respawn-lim." : "tamanho-lim."})</b></div>` +
-          `<div class="t-row"><span>XP/hora</span><b>${nf0.format(Math.round(d.xpPerHour))}</b></div>` +
-          `<div class="t-row"><span>Gold/hora</span><b>${nf0.format(Math.round(d.goldPerHour))}</b></div>` +
-          `<div class="t-bar-sub">volta ~${nf0.format(d.huntRoute)} tiles · ${d.huntN} spawns · respawn ${state.params.respawnS}s</div>`
-        : "") +
-      capHtml +
-      breakHtml;
+    const per = d.huntN
+      ? `<div class="t-row"><span>kills/min</span><b>${nf1.format(d.killsPerMinV)} (${d.regime === "respawn" ? "respawn-lim." : "tamanho-lim."})</b></div>` +
+        `<div class="t-row"><span>XP/hora${state.vip ? " (VIP)" : ""}</span><b>${fmtCompact(d.xpPerHour)}</b></div>` +
+        `<div class="t-row"><span>Gold/hora com catch</span><b>${fmtCompact(d.goldPerHour)}</b></div>` +
+        `<div class="t-row"><span>Gold/hora sem catch</span><b>${fmtCompact(d.goldPerHourNoCatch)}</b></div>` +
+        `<div class="t-bar-sub">volta ~${nf0.format(d.huntRoute)} tiles · ${d.huntN} spawns · respawn ${state.params.respawnS}s · estimado de snapshot das hunts</div>`
+      : `<div class="t-bar-sub">sem hunt mapeada — sem métricas por hora</div>`;
+    return `<div class="t-name">${escHtml(d.name)} ${typeSquares(d)}</div>` +
+      `<div class="t-row"><span>raridade · level</span><b>${d.rarity} · lv ${d.huntLevel}</b></div>` +
+      (state.hasMarkers && d.hasHunt ? `<div class="t-row"><span>área</span><b>${escHtml(d.huntAreas.join(", "))}</b></div>` : "") +
+      `<div class="t-row"><span>XP por kill</span><b>${nf0.format(d.experience)}</b></div>` +
+      `<div class="t-row"><span>loot / kill · venda</span><b>${nf1.format(d.lootValue)} · ${nf0.format(d.sellValue)}</b></div>` +
+      per + capHtml + breakHtml;
   }
 
   // ---- table ----
@@ -1150,14 +1146,25 @@
   function showTip(ev, html) {
     tip.innerHTML = html;
     tip.style.opacity = "1";
-    const pad = 14;
-    let x = ev.clientX + pad, yv = ev.clientY + pad;
+    const pad = 12, m = 6;
+    const vw = window.innerWidth, vh = window.innerHeight;
+    tip.style.maxHeight = (vh - 2 * m) + "px";
     const r = tip.getBoundingClientRect();
-    if (x + r.width > window.innerWidth) x = ev.clientX - r.width - pad;
-    if (yv + r.height > window.innerHeight) yv = ev.clientY - r.height - pad;
-    tip.style.left = x + "px"; tip.style.top = yv + "px";
+    let x = ev.clientX + pad, y = ev.clientY + pad;
+    if (x + r.width > vw - m) x = ev.clientX - r.width - pad;   // flip left
+    if (x < m) x = m;                                            // clamp left edge
+    if (y + r.height > vh - m) y = vh - r.height - m;            // slide up
+    if (y < m) y = m;                                            // clamp top
+    tip.style.left = x + "px"; tip.style.top = y + "px";
   }
   function hideTip() { tip.style.opacity = "0"; }
+  // mobile: tap a ranking row toggles the popover; tap elsewhere closes
+  document.addEventListener("click", (e) => {
+    if (!window.matchMedia("(hover: hover)").matches) {
+      const row = e.target.closest(".rrow, tbody tr");
+      if (!row) hideTip();
+    }
+  });
 
   // ---------- wiring ----------
   function wire() {
