@@ -114,11 +114,17 @@ same auto-detection logic as today).
 
 ## PostHog
 
-- Official snippet in `<head>`, autocapture + default pageviews. Hosted on
-  GitHub Pages, key is public by nature (that is fine for PostHog client keys).
-- Key injected as a `POSTHOG_KEY` constant; if the real key is not provided by
-  implementation time, ship with `""` and guard init (`if (POSTHOG_KEY)`), so
-  the site works and the key is a one-line follow-up commit.
+- Official snippet in `<head>`, autocapture + default pageviews.
+- **Key lives in a repo Actions secret (`POSTHOG_KEY`), not in git.** The HTML
+  ships a `__POSTHOG_KEY__` placeholder; a `deploy-pages.yml` workflow replaces
+  it at deploy time and publishes via `actions/deploy-pages`. This requires
+  switching the Pages build type from `legacy` (deploy-from-branch) to
+  GitHub Actions in the repo settings.
+- Init is guarded (skip when the placeholder was not replaced), so the file
+  still works opened locally or served without the workflow.
+- Caveat (accepted): PostHog client keys are public by design — the key is
+  still visible in the served HTML. The secret keeps it out of git history and
+  makes rotation a settings-only operation.
 - Scope: `hunt_optimizer.html` only for now (other pages are a separate ask).
 
 ## Testing & verification
