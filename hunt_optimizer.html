@@ -783,7 +783,7 @@
         bestBall: cap.best.ball,         // { key, name, price }
         captureRates: cap.rates,         // { poke, great, super, ultra } as 0–1
         captureNet,                      // per-kill net gold from capturing (venda*chance − ball price)
-        profitTotal,                     // lootValue + captureNet — field plotted by the Lucro total tab
+        profitTotal,                     // lootValue + captureNet — legacy per-kill aggregate (no UI consumer today)
         killsPerMinV, xpPerHour, goldPerHour, goldPerHourNoCatch, huntRoute, huntN, regime,
         topLoot: breakdown[0] ? breakdown[0].name : "—",
         breakdown,
@@ -1118,7 +1118,8 @@
     });
 
     const dir = state.sort.dir === "asc" ? 1 : -1;
-    const key = state.sort.key;
+    const key = (state.sort.key === "goldPerHour" && !state.countCatch)
+      ? "goldPerHourNoCatch" : state.sort.key;
     const rows = [...data].sort((a, b) => {
       const av = a[key], bv = b[key];
       if (typeof av === "number") return (av - bv) * dir;
