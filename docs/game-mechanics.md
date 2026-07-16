@@ -125,9 +125,9 @@ bestBall    = argmax over BUYABLE balls of ( sellValue × captureRate − price 
 
 Since ball strength is now sub-proportional to price, the best-profit ball is often
 **Super**, not Ultra (Ultra's 130-gold cost rarely pays for its marginal chance).
-`captureNet` feeds the **Gold/hora** tab and the **Lucro total** metric; `bestBall` +
-its rate show in the **Captura** tab/column, and all balls (incl. Idle) show in the
-hover breakdown.
+`captureNet` feeds the **Gold/hora** view (contar-captura toggle); `bestBall` + its
+rate show in the **Captura** view, and all balls (incl. Idle) show in the popover
+breakdown.
 
 **Shiny:** the formula keys on species `priceNpc`, not the individual, and
 `catch-result` has no shiny flag → predicted shiny rate = normal rate. Unverified (0
@@ -135,17 +135,12 @@ shiny trials in ~14k; too rare to sample by farming).
 
 ---
 
-## 5. What the tool surfaces
+## 5. UI (`hunt_optimizer.html`)
 
-Tabs (each ranks a different field; all reuse one chart/table/hover engine):
-
-- **💰 Lucro (loot/kill)** — expected loot gold per kill.
-- **💵 Lucro total** — loot + capture net (loot/kill + captureNet).
-- **⭐ XP** — experience per kill.
-- **🎯 Captura** — best-ball catch % per monster.
-- **✨ XP/hora**, **✨ Gold/hora** — per-hour, folding in hunt density/respawn/size (§3).
-  AI-badged and snapshot-derived; struck through if the official data diverges from the
-  committed snapshot (rebuild to refresh).
-
-Plus filters (rarity, type, hunt level, area, specific hunt) and an efficiency
-parameters panel.
+Sidebar (objetivo, level selects, área, raridade, VIP ×1.5, contar captura, busca) +
+dense ranking (type-colored rows, top-25 paging). Views: **XP/hora**, **Gold/hora**
+(with/without captureNet via toggle), **Captura** (measured formula, best ball).
+Model params fixed at the measured defaults (§3); only xpMult is user-visible (VIP).
+Detail popover per creature: kills/min + regime, both Gold/h variants, per-ball
+capture rates, unified gold breakdown (loot + captura·venda). Data: GitHub snapshot →
+official-API verification → divergence modal + stale strike-through (unchanged).
