@@ -128,6 +128,7 @@
   .chip.on { color: var(--text-primary); border-color: var(--text-muted); }
   .chip .dot { width: 9px; height: 9px; border-radius: 50%; }
   .chip.off { opacity: .4; }
+  .opt-check { display: flex; align-items: center; gap: 6px; font-size: 12.5px; color: var(--text-secondary); cursor: pointer; }
 
   /* ---- charts ---- */
   .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
@@ -269,65 +270,41 @@
 
   <!-- FILTERS -->
   <section class="card" id="filtersCard" style="display:none">
-    <h2>2. Filtros</h2>
+    <h2>Filtros</h2>
     <div class="filters">
       <div class="fgroup">
-        <label>Buscar nome</label>
-        <input type="text" id="search" placeholder="ex: Snorlax" style="width:150px" />
+        <label>Objetivo</label>
+        <!-- the #tabs div moves here in Task 4; until then tabs stay above the ranking -->
       </div>
       <div class="fgroup">
-        <label>Tipo</label>
-        <select id="typeSel"><option value="ALL">Todos</option></select>
-      </div>
-      <div class="fgroup">
-        <label>Hunt level</label>
+        <label>Level da hunt</label>
         <div style="display:flex;gap:6px;align-items:center">
-          <input type="number" id="hlMin" min="0" style="width:70px" placeholder="min" />
-          <span class="muted">–</span>
-          <input type="number" id="hlMax" min="0" style="width:70px" placeholder="max" />
+          <select id="hlMin"></select>
+          <span class="muted">até</span>
+          <select id="hlMax"></select>
         </div>
       </div>
       <div class="fgroup">
-        <label>Top N (ranking)</label>
-        <input type="number" id="topN" min="1" max="299" value="15" style="width:70px" />
+        <label>Área</label>
+        <div class="seg" id="areaSeg">
+          <button data-area="kanto" class="active">Kanto</button>
+          <button data-area="outland">Outland</button>
+          <button data-area="ALL">Todas</button>
+        </div>
+      </div>
+      <div class="fgroup">
+        <label>Buscar</label>
+        <input type="text" id="search" placeholder="nome do pokémon / hunt" style="width:160px" />
       </div>
     </div>
     <div class="fgroup" style="margin-top:12px">
       <label>Raridade</label>
       <div class="chips" id="rarityChips"></div>
     </div>
-    <div class="fgroup" style="margin-top:12px; padding-top:12px; border-top:1px solid var(--grid)">
-      <label>Parâmetros ✨ (kills/min, XP/h, Gold/h)</label>
-      <div style="display:flex; flex-wrap:wrap; gap:10px; align-items:end">
-        <div><label style="font-size:11px">walk (s/tile)</label><input type="number" id="pWalk" step="0.05" value="0.6" style="width:70px"></div>
-        <div><label style="font-size:11px">respawn (s)</label><input type="number" id="pRespawn" step="1" value="60" style="width:70px"></div>
-        <div><label style="font-size:11px">eficiência F</label><input type="number" id="pF" step="0.01" value="1.23" style="width:70px"></div>
-        <div><label style="font-size:11px">XP mult (VIP 1.5)</label><input type="number" id="pXpMult" step="0.1" value="1" style="width:80px"></div>
-        <div><label style="font-size:11px">kill-time (s, 0=hitkill)</label><input type="number" id="pKillTime" step="0.1" value="0" style="width:90px"></div>
-      </div>
-    </div>
-    <div id="huntFilters" class="filters" style="display:none; margin-top:12px; padding-top:12px; border-top:1px solid var(--grid)">
-      <div class="fgroup">
-        <label>Hunt (mapa)</label>
-        <div class="seg" id="huntStatusSeg">
-          <button data-hunt="all">Todos</button>
-          <button data-hunt="with" class="active">Com hunt</button>
-          <button data-hunt="without">Sem hunt</button>
-        </div>
-      </div>
-      <div class="fgroup">
-        <label>Área (remove duplicatas)</label>
-        <div class="seg" id="areaSeg">
-          <button data-area="ALL">Todos incluídos</button>
-          <button data-area="kanto" class="active">Só Kanto</button>
-          <button data-area="outland">Só Outland</button>
-        </div>
-      </div>
-      <div class="fgroup">
-        <label>Hunt específica</label>
-        <input type="text" id="huntInput" list="huntList" placeholder="ex: Bulbasaur" style="width:170px" />
-        <datalist id="huntList"></datalist>
-      </div>
+    <div class="fgroup" style="margin-top:12px">
+      <label>Opções</label>
+      <label class="opt-check"><input type="checkbox" id="optVip" /> VIP (×1,5 XP)</label>
+      <label class="opt-check"><input type="checkbox" id="optCatch" checked /> contar captura no Gold/h</label>
     </div>
   </section>
 
@@ -405,6 +382,7 @@
   const CITY_LOOKTYPE = 1309; // city/label markers, not real pokemon hunts
   const CHANCE_DENOM = 100000; // loot chance is out of 100000
   const RARITY_ORDER = ["COMMON", "UNCOMMON", "RARE", "EPIC", "LEGENDARY", "MYTHIC"];
+  const HUNT_LEVELS = [1, 10, 20, 30, 40, 50, 60, 70, 80, 100, 150, 200];
   const SVGNS = "http://www.w3.org/2000/svg";
 
   // Capture chance — measured by MLE over ~14k auto-catch trials (see
@@ -452,14 +430,12 @@
     officialRaw: null,   // { c, i, m } freshly fetched from the official API for comparison
     hasMarkers: false,
     areas: [],           // distinct hunt areas, e.g. ["kanto","outland"]
-    huntNames: [],       // sorted unique hunt names for the datalist
     tab: "xpHora",       // xpHora | goldHora | captura — drives which value field the charts use
     computed: [],        // [{name, huntLevel, rarity, type1, type2, lootValue, sellValue, totalValue, profitTotal, captureNet, experience, capturePct, captureRate, bestBall, captureRates, hunts:[...], hasHunt, huntAreas, huntSlugs, breakdown:[...], id}]
     topN: 15,
     scatterLog: true,
-    // MYTHIC/LEGENDARY off by default; hunt filter defaults to "with"
-    filters: { rarity: new Set(["COMMON", "UNCOMMON", "RARE", "EPIC"]), type: "ALL", hlMin: null, hlMax: null, search: "",
-      huntStatus: "with", area: "kanto", hunt: "" },
+    // MYTHIC/LEGENDARY off by default
+    filters: { rarity: new Set(["COMMON", "UNCOMMON", "RARE", "EPIC"]), hlMin: null, hlMax: null, search: "", area: "kanto" },
     sort: { key: "lootValue", dir: "desc" },
     huntConfigs: null, // { slug: {n, route, spawns} } from the snapshot
     huntStale: false,  // true once official data diverges (per-hour numbers may be off)
@@ -695,7 +671,6 @@
     const huntsByLt = new Map();
     const huntsByName = new Map();
     const areaSet = new Set();
-    const huntNameSet = new Set();
     for (const h of markers || []) {
       if (Number(h.looktype) === CITY_LOOKTYPE || Number(h.level) === 0) continue;
       const lt = Number(h.looktype);
@@ -705,11 +680,9 @@
       const nm = (h.name || "").trim().toLowerCase();
       if (nm) { if (!huntsByName.has(nm)) huntsByName.set(nm, []); huntsByName.get(nm).push(hunt); }
       if (hunt.area) areaSet.add(hunt.area);
-      if (hunt.name) huntNameSet.add(hunt.name);
     }
     state.hasMarkers = huntsByLt.size > 0;
     state.areas = [...areaSet].sort();
-    state.huntNames = [...huntNameSet].sort((a, b) => a.localeCompare(b));
 
     const out = [];
     let id = 0;
@@ -783,18 +756,16 @@
   function filtered() {
     const f = state.filters;
     const q = f.search.trim().toLowerCase();
-    const hunt = f.hunt.trim().toLowerCase();
+    const perHour = state.tab !== "captura"; // XP/h & Gold/h need a mapped hunt
     return state.computed.filter((c) => {
       if (!f.rarity.has(c.rarity)) return false;
-      if (f.type !== "ALL" && c.type1 !== f.type && c.type2 !== f.type) return false;
       if (f.hlMin != null && c.huntLevel < f.hlMin) return false;
       if (f.hlMax != null && c.huntLevel > f.hlMax) return false;
-      if (q && !c.name.toLowerCase().includes(q)) return false;
+      if (q && !c.name.toLowerCase().includes(q) && !c.huntNamesLc.some((n) => n.includes(q))) return false;
       if (state.hasMarkers) {
-        if (f.huntStatus === "with" && !c.hasHunt) return false;
-        if (f.huntStatus === "without" && c.hasHunt) return false;
-        if (f.area !== "ALL" && !c.huntAreas.includes(f.area)) return false;
-        if (hunt && !c.huntNamesLc.some((n) => n === hunt)) return false;
+        if (perHour && !c.hasHunt) return false;
+        // Captura view: area only constrains creatures that have hunts (spec decision 9)
+        if (f.area !== "ALL" && c.hasHunt && !c.huntAreas.includes(f.area)) return false;
       }
       return true;
     });
@@ -802,15 +773,17 @@
 
   // ---------- controls ----------
   function buildControls() {
-    // types
-    const typeSel = $("typeSel");
-    if (typeSel.options.length <= 1) {
-      const types = new Set();
-      for (const c of state.computed) { if (c.type1) types.add(c.type1); if (c.type2) types.add(c.type2); }
-      [...types].sort().forEach((t) => {
-        const o = document.createElement("option"); o.value = t; o.textContent = t; typeSel.appendChild(o);
+    // level selects (discrete hunt levels + "qualquer")
+    const fillLv = (id, label) => {
+      const sel = $(id);
+      if (sel.options.length) return;
+      const any = document.createElement("option");
+      any.value = ""; any.textContent = label; sel.appendChild(any);
+      HUNT_LEVELS.forEach((lv) => {
+        const o = document.createElement("option"); o.value = lv; o.textContent = lv; sel.appendChild(o);
       });
-    }
+    };
+    fillLv("hlMin", "qualquer"); fillLv("hlMax", "qualquer");
     // rarity chips
     const chips = $("rarityChips");
     if (!chips.childElementCount) {
@@ -830,16 +803,8 @@
         chips.appendChild(el);
       });
     }
-    // hunt filters (only when markers are loaded)
-    if (state.hasMarkers) {
-      // reflect the current area choice on the segmented control
-      [...$("areaSeg").children].forEach((b) => b.classList.toggle("active", b.dataset.area === state.filters.area));
-      const dl = $("huntList");
-      dl.innerHTML = state.huntNames.map((n) => `<option value="${n.replace(/"/g, "&quot;")}"></option>`).join("");
-      $("huntFilters").style.display = "";
-    } else {
-      $("huntFilters").style.display = "none";
-    }
+    // reflect the current area choice on the segmented control
+    [...$("areaSeg").children].forEach((b) => b.classList.toggle("active", b.dataset.area === state.filters.area));
     $("filtersCard").style.display = "";
     $("tableCard").style.display = "";
     $("tabs").style.display = "";
@@ -1224,35 +1189,23 @@
 
     // filters
     $("search").addEventListener("input", (e) => { state.filters.search = e.target.value; renderAll(); });
-    $("typeSel").addEventListener("change", (e) => { state.filters.type = e.target.value; renderAll(); });
-    $("hlMin").addEventListener("input", (e) => { state.filters.hlMin = e.target.value === "" ? null : Number(e.target.value); renderAll(); });
-    $("hlMax").addEventListener("input", (e) => { state.filters.hlMax = e.target.value === "" ? null : Number(e.target.value); renderAll(); });
-    $("topN").addEventListener("input", (e) => { state.topN = Math.max(1, Number(e.target.value) || 15); renderAll(); });
+    const lvVal = (v) => (v === "" ? null : Number(v));
+    $("hlMin").addEventListener("change", (e) => { state.filters.hlMin = lvVal(e.target.value); renderAll(); });
+    $("hlMax").addEventListener("change", (e) => { state.filters.hlMax = lvVal(e.target.value); renderAll(); });
     $("logY").addEventListener("change", (e) => { state.scatterLog = e.target.checked; renderAll(); });
-
-    // parameters panel (walk/respawn/efficiency/xp mult/kill-time)
-    const recompute = () => { tryCompute(); };
-    const bindParam = (id, key) => $(id).addEventListener("input", (e) => {
-      const v = Number(e.target.value); if (!Number.isFinite(v)) return;
-      state.params[key] = v; recompute();
+    $("optVip").addEventListener("change", (e) => {
+      state.vip = e.target.checked;
+      state.params.xpMult = state.vip ? 1.5 : 1;
+      tryCompute(); // xp/h is baked into computed rows
     });
-    bindParam("pWalk", "tileS"); bindParam("pRespawn", "respawnS"); bindParam("pF", "F");
-    bindParam("pXpMult", "xpMult"); bindParam("pKillTime", "killTimeS");
+    $("optCatch").addEventListener("change", (e) => { state.countCatch = e.target.checked; renderAll(); });
 
-    // hunt filters
-    $("huntStatusSeg").addEventListener("click", (e) => {
-      const b = e.target.closest("button[data-hunt]"); if (!b) return;
-      state.filters.huntStatus = b.dataset.hunt;
-      [...$("huntStatusSeg").children].forEach((x) => x.classList.toggle("active", x === b));
-      renderAll();
-    });
     $("areaSeg").addEventListener("click", (e) => {
       const b = e.target.closest("button[data-area]"); if (!b) return;
       state.filters.area = b.dataset.area;
       [...$("areaSeg").children].forEach((x) => x.classList.toggle("active", x === b));
       tryCompute();
     });
-    $("huntInput").addEventListener("input", (e) => { state.filters.hunt = e.target.value; renderAll(); });
 
     // re-render on resize (SVGs are measured in px)
     let rt;
