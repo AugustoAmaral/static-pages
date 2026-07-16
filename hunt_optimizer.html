@@ -465,7 +465,7 @@
     scatterLog: true,
     // MYTHIC/LEGENDARY off by default
     filters: { rarity: new Set(["COMMON", "UNCOMMON", "RARE", "EPIC"]), hlMin: null, hlMax: null, search: "", area: "kanto" },
-    sort: { key: "lootValue", dir: "desc" },
+    sort: { key: "xpPerHour", dir: "desc" },
     huntConfigs: null, // { slug: {n, route, spawns} } from the snapshot
     huntStale: false,  // true once official data diverges (per-hour numbers may be off)
     params: { tileS: 0.6, respawnS: 60, F: 1.23, xpMult: 1, killTimeS: 0 },
@@ -1071,23 +1071,18 @@
     const base = [
       { key: "name", label: "Monstro", l: true, fmt: (d) => d.name },
       { key: "rarity", label: "Raridade", l: true, fmt: (d) => `<span class="rar"><span class="dot" style="background:var(--rar-${d.rarity})"></span>${d.rarity}</span>` },
-      { key: "type1", label: "Tipo", l: true, fmt: (d) => d.type1 + (d.type2 ? " / " + d.type2 : "") },
-      { key: "huntLevel", label: "Hunt lv", num: true, fmt: (d) => nf0.format(d.huntLevel) },
-      { key: "experience", label: "XP", num: true, fmt: (d) => nf0.format(d.experience) },
-      { key: "lootValue", label: "Loot / kill", num: true, fmt: (d) => nf1.format(d.lootValue) },
-      { key: "sellValue", label: "Venda", num: true, fmt: (d) => nf0.format(d.sellValue) },
-      { key: "totalValue", label: "Total", num: true, fmt: (d) => nf0.format(Math.round(d.totalValue)) },
-      { key: "profitTotal", label: "Lucro total", num: true, fmt: (d) => nf0.format(Math.round(d.profitTotal)) },
+      { key: "type1", label: "Tipo", l: true, fmt: (d) => typeSquares(d) + " " + d.type1 + (d.type2 ? "/" + d.type2 : "") },
+      { key: "huntLevel", label: "Level", num: true, fmt: (d) => nf0.format(d.huntLevel) },
+      { key: "killsPerMinV", label: "Kills/min", num: true, fmt: (d) => !d.huntN ? `<span class="muted">—</span>`
+        : `<span class="${state.huntStale ? "stale" : ""}">${nf1.format(d.killsPerMinV)}</span>` },
+      { key: "xpPerHour", label: "XP/h", num: true, fmt: (d) => !d.huntN ? `<span class="muted">—</span>`
+        : `<span class="${state.huntStale ? "stale" : ""}">${fmtCompact(d.xpPerHour)}</span>` },
+      { key: "goldPerHour", label: "Gold/h", num: true, fmt: (d) => !d.huntN ? `<span class="muted">—</span>`
+        : `<span class="${state.huntStale ? "stale" : ""}">${fmtCompact(state.countCatch ? d.goldPerHour : d.goldPerHourNoCatch)}</span>` },
       { key: "capturePct", label: "Captura", num: true, fmt: (d) =>
         d.sellValue > 0
           ? `${nf1.format(d.capturePct)}% <span class="muted">${escHtml(d.bestBall.name)}</span>`
           : `<span class="muted">—</span>` },
-      { key: "killsPerMinV", label: "Kills/min", num: true, fmt: (d) => !d.huntN ? `<span class="muted">—</span>`
-        : `<span class="${state.huntStale ? "stale" : ""}">${nf1.format(d.killsPerMinV)} <span class="rar" style="font-size:10px;color:${d.regime==='respawn'?'var(--rar-COMMON)':'var(--text-muted)'}">${d.regime==='respawn'?'respawn':'tamanho'}</span></span>` },
-      { key: "xpPerHour", label: "XP/h ✨", num: true, fmt: (d) => !d.huntN ? `<span class="muted">—</span>`
-        : `<span class="${state.huntStale ? "stale" : ""}">${fmtCompact(d.xpPerHour)}</span>` },
-      { key: "goldPerHour", label: "Gold/h ✨", num: true, fmt: (d) => !d.huntN ? `<span class="muted">—</span>`
-        : `<span class="${state.huntStale ? "stale" : ""}">${fmtCompact(d.goldPerHour)}</span>` },
       { key: "topLoot", label: "Maior drop", l: true, fmt: (d) => `<span class="muted">${escHtml(d.topLoot)}</span>` },
     ];
     if (state.hasMarkers) {
