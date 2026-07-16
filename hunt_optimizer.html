@@ -61,7 +61,26 @@
 
   header.top { display: flex; align-items: flex-start; justify-content: space-between; gap: 16px; margin-bottom: 18px; }
   header.top h1 { font-size: 22px; margin: 0 0 2px; font-weight: 650; }
-  header.top p { margin: 0; color: var(--text-secondary); font-size: 13px; max-width: 720px; }
+
+  /* ---- layout: sidebar + content ---- */
+  .layout { display: grid; grid-template-columns: 232px 1fr; gap: 16px; align-items: start; }
+  .sidebar { position: sticky; top: 16px; display: flex; flex-direction: column; gap: 14px; }
+  .sidebar .filters { flex-direction: column; align-items: stretch; flex-wrap: nowrap; }
+  .sidebar .tabs { display: flex; margin-bottom: 0; }
+  .sidebar .tabs button { flex: 1; padding: 7px 4px; font-size: 12px; }
+  .sidebar .seg { display: flex; }
+  .sidebar .seg button { flex: 1; padding: 7px 8px; }
+  .sidebar .fgroup select { flex: 1; min-width: 0; }
+  @media (max-width: 860px) { .layout { grid-template-columns: 1fr; } .sidebar { position: static; } }
+
+  /* ---- header status line ---- */
+  .statusline { display: inline-flex; align-items: center; gap: 6px; font-size: 12px; color: var(--text-secondary);
+    background: none; border: none; padding: 2px 0; cursor: pointer; }
+  .statusline .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--text-muted); }
+  .statusline.ok .dot { background: var(--good); }
+  .statusline.divergent .dot { background: #eda100; }
+  .statusline.unverified .dot { background: var(--text-muted); }
+  .statusline:hover { text-decoration: underline; }
 
   .card {
     background: var(--surface-1);
@@ -205,7 +224,7 @@
   details.table-card > summary::-webkit-details-marker { display: none; }
   details.table-card > summary::before { content: "▶"; font-size: 10px; color: var(--text-muted); transition: transform .15s; }
   details.table-card[open] > summary::before { transform: rotate(90deg); }
-  details.table-card .hint { font-weight: 400; }
+  details.table-card .hint { font-weight: 400; color: var(--text-muted); font-size: 12px; }
   details.table-card .table-wrap { margin-top: 12px; }
 
   /* ---- loot breakdown inside the hover card ---- */
@@ -225,20 +244,92 @@
 <div class="wrap">
   <header class="top">
     <div>
-      <h1>Análise de Lucratividade das Creatures</h1>
-      <p>Os dados são carregados automaticamente do repositório e verificados contra a API oficial do jogo. Objetivo: descobrir quem maximiza o lucro. Também dá pra filtrar por hunt do mapa.</p>
+      <h1>🎯 Hunt Optimizer</h1>
+      <button class="statusline" id="dataStatus"><span class="dot"></span><span id="dataStatusTxt">carregando dados…</span></button>
     </div>
     <button class="theme-toggle" id="themeBtn" title="Alternar tema">🌗 Tema</button>
   </header>
 
-  <!-- DATA SOURCE -->
-  <section class="card">
-    <h2>1. Dados <span class="hint" id="dataMeta">carregando do repositório…</span></h2>
+  <div class="layout">
+    <!-- SIDEBAR: all controls -->
+    <aside class="sidebar card" id="filtersCard" style="display:none">
+      <div class="fgroup">
+        <label>Objetivo</label>
+        <div class="tabs" id="tabs">
+          <button data-tab="xpHora" class="active">⭐ XP/hora</button>
+          <button data-tab="goldHora">💰 Gold/hora</button>
+          <button data-tab="captura">🎯 Captura</button>
+        </div>
+      </div>
+      <div class="filters">
+        <div class="fgroup">
+          <label>Level da hunt</label>
+          <div style="display:flex;gap:6px;align-items:center">
+            <select id="hlMin"></select>
+            <span class="muted">até</span>
+            <select id="hlMax"></select>
+          </div>
+        </div>
+        <div class="fgroup">
+          <label>Área</label>
+          <div class="seg" id="areaSeg">
+            <button data-area="kanto" class="active">Kanto</button>
+            <button data-area="outland">Outland</button>
+            <button data-area="ALL">Todas</button>
+          </div>
+        </div>
+        <div class="fgroup">
+          <label>Buscar</label>
+          <input type="text" id="search" placeholder="nome do pokémon / hunt" style="width:160px" />
+        </div>
+      </div>
+      <div class="fgroup">
+        <label>Raridade</label>
+        <div class="chips" id="rarityChips"></div>
+      </div>
+      <div class="fgroup">
+        <label>Opções</label>
+        <label class="opt-check"><input type="checkbox" id="optVip" /> VIP (×1,5 XP)</label>
+        <label class="opt-check"><input type="checkbox" id="optCatch" checked /> contar captura no Gold/h</label>
+      </div>
+    </aside>
+
+    <!-- CONTENT: ranking, scatter, table -->
+    <main class="content">
+      <section class="card" id="rankCard" style="display:none">
+        <div class="chart-head"><h2 id="rankTitle">Ranking</h2></div>
+        <div class="chart-sub" id="rankSub"></div>
+        <div id="rankChart"></div>
+      </section>
+      <details class="card table-card" id="scatterCard" style="display:none">
+        <summary>Esforço × valor <span class="hint" id="scatterHint"></span></summary>
+        <div class="chart-head" style="margin-top:10px">
+          <div class="chart-sub" id="scatterSub"></div>
+          <label class="muted" style="font-size:12px;display:flex;gap:6px;align-items:center">
+            <input type="checkbox" id="logY" checked /> escala log (Y)
+          </label>
+        </div>
+        <div class="legend" id="scatterLegend"></div>
+        <div id="scatterChart"></div>
+      </details>
+      <details class="card table-card" id="tableCard" style="display:none">
+        <summary>Tabela completa <span class="hint" id="tableCount"></span></summary>
+        <div class="table-wrap"><table id="table"><thead><tr id="theadRow"></tr></thead><tbody id="tbody"></tbody></table></div>
+      </details>
+    </main>
+  </div>
+</div>
+
+<!-- data modal: status details + manual load -->
+<div id="dataModal" class="modal-overlay" style="display:none">
+  <div class="modal" style="max-width:640px">
+    <h3>Dados</h3>
+    <p id="dataModalBody"></p>
     <div class="source-actions">
       <button class="primary" id="reloadBtn">🔄 Verificar dados oficiais</button>
       <span class="muted" style="font-size:12px">snapshot no GitHub · confere contra poke.idleworld.online</span>
     </div>
-    <div class="status" id="status">Carregando…</div>
+    <div class="status" id="status"></div>
     <div id="dataWarning" class="warn-banner" style="display:none"></div>
     <details class="paste" id="manualDetails">
       <summary>Carregar arquivos manualmente (avançado)</summary>
@@ -266,85 +357,8 @@
       </div>
       <div style="margin-top:8px"><button id="pasteBtn">Processar colado</button></div>
     </details>
-  </section>
-
-  <!-- FILTERS -->
-  <section class="card" id="filtersCard" style="display:none">
-    <h2>Filtros</h2>
-    <div class="filters">
-      <div class="fgroup">
-        <label>Objetivo</label>
-        <!-- the #tabs div moves here in Task 4; until then tabs stay above the ranking -->
-      </div>
-      <div class="fgroup">
-        <label>Level da hunt</label>
-        <div style="display:flex;gap:6px;align-items:center">
-          <select id="hlMin"></select>
-          <span class="muted">até</span>
-          <select id="hlMax"></select>
-        </div>
-      </div>
-      <div class="fgroup">
-        <label>Área</label>
-        <div class="seg" id="areaSeg">
-          <button data-area="kanto" class="active">Kanto</button>
-          <button data-area="outland">Outland</button>
-          <button data-area="ALL">Todas</button>
-        </div>
-      </div>
-      <div class="fgroup">
-        <label>Buscar</label>
-        <input type="text" id="search" placeholder="nome do pokémon / hunt" style="width:160px" />
-      </div>
-    </div>
-    <div class="fgroup" style="margin-top:12px">
-      <label>Raridade</label>
-      <div class="chips" id="rarityChips"></div>
-    </div>
-    <div class="fgroup" style="margin-top:12px">
-      <label>Opções</label>
-      <label class="opt-check"><input type="checkbox" id="optVip" /> VIP (×1,5 XP)</label>
-      <label class="opt-check"><input type="checkbox" id="optCatch" checked /> contar captura no Gold/h</label>
-    </div>
-  </section>
-
-  <!-- TABLE (collapsible, collapsed by default) -->
-  <details class="card table-card" id="tableCard" style="display:none">
-    <summary>Tabela completa <span class="hint" id="tableCount"></span></summary>
-    <div class="table-wrap">
-      <table id="table">
-        <thead><tr id="theadRow"></tr></thead>
-        <tbody id="tbody"></tbody>
-      </table>
-    </div>
-  </details>
-
-  <!-- TABS -->
-  <div class="tabs" id="tabs" style="display:none">
-    <button data-tab="xpHora" class="active">⭐ XP/hora</button>
-    <button data-tab="goldHora">💰 Gold/hora</button>
-    <button data-tab="captura">🎯 Captura</button>
+    <div class="modal-actions" style="margin-top:14px"><button id="dataModalClose">Fechar</button></div>
   </div>
-
-  <!-- RANKING (field depends on active tab) -->
-  <section class="card" id="rankCard" style="display:none">
-    <div class="chart-head"><h2 id="rankTitle">Ranking</h2></div>
-    <div class="chart-sub" id="rankSub"></div>
-    <div id="rankChart"></div>
-  </section>
-
-  <!-- SCATTER (effort × value; field depends on active tab) -->
-  <section class="card" id="scatterCard" style="display:none">
-    <div class="chart-head">
-      <h2 id="scatterH2"><span id="scatterTitle">Esforço × Lucro</span> <span class="hint" id="scatterHint"></span></h2>
-      <label class="muted" style="font-size:12px;display:flex;gap:6px;align-items:center">
-        <input type="checkbox" id="logY" checked /> escala log (Y)
-      </label>
-    </div>
-    <div class="chart-sub" id="scatterSub"></div>
-    <div class="legend" id="scatterLegend"></div>
-    <div id="scatterChart"></div>
-  </section>
 </div>
 
 <!-- diff modal -->
@@ -450,14 +464,14 @@
       field: "xpPerHour", fmt: fmtCompact,
       rankTitle: "Ranking de XP por hora",
       rankSub: (n, total) => `Top ${n} de ${total}. kills/min × XP por kill, contando densidade e respawn da hunt.`,
-      scatterTitle: "Esforço × XP/hora", scatterHint: "huntLevel × XP/h — cor por raridade",
+      scatterHint: "huntLevel × XP/h — cor por raridade",
       scatterSub: "Superior-esquerdo = fácil e muita XP por hora (o alvo pra grind).",
     },
     goldHora: {
       field: "goldPerHour", fmt: fmtCompact,
       rankTitle: "Ranking de Gold por hora",
       rankSub: (n, total) => `Top ${n} de ${total}. kills/min × gold por kill (loot + captura, conforme o toggle).`,
-      scatterTitle: "Esforço × Gold/hora", scatterHint: "huntLevel × Gold/h — cor por raridade",
+      scatterHint: "huntLevel × Gold/h — cor por raridade",
       scatterSub: "Superior-esquerdo = fácil e muito gold por hora.",
     },
     captura: {
@@ -465,7 +479,6 @@
       fmt: (v) => nf1.format(v) + "%",
       rankTitle: "Ranking de chance de captura",
       rankSub: (n, total) => `Top ${n} de ${total}. % da melhor ball (a que mais rende por kill), pela fórmula medida no jogo.`,
-      scatterTitle: "Esforço × Captura",
       scatterHint: "huntLevel × chance de captura — cor por raridade",
       scatterSub: "Chance da melhor ball pela fórmula medida (power law no catchRate).",
     },
@@ -522,8 +535,8 @@
   async function bootstrap() {
     const btn = $("reloadBtn"); btn.disabled = true;
     hideWarning();
+    setDataState("loading", "carregando dados…");
     setStatus("Carregando dados do repositório (GitHub)…");
-    setSource("carregando do repositório…");
     let gh;
     try {
       const [c, i, m, hc] = await Promise.all([
@@ -534,15 +547,16 @@
       gh = { c, i, m };
     } catch (e) {
       setStatus("Falha ao carregar os dados do repositório: " + e.message + ". Carregue manualmente abaixo.", true);
-      setSource("erro no repositório");
+      setDataState("unverified", "falha ao carregar — carregue manualmente");
       $("manualDetails").open = true;
+      openDataModal(); // surface the failure: modal has the error + manual load
       btn.disabled = false;
       return;
     }
     state.githubRaw = gh;
     state.rawCreatures = gh.c; state.rawItems = gh.i; state.rawMarkers = gh.m;
     tryCompute(); // renders from the snapshot immediately
-    setSource("fonte: snapshot do GitHub");
+    setDataState("loading", "verificando dados oficiais…");
     await verifyAgainstOfficial();
     btn.disabled = false;
   }
@@ -558,6 +572,7 @@
         "⚠️ Não foi possível verificar os dados oficiais — o request ao servidor do jogo (via proxy) falhou. " +
         "Os dados exibidos vêm do snapshot e <b>podem estar desatualizados</b>."
       );
+      setDataState("unverified", "não foi possível verificar — usando snapshot");
       return;
     }
     state.officialRaw = off;
@@ -568,6 +583,7 @@
     if (diffs.length === 0) {
       clearHuntStale();
       hideWarning();
+      setDataState("ok", "dados verificados agora");
       toast("✔ Verificado: os dados estão atualizados.");
       renderAll();
     } else {
@@ -577,6 +593,7 @@
 
   function openDiffModal(diffs) {
     state.huntStale = true;
+    setDataState("divergent", "dados oficiais divergem do snapshot");
     $("modalBody").innerHTML =
       `Os dados oficiais mudaram desde o último snapshot (diferença em: <b>${diffs.join(", ")}</b>). ` +
       `Você pode continuar com o snapshot atual ou recalcular tudo já com os dados oficiais recém-baixados.`;
@@ -591,7 +608,17 @@
     el.textContent = msg;
     el.className = "status" + (isErr ? " err" : "");
   }
-  function setSource(txt) { $("dataMeta").textContent = txt; }
+  // Header status line: loading | ok | divergent | unverified.
+  function setDataState(kind, txt) {
+    const el = $("dataStatus");
+    el.className = "statusline " + kind;
+    $("dataStatusTxt").textContent = txt;
+  }
+  function openDataModal() {
+    $("dataModalBody").textContent = $("dataStatusTxt").textContent;
+    $("dataModal").style.display = "flex";
+  }
+  function closeDataModal() { $("dataModal").style.display = "none"; }
   function showWarning(html) { const w = $("dataWarning"); w.innerHTML = html; w.style.display = "block"; }
   function hideWarning() { $("dataWarning").style.display = "none"; }
   function clearHuntStale() {
@@ -625,7 +652,7 @@
         `Faltando dados: ${creatures.length ? "" : "creatures "}${items.length ? "" : "items"} — carregue os dois.`,
         creatures.length === 0 && items.length === 0 ? false : true
       );
-      return;
+      return false;
     }
     compute(creatures, items, markers);
     const withHunt = state.computed.filter((c) => c.hasHunt).length;
@@ -635,6 +662,7 @@
     );
     buildControls();
     renderAll();
+    return true;
   }
 
   // Measured catch formula: clamp01(C * catchRate^A / value^B); value = priceNpc || sellValue.
@@ -807,7 +835,6 @@
     [...$("areaSeg").children].forEach((b) => b.classList.toggle("active", b.dataset.area === state.filters.area));
     $("filtersCard").style.display = "";
     $("tableCard").style.display = "";
-    $("tabs").style.display = "";
     $("rankCard").style.display = "";
     $("scatterCard").style.display = "";
   }
@@ -911,7 +938,6 @@
     const cfg = TABS[state.tab];
     const field = curField();
     const valFmt = cfg.fmt || fmtCompact;
-    $("scatterTitle").textContent = cfg.scatterTitle;
     $("scatterHint").textContent = cfg.scatterHint;
     $("scatterSub").textContent = cfg.scatterSub;
     const pts = data.filter((d) => d.huntLevel > 0);
@@ -1160,12 +1186,16 @@
         state.rawCreatures = off.c; state.rawItems = off.i; state.rawMarkers = off.m;
         clearHuntStale();
         tryCompute();
-        setSource("fonte: API oficial (recalculado)");
+        setDataState("ok", "recalculado com dados oficiais");
       }
       hideWarning();
       closeModal();
       toast("Recalculado com os dados oficiais.");
     });
+
+    // data modal (header status line → status details + manual load)
+    $("dataStatus").addEventListener("click", openDataModal);
+    $("dataModalClose").addEventListener("click", closeDataModal);
 
     // paste
     $("pasteBtn").addEventListener("click", () => {
@@ -1174,8 +1204,7 @@
         if (cv) { state.rawCreatures = JSON.parse(cv); markZone("creatures", true, "colado"); }
         if (iv) { state.rawItems = JSON.parse(iv); markZone("items", true, "colado"); }
         if (mv) { state.rawMarkers = JSON.parse(mv); markZone("markers", true, "colado"); }
-        tryCompute();
-        setSource("fonte: dados manuais (colados)");
+        if (tryCompute()) setDataState("unverified", "dados manuais — não verificados");
       } catch (e) { setStatus("JSON colado inválido: " + e.message, true); }
     });
 
@@ -1237,8 +1266,7 @@
         if (target === "markers") { state.rawMarkers = json; markZone("markers", true, file.name); }
         else if (target === "creatures") { state.rawCreatures = json; markZone("creatures", true, file.name); }
         else { state.rawItems = json; markZone("items", true, file.name); }
-        tryCompute();
-        setSource("fonte: arquivos manuais (upload)");
+        if (tryCompute()) setDataState("unverified", "dados manuais — não verificados");
       } catch (e) { setStatus(`Erro ao ler ${file.name}: ${e.message}`, true); }
     };
     reader.readAsText(file);
