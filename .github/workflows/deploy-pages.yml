@@ -15,6 +15,9 @@ concurrency:
 
 jobs:
   deploy:
+    # Skipped until Pages is switched to Actions mode; set the repo variable
+    # PAGES_WORKFLOW_ENABLED=true together with the build_type flip.
+    if: ${{ vars.PAGES_WORKFLOW_ENABLED == 'true' }}
     runs-on: ubuntu-latest
     environment:
       name: github-pages
