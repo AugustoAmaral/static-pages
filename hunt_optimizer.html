@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Análise de Lucratividade — Creatures</title>
+<title>Hunt Optimizer — XP/h, Gold/h e Captura</title>
 <style>
   /* ---- Design tokens (dataviz reference palette) ---- */
   :root {
@@ -64,6 +64,7 @@
 
   /* ---- layout: sidebar + content ---- */
   .layout { display: grid; grid-template-columns: 232px 1fr; gap: 16px; align-items: start; }
+  .content { min-width: 0; }
   .sidebar { position: sticky; top: 16px; display: flex; flex-direction: column; gap: 14px; }
   .sidebar .filters { flex-direction: column; align-items: stretch; flex-wrap: nowrap; }
   .sidebar .tabs { display: flex; margin-bottom: 0; }
@@ -148,6 +149,7 @@
   .chip .dot { width: 9px; height: 9px; border-radius: 50%; }
   .chip.off { opacity: .4; }
   .opt-check { display: flex; align-items: center; gap: 6px; font-size: 12.5px; color: var(--text-secondary); cursor: pointer; }
+  .fgroup > label.opt-check { text-transform: none; letter-spacing: normal; }
 
   /* ---- charts ---- */
   .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
@@ -166,6 +168,9 @@
   .tsq { display: inline-block; width: 9px; height: 9px; border-radius: 3px; margin-right: 3px; vertical-align: baseline; }
   .rrow { display: grid; grid-template-columns: 22px minmax(90px, 150px) 34px 1fr 56px; gap: 8px;
     align-items: center; padding: 3px 8px; border-radius: 6px; font-size: 12.5px; cursor: default; }
+  @media (max-width: 480px) {
+    .rrow { grid-template-columns: 16px minmax(64px, 96px) 26px 1fr 46px; gap: 5px; font-size: 11.5px; }
+  }
   .rrow:hover { background: var(--accent-soft); }
   .rrow .rk { color: var(--text-muted); font-size: 10.5px; text-align: right; font-variant-numeric: tabular-nums; }
   .rrow .nm { color: var(--text-primary); font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
@@ -904,7 +909,7 @@
     STEEL: "#B7B7CE", FAIRY: "#D685AD",
   };
   const typeSquares = (d) => [d.type1, d.type2].filter(Boolean).map((t) =>
-    `<span class="tsq" style="background:${TYPE_COLORS[t] || "var(--text-muted)"}" title="${t}"></span>`).join("");
+    `<span class="tsq" style="background:${TYPE_COLORS[t] || "var(--text-muted)"}" title="${escHtml(t)}"></span>`).join("");
 
   // ---- ranking (dense DOM rows with type squares) ----
   function renderRanking(data) {
