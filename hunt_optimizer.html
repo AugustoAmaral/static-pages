@@ -162,6 +162,19 @@
 
   .empty { color: var(--text-muted); font-size: 13px; padding: 24px 0; text-align: center; }
 
+  /* ---- ranking rows (dense DOM chart) ---- */
+  .tsq { display: inline-block; width: 9px; height: 9px; border-radius: 3px; margin-right: 3px; vertical-align: baseline; }
+  .rrow { display: grid; grid-template-columns: 22px minmax(90px, 150px) 34px 1fr 56px; gap: 8px;
+    align-items: center; padding: 3px 8px; border-radius: 6px; font-size: 12.5px; cursor: default; }
+  .rrow:hover { background: var(--accent-soft); }
+  .rrow .rk { color: var(--text-muted); font-size: 10.5px; text-align: right; font-variant-numeric: tabular-nums; }
+  .rrow .nm { color: var(--text-primary); font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .rrow .track { height: 12px; background: var(--grid); border-radius: 4px; overflow: hidden; }
+  .rrow .track i { display: block; height: 100%; background: var(--series-1); border-radius: 4px; min-width: 1px; }
+  .rrow .val { text-align: right; font-variant-numeric: tabular-nums; font-weight: 600; color: var(--text-primary); font-size: 12px; }
+  .rrow.stale .track i, .rrow.stale .val { opacity: .55; text-decoration: line-through; }
+  .show-more { margin: 8px auto 0; display: block; }
+
   /* ---- table ---- */
   .table-wrap { overflow-x: auto; }
   table { width: 100%; border-collapse: collapse; font-size: 13px; }
@@ -446,7 +459,7 @@
     areas: [],           // distinct hunt areas, e.g. ["kanto","outland"]
     tab: "xpHora",       // xpHora | goldHora | captura — drives which value field the charts use
     computed: [],        // [{name, huntLevel, rarity, type1, type2, lootValue, sellValue, totalValue, profitTotal, captureNet, experience, capturePct, captureRate, bestBall, captureRates, hunts:[...], hasHunt, huntAreas, huntSlugs, breakdown:[...], id}]
-    topN: 15,
+    topN: 25,
     scatterLog: true,
     // MYTHIC/LEGENDARY off by default
     filters: { rarity: new Set(["COMMON", "UNCOMMON", "RARE", "EPIC"]), hlMin: null, hlMax: null, search: "", area: "kanto" },
@@ -487,6 +500,8 @@
   const $ = (id) => document.getElementById(id);
   const curField = () => (state.tab === "goldHora" && !state.countCatch)
     ? "goldPerHourNoCatch" : TABS[state.tab].field;
+  // reset ranking paging whenever the qualifying/ordered creature set can change
+  const resetPaging = () => { state.topN = 25; };
 
   // ---------- data loading ----------
   function normalize(json, key) {
@@ -822,6 +837,7 @@
         el.dataset.rarity = r;
         el.innerHTML = `<span class="dot" style="background:var(--rar-${r})"></span>${r}`;
         el.addEventListener("click", () => {
+          resetPaging();
           const set = state.filters.rarity;
           if (set.has(r)) set.delete(r); else set.add(r);
           el.classList.toggle("on", set.has(r));
@@ -861,13 +877,6 @@
     return ticks;
   }
 
-  // rounded-right-end horizontal bar path (square at baseline/left)
-  function barPath(x0, y, w, h, r) {
-    r = Math.max(0, Math.min(r, w, h / 2));
-    if (w <= 0.5) return `M${x0},${y} h0`;
-    return `M${x0},${y} h${w - r} a${r},${r} 0 0 1 ${r},${r} v${h - 2 * r} a${r},${r} 0 0 1 ${-r},${r} h${-(w - r)} z`;
-  }
-
   function mk(tag, attrs) {
     const e = document.createElementNS(SVGNS, tag);
     for (const k in attrs) e.setAttribute(k, attrs[k]);
@@ -876,59 +885,53 @@
 
   function clear(el) { while (el.firstChild) el.removeChild(el.firstChild); }
 
-  // ---- ranking (horizontal bars, single sequential hue) ----
+  // Standard Pokémon type palette; keys match creatures.json type1/type2 values.
+  const TYPE_COLORS = {
+    NORMAL: "#A8A77A", FIRE: "#EE8130", WATER: "#6390F0", ELECTRIC: "#F7D02C",
+    GRASS: "#7AC74C", ICE: "#96D9D6", FIGHTING: "#C22E28", POISON: "#A33EA1",
+    GROUND: "#E2BF65", FLYING: "#A98FF3", PSYCHIC: "#F95587", BUG: "#A6B91A",
+    ROCK: "#B6A136", GHOST: "#735797", DRAGON: "#6F35FC", DARK: "#705746",
+    STEEL: "#B7B7CE", FAIRY: "#D685AD",
+  };
+  const typeSquares = (d) => [d.type1, d.type2].filter(Boolean).map((t) =>
+    `<span class="tsq" style="background:${TYPE_COLORS[t] || "var(--text-muted)"}" title="${t}"></span>`).join("");
+
+  // ---- ranking (dense DOM rows with type squares) ----
   function renderRanking(data) {
     const host = $("rankChart");
     clear(host);
     const cfg = TABS[state.tab];
     const field = curField();
     const valFmt = cfg.fmt || fmtCompact;
-    const sorted = [...data].sort((a, b) => b[field] - a[field]).slice(0, state.topN);
+    const sorted = [...data].sort((a, b) => b[field] - a[field]);
+    const shown = sorted.slice(0, state.topN);
     $("rankTitle").textContent = cfg.rankTitle;
-    $("rankSub").textContent = cfg.rankSub(sorted.length, data.length);
-    if (!sorted.length) { host.innerHTML = '<div class="empty">Nenhum monstro no filtro.</div>'; return; }
-
-    const W = host.clientWidth || 540;
-    const rowH = 26, padT = 8, padB = 26, mL = 132, mR = 66;
-    const H = padT + padB + sorted.length * rowH;
-    const plotW = Math.max(40, W - mL - mR);
-    const maxV = Math.max(1, ...sorted.map((d) => d[field]));
-    const ticks = niceTicks(maxV, 4);
-    const tickMax = ticks[ticks.length - 1] || maxV;
-    const x = (v) => mL + (v / tickMax) * plotW;
-
-    const svg = mk("svg", { viewBox: `0 0 ${W} ${H}`, width: W, height: H });
-
-    // gridlines + tick labels
-    for (const t of ticks) {
-      svg.appendChild(mk("line", { x1: x(t), y1: padT, x2: x(t), y2: H - padB, stroke: "var(--grid)", "stroke-width": 1 }));
-      const tl = mk("text", { x: x(t), y: H - padB + 15, "text-anchor": "middle", "font-size": 10, fill: "var(--text-muted)" });
-      tl.textContent = valFmt(t);
-      svg.appendChild(tl);
+    $("rankSub").textContent = cfg.rankSub(shown.length, data.length);
+    if (!shown.length) { host.innerHTML = '<div class="empty">Nenhum monstro no filtro.</div>'; return; }
+    const maxV = Math.max(1e-9, shown[0][field]);
+    const stale = state.huntStale && state.tab !== "captura";
+    for (let i = 0; i < shown.length; i++) {
+      const d = shown[i];
+      const row = document.createElement("div");
+      row.className = "rrow" + (stale ? " stale" : "");
+      row.dataset.id = d.id;
+      row.innerHTML =
+        `<span class="rk">${i + 1}</span>` +
+        `<span class="nm">${escHtml(d.name)}</span>` +
+        `<span>${typeSquares(d)}</span>` +
+        `<span class="track"><i style="width:${Math.max(0.8, (d[field] / maxV) * 100)}%"></i></span>` +
+        `<span class="val">${valFmt(d[field])}</span>`;
+      row.addEventListener("mousemove", (ev) => showTip(ev, tipCreature(d)));
+      row.addEventListener("mouseleave", hideTip);
+      host.appendChild(row);
     }
-    // baseline
-    svg.appendChild(mk("line", { x1: mL, y1: padT, x2: mL, y2: H - padB, stroke: "var(--axis)", "stroke-width": 1 }));
-
-    const barH = 16;
-    sorted.forEach((d, i) => {
-      const cy = padT + i * rowH + (rowH - barH) / 2;
-      const w = x(d[field]) - mL;
-      const p = mk("path", { d: barPath(mL, cy, w, barH, 4), fill: "var(--series-1)", opacity: "0.92" });
-      p.addEventListener("mousemove", (ev) => showTip(ev, tipCreature(d)));
-      p.addEventListener("mouseleave", hideTip);
-      svg.appendChild(p);
-
-      // left label (name), ellipsized
-      const nm = mk("text", { x: mL - 8, y: cy + barH / 2 + 3.5, "text-anchor": "end", "font-size": 11.5, fill: "var(--text-secondary)" });
-      nm.textContent = d.name.length > 18 ? d.name.slice(0, 17) + "…" : d.name;
-      svg.appendChild(nm);
-      // value at tip
-      const vl = mk("text", { x: x(d[field]) + 6, y: cy + barH / 2 + 3.5, "text-anchor": "start", "font-size": 11, fill: "var(--text-primary)" });
-      vl.style.fontVariantNumeric = "tabular-nums";
-      vl.textContent = valFmt(d[field]);
-      svg.appendChild(vl);
-    });
-    host.appendChild(svg);
+    if (sorted.length > state.topN) {
+      const btn = document.createElement("button");
+      btn.className = "show-more";
+      btn.textContent = `mostrar mais (${sorted.length - state.topN} restantes)`;
+      btn.addEventListener("click", () => { state.topN += 25; renderAll(); });
+      host.appendChild(btn);
+    }
   }
 
   // ---- scatter (categorical by rarity) ----
@@ -1211,26 +1214,30 @@
     // tabs (Lucro / XP)
     $("tabs").addEventListener("click", (e) => {
       const b = e.target.closest("button[data-tab]"); if (!b) return;
+      resetPaging();
       state.tab = b.dataset.tab;
       [...$("tabs").children].forEach((x) => x.classList.toggle("active", x === b));
       renderAll();
     });
 
     // filters
-    $("search").addEventListener("input", (e) => { state.filters.search = e.target.value; renderAll(); });
+    $("search").addEventListener("input", (e) => { resetPaging(); state.filters.search = e.target.value; renderAll(); });
     const lvVal = (v) => (v === "" ? null : Number(v));
-    $("hlMin").addEventListener("change", (e) => { state.filters.hlMin = lvVal(e.target.value); renderAll(); });
-    $("hlMax").addEventListener("change", (e) => { state.filters.hlMax = lvVal(e.target.value); renderAll(); });
+    $("hlMin").addEventListener("change", (e) => { resetPaging(); state.filters.hlMin = lvVal(e.target.value); renderAll(); });
+    $("hlMax").addEventListener("change", (e) => { resetPaging(); state.filters.hlMax = lvVal(e.target.value); renderAll(); });
     $("logY").addEventListener("change", (e) => { state.scatterLog = e.target.checked; renderAll(); });
     $("optVip").addEventListener("change", (e) => {
+      // VIP rescales xp/h uniformly (×1.5); it doesn't change which creatures qualify
+      // or their relative order, so ranking paging doesn't need to reset here.
       state.vip = e.target.checked;
       state.params.xpMult = state.vip ? 1.5 : 1;
       tryCompute(); // xp/h is baked into computed rows
     });
-    $("optCatch").addEventListener("change", (e) => { state.countCatch = e.target.checked; renderAll(); });
+    $("optCatch").addEventListener("change", (e) => { resetPaging(); state.countCatch = e.target.checked; renderAll(); });
 
     $("areaSeg").addEventListener("click", (e) => {
       const b = e.target.closest("button[data-area]"); if (!b) return;
+      resetPaging();
       state.filters.area = b.dataset.area;
       [...$("areaSeg").children].forEach((x) => x.classList.toggle("active", x === b));
       tryCompute();
