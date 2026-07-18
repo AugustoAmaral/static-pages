@@ -1528,6 +1528,15 @@
    "npcPrice": 0
   },
   {
+   "id": 59195,
+   "name": "Rare Pokémon Picture",
+   "icon": "/assets/items/rare_pokemon_picture.png",
+   "category": "loot",
+   "rare": true,
+   "npcPrice": 5000,
+   "description": "Uma fotografia rara de um Pokémon Shiny selvagem. Treinadores de Prestígio usam essas fotos pra provar seu valor e evoluir de rank"
+  },
+  {
    "id": 59200,
    "name": "Normal-Type TM Disk",
    "icon": "",
