@@ -1690,6 +1690,46 @@
    "npcPrice": 0
   },
   {
+   "id": 16266,
+   "name": "Shiny Butterfree Card",
+   "icon": "/assets/cards/16266.png",
+   "category": "card",
+   "rare": true,
+   "npcPrice": 0
+  },
+  {
+   "id": 16288,
+   "name": "Shiny Nidoking Card",
+   "icon": "/assets/cards/16288.png",
+   "category": "card",
+   "rare": true,
+   "npcPrice": 0
+  },
+  {
+   "id": 16336,
+   "name": "Shiny Magneton Card",
+   "icon": "/assets/cards/16336.png",
+   "category": "card",
+   "rare": true,
+   "npcPrice": 0
+  },
+  {
+   "id": 16360,
+   "name": "Shiny Hitmonlee Card",
+   "icon": "/assets/cards/16360.png",
+   "category": "card",
+   "rare": true,
+   "npcPrice": 0
+  },
+  {
+   "id": 16361,
+   "name": "Shiny Hitmonchan Card",
+   "icon": "/assets/cards/16361.png",
+   "category": "card",
+   "rare": true,
+   "npcPrice": 0
+  },
+  {
    "id": 16260,
    "name": "Shiny Charizard Card",
    "icon": "/assets/cards/16260.png",
