@@ -1537,6 +1537,15 @@
    "description": "Uma fotografia rara de um Pokémon Shiny selvagem. Treinadores de Prestígio usam essas fotos pra provar seu valor e evoluir de rank"
   },
   {
+   "id": 70000,
+   "name": "Bronze Boss Token",
+   "icon": "/assets/items/bronze_boss_token.png",
+   "category": "loot",
+   "rare": true,
+   "npcPrice": 250000,
+   "description": "Um medalhão de bronze cravejado que pulsa com a energia dos chefes do Outland. Colecionadores pagam caro por ele"
+  },
+  {
    "id": 59200,
    "name": "Normal-Type TM Disk",
    "icon": "",
