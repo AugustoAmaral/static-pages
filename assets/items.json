@@ -1522,7 +1522,7 @@
   {
    "id": 59194,
    "name": "TM Disk Piece",
-   "icon": "",
+   "icon": "/assets/items/tm_disk_piece.png",
    "category": "loot",
    "rare": false,
    "npcPrice": 0
