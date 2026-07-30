@@ -24,7 +24,7 @@
   },
   {
    "slug": "pewter",
-   "name": "Lavender",
+   "name": "Pewter",
    "looktype": 1309,
    "level": 0,
    "pixel": [
@@ -224,7 +224,7 @@
    "slug": "blastoise",
    "name": "Blastoise",
    "looktype": 55,
-   "level": 80,
+   "level": 150,
    "pixel": [
     836,
     108
@@ -2998,8 +2998,8 @@
    "looktype": 319,
    "level": 40,
    "pixel": [
-    676,
-    2527
+    1048,
+    1447
    ],
    "area": "kanto",
    "range": [
@@ -3142,8 +3142,8 @@
    "looktype": 333,
    "level": 60,
    "pixel": [
-    324,
-    2725
+    288,
+    2729
    ],
    "area": "kanto",
    "range": [
@@ -3160,8 +3160,8 @@
    "looktype": 338,
    "level": 80,
    "pixel": [
-    950,
-    1771
+    964,
+    1775
    ],
    "area": "kanto",
    "range": [
@@ -3178,8 +3178,8 @@
    "looktype": 339,
    "level": 10,
    "pixel": [
-    795,
-    2551
+    1046,
+    1494
    ],
    "area": "kanto",
    "range": [
@@ -3430,8 +3430,8 @@
    "looktype": 354,
    "level": 30,
    "pixel": [
-    733,
-    2504
+    948,
+    1413
    ],
    "area": "kanto",
    "range": [
@@ -3556,8 +3556,8 @@
    "looktype": 383,
    "level": 40,
    "pixel": [
-    718,
-    2575
+    1002,
+    1752
    ],
    "area": "kanto",
    "range": [
@@ -3664,8 +3664,8 @@
    "looktype": 371,
    "level": 30,
    "pixel": [
-    987,
-    1821
+    958,
+    1822
    ],
    "area": "kanto",
    "range": [
@@ -3682,8 +3682,8 @@
    "looktype": 372,
    "level": 100,
    "pixel": [
-    1035,
-    1786
+    1040,
+    1802
    ],
    "area": "kanto",
    "range": [
@@ -3736,8 +3736,8 @@
    "looktype": 389,
    "level": 10,
    "pixel": [
-    657,
-    1027
+    402,
+    1151
    ],
    "area": "kanto",
    "range": [
@@ -3754,8 +3754,8 @@
    "looktype": 390,
    "level": 80,
    "pixel": [
-    597,
-    1053
+    407,
+    1075
    ],
    "area": "kanto",
    "range": [
@@ -3988,8 +3988,8 @@
    "looktype": 408,
    "level": 80,
    "pixel": [
-    1056,
-    1716
+    1057,
+    1701
    ],
    "area": "kanto",
    "range": [
@@ -4024,8 +4024,8 @@
    "looktype": 401,
    "level": 60,
    "pixel": [
-    906,
-    2624
+    554,
+    1591
    ],
    "area": "kanto",
    "range": [
@@ -4412,6 +4412,1842 @@
     2699,
     3102,
     7
+   ]
+  },
+  {
+   "slug": "chansey",
+   "name": "Chansey",
+   "looktype": 4,
+   "level": 60,
+   "pixel": [
+    516,
+    762
+   ],
+   "area": "kanto",
+   "range": [
+    4005,
+    3899,
+    4070,
+    3933,
+    6
+   ]
+  },
+  {
+   "slug": "horsea",
+   "name": "Horsea",
+   "looktype": 33,
+   "level": 10,
+   "pixel": [
+    1030,
+    2887
+   ],
+   "area": "kanto",
+   "range": [
+    4278,
+    3314,
+    4357,
+    3355,
+    7
+   ]
+  },
+  {
+   "slug": "seadra",
+   "name": "Seadra",
+   "looktype": 276,
+   "level": 50,
+   "pixel": [
+    1081,
+    2905
+   ],
+   "area": "kanto",
+   "range": [
+    4278,
+    3314,
+    4357,
+    3355,
+    7
+   ]
+  },
+  {
+   "slug": "goldeen",
+   "name": "Goldeen",
+   "looktype": 274,
+   "level": 10,
+   "pixel": [
+    1050,
+    2822
+   ],
+   "area": "kanto",
+   "range": [
+    4278,
+    3314,
+    4357,
+    3355,
+    7
+   ]
+  },
+  {
+   "slug": "seaking",
+   "name": "Seaking",
+   "looktype": 272,
+   "level": 50,
+   "pixel": [
+    1098,
+    2837
+   ],
+   "area": "kanto",
+   "range": [
+    4278,
+    3314,
+    4357,
+    3355,
+    7
+   ]
+  },
+  {
+   "slug": "sentret",
+   "name": "Sentret",
+   "looktype": 412,
+   "level": 10,
+   "pixel": [
+    924,
+    1847
+   ],
+   "area": "kanto",
+   "range": [
+    3994,
+    4875,
+    4059,
+    4913,
+    6
+   ]
+  },
+  {
+   "slug": "furret",
+   "name": "Furret",
+   "looktype": 415,
+   "level": 40,
+   "pixel": [
+    1039,
+    1849
+   ],
+   "area": "kanto",
+   "range": [
+    3994,
+    4875,
+    4059,
+    4913,
+    6
+   ]
+  },
+  {
+   "slug": "hoothoot",
+   "name": "Hoothoot",
+   "looktype": 332,
+   "level": 20,
+   "pixel": [
+    337,
+    2740
+   ],
+   "area": "kanto",
+   "range": [
+    3346,
+    5785,
+    3411,
+    5820,
+    6
+   ]
+  },
+  {
+   "slug": "ledyba",
+   "name": "Ledyba",
+   "looktype": 334,
+   "level": 10,
+   "pixel": [
+    813,
+    3067
+   ],
+   "area": "kanto",
+   "range": [
+    3901,
+    6188,
+    3952,
+    6216,
+    7
+   ]
+  },
+  {
+   "slug": "ledian",
+   "name": "Ledian",
+   "looktype": 335,
+   "level": 40,
+   "pixel": [
+    892,
+    3124
+   ],
+   "area": "kanto",
+   "range": [
+    3901,
+    6188,
+    3952,
+    6216,
+    7
+   ]
+  },
+  {
+   "slug": "spinarak",
+   "name": "Spinarak",
+   "looktype": 336,
+   "level": 10,
+   "pixel": [
+    793,
+    3115
+   ],
+   "area": "kanto",
+   "range": [
+    3901,
+    6188,
+    3952,
+    6216,
+    7
+   ]
+  },
+  {
+   "slug": "ariados",
+   "name": "Ariados",
+   "looktype": 337,
+   "level": 40,
+   "pixel": [
+    843,
+    3118
+   ],
+   "area": "kanto",
+   "range": [
+    3901,
+    6188,
+    3952,
+    6216,
+    7
+   ]
+  },
+  {
+   "slug": "togepi",
+   "name": "Togepi",
+   "looktype": 344,
+   "level": 1,
+   "pixel": [
+    302,
+    290
+   ],
+   "area": "kanto",
+   "range": [
+    3792,
+    3460,
+    3870,
+    3501,
+    7
+   ]
+  },
+  {
+   "slug": "togetic",
+   "name": "Togetic",
+   "looktype": 345,
+   "level": 80,
+   "pixel": [
+    277,
+    263
+   ],
+   "area": "kanto",
+   "range": [
+    3792,
+    3460,
+    3870,
+    3501,
+    7
+   ]
+  },
+  {
+   "slug": "hoppip",
+   "name": "Hoppip",
+   "looktype": 356,
+   "level": 1,
+   "pixel": [
+    600,
+    1494
+   ],
+   "area": "kanto",
+   "range": [
+    3579,
+    4528,
+    3644,
+    4568,
+    7
+   ]
+  },
+  {
+   "slug": "skiploom",
+   "name": "Skiploom",
+   "looktype": 357,
+   "level": 30,
+   "pixel": [
+    935,
+    1525
+   ],
+   "area": "kanto",
+   "range": [
+    4069,
+    4487,
+    4134,
+    4527,
+    6
+   ]
+  },
+  {
+   "slug": "jumpluff",
+   "name": "Jumpluff",
+   "looktype": 358,
+   "level": 50,
+   "pixel": [
+    1102,
+    1511
+   ],
+   "area": "kanto",
+   "range": [
+    4069,
+    4487,
+    4134,
+    4527,
+    6
+   ]
+  },
+  {
+   "slug": "aipom",
+   "name": "Aipom",
+   "looktype": 348,
+   "level": 40,
+   "pixel": [
+    839,
+    3227
+   ],
+   "area": "kanto",
+   "range": [
+    3850,
+    6267,
+    3924,
+    6307,
+    7
+   ]
+  },
+  {
+   "slug": "sunkern",
+   "name": "Sunkern",
+   "looktype": 353,
+   "level": 1,
+   "pixel": [
+    543,
+    1480
+   ],
+   "area": "kanto",
+   "range": [
+    3579,
+    4528,
+    3644,
+    4568,
+    7
+   ]
+  },
+  {
+   "slug": "yanma",
+   "name": "Yanma",
+   "looktype": 379,
+   "level": 50,
+   "pixel": [
+    878,
+    3070
+   ],
+   "area": "kanto",
+   "range": [
+    3901,
+    6188,
+    3952,
+    6216,
+    7
+   ]
+  },
+  {
+   "slug": "wooper",
+   "name": "Wooper",
+   "looktype": 380,
+   "level": 20,
+   "pixel": [
+    1246,
+    2883
+   ],
+   "area": "kanto",
+   "range": [
+    4075,
+    5917,
+    4149,
+    5957,
+    7
+   ]
+  },
+  {
+   "slug": "dunsparce",
+   "name": "Dunsparce",
+   "looktype": 364,
+   "level": 30,
+   "pixel": [
+    1054,
+    1758
+   ],
+   "area": "kanto",
+   "range": [
+    3346,
+    5785,
+    3411,
+    5820,
+    6
+   ]
+  },
+  {
+   "slug": "qwilfish",
+   "name": "Qwilfish",
+   "looktype": 979,
+   "level": 50,
+   "pixel": [
+    1069,
+    3051
+   ],
+   "area": "kanto",
+   "range": [
+    4278,
+    3314,
+    4357,
+    3355,
+    7
+   ]
+  },
+  {
+   "slug": "shuckle",
+   "name": "Shuckle",
+   "looktype": 411,
+   "level": 40,
+   "pixel": [
+    954,
+    2295
+   ],
+   "area": "kanto",
+   "range": [
+    4322,
+    4333,
+    4397,
+    4372,
+    7
+   ]
+  },
+  {
+   "slug": "sneasel",
+   "name": "Sneasel",
+   "looktype": 375,
+   "level": 50,
+   "pixel": [
+    610,
+    1133
+   ],
+   "area": "kanto",
+   "range": [
+    3951,
+    4142,
+    4025,
+    4182,
+    7
+   ]
+  },
+  {
+   "slug": "corsola",
+   "name": "Corsola",
+   "looktype": 388,
+   "level": 50,
+   "pixel": [
+    1049,
+    2705
+   ],
+   "area": "kanto",
+   "range": [
+    4278,
+    3314,
+    4357,
+    3355,
+    7
+   ]
+  },
+  {
+   "slug": "remoraid",
+   "name": "Remoraid",
+   "looktype": 391,
+   "level": 10,
+   "pixel": [
+    1102,
+    2687
+   ],
+   "area": "kanto",
+   "range": [
+    4278,
+    3314,
+    4357,
+    3355,
+    7
+   ]
+  },
+  {
+   "slug": "octillery",
+   "name": "Octillery",
+   "looktype": 393,
+   "level": 70,
+   "pixel": [
+    1152,
+    2785
+   ],
+   "area": "kanto",
+   "range": [
+    4278,
+    3314,
+    4357,
+    3355,
+    7
+   ]
+  },
+  {
+   "slug": "delibird",
+   "name": "Delibird",
+   "looktype": 399,
+   "level": 40,
+   "pixel": [
+    700,
+    1103
+   ],
+   "area": "kanto",
+   "range": [
+    3911,
+    4087,
+    3998,
+    4133,
+    7
+   ]
+  },
+  {
+   "slug": "stantler",
+   "name": "Stantler",
+   "looktype": 409,
+   "level": 50,
+   "pixel": [
+    920,
+    1773
+   ],
+   "area": "kanto",
+   "range": [
+    4009,
+    4870,
+    4083,
+    4909,
+    6
+   ]
+  },
+  {
+   "slug": "treecko",
+   "name": "Treecko",
+   "looktype": 1850,
+   "level": 520,
+   "pixel": [
+    125,
+    421
+   ],
+   "area": "orre",
+   "range": [
+    5327,
+    5928,
+    5378,
+    5956,
+    7
+   ]
+  },
+  {
+   "slug": "grovyle",
+   "name": "Grovyle",
+   "looktype": 1851,
+   "level": 540,
+   "pixel": [
+    147,
+    400
+   ],
+   "area": "orre",
+   "range": [
+    5327,
+    5928,
+    5378,
+    5956,
+    7
+   ]
+  },
+  {
+   "slug": "sceptile",
+   "name": "Sceptile",
+   "looktype": 1852,
+   "level": 580,
+   "pixel": [
+    110,
+    366
+   ],
+   "area": "orre",
+   "range": [
+    5327,
+    5928,
+    5378,
+    5956,
+    7
+   ]
+  },
+  {
+   "slug": "torchic",
+   "name": "Torchic",
+   "looktype": 1856,
+   "level": 520,
+   "pixel": [
+    342,
+    376
+   ],
+   "area": "orre",
+   "range": [
+    5554,
+    5921,
+    5603,
+    5948,
+    5
+   ]
+  },
+  {
+   "slug": "combusken",
+   "name": "Combusken",
+   "looktype": 1857,
+   "level": 540,
+   "pixel": [
+    341,
+    408
+   ],
+   "area": "orre",
+   "range": [
+    5554,
+    5921,
+    5603,
+    5948,
+    5
+   ]
+  },
+  {
+   "slug": "blaziken",
+   "name": "Blaziken",
+   "looktype": 1858,
+   "level": 580,
+   "pixel": [
+    397,
+    397
+   ],
+   "area": "orre",
+   "range": [
+    5554,
+    5921,
+    5603,
+    5948,
+    5
+   ]
+  },
+  {
+   "slug": "mudkip",
+   "name": "Mudkip",
+   "looktype": 1853,
+   "level": 520,
+   "pixel": [
+    475,
+    305
+   ],
+   "area": "orre",
+   "range": [
+    5684,
+    5868,
+    5763,
+    5910,
+    7
+   ]
+  },
+  {
+   "slug": "marshtomp",
+   "name": "Marshtomp",
+   "looktype": 1854,
+   "level": 540,
+   "pixel": [
+    425,
+    315
+   ],
+   "area": "orre",
+   "range": [
+    5684,
+    5868,
+    5763,
+    5910,
+    7
+   ]
+  },
+  {
+   "slug": "swampert",
+   "name": "Swampert",
+   "looktype": 1855,
+   "level": 580,
+   "pixel": [
+    484,
+    392
+   ],
+   "area": "orre",
+   "range": [
+    5684,
+    5868,
+    5763,
+    5910,
+    7
+   ]
+  },
+  {
+   "slug": "seedot",
+   "name": "Seedot",
+   "looktype": 2028,
+   "level": 510,
+   "pixel": [
+    155,
+    479
+   ],
+   "area": "orre",
+   "range": [
+    5399,
+    5993,
+    5468,
+    6036,
+    6
+   ]
+  },
+  {
+   "slug": "nuzleaf",
+   "name": "Nuzleaf",
+   "looktype": 2029,
+   "level": 530,
+   "pixel": [
+    194,
+    492
+   ],
+   "area": "orre",
+   "range": [
+    5399,
+    5993,
+    5468,
+    6036,
+    6
+   ]
+  },
+  {
+   "slug": "shiftry",
+   "name": "Shiftry",
+   "looktype": 2030,
+   "level": 580,
+   "pixel": [
+    165,
+    526
+   ],
+   "area": "orre",
+   "range": [
+    5399,
+    5993,
+    5468,
+    6036,
+    6
+   ]
+  },
+  {
+   "slug": "wingull",
+   "name": "Wingull",
+   "looktype": 3065,
+   "level": 530,
+   "pixel": [
+    569,
+    568
+   ],
+   "area": "orre",
+   "range": [
+    5724,
+    6131,
+    5775,
+    6159,
+    7
+   ]
+  },
+  {
+   "slug": "pelipper",
+   "name": "Pelipper",
+   "looktype": 2884,
+   "level": 580,
+   "pixel": [
+    578,
+    537
+   ],
+   "area": "orre",
+   "range": [
+    5724,
+    6131,
+    5775,
+    6159,
+    7
+   ]
+  },
+  {
+   "slug": "ralts",
+   "name": "Ralts",
+   "looktype": 1848,
+   "level": 530,
+   "pixel": [
+    341,
+    132
+   ],
+   "area": "orre",
+   "range": [
+    5561,
+    5648,
+    5609,
+    5697,
+    7
+   ]
+  },
+  {
+   "slug": "kirlia",
+   "name": "Kirlia",
+   "looktype": 1847,
+   "level": 560,
+   "pixel": [
+    370,
+    124
+   ],
+   "area": "orre",
+   "range": [
+    5561,
+    5648,
+    5609,
+    5697,
+    7
+   ]
+  },
+  {
+   "slug": "gardevoir",
+   "name": "Gardevoir",
+   "looktype": 1849,
+   "level": 600,
+   "pixel": [
+    402,
+    129
+   ],
+   "area": "orre",
+   "range": [
+    5561,
+    5648,
+    5609,
+    5697,
+    7
+   ]
+  },
+  {
+   "slug": "whismur",
+   "name": "Whismur",
+   "looktype": 1921,
+   "level": 520,
+   "pixel": [
+    218,
+    60
+   ],
+   "area": "orre",
+   "range": [
+    5426,
+    5546,
+    5491,
+    5581,
+    5
+   ]
+  },
+  {
+   "slug": "loudred",
+   "name": "Loudred",
+   "looktype": 1923,
+   "level": 550,
+   "pixel": [
+    205,
+    34
+   ],
+   "area": "orre",
+   "range": [
+    5426,
+    5546,
+    5491,
+    5581,
+    5
+   ]
+  },
+  {
+   "slug": "exploud",
+   "name": "Exploud",
+   "looktype": 1924,
+   "level": 600,
+   "pixel": [
+    240,
+    40
+   ],
+   "area": "orre",
+   "range": [
+    5426,
+    5546,
+    5491,
+    5581,
+    5
+   ]
+  },
+  {
+   "slug": "makuhita",
+   "name": "Makuhita",
+   "looktype": 1873,
+   "level": 540,
+   "pixel": [
+    81,
+    264
+   ],
+   "area": "orre",
+   "range": [
+    5323,
+    5742,
+    5388,
+    5777,
+    5
+   ]
+  },
+  {
+   "slug": "sableye",
+   "name": "Sableye",
+   "looktype": 2035,
+   "level": 560,
+   "pixel": [
+    200,
+    81
+   ],
+   "area": "orre",
+   "range": [
+    5396,
+    5560,
+    5500,
+    5616,
+    7
+   ]
+  },
+  {
+   "slug": "mawile",
+   "name": "Mawile",
+   "looktype": 1859,
+   "level": 580,
+   "pixel": [
+    160,
+    134
+   ],
+   "area": "orre",
+   "range": [
+    5328,
+    5695,
+    5392,
+    5729,
+    6
+   ]
+  },
+  {
+   "slug": "lairon",
+   "name": "Lairon",
+   "looktype": 1862,
+   "level": 560,
+   "pixel": [
+    118,
+    202
+   ],
+   "area": "orre",
+   "range": [
+    5328,
+    5695,
+    5392,
+    5729,
+    6
+   ]
+  },
+  {
+   "slug": "aggron",
+   "name": "Aggron",
+   "looktype": 1863,
+   "level": 600,
+   "pixel": [
+    125,
+    156
+   ],
+   "area": "orre",
+   "range": [
+    5328,
+    5695,
+    5392,
+    5729,
+    6
+   ]
+  },
+  {
+   "slug": "meditite",
+   "name": "Meditite",
+   "looktype": 1888,
+   "level": 530,
+   "pixel": [
+    355,
+    174
+   ],
+   "area": "orre",
+   "range": [
+    5530,
+    5650,
+    5608,
+    5692,
+    6
+   ]
+  },
+  {
+   "slug": "medicham",
+   "name": "Medicham",
+   "looktype": 1889,
+   "level": 580,
+   "pixel": [
+    384,
+    193
+   ],
+   "area": "orre",
+   "range": [
+    5530,
+    5650,
+    5608,
+    5692,
+    6
+   ]
+  },
+  {
+   "slug": "electrike",
+   "name": "Electrike",
+   "looktype": 1870,
+   "level": 530,
+   "pixel": [
+    300,
+    521
+   ],
+   "area": "orre",
+   "range": [
+    5481,
+    6001,
+    5546,
+    6036,
+    6
+   ]
+  },
+  {
+   "slug": "manectric",
+   "name": "Manectric",
+   "looktype": 1871,
+   "level": 580,
+   "pixel": [
+    250,
+    482
+   ],
+   "area": "orre",
+   "range": [
+    5481,
+    6001,
+    5546,
+    6036,
+    6
+   ]
+  },
+  {
+   "slug": "numel",
+   "name": "Numel",
+   "looktype": 1942,
+   "level": 530,
+   "pixel": [
+    372,
+    380
+   ],
+   "area": "orre",
+   "range": [
+    5554,
+    5921,
+    5603,
+    5948,
+    5
+   ]
+  },
+  {
+   "slug": "camerupt",
+   "name": "Camerupt",
+   "looktype": 1943,
+   "level": 580,
+   "pixel": [
+    405,
+    430
+   ],
+   "area": "orre",
+   "range": [
+    5554,
+    5921,
+    5603,
+    5948,
+    5
+   ]
+  },
+  {
+   "slug": "torkoal",
+   "name": "Torkoal",
+   "looktype": 1939,
+   "level": 600,
+   "pixel": [
+    370,
+    459
+   ],
+   "area": "orre",
+   "range": [
+    5554,
+    5921,
+    5603,
+    5948,
+    5
+   ]
+  },
+  {
+   "slug": "spoink",
+   "name": "Spoink",
+   "looktype": 1919,
+   "level": 520,
+   "pixel": [
+    283,
+    63
+   ],
+   "area": "orre",
+   "range": [
+    5501,
+    5529,
+    5566,
+    5564,
+    6
+   ]
+  },
+  {
+   "slug": "grumpig",
+   "name": "Grumpig",
+   "looktype": 3762,
+   "level": 580,
+   "pixel": [
+    328,
+    29
+   ],
+   "area": "orre",
+   "range": [
+    5501,
+    5529,
+    5566,
+    5564,
+    6
+   ]
+  },
+  {
+   "slug": "vibrava",
+   "name": "Vibrava",
+   "looktype": 1893,
+   "level": 550,
+   "pixel": [
+    417,
+    256
+   ],
+   "area": "orre",
+   "range": [
+    5510,
+    5740,
+    5562,
+    5767,
+    7
+   ]
+  },
+  {
+   "slug": "flygon",
+   "name": "Flygon",
+   "looktype": 1894,
+   "level": 600,
+   "pixel": [
+    461,
+    227
+   ],
+   "area": "orre",
+   "range": [
+    5510,
+    5740,
+    5562,
+    5767,
+    7
+   ]
+  },
+  {
+   "slug": "cacturne",
+   "name": "Cacturne",
+   "looktype": 5214,
+   "level": 600,
+   "pixel": [
+    424,
+    86
+   ],
+   "area": "orre",
+   "range": [
+    5615,
+    5578,
+    5664,
+    5604,
+    7
+   ]
+  },
+  {
+   "slug": "seviper",
+   "name": "Seviper",
+   "looktype": 1944,
+   "level": 600,
+   "pixel": [
+    116,
+    278
+   ],
+   "area": "orre",
+   "range": [
+    5295,
+    5732,
+    5360,
+    5767,
+    7
+   ]
+  },
+  {
+   "slug": "corphish",
+   "name": "Corphish",
+   "looktype": 1928,
+   "level": 530,
+   "pixel": [
+    389,
+    341
+   ],
+   "area": "orre",
+   "range": [
+    5691,
+    5874,
+    5743,
+    5902,
+    7
+   ]
+  },
+  {
+   "slug": "crawdaunt",
+   "name": "Crawdaunt",
+   "looktype": 1929,
+   "level": 580,
+   "pixel": [
+    456,
+    439
+   ],
+   "area": "orre",
+   "range": [
+    5691,
+    5874,
+    5743,
+    5902,
+    7
+   ]
+  },
+  {
+   "slug": "claydol",
+   "name": "Claydol",
+   "looktype": 2036,
+   "level": 580,
+   "pixel": [
+    418,
+    173
+   ],
+   "area": "orre",
+   "range": [
+    5575,
+    5644,
+    5669,
+    5689,
+    5
+   ]
+  },
+  {
+   "slug": "duskull",
+   "name": "Duskull",
+   "looktype": 1905,
+   "level": 540,
+   "pixel": [
+    292,
+    104
+   ],
+   "area": "orre",
+   "range": [
+    5536,
+    5561,
+    5601,
+    5596,
+    7
+   ]
+  },
+  {
+   "slug": "snorunt",
+   "name": "Snorunt",
+   "looktype": 1877,
+   "level": 530,
+   "pixel": [
+    574,
+    325
+   ],
+   "area": "orre",
+   "range": [
+    5791,
+    5773,
+    5843,
+    5800,
+    7
+   ]
+  },
+  {
+   "slug": "glalie",
+   "name": "Glalie",
+   "looktype": 1878,
+   "level": 580,
+   "pixel": [
+    577,
+    292
+   ],
+   "area": "orre",
+   "range": [
+    5791,
+    5773,
+    5843,
+    5800,
+    7
+   ]
+  },
+  {
+   "slug": "spheal",
+   "name": "Spheal",
+   "looktype": 1931,
+   "level": 530,
+   "pixel": [
+    600,
+    265
+   ],
+   "area": "orre",
+   "range": [
+    5791,
+    5773,
+    5843,
+    5800,
+    7
+   ]
+  },
+  {
+   "slug": "sealeo",
+   "name": "Sealeo",
+   "looktype": 1932,
+   "level": 560,
+   "pixel": [
+    529,
+    279
+   ],
+   "area": "orre",
+   "range": [
+    5791,
+    5773,
+    5843,
+    5800,
+    7
+   ]
+  },
+  {
+   "slug": "walrein",
+   "name": "Walrein",
+   "looktype": 1934,
+   "level": 600,
+   "pixel": [
+    560,
+    257
+   ],
+   "area": "orre",
+   "range": [
+    5791,
+    5773,
+    5843,
+    5800,
+    7
+   ]
+  },
+  {
+   "slug": "bagon",
+   "name": "Bagon",
+   "looktype": 1866,
+   "level": 540,
+   "pixel": [
+    134,
+    232
+   ],
+   "area": "orre",
+   "range": [
+    5340,
+    5684,
+    5411,
+    5732,
+    5
+   ]
+  },
+  {
+   "slug": "shelgon",
+   "name": "Shelgon",
+   "looktype": 1867,
+   "level": 560,
+   "pixel": [
+    104,
+    231
+   ],
+   "area": "orre",
+   "range": [
+    5340,
+    5684,
+    5411,
+    5732,
+    5
+   ]
+  },
+  {
+   "slug": "beldum",
+   "name": "Beldum",
+   "looktype": 1896,
+   "level": 520,
+   "pixel": [
+    171,
+    107
+   ],
+   "area": "orre",
+   "range": [
+    5424,
+    5545,
+    5516,
+    5594,
+    6
+   ]
+  },
+  {
+   "slug": "metang",
+   "name": "Metang",
+   "looktype": 1897,
+   "level": 580,
+   "pixel": [
+    198,
+    106
+   ],
+   "area": "orre",
+   "range": [
+    5424,
+    5545,
+    5516,
+    5594,
+    6
+   ]
+  },
+  {
+   "slug": "poochyena",
+   "name": "Poochyena",
+   "looktype": 2866,
+   "level": 530,
+   "pixel": [
+    233,
+    516
+   ],
+   "area": "orre",
+   "range": [
+    5428,
+    5935,
+    5479,
+    5963,
+    8
+   ]
+  },
+  {
+   "slug": "mightyena",
+   "name": "Mightyena",
+   "looktype": 2872,
+   "level": 600,
+   "pixel": [
+    218,
+    502
+   ],
+   "area": "orre",
+   "range": [
+    5428,
+    5935,
+    5479,
+    5963,
+    8
+   ]
+  },
+  {
+   "slug": "lotad",
+   "name": "Lotad",
+   "looktype": 1879,
+   "level": 520,
+   "pixel": [
+    246,
+    286
+   ],
+   "area": "orre",
+   "range": [
+    5452,
+    5779,
+    5517,
+    5814,
+    7
+   ]
+  },
+  {
+   "slug": "lombre",
+   "name": "Lombre",
+   "looktype": 1883,
+   "level": 550,
+   "pixel": [
+    256,
+    329
+   ],
+   "area": "orre",
+   "range": [
+    5452,
+    5779,
+    5517,
+    5814,
+    7
+   ]
+  },
+  {
+   "slug": "ludicolo",
+   "name": "Ludicolo",
+   "looktype": 1880,
+   "level": 600,
+   "pixel": [
+    208,
+    313
+   ],
+   "area": "orre",
+   "range": [
+    5452,
+    5779,
+    5517,
+    5814,
+    7
+   ]
+  },
+  {
+   "slug": "taillow",
+   "name": "Taillow",
+   "looktype": 2031,
+   "level": 530,
+   "pixel": [
+    184,
+    146
+   ],
+   "area": "orre",
+   "range": [
+    5002,
+    5816,
+    5064,
+    5853,
+    5
+   ]
+  },
+  {
+   "slug": "swellow",
+   "name": "Swellow",
+   "looktype": 2032,
+   "level": 580,
+   "pixel": [
+    171,
+    162
+   ],
+   "area": "orre",
+   "range": [
+    5002,
+    5816,
+    5064,
+    5853,
+    5
+   ]
+  },
+  {
+   "slug": "slakoth",
+   "name": "Slakoth",
+   "looktype": 1925,
+   "level": 540,
+   "pixel": [
+    322,
+    361
+   ],
+   "area": "orre",
+   "range": [
+    5549,
+    5868,
+    5567,
+    5895,
+    5
+   ]
+  },
+  {
+   "slug": "vigoroth",
+   "name": "Vigoroth",
+   "looktype": 1948,
+   "level": 560,
+   "pixel": [
+    303,
+    361
+   ],
+   "area": "orre",
+   "range": [
+    5549,
+    5868,
+    5567,
+    5895,
+    5
+   ]
+  },
+  {
+   "slug": "aron",
+   "name": "Aron",
+   "looktype": 1861,
+   "level": 530,
+   "pixel": [
+    129,
+    182
+   ],
+   "area": "orre",
+   "range": [
+    5328,
+    5695,
+    5392,
+    5729,
+    6
+   ]
+  },
+  {
+   "slug": "trapinch",
+   "name": "Trapinch",
+   "looktype": 1892,
+   "level": 520,
+   "pixel": [
+    317,
+    244
+   ],
+   "area": "orre",
+   "range": [
+    5510,
+    5740,
+    5562,
+    5767,
+    7
+   ]
+  },
+  {
+   "slug": "swablu",
+   "name": "Swablu",
+   "looktype": 1884,
+   "level": 540,
+   "pixel": [
+    200,
+    152
+   ],
+   "area": "orre",
+   "range": [
+    5002,
+    5816,
+    5064,
+    5853,
+    5
+   ]
+  },
+  {
+   "slug": "altaria",
+   "name": "Altaria",
+   "looktype": 1885,
+   "level": 580,
+   "pixel": [
+    187,
+    171
+   ],
+   "area": "orre",
+   "range": [
+    5002,
+    5816,
+    5064,
+    5853,
+    5
+   ]
+  },
+  {
+   "slug": "zangoose",
+   "name": "Zangoose",
+   "looktype": 2034,
+   "level": 600,
+   "pixel": [
+    179,
+    226
+   ],
+   "area": "orre",
+   "range": [
+    5385,
+    5678,
+    5435,
+    5720,
+    7
+   ]
+  },
+  {
+   "slug": "baltoy",
+   "name": "Baltoy",
+   "looktype": 2047,
+   "level": 530,
+   "pixel": [
+    411,
+    219
+   ],
+   "area": "orre",
+   "range": [
+    5571,
+    5677,
+    5621,
+    5704,
+    5
+   ]
+  },
+  {
+   "slug": "banette",
+   "name": "Banette",
+   "looktype": 1910,
+   "level": 580,
+   "pixel": [
+    326,
+    78
+   ],
+   "area": "orre",
+   "range": [
+    5517,
+    5595,
+    5570,
+    5627,
+    8
+   ]
+  },
+  {
+   "slug": "dusclops",
+   "name": "Dusclops",
+   "looktype": 1906,
+   "level": 600,
+   "pixel": [
+    240,
+    120
+   ],
+   "area": "orre",
+   "range": [
+    5486,
+    5591,
+    5580,
+    5640,
+    7
+   ]
+  },
+  {
+   "slug": "tropius",
+   "name": "Tropius",
+   "looktype": 1886,
+   "level": 600,
+   "pixel": [
+    148,
+    326
+   ],
+   "area": "orre",
+   "range": [
+    5452,
+    5779,
+    5517,
+    5814,
+    7
+   ]
+  },
+  {
+   "slug": "absol",
+   "name": "Absol",
+   "looktype": 1875,
+   "level": 600,
+   "pixel": [
+    213,
+    526
+   ],
+   "area": "orre",
+   "range": [
+    5428,
+    5935,
+    5479,
+    5963,
+    8
+   ]
+  },
+  {
+   "slug": "riolu",
+   "name": "Riolu",
+   "looktype": 2033,
+   "level": 530,
+   "pixel": [
+    32,
+    258
+   ],
+   "area": "orre",
+   "range": [
+    5290,
+    5738,
+    5323,
+    5781,
+    4
+   ]
+  },
+  {
+   "slug": "lucario",
+   "name": "Lucario",
+   "looktype": 1949,
+   "level": 580,
+   "pixel": [
+    64,
+    219
+   ],
+   "area": "orre",
+   "range": [
+    5290,
+    5738,
+    5323,
+    5781,
+    4
    ]
   }
  ]

@@ -1548,7 +1548,7 @@
   {
    "id": 59200,
    "name": "Normal-Type TM Disk",
-   "icon": "",
+   "icon": "/assets/items/tm_disk_elemental.png",
    "category": "tm",
    "rare": false,
    "npcPrice": 0
@@ -1556,7 +1556,7 @@
   {
    "id": 59201,
    "name": "Fire-Type TM Disk",
-   "icon": "",
+   "icon": "/assets/items/tm_disk_elemental.png",
    "category": "tm",
    "rare": false,
    "npcPrice": 0
@@ -1564,7 +1564,7 @@
   {
    "id": 59202,
    "name": "Water-Type TM Disk",
-   "icon": "",
+   "icon": "/assets/items/tm_disk_elemental.png",
    "category": "tm",
    "rare": false,
    "npcPrice": 0
@@ -1572,7 +1572,7 @@
   {
    "id": 59203,
    "name": "Grass-Type TM Disk",
-   "icon": "",
+   "icon": "/assets/items/tm_disk_elemental.png",
    "category": "tm",
    "rare": false,
    "npcPrice": 0
@@ -1580,7 +1580,7 @@
   {
    "id": 59204,
    "name": "Electric-Type TM Disk",
-   "icon": "",
+   "icon": "/assets/items/tm_disk_elemental.png",
    "category": "tm",
    "rare": false,
    "npcPrice": 0
@@ -1588,7 +1588,7 @@
   {
    "id": 59205,
    "name": "Ice-Type TM Disk",
-   "icon": "",
+   "icon": "/assets/items/tm_disk_elemental.png",
    "category": "tm",
    "rare": false,
    "npcPrice": 0
@@ -1596,7 +1596,7 @@
   {
    "id": 59206,
    "name": "Fighting-Type TM Disk",
-   "icon": "",
+   "icon": "/assets/items/tm_disk_elemental.png",
    "category": "tm",
    "rare": false,
    "npcPrice": 0
@@ -1604,7 +1604,7 @@
   {
    "id": 59207,
    "name": "Poison-Type TM Disk",
-   "icon": "",
+   "icon": "/assets/items/tm_disk_elemental.png",
    "category": "tm",
    "rare": false,
    "npcPrice": 0
@@ -1612,7 +1612,7 @@
   {
    "id": 59208,
    "name": "Ground-Type TM Disk",
-   "icon": "",
+   "icon": "/assets/items/tm_disk_elemental.png",
    "category": "tm",
    "rare": false,
    "npcPrice": 0
@@ -1620,7 +1620,7 @@
   {
    "id": 59209,
    "name": "Flying-Type TM Disk",
-   "icon": "",
+   "icon": "/assets/items/tm_disk_elemental.png",
    "category": "tm",
    "rare": false,
    "npcPrice": 0
@@ -1628,7 +1628,7 @@
   {
    "id": 59210,
    "name": "Psychic-Type TM Disk",
-   "icon": "",
+   "icon": "/assets/items/tm_disk_elemental.png",
    "category": "tm",
    "rare": false,
    "npcPrice": 0
@@ -1636,7 +1636,7 @@
   {
    "id": 59211,
    "name": "Bug-Type TM Disk",
-   "icon": "",
+   "icon": "/assets/items/tm_disk_elemental.png",
    "category": "tm",
    "rare": false,
    "npcPrice": 0
@@ -1644,7 +1644,7 @@
   {
    "id": 59212,
    "name": "Rock-Type TM Disk",
-   "icon": "",
+   "icon": "/assets/items/tm_disk_elemental.png",
    "category": "tm",
    "rare": false,
    "npcPrice": 0
@@ -1652,7 +1652,7 @@
   {
    "id": 59213,
    "name": "Ghost-Type TM Disk",
-   "icon": "",
+   "icon": "/assets/items/tm_disk_elemental.png",
    "category": "tm",
    "rare": false,
    "npcPrice": 0
@@ -1660,7 +1660,7 @@
   {
    "id": 59214,
    "name": "Dragon-Type TM Disk",
-   "icon": "",
+   "icon": "/assets/items/tm_disk_elemental.png",
    "category": "tm",
    "rare": false,
    "npcPrice": 0
@@ -1668,7 +1668,7 @@
   {
    "id": 59215,
    "name": "Dark-Type TM Disk",
-   "icon": "",
+   "icon": "/assets/items/tm_disk_elemental.png",
    "category": "tm",
    "rare": false,
    "npcPrice": 0
@@ -1676,7 +1676,15 @@
   {
    "id": 59216,
    "name": "Steel-Type TM Disk",
-   "icon": "",
+   "icon": "/assets/items/tm_disk_elemental.png",
+   "category": "tm",
+   "rare": false,
+   "npcPrice": 0
+  },
+  {
+   "id": 59247,
+   "name": "Fairy-Type TM Disk",
+   "icon": "/assets/items/tm_disk_elemental.png",
    "category": "tm",
    "rare": false,
    "npcPrice": 0
@@ -1689,6 +1697,22 @@
    "rare": false,
    "npcPrice": 1000000,
    "description": "Um feromônio misterioso com um aroma incomum. Parece estimular os instintos dos Pokémon, tornando-os mais receptivos durante o breeding"
+  },
+  {
+   "id": 40530,
+   "name": "AoE TM Disk Piece",
+   "icon": "/assets/items/tm_piece_aoe.png",
+   "category": "loot",
+   "rare": false,
+   "npcPrice": 0
+  },
+  {
+   "id": 40575,
+   "name": "AoE TM Disk",
+   "icon": "/assets/items/tm_disk_aoe.png",
+   "category": "tm",
+   "rare": false,
+   "npcPrice": 0
   },
   {
    "id": 16257,
@@ -2105,6 +2129,255 @@
    "category": "card",
    "rare": true,
    "npcPrice": 0
+  },
+  {
+   "id": 59217,
+   "name": "greens",
+   "icon": "https://pokexguides.com/images/items/drops/Greens.png",
+   "category": "loot",
+   "rare": true,
+   "npcPrice": 40
+  },
+  {
+   "id": 59218,
+   "name": "fire feather",
+   "icon": "https://pokexguides.com/images/items/drops/Fire_Feather.png",
+   "category": "loot",
+   "rare": true,
+   "npcPrice": 40
+  },
+  {
+   "id": 59219,
+   "name": "black fins",
+   "icon": "https://pokexguides.com/images/items/drops/Black_Fins.png",
+   "category": "loot",
+   "rare": true,
+   "npcPrice": 40
+  },
+  {
+   "id": 59220,
+   "name": "big seed",
+   "icon": "https://pokexguides.com/images/items/drops/Big_Seed.png",
+   "category": "loot",
+   "rare": true,
+   "npcPrice": 40
+  },
+  {
+   "id": 59221,
+   "name": "pelican wing",
+   "icon": "https://pokexguides.com/images/items/drops/Pelican_Wing.png",
+   "category": "loot",
+   "rare": true,
+   "npcPrice": 40
+  },
+  {
+   "id": 59222,
+   "name": "cute ball",
+   "icon": "https://pokexguides.com/images/items/drops/Cute_Ball.png",
+   "category": "loot",
+   "rare": true,
+   "npcPrice": 40
+  },
+  {
+   "id": 59223,
+   "name": "eruption ears",
+   "icon": "https://pokexguides.com/images/items/drops/Eruption_Ears.png",
+   "category": "loot",
+   "rare": true,
+   "npcPrice": 40
+  },
+  {
+   "id": 59224,
+   "name": "samurai hair",
+   "icon": "https://pokexguides.com/images/items/drops/Samurai_Hair.png",
+   "category": "loot",
+   "rare": true,
+   "npcPrice": 40
+  },
+  {
+   "id": 59225,
+   "name": "mediling",
+   "icon": "https://pokexguides.com/images/items/drops/Mediling.png",
+   "category": "loot",
+   "rare": true,
+   "npcPrice": 40
+  },
+  {
+   "id": 59226,
+   "name": "shock topknot",
+   "icon": "https://pokexguides.com/images/items/drops/Shock_Topknot.png",
+   "category": "loot",
+   "rare": true,
+   "npcPrice": 40
+  },
+  {
+   "id": 59227,
+   "name": "nu ball",
+   "icon": "https://pokexguides.com/images/items/drops/Nu_Ball.png",
+   "category": "loot",
+   "rare": true,
+   "npcPrice": 40
+  },
+  {
+   "id": 59228,
+   "name": "mini volcano",
+   "icon": "https://pokexguides.com/images/items/drops/Mini_Volcano.png",
+   "category": "loot",
+   "rare": true,
+   "npcPrice": 40
+  },
+  {
+   "id": 59229,
+   "name": "springs",
+   "icon": "https://pokexguides.com/images/items/drops/Springs.png",
+   "category": "loot",
+   "rare": true,
+   "npcPrice": 40
+  },
+  {
+   "id": 59230,
+   "name": "lobster claw",
+   "icon": "https://pokexguides.com/images/items/drops/Lobster_Claw.png",
+   "category": "loot",
+   "rare": true,
+   "npcPrice": 40
+  },
+  {
+   "id": 59231,
+   "name": "pawn",
+   "icon": "https://pokexguides.com/images/items/drops/Pawn.png",
+   "category": "loot",
+   "rare": true,
+   "npcPrice": 40
+  },
+  {
+   "id": 59232,
+   "name": "ghost skull",
+   "icon": "https://pokexguides.com/images/items/drops/Ghost_Skull.png",
+   "category": "loot",
+   "rare": true,
+   "npcPrice": 40
+  },
+  {
+   "id": 59233,
+   "name": "ice blocks",
+   "icon": "https://pokexguides.com/images/items/drops/Ice_Blocks.png",
+   "category": "loot",
+   "rare": true,
+   "npcPrice": 40
+  },
+  {
+   "id": 59234,
+   "name": "seal mustache",
+   "icon": "https://pokexguides.com/images/items/drops/Seal_Mustache.png",
+   "category": "loot",
+   "rare": true,
+   "npcPrice": 40
+  },
+  {
+   "id": 59235,
+   "name": "Big Crystal",
+   "icon": "https://pokexguides.com/images/items/drops/Big_Crystal.png",
+   "category": "loot",
+   "rare": true,
+   "npcPrice": 40
+  },
+  {
+   "id": 59236,
+   "name": "Black Hull",
+   "icon": "https://pokexguides.com/images/items/drops/Black_Hull.png",
+   "category": "loot",
+   "rare": true,
+   "npcPrice": 40
+  },
+  {
+   "id": 59237,
+   "name": "Cactus Head",
+   "icon": "https://pokexguides.com/images/items/drops/Cactus_Head.png",
+   "category": "loot",
+   "rare": true,
+   "npcPrice": 40
+  },
+  {
+   "id": 59238,
+   "name": "Cure Flower",
+   "icon": "https://pokexguides.com/images/items/drops/Cure_Flower.png",
+   "category": "loot",
+   "rare": true,
+   "npcPrice": 40
+  },
+  {
+   "id": 59239,
+   "name": "Metal Hull",
+   "icon": "https://pokexguides.com/images/items/drops/Metal_Hull.png",
+   "category": "loot",
+   "rare": true,
+   "npcPrice": 40
+  },
+  {
+   "id": 59240,
+   "name": "Metal Jaw",
+   "icon": "https://pokexguides.com/images/items/drops/Metal_Jaw.png",
+   "category": "loot",
+   "rare": true,
+   "npcPrice": 40
+  },
+  {
+   "id": 59241,
+   "name": "Mini Wings",
+   "icon": "https://pokexguides.com/images/items/drops/Mini_Wings.png",
+   "category": "loot",
+   "rare": true,
+   "npcPrice": 40
+  },
+  {
+   "id": 59242,
+   "name": "Poisonous Tail",
+   "icon": "https://pokexguides.com/images/items/drops/Poisonous_Tail.png",
+   "category": "loot",
+   "rare": true,
+   "npcPrice": 40
+  },
+  {
+   "id": 59243,
+   "name": "Sand Tail",
+   "icon": "https://pokexguides.com/images/items/drops/Sand_Tail.png",
+   "category": "loot",
+   "rare": true,
+   "npcPrice": 40
+  },
+  {
+   "id": 59244,
+   "name": "Sharp Leaves",
+   "icon": "https://pokexguides.com/images/items/drops/Sharp_Leaves.png",
+   "category": "loot",
+   "rare": true,
+   "npcPrice": 40
+  },
+  {
+   "id": 59245,
+   "name": "Small Crown",
+   "icon": "https://pokexguides.com/images/items/drops/Small_Crown.png",
+   "category": "loot",
+   "rare": true,
+   "npcPrice": 40
+  },
+  {
+   "id": 59246,
+   "name": "Tech Ball",
+   "icon": "https://pokexguides.com/images/items/drops/Tech_Ball.png",
+   "category": "loot",
+   "rare": true,
+   "npcPrice": 40
+  },
+  {
+   "id": 27304,
+   "name": "10.000 Carat Emerald",
+   "icon": "/assets/items/10000_carat_emerald.png",
+   "category": "loot",
+   "rare": true,
+   "npcPrice": 150000,
+   "description": "Uma esmeralda colossal de dez mil quilates, lapidada em uma única peça. Colecionadores disputam pedras desse porte a peso de ouro"
   }
  ]
 }
