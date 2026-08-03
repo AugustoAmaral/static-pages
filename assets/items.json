@@ -3,7 +3,7 @@
   {
    "id": 1,
    "name": "Air Tank",
-   "icon": "https://pokexguides.com/images/items/drops/Air_Tank.png",
+   "icon": "air_tank.png",
    "category": "loot",
    "rare": true,
    "npcPrice": 1000
@@ -19,7 +19,7 @@
   {
    "id": 3,
    "name": "Armadillo Claw",
-   "icon": "https://pokexguides.com/images/items/drops/Armadillo_Claw.png",
+   "icon": "armadillo_claw.png",
    "category": "loot",
    "rare": false,
    "npcPrice": 147
@@ -27,7 +27,7 @@
   {
    "id": 4,
    "name": "Bag of Pollen",
-   "icon": "https://pokexguides.com/images/items/drops/Bag_of_Pollen.png",
+   "icon": "bag_of_pollen.png",
    "category": "loot",
    "rare": false,
    "npcPrice": 40
@@ -35,7 +35,7 @@
   {
    "id": 5,
    "name": "Band Aid",
-   "icon": "https://pokexguides.com/images/items/drops/Band_Aid.png",
+   "icon": "band_aid.png",
    "category": "loot",
    "rare": false,
    "npcPrice": 1
@@ -43,7 +43,7 @@
   {
    "id": 6,
    "name": "Bat Wing",
-   "icon": "https://pokexguides.com/images/items/drops/Bat_Wing.png",
+   "icon": "bat_wing.png",
    "category": "loot",
    "rare": false,
    "npcPrice": 78
@@ -51,7 +51,7 @@
   {
    "id": 7,
    "name": "Bee Sting",
-   "icon": "https://pokexguides.com/images/items/drops/Bee_Sting.png",
+   "icon": "bee_sting.png",
    "category": "loot",
    "rare": true,
    "npcPrice": 54
@@ -59,7 +59,7 @@
   {
    "id": 8,
    "name": "Belt of Champion",
-   "icon": "https://pokexguides.com/images/items/drops/Belt_of_Champion.png",
+   "icon": "belt_of_champion.png",
    "category": "loot",
    "rare": true,
    "npcPrice": 1000
@@ -67,7 +67,7 @@
   {
    "id": 9,
    "name": "Bird Beak",
-   "icon": "https://pokexguides.com/images/items/drops/Bird_Beak.png",
+   "icon": "bird_beak.png",
    "category": "loot",
    "rare": false,
    "npcPrice": 30
@@ -75,7 +75,7 @@
   {
    "id": 10,
    "name": "Bitten Apple",
-   "icon": "https://pokexguides.com/images/items/drops/Bitten_Apple.png",
+   "icon": "bitten_apple.png",
    "category": "loot",
    "rare": false,
    "npcPrice": 7
@@ -83,7 +83,7 @@
   {
    "id": 11,
    "name": "Blue Fish Fin",
-   "icon": "https://pokexguides.com/images/items/drops/Blue_Fish_Fin.png",
+   "icon": "blue_fish_fin.png",
    "category": "loot",
    "rare": true,
    "npcPrice": 500
@@ -91,7 +91,7 @@
   {
    "id": 12,
    "name": "Blue Vines",
-   "icon": "https://pokexguides.com/images/items/drops/Blue_Vines.png",
+   "icon": "blue_vines.png",
    "category": "loot",
    "rare": true,
    "npcPrice": 500
@@ -99,7 +99,7 @@
   {
    "id": 13,
    "name": "Bone",
-   "icon": "https://pokexguides.com/images/items/drops/Bone.png",
+   "icon": "bone.png",
    "category": "loot",
    "rare": false,
    "npcPrice": 123
@@ -107,7 +107,7 @@
   {
    "id": 14,
    "name": "Bottles of Poison",
-   "icon": "https://pokexguides.com/images/items/drops/Bottles_of_Poison.png",
+   "icon": "bottles_of_poison.png",
    "category": "loot",
    "rare": false,
    "npcPrice": 1
@@ -115,7 +115,7 @@
   {
    "id": 15,
    "name": "Bug Antenna",
-   "icon": "https://pokexguides.com/images/items/drops/Bug_Antenna.png",
+   "icon": "bug_antenna.png",
    "category": "loot",
    "rare": false,
    "npcPrice": 96
@@ -123,7 +123,7 @@
   {
    "id": 16,
    "name": "Bug Gosme",
-   "icon": "https://pokexguides.com/images/items/drops/Bug_Gosme.png",
+   "icon": "bug_gosme.png",
    "category": "loot",
    "rare": false,
    "npcPrice": 1
@@ -131,7 +131,7 @@
   {
    "id": 17,
    "name": "Bug Venom",
-   "icon": "https://pokexguides.com/images/items/drops/Bug_Venom.png",
+   "icon": "bug_venom.png",
    "category": "loot",
    "rare": false,
    "npcPrice": 371
@@ -139,7 +139,7 @@
   {
    "id": 18,
    "name": "Bulb",
-   "icon": "https://pokexguides.com/images/items/drops/Bulb.png",
+   "icon": "bulb.png",
    "category": "loot",
    "rare": true,
    "npcPrice": 132
@@ -147,7 +147,7 @@
   {
    "id": 19,
    "name": "Bull Tail",
-   "icon": "https://pokexguides.com/images/items/drops/Bull_Tail.png",
+   "icon": "bull_tail.png",
    "category": "loot",
    "rare": true,
    "npcPrice": 500
@@ -155,7 +155,7 @@
   {
    "id": 20,
    "name": "Butterfly Wing",
-   "icon": "https://pokexguides.com/images/items/drops/Butterfly_Wing.png",
+   "icon": "butterfly_wing.png",
    "category": "loot",
    "rare": true,
    "npcPrice": 66
@@ -163,7 +163,7 @@
   {
    "id": 21,
    "name": "Chansey Egg",
-   "icon": "https://pokexguides.com/images/items/drops/Chansey_Egg.png",
+   "icon": "chansey_egg.png",
    "category": "loot",
    "rare": true,
    "npcPrice": 500
@@ -171,7 +171,7 @@
   {
    "id": 22,
    "name": "Chicken Feet",
-   "icon": "https://pokexguides.com/images/items/drops/Chicken_Feet.png",
+   "icon": "chicken_feet.png",
    "category": "loot",
    "rare": true,
    "npcPrice": 500
@@ -179,7 +179,7 @@
   {
    "id": 23,
    "name": "Cocoon Stone",
-   "icon": "https://pokexguides.com/images/items/evolutions/Cocoon_Stone.gif",
+   "icon": "cocoon_stone.gif",
    "category": "stone",
    "rare": true,
    "npcPrice": 5000
@@ -187,7 +187,7 @@
   {
    "id": 24,
    "name": "Colored Feather",
-   "icon": "https://pokexguides.com/images/items/drops/Colored_Feather.png",
+   "icon": "colored_feather.png",
    "category": "loot",
    "rare": true,
    "npcPrice": 168
@@ -195,7 +195,7 @@
   {
    "id": 25,
    "name": "Comb",
-   "icon": "https://pokexguides.com/images/items/drops/Comb.png",
+   "icon": "comb.png",
    "category": "loot",
    "rare": false,
    "npcPrice": 100
@@ -203,7 +203,7 @@
   {
    "id": 26,
    "name": "Crab Claw",
-   "icon": "https://pokexguides.com/images/items/drops/Crab_Claw.png",
+   "icon": "crab_claw.png",
    "category": "loot",
    "rare": false,
    "npcPrice": 90
@@ -211,7 +211,7 @@
   {
    "id": 27,
    "name": "Crystal Cube",
-   "icon": "https://pokexguides.com/images/items/drops/Crystal_Cube.png",
+   "icon": "crystal_cube.png",
    "category": "loot",
    "rare": true,
    "npcPrice": 500
@@ -219,7 +219,7 @@
   {
    "id": 28,
    "name": "Crystal Stone",
-   "icon": "https://pokexguides.com/images/items/evolutions/Crystal_Stone.gif",
+   "icon": "crystal_stone.gif",
    "category": "stone",
    "rare": true,
    "npcPrice": 50000
@@ -227,7 +227,7 @@
   {
    "id": 29,
    "name": "Crystal Tail",
-   "icon": "https://pokexguides.com/images/items/drops/Crystal_Tail.png",
+   "icon": "crystal_tail.png",
    "category": "loot",
    "rare": true,
    "npcPrice": 500
@@ -235,7 +235,7 @@
   {
    "id": 30,
    "name": "Dark Gem",
-   "icon": "https://pokexguides.com/images/items/drops/Dark_Gem.png",
+   "icon": "_loot_placeholder.png",
    "category": "loot",
    "rare": false,
    "npcPrice": 1
@@ -243,7 +243,7 @@
   {
    "id": 31,
    "name": "Darkness Stone",
-   "icon": "https://pokexguides.com/images/items/evolutions/Darkness_Stone.gif",
+   "icon": "darkness_stone.gif",
    "category": "stone",
    "rare": true,
    "npcPrice": 5000
@@ -251,7 +251,7 @@
   {
    "id": 32,
    "name": "Diving Mask",
-   "icon": "https://pokexguides.com/images/items/drops/Diving_Mask.png",
+   "icon": "diving_mask.png",
    "category": "loot",
    "rare": true,
    "npcPrice": 1000
@@ -259,7 +259,7 @@
   {
    "id": 33,
    "name": "Dodo Cube",
-   "icon": "https://pokexguides.com/images/items/drops/Dodo_Cube.png",
+   "icon": "dodo_cube.png",
    "category": "loot",
    "rare": true,
    "npcPrice": 500
@@ -267,7 +267,7 @@
   {
    "id": 34,
    "name": "Dodrio Feather",
-   "icon": "https://pokexguides.com/images/items/drops/Dodrio_Feather.png",
+   "icon": "dodrio_feather.png",
    "category": "loot",
    "rare": false,
    "npcPrice": 102
@@ -275,7 +275,7 @@
   {
    "id": 35,
    "name": "Dome Fossil",
-   "icon": "https://pokexguides.com/images/items/drops/Dome_Fossil.png",
+   "icon": "dome_fossil.png",
    "category": "loot",
    "rare": true,
    "npcPrice": 500
@@ -283,7 +283,7 @@
   {
    "id": 36,
    "name": "Dragon Scale",
-   "icon": "https://pokexguides.com/images/items/drops/Dragon_Scale.png",
+   "icon": "dragon_scale.png",
    "category": "loot",
    "rare": false,
    "npcPrice": 1
@@ -291,7 +291,7 @@
   {
    "id": 37,
    "name": "Dragon Tail",
-   "icon": "https://pokexguides.com/images/items/drops/Dragon_Tail.png",
+   "icon": "dragon_tail.png",
    "category": "loot",
    "rare": true,
    "npcPrice": 500
@@ -299,7 +299,7 @@
   {
    "id": 38,
    "name": "Dragon Tooth",
-   "icon": "https://pokexguides.com/images/items/drops/Dragon_Tooth.png",
+   "icon": "dragon_tooth.png",
    "category": "loot",
    "rare": true,
    "npcPrice": 610
@@ -307,7 +307,7 @@
   {
    "id": 39,
    "name": "Earth Ball",
-   "icon": "https://pokexguides.com/images/items/drops/Earth_Ball.png",
+   "icon": "earth_ball.png",
    "category": "loot",
    "rare": false,
    "npcPrice": 1
@@ -315,7 +315,7 @@
   {
    "id": 40,
    "name": "Earth Stone",
-   "icon": "https://pokexguides.com/images/items/evolutions/Earth_Stone.gif",
+   "icon": "earth_stone.gif",
    "category": "stone",
    "rare": true,
    "npcPrice": 5000
@@ -323,7 +323,7 @@
   {
    "id": 41,
    "name": "Electric Box",
-   "icon": "https://pokexguides.com/images/items/drops/Electric_Box.png",
+   "icon": "electric_box.png",
    "category": "loot",
    "rare": false,
    "npcPrice": 20
@@ -331,7 +331,7 @@
   {
    "id": 42,
    "name": "Electric Rat Tail",
-   "icon": "https://pokexguides.com/images/items/drops/Electric_Rat_Tail.png",
+   "icon": "electric_rat_tail.png",
    "category": "loot",
    "rare": false,
    "npcPrice": 132
@@ -339,7 +339,7 @@
   {
    "id": 43,
    "name": "Electric Tail",
-   "icon": "https://pokexguides.com/images/items/drops/Electric_Tail.png",
+   "icon": "electric_tail.png",
    "category": "loot",
    "rare": true,
    "npcPrice": 500
@@ -347,7 +347,7 @@
   {
    "id": 44,
    "name": "Enchanted Gem",
-   "icon": "https://pokexguides.com/images/items/drops/Enchanted_Gem.png",
+   "icon": "enchanted_gem.png",
    "category": "loot",
    "rare": false,
    "npcPrice": 1
@@ -355,7 +355,7 @@
   {
    "id": 45,
    "name": "Enigma Stone",
-   "icon": "https://pokexguides.com/images/items/evolutions/Enigma_Stone.gif",
+   "icon": "enigma_stone.gif",
    "category": "stone",
    "rare": true,
    "npcPrice": 5000
@@ -363,7 +363,7 @@
   {
    "id": 46,
    "name": "Essence of Fire",
-   "icon": "https://pokexguides.com/images/items/drops/Essence_of_Fire.png",
+   "icon": "essence_of_fire.png",
    "category": "loot",
    "rare": false,
    "npcPrice": 1
@@ -371,7 +371,7 @@
   {
    "id": 47,
    "name": "Farfetchd Stick",
-   "icon": "https://pokexguides.com/images/items/drops/Farfetchd_Stick.png",
+   "icon": "farfetchd_stick.png",
    "category": "loot",
    "rare": false,
    "npcPrice": 300
@@ -379,7 +379,7 @@
   {
    "id": 48,
    "name": "Feather",
-   "icon": "https://pokexguides.com/images/items/drops/Feather.png",
+   "icon": "feather.png",
    "category": "loot",
    "rare": false,
    "npcPrice": 8
@@ -395,7 +395,7 @@
   {
    "id": 50,
    "name": "Female Ear",
-   "icon": "https://pokexguides.com/images/items/drops/Female_Ear.png",
+   "icon": "female_ear.png",
    "category": "loot",
    "rare": true,
    "npcPrice": 147
@@ -403,7 +403,7 @@
   {
    "id": 51,
    "name": "Fins",
-   "icon": "https://pokexguides.com/images/items/drops/Fins.png",
+   "icon": "fins.png",
    "category": "loot",
    "rare": true,
    "npcPrice": 1000
@@ -411,7 +411,7 @@
   {
    "id": 52,
    "name": "Fire Horse Foot",
-   "icon": "https://pokexguides.com/images/items/drops/Fire_Horse_Foot.png",
+   "icon": "fire_horse_foot.png",
    "category": "loot",
    "rare": false,
    "npcPrice": 114
@@ -419,7 +419,7 @@
   {
    "id": 53,
    "name": "Fire Stone",
-   "icon": "https://pokexguides.com/images/items/evolutions/Fire_Stone.gif",
+   "icon": "fire_stone.gif",
    "category": "stone",
    "rare": true,
    "npcPrice": 5000
@@ -427,7 +427,7 @@
   {
    "id": 54,
    "name": "Fire Tail",
-   "icon": "https://pokexguides.com/images/items/drops/Fire_Tail.png",
+   "icon": "fire_tail.png",
    "category": "loot",
    "rare": true,
    "npcPrice": 132
@@ -435,7 +435,7 @@
   {
    "id": 55,
    "name": "Fish Fin",
-   "icon": "https://pokexguides.com/images/items/drops/Fish_Fin.png",
+   "icon": "fish_fin.gif",
    "category": "loot",
    "rare": true,
    "npcPrice": 500
@@ -443,7 +443,7 @@
   {
    "id": 56,
    "name": "Fox Tail",
-   "icon": "https://pokexguides.com/images/items/drops/Fox_Tail.png",
+   "icon": "fox_tail.png",
    "category": "loot",
    "rare": true,
    "npcPrice": 1000
@@ -451,7 +451,7 @@
   {
    "id": 57,
    "name": "Fur",
-   "icon": "https://pokexguides.com/images/items/drops/Fur.png",
+   "icon": "fur.png",
    "category": "loot",
    "rare": false,
    "npcPrice": 13
@@ -459,7 +459,7 @@
   {
    "id": 58,
    "name": "Future Orb",
-   "icon": "https://pokexguides.com/images/items/drops/Future_Orb.png",
+   "icon": "future_orb.png",
    "category": "loot",
    "rare": false,
    "npcPrice": 16
@@ -467,7 +467,7 @@
   {
    "id": 59,
    "name": "Ghost Essence",
-   "icon": "https://pokexguides.com/images/items/drops/Ghost_Essence.png",
+   "icon": "ghost_essence.png",
    "category": "loot",
    "rare": false,
    "npcPrice": 1
@@ -475,7 +475,7 @@
   {
    "id": 60,
    "name": "Giant Fin",
-   "icon": "https://pokexguides.com/images/items/drops/Giant_Fin.png",
+   "icon": "giant_fin.png",
    "category": "loot",
    "rare": true,
    "npcPrice": 500
@@ -483,7 +483,7 @@
   {
    "id": 61,
    "name": "Giant Piece of Fur",
-   "icon": "https://pokexguides.com/images/items/drops/Giant_Piece_of_Fur.png",
+   "icon": "giant_piece_of_fur.png",
    "category": "loot",
    "rare": false,
    "npcPrice": 180
@@ -491,7 +491,7 @@
   {
    "id": 62,
    "name": "Giant Ruby",
-   "icon": "https://pokexguides.com/images/items/drops/Giant_Ruby.png",
+   "icon": "giant_ruby.png",
    "category": "loot",
    "rare": true,
    "npcPrice": 200
@@ -499,7 +499,7 @@
   {
    "id": 63,
    "name": "Goggles",
-   "icon": "https://pokexguides.com/images/items/drops/Goggles.png",
+   "icon": "_loot_placeholder.png",
    "category": "loot",
    "rare": true,
    "npcPrice": 500
@@ -507,7 +507,7 @@
   {
    "id": 64,
    "name": "Gosme",
-   "icon": "https://pokexguides.com/images/items/drops/Gosme.png",
+   "icon": "gosme.png",
    "category": "loot",
    "rare": false,
    "npcPrice": 78
@@ -515,7 +515,7 @@
   {
    "id": 65,
    "name": "Gyarados Tail",
-   "icon": "https://pokexguides.com/images/items/drops/Gyarados_Tail.png",
+   "icon": "gyarados_tail.png",
    "category": "loot",
    "rare": true,
    "npcPrice": 500
@@ -523,7 +523,7 @@
   {
    "id": 66,
    "name": "Heart Stone",
-   "icon": "https://pokexguides.com/images/items/evolutions/Heart_Stone.gif",
+   "icon": "heart_stone.gif",
    "category": "stone",
    "rare": true,
    "npcPrice": 5000
@@ -531,7 +531,7 @@
   {
    "id": 67,
    "name": "Helix Fossil",
-   "icon": "https://pokexguides.com/images/items/drops/Helix_Fossil.png",
+   "icon": "helix_fossil.png",
    "category": "loot",
    "rare": true,
    "npcPrice": 500
@@ -539,7 +539,7 @@
   {
    "id": 68,
    "name": "Horn",
-   "icon": "https://pokexguides.com/images/items/drops/Horn.png",
+   "icon": "horn.png",
    "category": "loot",
    "rare": false,
    "npcPrice": 25
@@ -547,7 +547,7 @@
   {
    "id": 69,
    "name": "Horn Drill",
-   "icon": "https://pokexguides.com/images/items/drops/Horn_Drill.png",
+   "icon": "horn_drill.png",
    "category": "loot",
    "rare": true,
    "npcPrice": 500
@@ -555,7 +555,7 @@
   {
    "id": 70,
    "name": "Ice Orb",
-   "icon": "https://pokexguides.com/images/items/drops/Ice_Orb.png",
+   "icon": "ice_orb.png",
    "category": "loot",
    "rare": false,
    "npcPrice": 33
@@ -563,7 +563,7 @@
   {
    "id": 71,
    "name": "Ice Stone",
-   "icon": "https://pokexguides.com/images/items/evolutions/Ice_Stone.gif",
+   "icon": "ice_stone.gif",
    "category": "stone",
    "rare": true,
    "npcPrice": 5000
@@ -571,7 +571,7 @@
   {
    "id": 72,
    "name": "Iron Bracelet",
-   "icon": "https://pokexguides.com/images/items/drops/Iron_Bracelet.png",
+   "icon": "iron_bracelet.png",
    "category": "loot",
    "rare": true,
    "npcPrice": 114
@@ -579,7 +579,7 @@
   {
    "id": 73,
    "name": "Kanga Ear",
-   "icon": "https://pokexguides.com/images/items/drops/Kanga_Ear.png",
+   "icon": "kanga_ear.png",
    "category": "loot",
    "rare": true,
    "npcPrice": 500
@@ -587,7 +587,7 @@
   {
    "id": 74,
    "name": "Karate Duck",
-   "icon": "https://pokexguides.com/images/items/drops/Karate_Duck.png",
+   "icon": "karate_duck.png",
    "category": "loot",
    "rare": false,
    "npcPrice": 123
@@ -595,7 +595,7 @@
   {
    "id": 75,
    "name": "Kick Machine",
-   "icon": "https://pokexguides.com/images/items/drops/Kick_Machine.png",
+   "icon": "kick_machine.png",
    "category": "loot",
    "rare": false,
    "npcPrice": 135
@@ -603,7 +603,7 @@
   {
    "id": 76,
    "name": "Leaf Stone",
-   "icon": "https://pokexguides.com/images/items/evolutions/Leaf_Stone.gif",
+   "icon": "leaf_stone.gif",
    "category": "stone",
    "rare": true,
    "npcPrice": 5000
@@ -611,7 +611,7 @@
   {
    "id": 77,
    "name": "Leaves",
-   "icon": "https://pokexguides.com/images/items/drops/Leaves.png",
+   "icon": "leaves.png",
    "category": "loot",
    "rare": false,
    "npcPrice": 9
@@ -619,7 +619,7 @@
   {
    "id": 78,
    "name": "Linearly Guided Hypnosis",
-   "icon": "https://pokexguides.com/images/items/drops/Linearly_Guided_Hypnosis.png",
+   "icon": "linearly_guided_hypnosis.png",
    "category": "loot",
    "rare": false,
    "npcPrice": 410
@@ -627,7 +627,7 @@
   {
    "id": 79,
    "name": "Locksmith of Shell",
-   "icon": "https://pokexguides.com/images/items/drops/Locksmith_of_Shell.png",
+   "icon": "locksmith_of_shell.png",
    "category": "loot",
    "rare": false,
    "npcPrice": 24
@@ -635,7 +635,7 @@
   {
    "id": 80,
    "name": "Luck Medallion",
-   "icon": "https://pokexguides.com/images/items/drops/Luck_Medallion.png",
+   "icon": "luck_medallion.png",
    "category": "loot",
    "rare": true,
    "npcPrice": 1000
@@ -643,7 +643,7 @@
   {
    "id": 81,
    "name": "Magikarp Fin",
-   "icon": "https://pokexguides.com/images/items/drops/Magikarp_Fin.png",
+   "icon": "magikarp_fin.png",
    "category": "loot",
    "rare": false,
    "npcPrice": 3
@@ -651,7 +651,7 @@
   {
    "id": 82,
    "name": "Magma Foot",
-   "icon": "https://pokexguides.com/images/items/drops/Magma_Foot.png",
+   "icon": "magma_foot.png",
    "category": "loot",
    "rare": true,
    "npcPrice": 500
@@ -659,7 +659,7 @@
   {
    "id": 83,
    "name": "Magnet",
-   "icon": "https://pokexguides.com/images/items/drops/Magnet.png",
+   "icon": "magnet.png",
    "category": "loot",
    "rare": false,
    "npcPrice": 90
@@ -667,7 +667,7 @@
   {
    "id": 84,
    "name": "Magnetic Cube",
-   "icon": "https://pokexguides.com/images/items/drops/Magnetic_Cube.png",
+   "icon": "magnetic_cube.png",
    "category": "loot",
    "rare": true,
    "npcPrice": 500
@@ -675,7 +675,7 @@
   {
    "id": 85,
    "name": "Male Ear",
-   "icon": "https://pokexguides.com/images/items/drops/Male_Ear.png",
+   "icon": "male_ear.png",
    "category": "loot",
    "rare": true,
    "npcPrice": 147
@@ -683,7 +683,7 @@
   {
    "id": 86,
    "name": "Martial Arts Scroll",
-   "icon": "https://pokexguides.com/images/items/drops/Martial_Arts_Scroll.png",
+   "icon": "martial_arts_scroll.png",
    "category": "loot",
    "rare": false,
    "npcPrice": 185
@@ -699,7 +699,7 @@
   {
    "id": 88,
    "name": "Microphone",
-   "icon": "https://pokexguides.com/images/items/drops/Microphone.png",
+   "icon": "microphone.png",
    "category": "loot",
    "rare": true,
    "npcPrice": 147
@@ -707,7 +707,7 @@
   {
    "id": 89,
    "name": "Mimic Clothes",
-   "icon": "https://pokexguides.com/images/items/drops/Mimic_Clothes.png",
+   "icon": "mimic_clothes.png",
    "category": "loot",
    "rare": true,
    "npcPrice": 500
@@ -715,7 +715,7 @@
   {
    "id": 90,
    "name": "Mushroom",
-   "icon": "https://pokexguides.com/images/items/drops/Mushroom.png",
+   "icon": "mushroom.png",
    "category": "loot",
    "rare": false,
    "npcPrice": 114
@@ -723,7 +723,7 @@
   {
    "id": 91,
    "name": "Nail",
-   "icon": "https://pokexguides.com/images/items/drops/Nail.png",
+   "icon": "nail.png",
    "category": "loot",
    "rare": false,
    "npcPrice": 10
@@ -731,7 +731,7 @@
   {
    "id": 92,
    "name": "Neodymium Magnet",
-   "icon": "https://pokexguides.com/images/items/drops/Neodymium_Magnet.png",
+   "icon": "neodymium_magnet.png",
    "category": "loot",
    "rare": true,
    "npcPrice": 500
@@ -739,7 +739,7 @@
   {
    "id": 93,
    "name": "Old Amber",
-   "icon": "https://pokexguides.com/images/items/drops/Old_Amber.png",
+   "icon": "old_amber.png",
    "category": "loot",
    "rare": true,
    "npcPrice": 500
@@ -747,7 +747,7 @@
   {
    "id": 94,
    "name": "Onix Tail",
-   "icon": "https://pokexguides.com/images/items/drops/Onix_Tail.png",
+   "icon": "onix_tail.png",
    "category": "loot",
    "rare": false,
    "npcPrice": 371
@@ -755,7 +755,7 @@
   {
    "id": 95,
    "name": "Piece of Diglett",
-   "icon": "https://pokexguides.com/images/items/drops/Piece_of_Diglett.png",
+   "icon": "piece_of_diglett.png",
    "category": "loot",
    "rare": false,
    "npcPrice": 78
@@ -763,7 +763,7 @@
   {
    "id": 96,
    "name": "Piece of Steel",
-   "icon": "https://pokexguides.com/images/items/drops/Piece_of_Steel.png",
+   "icon": "piece_of_steel.png",
    "category": "loot",
    "rare": false,
    "npcPrice": 1
@@ -771,7 +771,7 @@
   {
    "id": 97,
    "name": "Pinsir Horn",
-   "icon": "https://pokexguides.com/images/items/drops/Pinsir_Horn.png",
+   "icon": "pinsir_horn.png",
    "category": "loot",
    "rare": true,
    "npcPrice": 500
@@ -779,7 +779,7 @@
   {
    "id": 98,
    "name": "Plant Foot",
-   "icon": "https://pokexguides.com/images/items/drops/Plant_Foot.png",
+   "icon": "plant_foot.png",
    "category": "loot",
    "rare": true,
    "npcPrice": 123
@@ -787,7 +787,7 @@
   {
    "id": 99,
    "name": "Plant Tail",
-   "icon": "https://pokexguides.com/images/items/drops/Plant_Tail.png",
+   "icon": "plant_tail.png",
    "category": "loot",
    "rare": true,
    "npcPrice": 114
@@ -795,7 +795,7 @@
   {
    "id": 100,
    "name": "Pot Of Lava",
-   "icon": "https://pokexguides.com/images/items/drops/Pot_Of_Lava.png",
+   "icon": "pot_of_lava.png",
    "category": "loot",
    "rare": false,
    "npcPrice": 18
@@ -803,7 +803,7 @@
   {
    "id": 101,
    "name": "Pot of Lava",
-   "icon": "https://pokexguides.com/images/items/drops/Pot_of_Lava.png",
+   "icon": "pot_of_lava.png",
    "category": "loot",
    "rare": false,
    "npcPrice": 18
@@ -811,7 +811,7 @@
   {
    "id": 102,
    "name": "Pot of Moss Bug",
-   "icon": "https://pokexguides.com/images/items/drops/Pot_of_Moss_Bug.png",
+   "icon": "pot_of_moss_bug.png",
    "category": "loot",
    "rare": false,
    "npcPrice": 8
@@ -819,7 +819,7 @@
   {
    "id": 103,
    "name": "Psychic Spoon",
-   "icon": "https://pokexguides.com/images/items/drops/Psychic_Spoon.png",
+   "icon": "psychic_spoon.png",
    "category": "loot",
    "rare": true,
    "npcPrice": 180
@@ -827,7 +827,7 @@
   {
    "id": 104,
    "name": "Psyduck Mug",
-   "icon": "https://pokexguides.com/images/items/drops/Psyduck_Mug.png",
+   "icon": "psyduck_mug.png",
    "category": "loot",
    "rare": false,
    "npcPrice": 129
@@ -835,7 +835,7 @@
   {
    "id": 105,
    "name": "Punch Machine",
-   "icon": "https://pokexguides.com/images/items/drops/Punch_Machine.png",
+   "icon": "punch_machine.png",
    "category": "loot",
    "rare": false,
    "npcPrice": 135
@@ -843,7 +843,7 @@
   {
    "id": 106,
    "name": "Punch Stone",
-   "icon": "https://pokexguides.com/images/items/evolutions/Punch_Stone.gif",
+   "icon": "punch_stone.gif",
    "category": "stone",
    "rare": true,
    "npcPrice": 5000
@@ -851,7 +851,7 @@
   {
    "id": 107,
    "name": "Rat Tail",
-   "icon": "https://pokexguides.com/images/items/drops/Rat_Tail.png",
+   "icon": "rat_tail.png",
    "category": "loot",
    "rare": true,
    "npcPrice": 54
@@ -859,7 +859,7 @@
   {
    "id": 108,
    "name": "Red Wing",
-   "icon": "https://pokexguides.com/images/items/drops/Red_Wing.png",
+   "icon": "red_wing.png",
    "category": "loot",
    "rare": true,
    "npcPrice": 114
@@ -867,7 +867,7 @@
   {
    "id": 109,
    "name": "Rock Stone",
-   "icon": "https://pokexguides.com/images/items/evolutions/Rock_Stone.gif",
+   "icon": "rock_stone.gif",
    "category": "stone",
    "rare": true,
    "npcPrice": 5000
@@ -875,7 +875,7 @@
   {
    "id": 110,
    "name": "Rubber Ball",
-   "icon": "https://pokexguides.com/images/items/drops/Rubber_Ball.png",
+   "icon": "rubber_ball.png",
    "category": "loot",
    "rare": false,
    "npcPrice": 1
@@ -883,7 +883,7 @@
   {
    "id": 111,
    "name": "Ruby",
-   "icon": "https://pokexguides.com/images/items/drops/Ruby.png",
+   "icon": "ruby.png",
    "category": "loot",
    "rare": false,
    "npcPrice": 100
@@ -891,7 +891,7 @@
   {
    "id": 112,
    "name": "Sandbag",
-   "icon": "https://pokexguides.com/images/items/drops/Sandbag.png",
+   "icon": "sandbag.png",
    "category": "loot",
    "rare": false,
    "npcPrice": 15
@@ -899,7 +899,7 @@
   {
    "id": 113,
    "name": "Screw",
-   "icon": "https://pokexguides.com/images/items/drops/Screw.png",
+   "icon": "screw.png",
    "category": "loot",
    "rare": false,
    "npcPrice": 1
@@ -907,7 +907,7 @@
   {
    "id": 114,
    "name": "Scythe",
-   "icon": "https://pokexguides.com/images/items/drops/Scythe.png",
+   "icon": "scythe.gif",
    "category": "loot",
    "rare": true,
    "npcPrice": 500
@@ -915,7 +915,7 @@
   {
    "id": 115,
    "name": "Seahorse Tail",
-   "icon": "https://pokexguides.com/images/items/drops/Seahorse_Tail.png",
+   "icon": "seahorse_tail.png",
    "category": "loot",
    "rare": true,
    "npcPrice": 500
@@ -923,7 +923,7 @@
   {
    "id": 116,
    "name": "Seal Tail",
-   "icon": "https://pokexguides.com/images/items/drops/Seal_Tail.png",
+   "icon": "seal_tail.png",
    "category": "loot",
    "rare": false,
    "npcPrice": 147
@@ -931,7 +931,7 @@
   {
    "id": 117,
    "name": "Seed",
-   "icon": "https://pokexguides.com/images/items/drops/Seed.png",
+   "icon": "seed.png",
    "category": "loot",
    "rare": false,
    "npcPrice": 1
@@ -939,7 +939,7 @@
   {
    "id": 118,
    "name": "Ski Poles",
-   "icon": "https://pokexguides.com/images/items/drops/Ski_Poles.png",
+   "icon": "ski_poles.png",
    "category": "loot",
    "rare": true,
    "npcPrice": 1000
@@ -947,7 +947,7 @@
   {
    "id": 119,
    "name": "Slow Tail",
-   "icon": "https://pokexguides.com/images/items/drops/Slow_Tail.png",
+   "icon": "slow_tail.png",
    "category": "loot",
    "rare": false,
    "npcPrice": 225
@@ -955,7 +955,7 @@
   {
    "id": 120,
    "name": "Small Stone",
-   "icon": "https://pokexguides.com/images/items/drops/Small_Stone.png",
+   "icon": "small_stone.png",
    "category": "loot",
    "rare": false,
    "npcPrice": 1
@@ -963,7 +963,7 @@
   {
    "id": 121,
    "name": "Snake Tail",
-   "icon": "https://pokexguides.com/images/items/drops/Snake_Tail.png",
+   "icon": "snake_tail.png",
    "category": "loot",
    "rare": false,
    "npcPrice": 78
@@ -971,7 +971,7 @@
   {
    "id": 122,
    "name": "Snow Skis",
-   "icon": "https://pokexguides.com/images/items/drops/Snow_Skis.png",
+   "icon": "snow_skis.png",
    "category": "loot",
    "rare": true,
    "npcPrice": 500
@@ -979,7 +979,7 @@
   {
    "id": 123,
    "name": "Snowball",
-   "icon": "https://pokexguides.com/images/items/drops/Snowball.png",
+   "icon": "snowball.png",
    "category": "loot",
    "rare": false,
    "npcPrice": 1
@@ -987,7 +987,7 @@
   {
    "id": 124,
    "name": "Squirtle Hull",
-   "icon": "https://pokexguides.com/images/items/drops/Squirtle_Hull.png",
+   "icon": "squirtle_hull.png",
    "category": "loot",
    "rare": true,
    "npcPrice": 132
@@ -995,7 +995,7 @@
   {
    "id": 125,
    "name": "Sticky Hand",
-   "icon": "https://pokexguides.com/images/items/drops/Sticky_Hand.png",
+   "icon": "sticky_hand.png",
    "category": "loot",
    "rare": false,
    "npcPrice": 120
@@ -1003,7 +1003,7 @@
   {
    "id": 126,
    "name": "Stone Orb",
-   "icon": "https://pokexguides.com/images/items/drops/Stone_Orb.png",
+   "icon": "stone_orb.png",
    "category": "loot",
    "rare": false,
    "npcPrice": 17
@@ -1011,7 +1011,7 @@
   {
    "id": 127,
    "name": "Strange Flower",
-   "icon": "https://pokexguides.com/images/items/drops/Strange_Flower.png",
+   "icon": "strange_flower.png",
    "category": "loot",
    "rare": true,
    "npcPrice": 114
@@ -1019,7 +1019,7 @@
   {
    "id": 128,
    "name": "Strange Rock",
-   "icon": "https://pokexguides.com/images/items/drops/Strange_Rock.png",
+   "icon": "strange_rock.png",
    "category": "loot",
    "rare": true,
    "npcPrice": 159
@@ -1027,7 +1027,7 @@
   {
    "id": 129,
    "name": "Strange Spike",
-   "icon": "https://pokexguides.com/images/items/drops/Strange_Spike.png",
+   "icon": "strange_spike.png",
    "category": "loot",
    "rare": false,
    "npcPrice": 135
@@ -1035,7 +1035,7 @@
   {
    "id": 130,
    "name": "Strange Thing",
-   "icon": "https://pokexguides.com/images/items/drops/Strange_Thing.png",
+   "icon": "strange_thing.png",
    "category": "loot",
    "rare": true,
    "npcPrice": 147
@@ -1043,7 +1043,7 @@
   {
    "id": 131,
    "name": "Straw",
-   "icon": "https://pokexguides.com/images/items/drops/Straw.png",
+   "icon": "straw.png",
    "category": "loot",
    "rare": false,
    "npcPrice": 1
@@ -1051,7 +1051,7 @@
   {
    "id": 132,
    "name": "Tentacruel Tentacle",
-   "icon": "https://pokexguides.com/images/items/drops/Tentacruel_Tentacle.png",
+   "icon": "tentacruel_tentacle.png",
    "category": "loot",
    "rare": true,
    "npcPrice": 500
@@ -1059,7 +1059,7 @@
   {
    "id": 133,
    "name": "Thunder Stone",
-   "icon": "https://pokexguides.com/images/items/evolutions/Thunder_Stone.gif",
+   "icon": "thunder_stone.gif",
    "category": "stone",
    "rare": true,
    "npcPrice": 5000
@@ -1067,7 +1067,7 @@
   {
    "id": 134,
    "name": "Tongue",
-   "icon": "https://pokexguides.com/images/items/drops/Tongue.png",
+   "icon": "tongue.png",
    "category": "loot",
    "rare": false,
    "npcPrice": 410
@@ -1075,7 +1075,7 @@
   {
    "id": 135,
    "name": "Tooth",
-   "icon": "https://pokexguides.com/images/items/drops/Tooth.png",
+   "icon": "tooth.png",
    "category": "loot",
    "rare": false,
    "npcPrice": 8
@@ -1083,7 +1083,7 @@
   {
    "id": 136,
    "name": "Topknot",
-   "icon": "https://pokexguides.com/images/items/drops/Topknot.png",
+   "icon": "topknot.png",
    "category": "loot",
    "rare": false,
    "npcPrice": 147
@@ -1091,7 +1091,7 @@
   {
    "id": 137,
    "name": "Traces of Ghost",
-   "icon": "https://pokexguides.com/images/items/drops/Traces_of_Ghost.png",
+   "icon": "traces_of_ghost.png",
    "category": "loot",
    "rare": true,
    "npcPrice": 180
@@ -1099,7 +1099,7 @@
   {
    "id": 138,
    "name": "Venom Flute",
-   "icon": "https://pokexguides.com/images/items/drops/Venom_Flute.png",
+   "icon": "venom_flute.png",
    "category": "loot",
    "rare": false,
    "npcPrice": 78
@@ -1107,7 +1107,7 @@
   {
    "id": 139,
    "name": "Venom Stone",
-   "icon": "https://pokexguides.com/images/items/evolutions/Venom_Stone.gif",
+   "icon": "venom_stone.gif",
    "category": "stone",
    "rare": true,
    "npcPrice": 5000
@@ -1115,7 +1115,7 @@
   {
    "id": 140,
    "name": "Water Gem",
-   "icon": "https://pokexguides.com/images/items/drops/Water_Gem.png",
+   "icon": "water_gem.png",
    "category": "loot",
    "rare": false,
    "npcPrice": 1
@@ -1123,7 +1123,7 @@
   {
    "id": 141,
    "name": "Water Pendant",
-   "icon": "https://pokexguides.com/images/items/drops/Water_Pendant.png",
+   "icon": "water_pendant.png",
    "category": "loot",
    "rare": false,
    "npcPrice": 10
@@ -1131,7 +1131,7 @@
   {
    "id": 142,
    "name": "Water Stone",
-   "icon": "https://pokexguides.com/images/items/evolutions/Water_Stone.gif",
+   "icon": "water_stone.gif",
    "category": "stone",
    "rare": true,
    "npcPrice": 5000
@@ -1139,7 +1139,7 @@
   {
    "id": 143,
    "name": "Wool Ball",
-   "icon": "https://pokexguides.com/images/items/drops/Wool_Ball.png",
+   "icon": "wool_ball.png",
    "category": "loot",
    "rare": false,
    "npcPrice": 69
@@ -1226,7 +1226,7 @@
   {
    "id": 208,
    "name": "Moon Stone",
-   "icon": "",
+   "icon": "moon_stone.png",
    "category": "stone",
    "rare": false,
    "npcPrice": 0
@@ -1306,7 +1306,7 @@
   {
    "id": 5041,
    "name": "Farfetch'd Stick",
-   "icon": "",
+   "icon": "farfetchd_stick.png",
    "category": "loot",
    "rare": false,
    "npcPrice": 10
@@ -2133,7 +2133,7 @@
   {
    "id": 59217,
    "name": "greens",
-   "icon": "https://pokexguides.com/images/items/drops/Greens.png",
+   "icon": "greens.png",
    "category": "loot",
    "rare": true,
    "npcPrice": 40
@@ -2141,7 +2141,7 @@
   {
    "id": 59218,
    "name": "fire feather",
-   "icon": "https://pokexguides.com/images/items/drops/Fire_Feather.png",
+   "icon": "fire_feather.png",
    "category": "loot",
    "rare": true,
    "npcPrice": 40
@@ -2149,7 +2149,7 @@
   {
    "id": 59219,
    "name": "black fins",
-   "icon": "https://pokexguides.com/images/items/drops/Black_Fins.png",
+   "icon": "black_fins.png",
    "category": "loot",
    "rare": true,
    "npcPrice": 40
@@ -2157,7 +2157,7 @@
   {
    "id": 59220,
    "name": "big seed",
-   "icon": "https://pokexguides.com/images/items/drops/Big_Seed.png",
+   "icon": "big_seed.png",
    "category": "loot",
    "rare": true,
    "npcPrice": 40
@@ -2165,7 +2165,7 @@
   {
    "id": 59221,
    "name": "pelican wing",
-   "icon": "https://pokexguides.com/images/items/drops/Pelican_Wing.png",
+   "icon": "pelican_wing.png",
    "category": "loot",
    "rare": true,
    "npcPrice": 40
@@ -2173,7 +2173,7 @@
   {
    "id": 59222,
    "name": "cute ball",
-   "icon": "https://pokexguides.com/images/items/drops/Cute_Ball.png",
+   "icon": "cute_ball.png",
    "category": "loot",
    "rare": true,
    "npcPrice": 40
@@ -2181,7 +2181,7 @@
   {
    "id": 59223,
    "name": "eruption ears",
-   "icon": "https://pokexguides.com/images/items/drops/Eruption_Ears.png",
+   "icon": "eruption_ears.png",
    "category": "loot",
    "rare": true,
    "npcPrice": 40
@@ -2189,7 +2189,7 @@
   {
    "id": 59224,
    "name": "samurai hair",
-   "icon": "https://pokexguides.com/images/items/drops/Samurai_Hair.png",
+   "icon": "samurai_hair.png",
    "category": "loot",
    "rare": true,
    "npcPrice": 40
@@ -2197,7 +2197,7 @@
   {
    "id": 59225,
    "name": "mediling",
-   "icon": "https://pokexguides.com/images/items/drops/Mediling.png",
+   "icon": "mediling.png",
    "category": "loot",
    "rare": true,
    "npcPrice": 40
@@ -2205,7 +2205,7 @@
   {
    "id": 59226,
    "name": "shock topknot",
-   "icon": "https://pokexguides.com/images/items/drops/Shock_Topknot.png",
+   "icon": "shock_topknot.png",
    "category": "loot",
    "rare": true,
    "npcPrice": 40
@@ -2213,7 +2213,7 @@
   {
    "id": 59227,
    "name": "nu ball",
-   "icon": "https://pokexguides.com/images/items/drops/Nu_Ball.png",
+   "icon": "nu_ball.png",
    "category": "loot",
    "rare": true,
    "npcPrice": 40
@@ -2221,7 +2221,7 @@
   {
    "id": 59228,
    "name": "mini volcano",
-   "icon": "https://pokexguides.com/images/items/drops/Mini_Volcano.png",
+   "icon": "mini_volcano.png",
    "category": "loot",
    "rare": true,
    "npcPrice": 40
@@ -2229,7 +2229,7 @@
   {
    "id": 59229,
    "name": "springs",
-   "icon": "https://pokexguides.com/images/items/drops/Springs.png",
+   "icon": "springs.png",
    "category": "loot",
    "rare": true,
    "npcPrice": 40
@@ -2237,7 +2237,7 @@
   {
    "id": 59230,
    "name": "lobster claw",
-   "icon": "https://pokexguides.com/images/items/drops/Lobster_Claw.png",
+   "icon": "lobster_claw.png",
    "category": "loot",
    "rare": true,
    "npcPrice": 40
@@ -2245,7 +2245,7 @@
   {
    "id": 59231,
    "name": "pawn",
-   "icon": "https://pokexguides.com/images/items/drops/Pawn.png",
+   "icon": "pawn.png",
    "category": "loot",
    "rare": true,
    "npcPrice": 40
@@ -2253,7 +2253,7 @@
   {
    "id": 59232,
    "name": "ghost skull",
-   "icon": "https://pokexguides.com/images/items/drops/Ghost_Skull.png",
+   "icon": "ghost_skull.png",
    "category": "loot",
    "rare": true,
    "npcPrice": 40
@@ -2261,7 +2261,7 @@
   {
    "id": 59233,
    "name": "ice blocks",
-   "icon": "https://pokexguides.com/images/items/drops/Ice_Blocks.png",
+   "icon": "ice_blocks.png",
    "category": "loot",
    "rare": true,
    "npcPrice": 40
@@ -2269,7 +2269,7 @@
   {
    "id": 59234,
    "name": "seal mustache",
-   "icon": "https://pokexguides.com/images/items/drops/Seal_Mustache.png",
+   "icon": "seal_mustache.png",
    "category": "loot",
    "rare": true,
    "npcPrice": 40
@@ -2277,7 +2277,7 @@
   {
    "id": 59235,
    "name": "Big Crystal",
-   "icon": "https://pokexguides.com/images/items/drops/Big_Crystal.png",
+   "icon": "big_crystal.png",
    "category": "loot",
    "rare": true,
    "npcPrice": 40
@@ -2285,7 +2285,7 @@
   {
    "id": 59236,
    "name": "Black Hull",
-   "icon": "https://pokexguides.com/images/items/drops/Black_Hull.png",
+   "icon": "black_hull.png",
    "category": "loot",
    "rare": true,
    "npcPrice": 40
@@ -2293,7 +2293,7 @@
   {
    "id": 59237,
    "name": "Cactus Head",
-   "icon": "https://pokexguides.com/images/items/drops/Cactus_Head.png",
+   "icon": "cactus_head.png",
    "category": "loot",
    "rare": true,
    "npcPrice": 40
@@ -2301,7 +2301,7 @@
   {
    "id": 59238,
    "name": "Cure Flower",
-   "icon": "https://pokexguides.com/images/items/drops/Cure_Flower.png",
+   "icon": "cure_flower.png",
    "category": "loot",
    "rare": true,
    "npcPrice": 40
@@ -2309,7 +2309,7 @@
   {
    "id": 59239,
    "name": "Metal Hull",
-   "icon": "https://pokexguides.com/images/items/drops/Metal_Hull.png",
+   "icon": "metal_hull.png",
    "category": "loot",
    "rare": true,
    "npcPrice": 40
@@ -2317,7 +2317,7 @@
   {
    "id": 59240,
    "name": "Metal Jaw",
-   "icon": "https://pokexguides.com/images/items/drops/Metal_Jaw.png",
+   "icon": "metal_jaw.png",
    "category": "loot",
    "rare": true,
    "npcPrice": 40
@@ -2325,7 +2325,7 @@
   {
    "id": 59241,
    "name": "Mini Wings",
-   "icon": "https://pokexguides.com/images/items/drops/Mini_Wings.png",
+   "icon": "mini_wings.png",
    "category": "loot",
    "rare": true,
    "npcPrice": 40
@@ -2333,7 +2333,7 @@
   {
    "id": 59242,
    "name": "Poisonous Tail",
-   "icon": "https://pokexguides.com/images/items/drops/Poisonous_Tail.png",
+   "icon": "poisonous_tail.png",
    "category": "loot",
    "rare": true,
    "npcPrice": 40
@@ -2341,7 +2341,7 @@
   {
    "id": 59243,
    "name": "Sand Tail",
-   "icon": "https://pokexguides.com/images/items/drops/Sand_Tail.png",
+   "icon": "sand_tail.png",
    "category": "loot",
    "rare": true,
    "npcPrice": 40
@@ -2349,7 +2349,7 @@
   {
    "id": 59244,
    "name": "Sharp Leaves",
-   "icon": "https://pokexguides.com/images/items/drops/Sharp_Leaves.png",
+   "icon": "sharp_leaves.png",
    "category": "loot",
    "rare": true,
    "npcPrice": 40
@@ -2357,7 +2357,7 @@
   {
    "id": 59245,
    "name": "Small Crown",
-   "icon": "https://pokexguides.com/images/items/drops/Small_Crown.png",
+   "icon": "small_crown.png",
    "category": "loot",
    "rare": true,
    "npcPrice": 40
@@ -2365,7 +2365,7 @@
   {
    "id": 59246,
    "name": "Tech Ball",
-   "icon": "https://pokexguides.com/images/items/drops/Tech_Ball.png",
+   "icon": "tech_ball.png",
    "category": "loot",
    "rare": true,
    "npcPrice": 40
