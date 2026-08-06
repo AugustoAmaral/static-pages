@@ -1720,7 +1720,8 @@
    "icon": "/assets/cards/16257.png",
    "category": "card",
    "rare": true,
-   "npcPrice": 0
+   "npcPrice": 0,
+   "description": "Há uma chance de o SHINY de Venusaur dropá-lo ao ser derrotado, e ela sobe com os seus bônus de loot. Sacrifique-o no Altar para invocar esse shiny e tentar a captura."
   },
   {
    "id": 16266,
@@ -1728,7 +1729,8 @@
    "icon": "/assets/cards/16266.png",
    "category": "card",
    "rare": true,
-   "npcPrice": 0
+   "npcPrice": 0,
+   "description": "Há uma chance de o SHINY de Butterfree dropá-lo ao ser derrotado, e ela sobe com os seus bônus de loot. Sacrifique-o no Altar para invocar esse shiny e tentar a captura."
   },
   {
    "id": 16288,
@@ -1736,7 +1738,8 @@
    "icon": "/assets/cards/16288.png",
    "category": "card",
    "rare": true,
-   "npcPrice": 0
+   "npcPrice": 0,
+   "description": "Há uma chance de o SHINY de Nidoking dropá-lo ao ser derrotado, e ela sobe com os seus bônus de loot. Sacrifique-o no Altar para invocar esse shiny e tentar a captura."
   },
   {
    "id": 16336,
@@ -1744,7 +1747,8 @@
    "icon": "/assets/cards/16336.png",
    "category": "card",
    "rare": true,
-   "npcPrice": 0
+   "npcPrice": 0,
+   "description": "Há uma chance de o SHINY de Magneton dropá-lo ao ser derrotado, e ela sobe com os seus bônus de loot. Sacrifique-o no Altar para invocar esse shiny e tentar a captura."
   },
   {
    "id": 16360,
@@ -1752,7 +1756,8 @@
    "icon": "/assets/cards/16360.png",
    "category": "card",
    "rare": true,
-   "npcPrice": 0
+   "npcPrice": 0,
+   "description": "Há uma chance de o SHINY de Hitmonlee dropá-lo ao ser derrotado, e ela sobe com os seus bônus de loot. Sacrifique-o no Altar para invocar esse shiny e tentar a captura."
   },
   {
    "id": 16361,
@@ -1760,7 +1765,8 @@
    "icon": "/assets/cards/16361.png",
    "category": "card",
    "rare": true,
-   "npcPrice": 0
+   "npcPrice": 0,
+   "description": "Há uma chance de o SHINY de Hitmonchan dropá-lo ao ser derrotado, e ela sobe com os seus bônus de loot. Sacrifique-o no Altar para invocar esse shiny e tentar a captura."
   },
   {
    "id": 16260,
@@ -1768,7 +1774,8 @@
    "icon": "/assets/cards/16260.png",
    "category": "card",
    "rare": true,
-   "npcPrice": 0
+   "npcPrice": 0,
+   "description": "Há uma chance de o SHINY de Charizard dropá-lo ao ser derrotado, e ela sobe com os seus bônus de loot. Sacrifique-o no Altar para invocar esse shiny e tentar a captura."
   },
   {
    "id": 16263,
@@ -1776,7 +1783,8 @@
    "icon": "/assets/cards/16263.png",
    "category": "card",
    "rare": true,
-   "npcPrice": 0
+   "npcPrice": 0,
+   "description": "Há uma chance de o SHINY de Blastoise dropá-lo ao ser derrotado, e ela sobe com os seus bônus de loot. Sacrifique-o no Altar para invocar esse shiny e tentar a captura."
   },
   {
    "id": 16269,
@@ -1784,7 +1792,8 @@
    "icon": "/assets/cards/16269.png",
    "category": "card",
    "rare": true,
-   "npcPrice": 0
+   "npcPrice": 0,
+   "description": "Há uma chance de o SHINY de Beedrill dropá-lo ao ser derrotado, e ela sobe com os seus bônus de loot. Sacrifique-o no Altar para invocar esse shiny e tentar a captura."
   },
   {
    "id": 16272,
@@ -1792,7 +1801,8 @@
    "icon": "/assets/cards/16272.png",
    "category": "card",
    "rare": true,
-   "npcPrice": 0
+   "npcPrice": 0,
+   "description": "Há uma chance de o SHINY de Pidgeot dropá-lo ao ser derrotado, e ela sobe com os seus bônus de loot. Sacrifique-o no Altar para invocar esse shiny e tentar a captura."
   },
   {
    "id": 16276,
@@ -1800,7 +1810,8 @@
    "icon": "/assets/cards/16276.png",
    "category": "card",
    "rare": true,
-   "npcPrice": 0
+   "npcPrice": 0,
+   "description": "Há uma chance de o SHINY de Fearow dropá-lo ao ser derrotado, e ela sobe com os seus bônus de loot. Sacrifique-o no Altar para invocar esse shiny e tentar a captura."
   },
   {
    "id": 16280,
@@ -1808,7 +1819,8 @@
    "icon": "/assets/cards/16280.png",
    "category": "card",
    "rare": true,
-   "npcPrice": 0
+   "npcPrice": 0,
+   "description": "Há uma chance de o SHINY de Raichu dropá-lo ao ser derrotado, e ela sobe com os seus bônus de loot. Sacrifique-o no Altar para invocar esse shiny e tentar a captura."
   },
   {
    "id": 16296,
@@ -1816,7 +1828,8 @@
    "icon": "/assets/cards/16296.png",
    "category": "card",
    "rare": true,
-   "npcPrice": 0
+   "npcPrice": 0,
+   "description": "Há uma chance de o SHINY de Golbat dropá-lo ao ser derrotado, e ela sobe com os seus bônus de loot. Sacrifique-o no Altar para invocar esse shiny e tentar a captura."
   },
   {
    "id": 16297,
@@ -1824,7 +1837,8 @@
    "icon": "/assets/cards/16297.png",
    "category": "card",
    "rare": true,
-   "npcPrice": 0
+   "npcPrice": 0,
+   "description": "Há uma chance de o SHINY de Oddish dropá-lo ao ser derrotado, e ela sobe com os seus bônus de loot. Sacrifique-o no Altar para invocar esse shiny e tentar a captura."
   },
   {
    "id": 16299,
@@ -1832,7 +1846,8 @@
    "icon": "/assets/cards/16299.png",
    "category": "card",
    "rare": true,
-   "npcPrice": 0
+   "npcPrice": 0,
+   "description": "Há uma chance de o SHINY de Vileplume dropá-lo ao ser derrotado, e ela sobe com os seus bônus de loot. Sacrifique-o no Altar para invocar esse shiny e tentar a captura."
   },
   {
    "id": 16300,
@@ -1840,7 +1855,8 @@
    "icon": "/assets/cards/16300.png",
    "category": "card",
    "rare": true,
-   "npcPrice": 0
+   "npcPrice": 0,
+   "description": "Há uma chance de o SHINY de Paras dropá-lo ao ser derrotado, e ela sobe com os seus bônus de loot. Sacrifique-o no Altar para invocar esse shiny e tentar a captura."
   },
   {
    "id": 16301,
@@ -1848,7 +1864,8 @@
    "icon": "/assets/cards/16301.png",
    "category": "card",
    "rare": true,
-   "npcPrice": 0
+   "npcPrice": 0,
+   "description": "Há uma chance de o SHINY de Parasect dropá-lo ao ser derrotado, e ela sobe com os seus bônus de loot. Sacrifique-o no Altar para invocar esse shiny e tentar a captura."
   },
   {
    "id": 16302,
@@ -1856,7 +1873,8 @@
    "icon": "/assets/cards/16302.png",
    "category": "card",
    "rare": true,
-   "npcPrice": 0
+   "npcPrice": 0,
+   "description": "Há uma chance de o SHINY de Venonat dropá-lo ao ser derrotado, e ela sobe com os seus bônus de loot. Sacrifique-o no Altar para invocar esse shiny e tentar a captura."
   },
   {
    "id": 16303,
@@ -1864,7 +1882,8 @@
    "icon": "/assets/cards/16303.png",
    "category": "card",
    "rare": true,
-   "npcPrice": 0
+   "npcPrice": 0,
+   "description": "Há uma chance de o SHINY de Venomoth dropá-lo ao ser derrotado, e ela sobe com os seus bônus de loot. Sacrifique-o no Altar para invocar esse shiny e tentar a captura."
   },
   {
    "id": 16313,
@@ -1872,7 +1891,8 @@
    "icon": "/assets/cards/16313.png",
    "category": "card",
    "rare": true,
-   "npcPrice": 0
+   "npcPrice": 0,
+   "description": "Há uma chance de o SHINY de Arcanine dropá-lo ao ser derrotado, e ela sobe com os seus bônus de loot. Sacrifique-o no Altar para invocar esse shiny e tentar a captura."
   },
   {
    "id": 16319,
@@ -1880,7 +1900,8 @@
    "icon": "/assets/cards/16319.png",
    "category": "card",
    "rare": true,
-   "npcPrice": 0
+   "npcPrice": 0,
+   "description": "Há uma chance de o SHINY de Alakazam dropá-lo ao ser derrotado, e ela sobe com os seus bônus de loot. Sacrifique-o no Altar para invocar esse shiny e tentar a captura."
   },
   {
    "id": 16322,
@@ -1888,7 +1909,8 @@
    "icon": "/assets/cards/16322.png",
    "category": "card",
    "rare": true,
-   "npcPrice": 0
+   "npcPrice": 0,
+   "description": "Há uma chance de o SHINY de Machamp dropá-lo ao ser derrotado, e ela sobe com os seus bônus de loot. Sacrifique-o no Altar para invocar esse shiny e tentar a captura."
   },
   {
    "id": 16326,
@@ -1896,7 +1918,8 @@
    "icon": "/assets/cards/16326.png",
    "category": "card",
    "rare": true,
-   "npcPrice": 0
+   "npcPrice": 0,
+   "description": "Há uma chance de o SHINY de Tentacool dropá-lo ao ser derrotado, e ela sobe com os seus bônus de loot. Sacrifique-o no Altar para invocar esse shiny e tentar a captura."
   },
   {
    "id": 16327,
@@ -1904,7 +1927,8 @@
    "icon": "/assets/cards/16327.png",
    "category": "card",
    "rare": true,
-   "npcPrice": 0
+   "npcPrice": 0,
+   "description": "Há uma chance de o SHINY de Tentacruel dropá-lo ao ser derrotado, e ela sobe com os seus bônus de loot. Sacrifique-o no Altar para invocar esse shiny e tentar a captura."
   },
   {
    "id": 16330,
@@ -1912,7 +1936,8 @@
    "icon": "/assets/cards/16330.png",
    "category": "card",
    "rare": true,
-   "npcPrice": 0
+   "npcPrice": 0,
+   "description": "Há uma chance de o SHINY de Golem dropá-lo ao ser derrotado, e ela sobe com os seus bônus de loot. Sacrifique-o no Altar para invocar esse shiny e tentar a captura."
   },
   {
    "id": 16337,
@@ -1920,7 +1945,8 @@
    "icon": "/assets/cards/16337.png",
    "category": "card",
    "rare": true,
-   "npcPrice": 0
+   "npcPrice": 0,
+   "description": "Há uma chance de o SHINY de Farfetch'd dropá-lo ao ser derrotado, e ela sobe com os seus bônus de loot. Sacrifique-o no Altar para invocar esse shiny e tentar a captura."
   },
   {
    "id": 16342,
@@ -1928,7 +1954,8 @@
    "icon": "/assets/cards/16342.png",
    "category": "card",
    "rare": true,
-   "npcPrice": 0
+   "npcPrice": 0,
+   "description": "Há uma chance de o SHINY de Grimer dropá-lo ao ser derrotado, e ela sobe com os seus bônus de loot. Sacrifique-o no Altar para invocar esse shiny e tentar a captura."
   },
   {
    "id": 16343,
@@ -1936,7 +1963,8 @@
    "icon": "/assets/cards/16343.png",
    "category": "card",
    "rare": true,
-   "npcPrice": 0
+   "npcPrice": 0,
+   "description": "Há uma chance de o SHINY de Muk dropá-lo ao ser derrotado, e ela sobe com os seus bônus de loot. Sacrifique-o no Altar para invocar esse shiny e tentar a captura."
   },
   {
    "id": 16348,
@@ -1944,7 +1972,8 @@
    "icon": "/assets/cards/16348.png",
    "category": "card",
    "rare": true,
-   "npcPrice": 0
+   "npcPrice": 0,
+   "description": "Há uma chance de o SHINY de Gengar dropá-lo ao ser derrotado, e ela sobe com os seus bônus de loot. Sacrifique-o no Altar para invocar esse shiny e tentar a captura."
   },
   {
    "id": 16349,
@@ -1952,7 +1981,8 @@
    "icon": "/assets/cards/16349.png",
    "category": "card",
    "rare": true,
-   "npcPrice": 0
+   "npcPrice": 0,
+   "description": "Há uma chance de o SHINY de Onix dropá-lo ao ser derrotado, e ela sobe com os seus bônus de loot. Sacrifique-o no Altar para invocar esse shiny e tentar a captura."
   },
   {
    "id": 16351,
@@ -1960,7 +1990,8 @@
    "icon": "/assets/cards/16351.png",
    "category": "card",
    "rare": true,
-   "npcPrice": 0
+   "npcPrice": 0,
+   "description": "Há uma chance de o SHINY de Hypno dropá-lo ao ser derrotado, e ela sobe com os seus bônus de loot. Sacrifique-o no Altar para invocar esse shiny e tentar a captura."
   },
   {
    "id": 16352,
@@ -1968,7 +1999,8 @@
    "icon": "/assets/cards/16352.png",
    "category": "card",
    "rare": true,
-   "npcPrice": 0
+   "npcPrice": 0,
+   "description": "Há uma chance de o SHINY de Krabby dropá-lo ao ser derrotado, e ela sobe com os seus bônus de loot. Sacrifique-o no Altar para invocar esse shiny e tentar a captura."
   },
   {
    "id": 16353,
@@ -1976,7 +2008,8 @@
    "icon": "/assets/cards/16353.png",
    "category": "card",
    "rare": true,
-   "npcPrice": 0
+   "npcPrice": 0,
+   "description": "Há uma chance de o SHINY de Kingler dropá-lo ao ser derrotado, e ela sobe com os seus bônus de loot. Sacrifique-o no Altar para invocar esse shiny e tentar a captura."
   },
   {
    "id": 16354,
@@ -1984,7 +2017,8 @@
    "icon": "/assets/cards/16354.png",
    "category": "card",
    "rare": true,
-   "npcPrice": 0
+   "npcPrice": 0,
+   "description": "Há uma chance de o SHINY de Voltorb dropá-lo ao ser derrotado, e ela sobe com os seus bônus de loot. Sacrifique-o no Altar para invocar esse shiny e tentar a captura."
   },
   {
    "id": 16355,
@@ -1992,7 +2026,8 @@
    "icon": "/assets/cards/16355.png",
    "category": "card",
    "rare": true,
-   "npcPrice": 0
+   "npcPrice": 0,
+   "description": "Há uma chance de o SHINY de Electrode dropá-lo ao ser derrotado, e ela sobe com os seus bônus de loot. Sacrifique-o no Altar para invocar esse shiny e tentar a captura."
   },
   {
    "id": 16358,
@@ -2000,7 +2035,8 @@
    "icon": "/assets/cards/16358.png",
    "category": "card",
    "rare": true,
-   "npcPrice": 0
+   "npcPrice": 0,
+   "description": "Há uma chance de o SHINY de Cubone dropá-lo ao ser derrotado, e ela sobe com os seus bônus de loot. Sacrifique-o no Altar para invocar esse shiny e tentar a captura."
   },
   {
    "id": 16359,
@@ -2008,7 +2044,8 @@
    "icon": "/assets/cards/16359.png",
    "category": "card",
    "rare": true,
-   "npcPrice": 0
+   "npcPrice": 0,
+   "description": "Há uma chance de o SHINY de Marowak dropá-lo ao ser derrotado, e ela sobe com os seus bônus de loot. Sacrifique-o no Altar para invocar esse shiny e tentar a captura."
   },
   {
    "id": 16366,
@@ -2016,7 +2053,8 @@
    "icon": "/assets/cards/16366.png",
    "category": "card",
    "rare": true,
-   "npcPrice": 0
+   "npcPrice": 0,
+   "description": "Há uma chance de o SHINY de Rhydon dropá-lo ao ser derrotado, e ela sobe com os seus bônus de loot. Sacrifique-o no Altar para invocar esse shiny e tentar a captura."
   },
   {
    "id": 16368,
@@ -2024,7 +2062,8 @@
    "icon": "/assets/cards/16368.png",
    "category": "card",
    "rare": true,
-   "npcPrice": 0
+   "npcPrice": 0,
+   "description": "Há uma chance de o SHINY de Tangela dropá-lo ao ser derrotado, e ela sobe com os seus bônus de loot. Sacrifique-o no Altar para invocar esse shiny e tentar a captura."
   },
   {
    "id": 16371,
@@ -2032,7 +2071,8 @@
    "icon": "/assets/cards/16371.png",
    "category": "card",
    "rare": true,
-   "npcPrice": 0
+   "npcPrice": 0,
+   "description": "Há uma chance de o SHINY de Seadra dropá-lo ao ser derrotado, e ela sobe com os seus bônus de loot. Sacrifique-o no Altar para invocar esse shiny e tentar a captura."
   },
   {
    "id": 16376,
@@ -2040,7 +2080,8 @@
    "icon": "/assets/cards/16376.png",
    "category": "card",
    "rare": true,
-   "npcPrice": 0
+   "npcPrice": 0,
+   "description": "Há uma chance de o SHINY de Mr. Mime dropá-lo ao ser derrotado, e ela sobe com os seus bônus de loot. Sacrifique-o no Altar para invocar esse shiny e tentar a captura."
   },
   {
    "id": 16377,
@@ -2048,7 +2089,8 @@
    "icon": "/assets/cards/16377.png",
    "category": "card",
    "rare": true,
-   "npcPrice": 0
+   "npcPrice": 0,
+   "description": "Há uma chance de o SHINY de Scyther dropá-lo ao ser derrotado, e ela sobe com os seus bônus de loot. Sacrifique-o no Altar para invocar esse shiny e tentar a captura."
   },
   {
    "id": 16378,
@@ -2056,7 +2098,8 @@
    "icon": "/assets/cards/16378.png",
    "category": "card",
    "rare": true,
-   "npcPrice": 0
+   "npcPrice": 0,
+   "description": "Há uma chance de o SHINY de Jynx dropá-lo ao ser derrotado, e ela sobe com os seus bônus de loot. Sacrifique-o no Altar para invocar esse shiny e tentar a captura."
   },
   {
    "id": 16379,
@@ -2064,7 +2107,8 @@
    "icon": "/assets/cards/16379.png",
    "category": "card",
    "rare": true,
-   "npcPrice": 0
+   "npcPrice": 0,
+   "description": "Há uma chance de o SHINY de Electabuzz dropá-lo ao ser derrotado, e ela sobe com os seus bônus de loot. Sacrifique-o no Altar para invocar esse shiny e tentar a captura."
   },
   {
    "id": 16380,
@@ -2072,7 +2116,8 @@
    "icon": "/assets/cards/16380.png",
    "category": "card",
    "rare": true,
-   "npcPrice": 0
+   "npcPrice": 0,
+   "description": "Há uma chance de o SHINY de Magmar dropá-lo ao ser derrotado, e ela sobe com os seus bônus de loot. Sacrifique-o no Altar para invocar esse shiny e tentar a captura."
   },
   {
    "id": 16381,
@@ -2080,7 +2125,8 @@
    "icon": "/assets/cards/16381.png",
    "category": "card",
    "rare": true,
-   "npcPrice": 0
+   "npcPrice": 0,
+   "description": "Há uma chance de o SHINY de Pinsir dropá-lo ao ser derrotado, e ela sobe com os seus bônus de loot. Sacrifique-o no Altar para invocar esse shiny e tentar a captura."
   },
   {
    "id": 16382,
@@ -2088,7 +2134,8 @@
    "icon": "/assets/cards/16382.png",
    "category": "card",
    "rare": true,
-   "npcPrice": 0
+   "npcPrice": 0,
+   "description": "Há uma chance de o SHINY de Tauros dropá-lo ao ser derrotado, e ela sobe com os seus bônus de loot. Sacrifique-o no Altar para invocar esse shiny e tentar a captura."
   },
   {
    "id": 16384,
@@ -2096,7 +2143,8 @@
    "icon": "/assets/cards/16384.png",
    "category": "card",
    "rare": true,
-   "npcPrice": 0
+   "npcPrice": 0,
+   "description": "Há uma chance de o SHINY de Gyarados dropá-lo ao ser derrotado, e ela sobe com os seus bônus de loot. Sacrifique-o no Altar para invocar esse shiny e tentar a captura."
   },
   {
    "id": 16396,
@@ -2104,7 +2152,8 @@
    "icon": "/assets/cards/16396.png",
    "category": "card",
    "rare": true,
-   "npcPrice": 0
+   "npcPrice": 0,
+   "description": "Há uma chance de o SHINY de Aerodactyl dropá-lo ao ser derrotado, e ela sobe com os seus bônus de loot. Sacrifique-o no Altar para invocar esse shiny e tentar a captura."
   },
   {
    "id": 16397,
@@ -2112,7 +2161,8 @@
    "icon": "/assets/cards/16397.png",
    "category": "card",
    "rare": true,
-   "npcPrice": 0
+   "npcPrice": 0,
+   "description": "Há uma chance de o SHINY de Snorlax dropá-lo ao ser derrotado, e ela sobe com os seus bônus de loot. Sacrifique-o no Altar para invocar esse shiny e tentar a captura."
   },
   {
    "id": 16401,
@@ -2120,7 +2170,8 @@
    "icon": "/assets/cards/16401.png",
    "category": "card",
    "rare": true,
-   "npcPrice": 0
+   "npcPrice": 0,
+   "description": "Há uma chance de o SHINY de Dratini dropá-lo ao ser derrotado, e ela sobe com os seus bônus de loot. Sacrifique-o no Altar para invocar esse shiny e tentar a captura."
   },
   {
    "id": 16402,
@@ -2128,7 +2179,8 @@
    "icon": "/assets/cards/16402.png",
    "category": "card",
    "rare": true,
-   "npcPrice": 0
+   "npcPrice": 0,
+   "description": "Há uma chance de o SHINY de Dragonair dropá-lo ao ser derrotado, e ela sobe com os seus bônus de loot. Sacrifique-o no Altar para invocar esse shiny e tentar a captura."
   },
   {
    "id": 59217,
