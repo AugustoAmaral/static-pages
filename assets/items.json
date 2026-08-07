@@ -2423,6 +2423,110 @@
    "npcPrice": 40
   },
   {
+   "id": 59248,
+   "name": "band-aid",
+   "icon": "band_aid.png",
+   "category": "loot",
+   "rare": false,
+   "npcPrice": 40
+  },
+  {
+   "id": 59249,
+   "name": "cat ear",
+   "icon": "cat_ear.png",
+   "category": "loot",
+   "rare": false,
+   "npcPrice": 40
+  },
+  {
+   "id": 59250,
+   "name": "cloud",
+   "icon": "cloud.png",
+   "category": "loot",
+   "rare": false,
+   "npcPrice": 40
+  },
+  {
+   "id": 59251,
+   "name": "crimson feather",
+   "icon": "crimson_feather.png",
+   "category": "loot",
+   "rare": false,
+   "npcPrice": 40
+  },
+  {
+   "id": 59252,
+   "name": "dark moon",
+   "icon": "dark_moon.png",
+   "category": "loot",
+   "rare": false,
+   "npcPrice": 40
+  },
+  {
+   "id": 59253,
+   "name": "doll star",
+   "icon": "doll_star.png",
+   "category": "loot",
+   "rare": false,
+   "npcPrice": 40
+  },
+  {
+   "id": 59254,
+   "name": "strange ball",
+   "icon": "strange_ball.png",
+   "category": "loot",
+   "rare": false,
+   "npcPrice": 40
+  },
+  {
+   "id": 59255,
+   "name": "tribe mark",
+   "icon": "tribe_mark.png",
+   "category": "loot",
+   "rare": false,
+   "npcPrice": 40
+  },
+  {
+   "id": 59256,
+   "name": "water plant",
+   "icon": "water_plant.png",
+   "category": "loot",
+   "rare": false,
+   "npcPrice": 40
+  },
+  {
+   "id": 59257,
+   "name": "fur ball",
+   "icon": "fur_ball.png",
+   "category": "loot",
+   "rare": false,
+   "npcPrice": 40
+  },
+  {
+   "id": 59258,
+   "name": "hyena tail",
+   "icon": "hyena_tail.png",
+   "category": "loot",
+   "rare": false,
+   "npcPrice": 40
+  },
+  {
+   "id": 59259,
+   "name": "creepy eye",
+   "icon": "creepy_eye.png",
+   "category": "loot",
+   "rare": false,
+   "npcPrice": 40
+  },
+  {
+   "id": 59260,
+   "name": "palm leaves",
+   "icon": "palm_leaves.png",
+   "category": "loot",
+   "rare": false,
+   "npcPrice": 40
+  },
+  {
    "id": 27304,
    "name": "10.000 Carat Emerald",
    "icon": "/assets/items/10000_carat_emerald.png",

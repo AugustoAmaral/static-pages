@@ -31193,23 +31193,23 @@
      "name": "Seed",
      "chance": 80000,
      "minCount": 1,
-     "maxCount": 15
+     "maxCount": 20
+    },
+    {
+     "name": "Leaf Stone",
+     "chance": 1000,
+     "minCount": 1,
+     "maxCount": 1
     },
     {
      "name": "Leaves",
-     "chance": 21000,
+     "chance": 32000,
      "minCount": 1,
      "maxCount": 1
     },
     {
      "name": "greens",
-     "chance": 2200,
-     "minCount": 1,
-     "maxCount": 1
-    },
-    {
-     "name": "Leaf Stone",
-     "chance": 1000,
+     "chance": 2000,
      "minCount": 1,
      "maxCount": 1
     }
@@ -31308,6 +31308,12 @@
      "maxCount": 43
     },
     {
+     "name": "Leaf Stone",
+     "chance": 1000,
+     "minCount": 1,
+     "maxCount": 1
+    },
+    {
      "name": "Leaves",
      "chance": 49000,
      "minCount": 1,
@@ -31316,12 +31322,6 @@
     {
      "name": "greens",
      "chance": 4250,
-     "minCount": 1,
-     "maxCount": 1
-    },
-    {
-     "name": "Leaf Stone",
-     "chance": 1000,
      "minCount": 1,
      "maxCount": 1
     }
@@ -31414,6 +31414,12 @@
    "experience": 248,
    "loot": [
     {
+     "name": "fire feather",
+     "chance": 1000,
+     "minCount": 1,
+     "maxCount": 1
+    },
+    {
      "name": "Essence of Fire",
      "chance": 80000,
      "minCount": 1,
@@ -31422,12 +31428,6 @@
     {
      "name": "Pot of Lava",
      "chance": 21000,
-     "minCount": 1,
-     "maxCount": 1
-    },
-    {
-     "name": "fire feather",
-     "chance": 1000,
      "minCount": 1,
      "maxCount": 1
     }
@@ -31513,26 +31513,38 @@
    "experience": 968,
    "loot": [
     {
+     "name": "fire feather",
+     "chance": 2000,
+     "minCount": 1,
+     "maxCount": 1
+    },
+    {
+     "name": "band-aid",
+     "chance": 80000,
+     "minCount": 1,
+     "maxCount": 10
+    },
+    {
      "name": "Essence of Fire",
      "chance": 80000,
      "minCount": 1,
-     "maxCount": 15
-    },
-    {
-     "name": "Pot of Lava",
-     "chance": 21000,
-     "minCount": 1,
-     "maxCount": 1
-    },
-    {
-     "name": "fire feather",
-     "chance": 2200,
-     "minCount": 1,
-     "maxCount": 1
+     "maxCount": 10
     },
     {
      "name": "Fire Stone",
      "chance": 1000,
+     "minCount": 1,
+     "maxCount": 1
+    },
+    {
+     "name": "Punch Stone",
+     "chance": 1000,
+     "minCount": 1,
+     "maxCount": 1
+    },
+    {
+     "name": "Pot of Lava",
+     "chance": 32000,
      "minCount": 1,
      "maxCount": 1
     }
@@ -31626,7 +31638,13 @@
    "experience": 3848,
    "loot": [
     {
-     "name": "Band Aid",
+     "name": "fire feather",
+     "chance": 4250,
+     "minCount": 1,
+     "maxCount": 1
+    },
+    {
+     "name": "band-aid",
      "chance": 80000,
      "minCount": 1,
      "maxCount": 21
@@ -31638,18 +31656,6 @@
      "maxCount": 21
     },
     {
-     "name": "Pot of Lava",
-     "chance": 45500,
-     "minCount": 1,
-     "maxCount": 1
-    },
-    {
-     "name": "fire feather",
-     "chance": 4250,
-     "minCount": 1,
-     "maxCount": 1
-    },
-    {
      "name": "Fire Stone",
      "chance": 1000,
      "minCount": 1,
@@ -31658,6 +31664,12 @@
     {
      "name": "Punch Stone",
      "chance": 1000,
+     "minCount": 1,
+     "maxCount": 1
+    },
+    {
+     "name": "Pot of Lava",
+     "chance": 45500,
      "minCount": 1,
      "maxCount": 1
     }
@@ -31766,6 +31778,12 @@
    "experience": 248,
    "loot": [
     {
+     "name": "black fins",
+     "chance": 1000,
+     "minCount": 1,
+     "maxCount": 1
+    },
+    {
      "name": "Water Gem",
      "chance": 80000,
      "minCount": 1,
@@ -31774,12 +31792,6 @@
     {
      "name": "Water Pendant",
      "chance": 21000,
-     "minCount": 1,
-     "maxCount": 1
-    },
-    {
-     "name": "black fins",
-     "chance": 1000,
      "minCount": 1,
      "maxCount": 1
     }
@@ -31865,6 +31877,12 @@
    "experience": 968,
    "loot": [
     {
+     "name": "black fins",
+     "chance": 2000,
+     "minCount": 1,
+     "maxCount": 1
+    },
+    {
      "name": "Earth Ball",
      "chance": 80000,
      "minCount": 1,
@@ -31877,24 +31895,6 @@
      "maxCount": 10
     },
     {
-     "name": "Water Pendant",
-     "chance": 16000,
-     "minCount": 1,
-     "maxCount": 1
-    },
-    {
-     "name": "Sandbag",
-     "chance": 16000,
-     "minCount": 1,
-     "maxCount": 1
-    },
-    {
-     "name": "black fins",
-     "chance": 2000,
-     "minCount": 1,
-     "maxCount": 1
-    },
-    {
      "name": "Water Stone",
      "chance": 1000,
      "minCount": 1,
@@ -31903,6 +31903,18 @@
     {
      "name": "Earth Stone",
      "chance": 1000,
+     "minCount": 1,
+     "maxCount": 1
+    },
+    {
+     "name": "Water Pendant",
+     "chance": 16000,
+     "minCount": 1,
+     "maxCount": 1
+    },
+    {
+     "name": "Sandbag",
+     "chance": 16000,
      "minCount": 1,
      "maxCount": 1
     }
@@ -31988,10 +32000,10 @@
    "experience": 3848,
    "loot": [
     {
-     "name": "Water Gem",
-     "chance": 80000,
+     "name": "black fins",
+     "chance": 4250,
      "minCount": 1,
-     "maxCount": 21
+     "maxCount": 1
     },
     {
      "name": "Earth Ball",
@@ -32000,22 +32012,10 @@
      "maxCount": 21
     },
     {
-     "name": "Water Pendant",
-     "chance": 30000,
+     "name": "Water Gem",
+     "chance": 80000,
      "minCount": 1,
-     "maxCount": 1
-    },
-    {
-     "name": "Sandbag",
-     "chance": 30000,
-     "minCount": 1,
-     "maxCount": 1
-    },
-    {
-     "name": "black fins",
-     "chance": 4250,
-     "minCount": 1,
-     "maxCount": 1
+     "maxCount": 21
     },
     {
      "name": "Water Stone",
@@ -32026,6 +32026,18 @@
     {
      "name": "Earth Stone",
      "chance": 1000,
+     "minCount": 1,
+     "maxCount": 1
+    },
+    {
+     "name": "Water Pendant",
+     "chance": 22750,
+     "minCount": 1,
+     "maxCount": 1
+    },
+    {
+     "name": "Sandbag",
+     "chance": 22750,
      "minCount": 1,
      "maxCount": 1
     }
@@ -32134,28 +32146,16 @@
    "experience": 548,
    "loot": [
     {
+     "name": "hyena tail",
+     "chance": 1500,
+     "minCount": 1,
+     "maxCount": 1
+    },
+    {
      "name": "Dark Gem",
      "chance": 80000,
      "minCount": 1,
-     "maxCount": 21
-    },
-    {
-     "name": "Ruby",
-     "chance": 30000,
-     "minCount": 1,
-     "maxCount": 1
-    },
-    {
-     "name": "Big Crystal",
-     "chance": 4250,
-     "minCount": 1,
-     "maxCount": 1
-    },
-    {
-     "name": "Darkness Stone",
-     "chance": 1000,
-     "minCount": 1,
-     "maxCount": 1
+     "maxCount": 10
     }
    ],
    "attacks": [
@@ -32222,22 +32222,16 @@
    "experience": 6008,
    "loot": [
     {
-     "name": "Dark Gem",
-     "chance": 80000,
-     "minCount": 1,
-     "maxCount": 21
-    },
-    {
-     "name": "Ruby",
-     "chance": 30000,
-     "minCount": 1,
-     "maxCount": 1
-    },
-    {
-     "name": "Big Crystal",
+     "name": "hyena tail",
      "chance": 4250,
      "minCount": 1,
      "maxCount": 1
+    },
+    {
+     "name": "Dark Gem",
+     "chance": 80000,
+     "minCount": 1,
+     "maxCount": 43
     },
     {
      "name": "Darkness Stone",
@@ -32343,20 +32337,32 @@
    "experience": 248,
    "loot": [
     {
-     "name": "Water Gem",
-     "chance": 80000,
-     "minCount": 1,
-     "maxCount": 10
-    },
-    {
-     "name": "Water Pendant",
-     "chance": 21000,
+     "name": "water plant",
+     "chance": 1100,
      "minCount": 1,
      "maxCount": 1
     },
     {
-     "name": "lobster claw",
-     "chance": 1000,
+     "name": "Seed",
+     "chance": 80000,
+     "minCount": 1,
+     "maxCount": 5
+    },
+    {
+     "name": "Water Gem",
+     "chance": 80000,
+     "minCount": 1,
+     "maxCount": 5
+    },
+    {
+     "name": "Leaves",
+     "chance": 13000,
+     "minCount": 1,
+     "maxCount": 1
+    },
+    {
+     "name": "Water Pendant",
+     "chance": 13000,
      "minCount": 1,
      "maxCount": 1
     }
@@ -32426,19 +32432,43 @@
    "experience": 1508,
    "loot": [
     {
+     "name": "water plant",
+     "chance": 2200,
+     "minCount": 1,
+     "maxCount": 1
+    },
+    {
+     "name": "Seed",
+     "chance": 80000,
+     "minCount": 1,
+     "maxCount": 10
+    },
+    {
      "name": "Water Gem",
      "chance": 80000,
      "minCount": 1,
      "maxCount": 10
     },
     {
-     "name": "Water Pendant",
-     "chance": 21000,
+     "name": "Leaves",
+     "chance": 16000,
      "minCount": 1,
      "maxCount": 1
     },
     {
-     "name": "lobster claw",
+     "name": "Water Pendant",
+     "chance": 16000,
+     "minCount": 1,
+     "maxCount": 1
+    },
+    {
+     "name": "Leaf Stone",
+     "chance": 1000,
+     "minCount": 1,
+     "maxCount": 1
+    },
+    {
+     "name": "Water Stone",
      "chance": 1000,
      "minCount": 1,
      "maxCount": 1
@@ -32525,19 +32555,43 @@
    "experience": 6008,
    "loot": [
     {
-     "name": "Water Gem",
-     "chance": 80000,
-     "minCount": 1,
-     "maxCount": 10
-    },
-    {
-     "name": "Water Pendant",
-     "chance": 21000,
+     "name": "water plant",
+     "chance": 4500,
      "minCount": 1,
      "maxCount": 1
     },
     {
-     "name": "lobster claw",
+     "name": "Seed",
+     "chance": 80000,
+     "minCount": 1,
+     "maxCount": 21
+    },
+    {
+     "name": "Water Gem",
+     "chance": 80000,
+     "minCount": 1,
+     "maxCount": 21
+    },
+    {
+     "name": "Leaves",
+     "chance": 22750,
+     "minCount": 1,
+     "maxCount": 1
+    },
+    {
+     "name": "Water Pendant",
+     "chance": 22750,
+     "minCount": 1,
+     "maxCount": 1
+    },
+    {
+     "name": "Leaf Stone",
+     "chance": 1000,
+     "minCount": 1,
+     "maxCount": 1
+    },
+    {
+     "name": "Water Stone",
      "chance": 1000,
      "minCount": 1,
      "maxCount": 1
@@ -32639,6 +32693,12 @@
    "experience": 68,
    "loot": [
     {
+     "name": "big seed",
+     "chance": 1100,
+     "minCount": 1,
+     "maxCount": 1
+    },
+    {
      "name": "Seed",
      "chance": 80000,
      "minCount": 1,
@@ -32647,12 +32707,6 @@
     {
      "name": "Leaves",
      "chance": 26000,
-     "minCount": 1,
-     "maxCount": 1
-    },
-    {
-     "name": "big seed",
-     "chance": 1100,
      "minCount": 1,
      "maxCount": 1
     }
@@ -32722,6 +32776,12 @@
    "experience": 548,
    "loot": [
     {
+     "name": "big seed",
+     "chance": 2200,
+     "minCount": 1,
+     "maxCount": 1
+    },
+    {
      "name": "Seed",
      "chance": 80000,
      "minCount": 1,
@@ -32736,12 +32796,6 @@
     {
      "name": "Leaves",
      "chance": 32000,
-     "minCount": 1,
-     "maxCount": 1
-    },
-    {
-     "name": "big seed",
-     "chance": 2200,
      "minCount": 1,
      "maxCount": 1
     },
@@ -32831,6 +32885,12 @@
    "experience": 3848,
    "loot": [
     {
+     "name": "Sharp Leaves",
+     "chance": 4500,
+     "minCount": 1,
+     "maxCount": 1
+    },
+    {
      "name": "Seed",
      "chance": 80000,
      "minCount": 1,
@@ -32843,18 +32903,6 @@
      "maxCount": 21
     },
     {
-     "name": "Leaves",
-     "chance": 30000,
-     "minCount": 1,
-     "maxCount": 1
-    },
-    {
-     "name": "Sharp Leaves",
-     "chance": 4250,
-     "minCount": 1,
-     "maxCount": 1
-    },
-    {
      "name": "Leaf Stone",
      "chance": 1000,
      "minCount": 1,
@@ -32863,6 +32911,12 @@
     {
      "name": "Darkness Stone",
      "chance": 1000,
+     "minCount": 1,
+     "maxCount": 1
+    },
+    {
+     "name": "Leaves",
+     "chance": 45500,
      "minCount": 1,
      "maxCount": 1
     }
@@ -32956,26 +33010,32 @@
    "experience": 548,
    "loot": [
     {
+     "name": "crimson feather",
+     "chance": 1100,
+     "minCount": 1,
+     "maxCount": 1
+    },
+    {
      "name": "Straw",
      "chance": 80000,
      "minCount": 1,
      "maxCount": 5
     },
     {
-     "name": "Water Gem",
+     "name": "Rubber Ball",
      "chance": 80000,
      "minCount": 1,
      "maxCount": 5
     },
     {
-     "name": "Water Pendant",
-     "chance": 21000,
+     "name": "Feather",
+     "chance": 13000,
      "minCount": 1,
      "maxCount": 1
     },
     {
-     "name": "pelican wing",
-     "chance": 1000,
+     "name": "Bird Beak",
+     "chance": 6000,
      "minCount": 1,
      "maxCount": 1
     }
@@ -33053,25 +33113,43 @@
    "experience": 3848,
    "loot": [
     {
-     "name": "Straw",
-     "chance": 80000,
-     "minCount": 1,
-     "maxCount": 5
-    },
-    {
-     "name": "Water Gem",
-     "chance": 80000,
-     "minCount": 1,
-     "maxCount": 5
-    },
-    {
-     "name": "Water Pendant",
-     "chance": 21000,
+     "name": "crimson feather",
+     "chance": 4500,
      "minCount": 1,
      "maxCount": 1
     },
     {
-     "name": "pelican wing",
+     "name": "Straw",
+     "chance": 80000,
+     "minCount": 1,
+     "maxCount": 19
+    },
+    {
+     "name": "Rubber Ball",
+     "chance": 80000,
+     "minCount": 1,
+     "maxCount": 19
+    },
+    {
+     "name": "Feather",
+     "chance": 13000,
+     "minCount": 1,
+     "maxCount": 1
+    },
+    {
+     "name": "Bird Beak",
+     "chance": 25500,
+     "minCount": 1,
+     "maxCount": 1
+    },
+    {
+     "name": "Feather Stone",
+     "chance": 1000,
+     "minCount": 1,
+     "maxCount": 1
+    },
+    {
+     "name": "Heart Stone",
      "chance": 1000,
      "minCount": 1,
      "maxCount": 1
@@ -33174,6 +33252,12 @@
    "experience": 548,
    "loot": [
     {
+     "name": "pelican wing",
+     "chance": 1000,
+     "minCount": 1,
+     "maxCount": 1
+    },
+    {
      "name": "Straw",
      "chance": 80000,
      "minCount": 1,
@@ -33188,12 +33272,6 @@
     {
      "name": "Water Pendant",
      "chance": 21000,
-     "minCount": 1,
-     "maxCount": 1
-    },
-    {
-     "name": "pelican wing",
-     "chance": 1000,
      "minCount": 1,
      "maxCount": 1
     }
@@ -33271,6 +33349,12 @@
    "experience": 3848,
    "loot": [
     {
+     "name": "pelican wing",
+     "chance": 4250,
+     "minCount": 1,
+     "maxCount": 1
+    },
+    {
      "name": "Straw",
      "chance": 80000,
      "minCount": 1,
@@ -33283,20 +33367,20 @@
      "maxCount": 21
     },
     {
-     "name": "Water Pendant",
-     "chance": 30000,
-     "minCount": 1,
-     "maxCount": 1
-    },
-    {
-     "name": "pelican wing",
-     "chance": 4250,
+     "name": "Feather Stone",
+     "chance": 1000,
      "minCount": 1,
      "maxCount": 1
     },
     {
      "name": "Water Stone",
      "chance": 1000,
+     "minCount": 1,
+     "maxCount": 1
+    },
+    {
+     "name": "Water Pendant",
+     "chance": 45000,
      "minCount": 1,
      "maxCount": 1
     }
@@ -33398,26 +33482,26 @@
    "experience": 548,
    "loot": [
     {
+     "name": "Cure Flower",
+     "chance": 1000,
+     "minCount": 1,
+     "maxCount": 1
+    },
+    {
+     "name": "Comb",
+     "chance": 1000,
+     "minCount": 1,
+     "maxCount": 1
+    },
+    {
      "name": "Enchanted Gem",
      "chance": 80000,
      "minCount": 1,
      "maxCount": 10
     },
     {
-     "name": "Comb",
-     "chance": 16000,
-     "minCount": 1,
-     "maxCount": 1
-    },
-    {
      "name": "Future Orb",
-     "chance": 16000,
-     "minCount": 1,
-     "maxCount": 1
-    },
-    {
-     "name": "Cure Flower",
-     "chance": 1100,
+     "chance": 20000,
      "minCount": 1,
      "maxCount": 1
     }
@@ -33495,31 +33579,31 @@
    "experience": 2168,
    "loot": [
     {
-     "name": "Enchanted Gem",
-     "chance": 80000,
+     "name": "Cure Flower",
+     "chance": 4000,
      "minCount": 1,
-     "maxCount": 15
+     "maxCount": 1
     },
     {
      "name": "Comb",
-     "chance": 21000,
+     "chance": 3500,
      "minCount": 1,
      "maxCount": 1
+    },
+    {
+     "name": "Enchanted Gem",
+     "chance": 80000,
+     "minCount": 1,
+     "maxCount": 43
     },
     {
      "name": "Future Orb",
-     "chance": 21000,
+     "chance": 30000,
      "minCount": 1,
      "maxCount": 1
     },
     {
-     "name": "Cure Flower",
-     "chance": 2200,
-     "minCount": 1,
-     "maxCount": 1
-    },
-    {
-     "name": "Heart Stone",
+     "name": "Enigma Stone",
      "chance": 1000,
      "minCount": 1,
      "maxCount": 1
@@ -33606,26 +33690,26 @@
    "experience": 6008,
    "loot": [
     {
-     "name": "Enchanted Gem",
-     "chance": 80000,
+     "name": "Cure Flower",
+     "chance": 4250,
      "minCount": 1,
-     "maxCount": 21
+     "maxCount": 1
     },
     {
      "name": "Comb",
-     "chance": 30000,
+     "chance": 2500,
      "minCount": 1,
      "maxCount": 1
+    },
+    {
+     "name": "Enchanted Gem",
+     "chance": 100000,
+     "minCount": 1,
+     "maxCount": 43
     },
     {
      "name": "Future Orb",
-     "chance": 30000,
-     "minCount": 1,
-     "maxCount": 1
-    },
-    {
-     "name": "Cure Flower",
-     "chance": 4250,
+     "chance": 40000,
      "minCount": 1,
      "maxCount": 1
     },
@@ -33636,7 +33720,7 @@
      "maxCount": 1
     },
     {
-     "name": "Heart Stone",
+     "name": "Crystal Stone",
      "chance": 1000,
      "minCount": 1,
      "maxCount": 1
@@ -33730,20 +33814,20 @@
    "experience": 968,
    "loot": [
     {
+     "name": "fur ball",
+     "chance": 1300,
+     "minCount": 1,
+     "maxCount": 1
+    },
+    {
      "name": "Rubber Ball",
      "chance": 80000,
      "minCount": 1,
      "maxCount": 10
     },
     {
-     "name": "Nail",
-     "chance": 20000,
-     "minCount": 1,
-     "maxCount": 1
-    },
-    {
-     "name": "cute ball",
-     "chance": 2000,
+     "name": "Fur",
+     "chance": 26000,
      "minCount": 1,
      "maxCount": 1
     }
@@ -33828,20 +33912,26 @@
    "experience": 2168,
    "loot": [
     {
-     "name": "Rubber Ball",
-     "chance": 80000,
-     "minCount": 1,
-     "maxCount": 10
-    },
-    {
-     "name": "Nail",
-     "chance": 20000,
+     "name": "fur ball",
+     "chance": 5000,
      "minCount": 1,
      "maxCount": 1
     },
     {
-     "name": "cute ball",
-     "chance": 2000,
+     "name": "Rubber Ball",
+     "chance": 80000,
+     "minCount": 1,
+     "maxCount": 43
+    },
+    {
+     "name": "Fur",
+     "chance": 45500,
+     "minCount": 1,
+     "maxCount": 1
+    },
+    {
+     "name": "Heart Stone",
+     "chance": 1000,
      "minCount": 1,
      "maxCount": 1
     }
@@ -33934,6 +34024,12 @@
    "experience": 248,
    "loot": [
     {
+     "name": "cute ball",
+     "chance": 2000,
+     "minCount": 1,
+     "maxCount": 1
+    },
+    {
      "name": "Rubber Ball",
      "chance": 80000,
      "minCount": 1,
@@ -33942,12 +34038,6 @@
     {
      "name": "Nail",
      "chance": 20000,
-     "minCount": 1,
-     "maxCount": 1
-    },
-    {
-     "name": "cute ball",
-     "chance": 2000,
      "minCount": 1,
      "maxCount": 1
     }
@@ -34016,22 +34106,16 @@
    "experience": 1508,
    "loot": [
     {
-     "name": "Rubber Ball",
-     "chance": 80000,
-     "minCount": 1,
-     "maxCount": 20
-    },
-    {
-     "name": "Nail",
-     "chance": 35000,
-     "minCount": 1,
-     "maxCount": 1
-    },
-    {
      "name": "cute ball",
      "chance": 4000,
      "minCount": 1,
      "maxCount": 1
+    },
+    {
+     "name": "Rubber Ball",
+     "chance": 80000,
+     "minCount": 1,
+     "maxCount": 20
     },
     {
      "name": "eruption ears",
@@ -34042,6 +34126,12 @@
     {
      "name": "Heart Stone",
      "chance": 1000,
+     "minCount": 1,
+     "maxCount": 1
+    },
+    {
+     "name": "Nail",
+     "chance": 35000,
      "minCount": 1,
      "maxCount": 1
     }
@@ -34118,32 +34208,32 @@
    "experience": 6008,
    "loot": [
     {
+     "name": "cute ball",
+     "chance": 8500,
+     "minCount": 1,
+     "maxCount": 1
+    },
+    {
      "name": "Rubber Ball",
      "chance": 80000,
      "minCount": 1,
-     "maxCount": 21
-    },
-    {
-     "name": "Nail",
-     "chance": 30000,
-     "minCount": 1,
-     "maxCount": 1
-    },
-    {
-     "name": "cute ball",
-     "chance": 30000,
-     "minCount": 1,
-     "maxCount": 1
+     "maxCount": 43
     },
     {
      "name": "eruption ears",
-     "chance": 4250,
+     "chance": 4500,
      "minCount": 1,
      "maxCount": 1
     },
     {
      "name": "Heart Stone",
      "chance": 1000,
+     "minCount": 1,
+     "maxCount": 1
+    },
+    {
+     "name": "Nail",
+     "chance": 50000,
      "minCount": 1,
      "maxCount": 1
     }
@@ -34236,16 +34326,16 @@
    "experience": 968,
    "loot": [
     {
-     "name": "Band Aid",
-     "chance": 80000,
-     "minCount": 1,
-     "maxCount": 10
-    },
-    {
      "name": "samurai hair",
      "chance": 1300,
      "minCount": 1,
      "maxCount": 1
+    },
+    {
+     "name": "band-aid",
+     "chance": 80000,
+     "minCount": 1,
+     "maxCount": 10
     }
    ],
    "attacks": [
@@ -34329,22 +34419,22 @@
    "experience": 2168,
    "loot": [
     {
-     "name": "Dark Gem",
-     "chance": 80000,
+     "name": "Big Crystal",
+     "chance": 1700,
      "minCount": 1,
-     "maxCount": 21
+     "maxCount": 1
     },
     {
      "name": "Ruby",
-     "chance": 30000,
+     "chance": 3650,
      "minCount": 1,
      "maxCount": 1
     },
     {
-     "name": "Big Crystal",
-     "chance": 4250,
+     "name": "Ghost Essence",
+     "chance": 80000,
      "minCount": 1,
-     "maxCount": 1
+     "maxCount": 39
     },
     {
      "name": "Darkness Stone",
@@ -34451,16 +34541,16 @@
    "experience": 3848,
    "loot": [
     {
+     "name": "Metal Jaw",
+     "chance": 5700,
+     "minCount": 1,
+     "maxCount": 1
+    },
+    {
      "name": "Piece of Steel",
      "chance": 80000,
      "minCount": 1,
-     "maxCount": 21
-    },
-    {
-     "name": "Metal Jaw",
-     "chance": 4250,
-     "minCount": 1,
-     "maxCount": 1
+     "maxCount": 11
     },
     {
      "name": "Metal Stone",
@@ -34566,26 +34656,26 @@
    "experience": 548,
    "loot": [
     {
+     "name": "Metal Hull",
+     "chance": 1000,
+     "minCount": 1,
+     "maxCount": 1
+    },
+    {
      "name": "Piece of Steel",
      "chance": 80000,
      "minCount": 1,
-     "maxCount": 15
+     "maxCount": 5
+    },
+    {
+     "name": "Small Stone",
+     "chance": 80000,
+     "minCount": 1,
+     "maxCount": 5
     },
     {
      "name": "Stone Orb",
-     "chance": 21000,
-     "minCount": 1,
-     "maxCount": 1
-    },
-    {
-     "name": "Metal Hull",
-     "chance": 2200,
-     "minCount": 1,
-     "maxCount": 1
-    },
-    {
-     "name": "Metal Stone",
-     "chance": 1000,
+     "chance": 20000,
      "minCount": 1,
      "maxCount": 1
     }
@@ -34663,26 +34753,32 @@
    "experience": 2168,
    "loot": [
     {
+     "name": "Metal Hull",
+     "chance": 4100,
+     "minCount": 1,
+     "maxCount": 1
+    },
+    {
      "name": "Piece of Steel",
      "chance": 80000,
      "minCount": 1,
-     "maxCount": 15
+     "maxCount": 18
+    },
+    {
+     "name": "Small Stone",
+     "chance": 80000,
+     "minCount": 1,
+     "maxCount": 18
+    },
+    {
+     "name": "Rock Stone",
+     "chance": 1000,
+     "minCount": 1,
+     "maxCount": 1
     },
     {
      "name": "Stone Orb",
-     "chance": 21000,
-     "minCount": 1,
-     "maxCount": 1
-    },
-    {
-     "name": "Metal Hull",
-     "chance": 2200,
-     "minCount": 1,
-     "maxCount": 1
-    },
-    {
-     "name": "Metal Stone",
-     "chance": 1000,
+     "chance": 40000,
      "minCount": 1,
      "maxCount": 1
     }
@@ -34784,20 +34880,26 @@
    "experience": 6008,
    "loot": [
     {
+     "name": "Metal Hull",
+     "chance": 4250,
+     "minCount": 1,
+     "maxCount": 3
+    },
+    {
      "name": "Piece of Steel",
-     "chance": 80000,
+     "chance": 100000,
      "minCount": 1,
      "maxCount": 21
     },
     {
-     "name": "Stone Orb",
-     "chance": 30000,
+     "name": "Small Stone",
+     "chance": 100000,
      "minCount": 1,
-     "maxCount": 1
+     "maxCount": 21
     },
     {
-     "name": "Metal Hull",
-     "chance": 4250,
+     "name": "Rock Stone",
+     "chance": 1000,
      "minCount": 1,
      "maxCount": 1
     },
@@ -34808,8 +34910,8 @@
      "maxCount": 1
     },
     {
-     "name": "Rock Stone",
-     "chance": 1000,
+     "name": "Stone Orb",
+     "chance": 50000,
      "minCount": 1,
      "maxCount": 1
     }
@@ -34911,7 +35013,13 @@
    "experience": 548,
    "loot": [
     {
-     "name": "Band Aid",
+     "name": "mediling",
+     "chance": 1000,
+     "minCount": 1,
+     "maxCount": 1
+    },
+    {
+     "name": "band-aid",
      "chance": 80000,
      "minCount": 1,
      "maxCount": 5
@@ -34925,12 +35033,6 @@
     {
      "name": "Future Orb",
      "chance": 20000,
-     "minCount": 1,
-     "maxCount": 1
-    },
-    {
-     "name": "mediling",
-     "chance": 1000,
      "minCount": 1,
      "maxCount": 1
     }
@@ -35008,7 +35110,13 @@
    "experience": 3848,
    "loot": [
     {
-     "name": "Band Aid",
+     "name": "mediling",
+     "chance": 4250,
+     "minCount": 1,
+     "maxCount": 1
+    },
+    {
+     "name": "band-aid",
      "chance": 80000,
      "minCount": 1,
      "maxCount": 21
@@ -35022,12 +35130,6 @@
     {
      "name": "Future Orb",
      "chance": 30000,
-     "minCount": 1,
-     "maxCount": 1
-    },
-    {
-     "name": "mediling",
-     "chance": 4250,
      "minCount": 1,
      "maxCount": 1
     },
@@ -35132,6 +35234,12 @@
    "experience": 548,
    "loot": [
     {
+     "name": "shock topknot",
+     "chance": 1000,
+     "minCount": 1,
+     "maxCount": 1
+    },
+    {
      "name": "Screw",
      "chance": 80000,
      "minCount": 1,
@@ -35140,12 +35248,6 @@
     {
      "name": "Electric Box",
      "chance": 20000,
-     "minCount": 1,
-     "maxCount": 1
-    },
-    {
-     "name": "shock topknot",
-     "chance": 1000,
      "minCount": 1,
      "maxCount": 1
     }
@@ -35230,6 +35332,12 @@
    "experience": 3848,
    "loot": [
     {
+     "name": "shock topknot",
+     "chance": 4250,
+     "minCount": 1,
+     "maxCount": 1
+    },
+    {
      "name": "Screw",
      "chance": 80000,
      "minCount": 1,
@@ -35238,12 +35346,6 @@
     {
      "name": "Electric Box",
      "chance": 40000,
-     "minCount": 1,
-     "maxCount": 1
-    },
-    {
-     "name": "shock topknot",
-     "chance": 4250,
      "minCount": 1,
      "maxCount": 1
     },
@@ -35343,6 +35445,12 @@
    "experience": 548,
    "loot": [
     {
+     "name": "nu ball",
+     "chance": 1100,
+     "minCount": 1,
+     "maxCount": 1
+    },
+    {
      "name": "Essence of Fire",
      "chance": 80000,
      "minCount": 1,
@@ -35363,12 +35471,6 @@
     {
      "name": "Sandbag",
      "chance": 13000,
-     "minCount": 1,
-     "maxCount": 1
-    },
-    {
-     "name": "nu ball",
-     "chance": 1100,
      "minCount": 1,
      "maxCount": 1
     }
@@ -35446,6 +35548,12 @@
    "experience": 3848,
    "loot": [
     {
+     "name": "nu ball",
+     "chance": 4500,
+     "minCount": 1,
+     "maxCount": 1
+    },
+    {
      "name": "Essence of Fire",
      "chance": 80000,
      "minCount": 1,
@@ -35466,12 +35574,6 @@
     {
      "name": "Sandbag",
      "chance": 22000,
-     "minCount": 1,
-     "maxCount": 1
-    },
-    {
-     "name": "nu ball",
-     "chance": 4500,
      "minCount": 1,
      "maxCount": 1
     },
@@ -35710,6 +35812,12 @@
    "experience": 248,
    "loot": [
     {
+     "name": "springs",
+     "chance": 1300,
+     "minCount": 1,
+     "maxCount": 1
+    },
+    {
      "name": "Enchanted Gem",
      "chance": 80000,
      "minCount": 1,
@@ -35718,12 +35826,6 @@
     {
      "name": "Future Orb",
      "chance": 20000,
-     "minCount": 1,
-     "maxCount": 1
-    },
-    {
-     "name": "springs",
-     "chance": 1300,
      "minCount": 1,
      "maxCount": 1
     }
@@ -35800,6 +35902,12 @@
    "experience": 3848,
    "loot": [
     {
+     "name": "springs",
+     "chance": 5000,
+     "minCount": 1,
+     "maxCount": 1
+    },
+    {
      "name": "Enchanted Gem",
      "chance": 80000,
      "minCount": 1,
@@ -35808,12 +35916,6 @@
     {
      "name": "Future Orb",
      "chance": 30000,
-     "minCount": 1,
-     "maxCount": 1
-    },
-    {
-     "name": "springs",
-     "chance": 5000,
      "minCount": 1,
      "maxCount": 1
     },
@@ -35920,26 +36022,20 @@
    "experience": 248,
    "loot": [
     {
+     "name": "strange ball",
+     "chance": 1000,
+     "minCount": 1,
+     "maxCount": 1
+    },
+    {
      "name": "Earth Ball",
      "chance": 80000,
      "minCount": 1,
-     "maxCount": 15
+     "maxCount": 10
     },
     {
      "name": "Sandbag",
-     "chance": 21000,
-     "minCount": 1,
-     "maxCount": 1
-    },
-    {
-     "name": "Sand Tail",
-     "chance": 2200,
-     "minCount": 1,
-     "maxCount": 1
-    },
-    {
-     "name": "Earth Stone",
-     "chance": 1000,
+     "chance": 20000,
      "minCount": 1,
      "maxCount": 1
     }
@@ -36017,20 +36113,26 @@
    "experience": 1508,
    "loot": [
     {
-     "name": "Earth Ball",
-     "chance": 80000,
-     "minCount": 1,
-     "maxCount": 15
-    },
-    {
-     "name": "Sandbag",
-     "chance": 21000,
+     "name": "Sand Tail",
+     "chance": 2000,
      "minCount": 1,
      "maxCount": 1
     },
     {
-     "name": "Sand Tail",
-     "chance": 2200,
+     "name": "Dragon Scale",
+     "chance": 80000,
+     "minCount": 1,
+     "maxCount": 10
+    },
+    {
+     "name": "Earth Ball",
+     "chance": 80000,
+     "minCount": 1,
+     "maxCount": 10
+    },
+    {
+     "name": "Sandbag",
+     "chance": 30000,
      "minCount": 1,
      "maxCount": 1
     },
@@ -36106,6 +36208,18 @@
    "experience": 6008,
    "loot": [
     {
+     "name": "Sand Tail",
+     "chance": 4250,
+     "minCount": 1,
+     "maxCount": 1
+    },
+    {
+     "name": "Dragon Scale",
+     "chance": 80000,
+     "minCount": 1,
+     "maxCount": 21
+    },
+    {
      "name": "Earth Ball",
      "chance": 80000,
      "minCount": 1,
@@ -36113,18 +36227,18 @@
     },
     {
      "name": "Sandbag",
-     "chance": 30000,
-     "minCount": 1,
-     "maxCount": 1
-    },
-    {
-     "name": "Sand Tail",
-     "chance": 4250,
+     "chance": 50000,
      "minCount": 1,
      "maxCount": 1
     },
     {
      "name": "Earth Stone",
+     "chance": 1000,
+     "minCount": 1,
+     "maxCount": 1
+    },
+    {
+     "name": "Crystal Stone",
      "chance": 1000,
      "minCount": 1,
      "maxCount": 1
@@ -36244,6 +36358,12 @@
    "experience": 6008,
    "loot": [
     {
+     "name": "Cactus Head",
+     "chance": 4250,
+     "minCount": 1,
+     "maxCount": 1
+    },
+    {
      "name": "Seed",
      "chance": 80000,
      "minCount": 1,
@@ -36257,13 +36377,7 @@
     },
     {
      "name": "Small Crown",
-     "chance": 30000,
-     "minCount": 1,
-     "maxCount": 1
-    },
-    {
-     "name": "Cactus Head",
-     "chance": 4250,
+     "chance": 25000,
      "minCount": 1,
      "maxCount": 1
     },
@@ -36385,26 +36499,26 @@
    "experience": 968,
    "loot": [
     {
+     "name": "cloud",
+     "chance": 1000,
+     "minCount": 1,
+     "maxCount": 1
+    },
+    {
+     "name": "Rubber Ball",
+     "chance": 80000,
+     "minCount": 1,
+     "maxCount": 5
+    },
+    {
      "name": "Straw",
      "chance": 80000,
      "minCount": 1,
      "maxCount": 5
     },
     {
-     "name": "Water Gem",
-     "chance": 80000,
-     "minCount": 1,
-     "maxCount": 5
-    },
-    {
-     "name": "Water Pendant",
-     "chance": 21000,
-     "minCount": 1,
-     "maxCount": 1
-    },
-    {
-     "name": "pelican wing",
-     "chance": 1000,
+     "name": "Feather",
+     "chance": 13000,
      "minCount": 1,
      "maxCount": 1
     }
@@ -36498,14 +36612,38 @@
    "experience": 3848,
    "loot": [
     {
+     "name": "cloud",
+     "chance": 4250,
+     "minCount": 1,
+     "maxCount": 1
+    },
+    {
      "name": "Dragon Scale",
      "chance": 80000,
      "minCount": 1,
-     "maxCount": 15
+     "maxCount": 21
     },
     {
-     "name": "Mini Wings",
-     "chance": 2200,
+     "name": "Straw",
+     "chance": 80000,
+     "minCount": 1,
+     "maxCount": 21
+    },
+    {
+     "name": "Feather",
+     "chance": 25500,
+     "minCount": 1,
+     "maxCount": 1
+    },
+    {
+     "name": "Feather Stone",
+     "chance": 1000,
+     "minCount": 1,
+     "maxCount": 1
+    },
+    {
+     "name": "Crystal Stone",
+     "chance": 1000,
      "minCount": 1,
      "maxCount": 1
     }
@@ -36606,20 +36744,38 @@
    "experience": 6008,
    "loot": [
     {
-     "name": "Rubber Ball",
-     "chance": 80000,
-     "minCount": 1,
-     "maxCount": 10
-    },
-    {
-     "name": "Nail",
-     "chance": 20000,
+     "name": "tribe mark",
+     "chance": 4250,
      "minCount": 1,
      "maxCount": 1
     },
     {
-     "name": "cute ball",
-     "chance": 2000,
+     "name": "Wool Ball",
+     "chance": 22000,
+     "minCount": 1,
+     "maxCount": 1
+    },
+    {
+     "name": "Rubber Ball",
+     "chance": 80000,
+     "minCount": 1,
+     "maxCount": 43
+    },
+    {
+     "name": "Bottles of Poison",
+     "chance": 80000,
+     "minCount": 1,
+     "maxCount": 65
+    },
+    {
+     "name": "Heart Stone",
+     "chance": 1000,
+     "minCount": 1,
+     "maxCount": 1
+    },
+    {
+     "name": "cat ear",
+     "chance": 3150,
      "minCount": 1,
      "maxCount": 1
     }
@@ -36728,26 +36884,26 @@
    "experience": 6008,
    "loot": [
     {
-     "name": "Bottles of Poison",
-     "chance": 80000,
-     "minCount": 1,
-     "maxCount": 21
-    },
-    {
-     "name": "Tooth",
-     "chance": 30000,
-     "minCount": 1,
-     "maxCount": 1
-    },
-    {
      "name": "Poisonous Tail",
      "chance": 4250,
      "minCount": 1,
      "maxCount": 1
     },
     {
+     "name": "Bottles of Poison",
+     "chance": 80000,
+     "minCount": 1,
+     "maxCount": 43
+    },
+    {
      "name": "Venom Stone",
      "chance": 1000,
+     "minCount": 1,
+     "maxCount": 1
+    },
+    {
+     "name": "Tooth",
+     "chance": 60000,
      "minCount": 1,
      "maxCount": 1
     }
@@ -36840,6 +36996,12 @@
    "experience": 548,
    "loot": [
     {
+     "name": "lobster claw",
+     "chance": 1000,
+     "minCount": 1,
+     "maxCount": 1
+    },
+    {
      "name": "Water Gem",
      "chance": 80000,
      "minCount": 1,
@@ -36848,12 +37010,6 @@
     {
      "name": "Water Pendant",
      "chance": 21000,
-     "minCount": 1,
-     "maxCount": 1
-    },
-    {
-     "name": "lobster claw",
-     "chance": 1000,
      "minCount": 1,
      "maxCount": 1
     }
@@ -36939,6 +37095,12 @@
    "experience": 3848,
    "loot": [
     {
+     "name": "lobster claw",
+     "chance": 4250,
+     "minCount": 1,
+     "maxCount": 1
+    },
+    {
      "name": "Dark Gem",
      "chance": 80000,
      "minCount": 1,
@@ -36951,18 +37113,6 @@
      "maxCount": 21
     },
     {
-     "name": "Water Pendant",
-     "chance": 45000,
-     "minCount": 1,
-     "maxCount": 1
-    },
-    {
-     "name": "lobster claw",
-     "chance": 4250,
-     "minCount": 1,
-     "maxCount": 1
-    },
-    {
      "name": "Darkness Stone",
      "chance": 1000,
      "minCount": 1,
@@ -36971,6 +37121,12 @@
     {
      "name": "Water Stone",
      "chance": 1000,
+     "minCount": 1,
+     "maxCount": 1
+    },
+    {
+     "name": "Water Pendant",
+     "chance": 45000,
      "minCount": 1,
      "maxCount": 1
     }
@@ -37064,44 +37220,32 @@
    "experience": 548,
    "loot": [
     {
+     "name": "pawn",
+     "chance": 1000,
+     "minCount": 1,
+     "maxCount": 1
+    },
+    {
      "name": "Earth Ball",
      "chance": 80000,
      "minCount": 1,
-     "maxCount": 21
+     "maxCount": 5
     },
     {
      "name": "Enchanted Gem",
      "chance": 80000,
      "minCount": 1,
-     "maxCount": 21
+     "maxCount": 5
     },
     {
      "name": "Future Orb",
-     "chance": 22500,
+     "chance": 13000,
      "minCount": 1,
      "maxCount": 1
     },
     {
      "name": "Sandbag",
-     "chance": 22500,
-     "minCount": 1,
-     "maxCount": 1
-    },
-    {
-     "name": "pawn",
-     "chance": 4250,
-     "minCount": 1,
-     "maxCount": 1
-    },
-    {
-     "name": "Enigma Stone",
-     "chance": 1000,
-     "minCount": 1,
-     "maxCount": 1
-    },
-    {
-     "name": "Earth Stone",
-     "chance": 1000,
+     "chance": 13000,
      "minCount": 1,
      "maxCount": 1
     }
@@ -37179,6 +37323,12 @@
    "experience": 3848,
    "loot": [
     {
+     "name": "pawn",
+     "chance": 4250,
+     "minCount": 1,
+     "maxCount": 1
+    },
+    {
      "name": "Earth Ball",
      "chance": 80000,
      "minCount": 1,
@@ -37199,12 +37349,6 @@
     {
      "name": "Sandbag",
      "chance": 22500,
-     "minCount": 1,
-     "maxCount": 1
-    },
-    {
-     "name": "pawn",
-     "chance": 4250,
      "minCount": 1,
      "maxCount": 1
     },
@@ -37328,11 +37472,17 @@
      "name": "Ghost Essence",
      "chance": 80000,
      "minCount": 1,
-     "maxCount": 20
+     "maxCount": 43
     },
     {
-     "name": "ghost skull",
-     "chance": 2000,
+     "name": "doll star",
+     "chance": 5000,
+     "minCount": 1,
+     "maxCount": 2
+    },
+    {
+     "name": "Darkness Stone",
+     "chance": 1000,
      "minCount": 1,
      "maxCount": 1
     }
@@ -37512,11 +37662,23 @@
      "name": "Ghost Essence",
      "chance": 80000,
      "minCount": 1,
-     "maxCount": 20
+     "maxCount": 43
     },
     {
      "name": "ghost skull",
-     "chance": 2000,
+     "chance": 5000,
+     "minCount": 1,
+     "maxCount": 1
+    },
+    {
+     "name": "Darkness Stone",
+     "chance": 1000,
+     "minCount": 1,
+     "maxCount": 1
+    },
+    {
+     "name": "creepy eye",
+     "chance": 1000,
      "minCount": 1,
      "maxCount": 1
     }
@@ -37618,20 +37780,50 @@
    "experience": 6008,
    "loot": [
     {
-     "name": "Seed",
-     "chance": 80000,
-     "minCount": 1,
-     "maxCount": 10
-    },
-    {
-     "name": "Leaves",
-     "chance": 26000,
+     "name": "palm leaves",
+     "chance": 4250,
      "minCount": 1,
      "maxCount": 1
     },
     {
-     "name": "big seed",
-     "chance": 1100,
+     "name": "Straw",
+     "chance": 80000,
+     "minCount": 1,
+     "maxCount": 21
+    },
+    {
+     "name": "Seed",
+     "chance": 80000,
+     "minCount": 1,
+     "maxCount": 21
+    },
+    {
+     "name": "Feather",
+     "chance": 13000,
+     "minCount": 1,
+     "maxCount": 1
+    },
+    {
+     "name": "Bird Beak",
+     "chance": 25500,
+     "minCount": 1,
+     "maxCount": 1
+    },
+    {
+     "name": "Feather Stone",
+     "chance": 1000,
+     "minCount": 1,
+     "maxCount": 1
+    },
+    {
+     "name": "Leaf Stone",
+     "chance": 1000,
+     "minCount": 1,
+     "maxCount": 1
+    },
+    {
+     "name": "Ancient Stone",
+     "chance": 1000,
      "minCount": 1,
      "maxCount": 1
     }
@@ -37724,25 +37916,25 @@
    "experience": 6008,
    "loot": [
     {
+     "name": "dark moon",
+     "chance": 1000,
+     "minCount": 1,
+     "maxCount": 1
+    },
+    {
      "name": "Dark Gem",
-     "chance": 80000,
+     "chance": 100000,
      "minCount": 1,
-     "maxCount": 21
-    },
-    {
-     "name": "Ruby",
-     "chance": 30000,
-     "minCount": 1,
-     "maxCount": 1
-    },
-    {
-     "name": "Big Crystal",
-     "chance": 4250,
-     "minCount": 1,
-     "maxCount": 1
+     "maxCount": 43
     },
     {
      "name": "Darkness Stone",
+     "chance": 1000,
+     "minCount": 1,
+     "maxCount": 1
+    },
+    {
+     "name": "Ancient Stone",
      "chance": 1000,
      "minCount": 1,
      "maxCount": 1
@@ -37852,6 +38044,12 @@
    "experience": 548,
    "loot": [
     {
+     "name": "ice blocks",
+     "chance": 1000,
+     "minCount": 1,
+     "maxCount": 1
+    },
+    {
      "name": "Snowball",
      "chance": 80000,
      "minCount": 1,
@@ -37859,13 +38057,7 @@
     },
     {
      "name": "Ice Orb",
-     "chance": 16000,
-     "minCount": 1,
-     "maxCount": 1
-    },
-    {
-     "name": "ice blocks",
-     "chance": 1100,
+     "chance": 10000,
      "minCount": 1,
      "maxCount": 1
     }
@@ -37942,6 +38134,12 @@
    "experience": 3848,
    "loot": [
     {
+     "name": "ice blocks",
+     "chance": 4250,
+     "minCount": 1,
+     "maxCount": 1
+    },
+    {
      "name": "Snowball",
      "chance": 80000,
      "minCount": 1,
@@ -37950,12 +38148,6 @@
     {
      "name": "Ice Orb",
      "chance": 25000,
-     "minCount": 1,
-     "maxCount": 1
-    },
-    {
-     "name": "ice blocks",
-     "chance": 4250,
      "minCount": 1,
      "maxCount": 1
     },
@@ -38175,44 +38367,50 @@
    "experience": 2168,
    "loot": [
     {
+     "name": "seal mustache",
+     "chance": 2000,
+     "minCount": 1,
+     "maxCount": 1
+    },
+    {
      "name": "Snowball",
      "chance": 80000,
      "minCount": 1,
-     "maxCount": 15
+     "maxCount": 14
     },
     {
      "name": "Water Gem",
      "chance": 80000,
      "minCount": 1,
-     "maxCount": 15
+     "maxCount": 14
     },
     {
      "name": "Ice Orb",
-     "chance": 21000,
-     "minCount": 1,
-     "maxCount": 1
-    },
-    {
-     "name": "Nail",
-     "chance": 21000,
+     "chance": 1200,
      "minCount": 1,
      "maxCount": 1
     },
     {
      "name": "Water Pendant",
-     "chance": 21000,
-     "minCount": 1,
-     "maxCount": 1
-    },
-    {
-     "name": "seal mustache",
-     "chance": 2200,
+     "chance": 18000,
      "minCount": 1,
      "maxCount": 1
     },
     {
      "name": "Ice Stone",
      "chance": 1000,
+     "minCount": 1,
+     "maxCount": 1
+    },
+    {
+     "name": "Water Stone",
+     "chance": 1000,
+     "minCount": 1,
+     "maxCount": 1
+    },
+    {
+     "name": "Nail",
+     "chance": 35000,
      "minCount": 1,
      "maxCount": 1
     }
@@ -38314,6 +38512,12 @@
    "experience": 6008,
    "loot": [
     {
+     "name": "seal mustache",
+     "chance": 4250,
+     "minCount": 1,
+     "maxCount": 1
+    },
+    {
      "name": "Snowball",
      "chance": 100000,
      "minCount": 1,
@@ -38326,26 +38530,14 @@
      "maxCount": 21
     },
     {
-     "name": "Nail",
-     "chance": 50000,
+     "name": "Ice Orb",
+     "chance": 3000,
      "minCount": 1,
      "maxCount": 1
     },
     {
      "name": "Water Pendant",
      "chance": 25500,
-     "minCount": 1,
-     "maxCount": 1
-    },
-    {
-     "name": "seal mustache",
-     "chance": 4250,
-     "minCount": 1,
-     "maxCount": 1
-    },
-    {
-     "name": "Ice Orb",
-     "chance": 3000,
      "minCount": 1,
      "maxCount": 1
     },
@@ -38358,6 +38550,12 @@
     {
      "name": "Crystal Stone",
      "chance": 1000,
+     "minCount": 1,
+     "maxCount": 1
+    },
+    {
+     "name": "Nail",
+     "chance": 50000,
      "minCount": 1,
      "maxCount": 1
     }
@@ -38458,16 +38656,16 @@
    "experience": 968,
    "loot": [
     {
+     "name": "Mini Wings",
+     "chance": 1000,
+     "minCount": 1,
+     "maxCount": 1
+    },
+    {
      "name": "Dragon Scale",
      "chance": 80000,
      "minCount": 1,
-     "maxCount": 15
-    },
-    {
-     "name": "Mini Wings",
-     "chance": 2200,
-     "minCount": 1,
-     "maxCount": 1
+     "maxCount": 10
     }
    ],
    "attacks": [
@@ -38550,16 +38748,16 @@
    "experience": 2168,
    "loot": [
     {
+     "name": "Mini Wings",
+     "chance": 1000,
+     "minCount": 1,
+     "maxCount": 1
+    },
+    {
      "name": "Dragon Scale",
      "chance": 80000,
      "minCount": 1,
-     "maxCount": 21
-    },
-    {
-     "name": "Mini Wings",
-     "chance": 4250,
-     "minCount": 1,
-     "maxCount": 1
+     "maxCount": 20
     },
     {
      "name": "Crystal Stone",
@@ -38674,16 +38872,16 @@
    "experience": 248,
    "loot": [
     {
+     "name": "Tech Ball",
+     "chance": 1000,
+     "minCount": 1,
+     "maxCount": 1
+    },
+    {
      "name": "Piece of Steel",
      "chance": 80000,
      "minCount": 1,
      "maxCount": 10
-    },
-    {
-     "name": "Tech Ball",
-     "chance": 1100,
-     "minCount": 1,
-     "maxCount": 1
     }
    ],
    "attacks": [
@@ -38751,19 +38949,25 @@
    "experience": 3848,
    "loot": [
     {
-     "name": "Piece of Steel",
-     "chance": 80000,
-     "minCount": 1,
-     "maxCount": 21
-    },
-    {
      "name": "Tech Ball",
-     "chance": 4250,
+     "chance": 1000,
      "minCount": 1,
      "maxCount": 1
     },
     {
+     "name": "Piece of Steel",
+     "chance": 80000,
+     "minCount": 1,
+     "maxCount": 20
+    },
+    {
      "name": "Metal Stone",
+     "chance": 1000,
+     "minCount": 1,
+     "maxCount": 1
+    },
+    {
+     "name": "Enigma Stone",
      "chance": 1000,
      "minCount": 1,
      "maxCount": 1
@@ -45789,32 +45993,20 @@
      "maxCount": 1
     },
     {
-     "name": "Bottles of Poison",
-     "chance": 92959,
-     "minCount": 6,
-     "maxCount": 31
-    },
-    {
      "name": "Seed",
-     "chance": 92959,
-     "minCount": 6,
-     "maxCount": 31
+     "chance": 95000,
+     "minCount": 9,
+     "maxCount": 88
     },
     {
      "name": "Leaves",
-     "chance": 92959,
-     "minCount": 2,
-     "maxCount": 2
+     "chance": 95000,
+     "minCount": 3,
+     "maxCount": 3
     },
     {
-     "name": "Bag of Pollen",
-     "chance": 42815,
-     "minCount": 1,
-     "maxCount": 1
-    },
-    {
-     "name": "Bulb",
-     "chance": 3568,
+     "name": "greens",
+     "chance": 10485,
      "minCount": 1,
      "maxCount": 1
     },
@@ -45910,19 +46102,19 @@
    "loot": [
     {
      "name": "Seed",
-     "chance": 93844,
-     "minCount": 14,
-     "maxCount": 203
+     "chance": 95000,
+     "minCount": 10,
+     "maxCount": 209
     },
     {
      "name": "Leaves",
-     "chance": 93844,
+     "chance": 95000,
      "minCount": 4,
      "maxCount": 4
     },
     {
      "name": "greens",
-     "chance": 34948,
+     "chance": 24766,
      "minCount": 1,
      "maxCount": 1
     },
@@ -46031,32 +46223,20 @@
      "maxCount": 1
     },
     {
-     "name": "Bottles of Poison",
-     "chance": 89740,
-     "minCount": 8,
-     "maxCount": 172
-    },
-    {
      "name": "Seed",
-     "chance": 89740,
-     "minCount": 8,
-     "maxCount": 172
+     "chance": 95000,
+     "minCount": 13,
+     "maxCount": 554
     },
     {
      "name": "Leaves",
-     "chance": 89740,
-     "minCount": 5,
-     "maxCount": 5
+     "chance": 95000,
+     "minCount": 8,
+     "maxCount": 8
     },
     {
-     "name": "Bag of Pollen",
-     "chance": 89740,
-     "minCount": 3,
-     "maxCount": 3
-    },
-    {
-     "name": "Bulb",
-     "chance": 39420,
+     "name": "greens",
+     "chance": 65014,
      "minCount": 1,
      "maxCount": 1
     }
@@ -46159,22 +46339,22 @@
      "maxCount": 1
     },
     {
+     "name": "fire feather",
+     "chance": 8451,
+     "minCount": 1,
+     "maxCount": 1
+    },
+    {
      "name": "Essence of Fire",
-     "chance": 79927,
-     "minCount": 8,
-     "maxCount": 77
+     "chance": 95000,
+     "minCount": 7,
+     "maxCount": 71
     },
     {
      "name": "Pot of Lava",
-     "chance": 79927,
+     "chance": 95000,
      "minCount": 2,
      "maxCount": 2
-    },
-    {
-     "name": "Fire Tail",
-     "chance": 3848,
-     "minCount": 1,
-     "maxCount": 1
     },
     {
      "name": "Fire Stone",
@@ -46268,20 +46448,26 @@
    "experience": 968,
    "loot": [
     {
+     "name": "fire feather",
+     "chance": 1512,
+     "minCount": 1,
+     "maxCount": 1
+    },
+    {
+     "name": "band-aid",
+     "chance": 60471,
+     "minCount": 1,
+     "maxCount": 10
+    },
+    {
      "name": "Essence of Fire",
-     "chance": 91370,
-     "minCount": 11,
-     "maxCount": 166
+     "chance": 60471,
+     "minCount": 1,
+     "maxCount": 10
     },
     {
      "name": "Pot of Lava",
-     "chance": 91370,
-     "minCount": 3,
-     "maxCount": 3
-    },
-    {
-     "name": "fire feather",
-     "chance": 27794,
+     "chance": 24188,
      "minCount": 1,
      "maxCount": 1
     },
@@ -46391,32 +46577,26 @@
      "maxCount": 1
     },
     {
-     "name": "Straw",
-     "chance": 91094,
-     "minCount": 8,
-     "maxCount": 172
-    },
-    {
-     "name": "Essence of Fire",
-     "chance": 91094,
-     "minCount": 8,
-     "maxCount": 172
-    },
-    {
-     "name": "Pot of Lava",
-     "chance": 91094,
-     "minCount": 4,
-     "maxCount": 4
-    },
-    {
-     "name": "Fire Tail",
-     "chance": 40095,
+     "name": "fire feather",
+     "chance": 3565,
      "minCount": 1,
      "maxCount": 1
     },
     {
-     "name": "Dragon Tooth",
-     "chance": 4662,
+     "name": "band-aid",
+     "chance": 67101,
+     "minCount": 1,
+     "maxCount": 21
+    },
+    {
+     "name": "Essence of Fire",
+     "chance": 67101,
+     "minCount": 1,
+     "maxCount": 21
+    },
+    {
+     "name": "Pot of Lava",
+     "chance": 38164,
      "minCount": 1,
      "maxCount": 1
     }
@@ -46535,22 +46715,22 @@
      "maxCount": 1
     },
     {
+     "name": "black fins",
+     "chance": 10114,
+     "minCount": 1,
+     "maxCount": 1
+    },
+    {
      "name": "Water Gem",
      "chance": 95000,
      "minCount": 9,
-     "maxCount": 90
+     "maxCount": 85
     },
     {
      "name": "Water Pendant",
      "chance": 95000,
      "minCount": 2,
      "maxCount": 2
-    },
-    {
-     "name": "Squirtle Hull",
-     "chance": 5359,
-     "minCount": 1,
-     "maxCount": 1
     },
     {
      "name": "Water Stone",
@@ -46650,22 +46830,34 @@
      "maxCount": 1
     },
     {
-     "name": "Water Gem",
-     "chance": 93801,
+     "name": "black fins",
+     "chance": 22379,
+     "minCount": 1,
+     "maxCount": 1
+    },
+    {
+     "name": "Earth Ball",
+     "chance": 95000,
      "minCount": 9,
-     "maxCount": 186
+     "maxCount": 94
+    },
+    {
+     "name": "Water Gem",
+     "chance": 95000,
+     "minCount": 9,
+     "maxCount": 94
     },
     {
      "name": "Water Pendant",
-     "chance": 93801,
-     "minCount": 3,
-     "maxCount": 3
+     "chance": 95000,
+     "minCount": 2,
+     "maxCount": 2
     },
     {
-     "name": "Squirtle Hull",
-     "chance": 21786,
-     "minCount": 1,
-     "maxCount": 1
+     "name": "Sandbag",
+     "chance": 95000,
+     "minCount": 2,
+     "maxCount": 2
     },
     {
      "name": "Water Stone",
@@ -46759,34 +46951,34 @@
    "experience": 19508,
    "loot": [
     {
-     "name": "Water Gem",
-     "chance": 90293,
-     "minCount": 12,
-     "maxCount": 247
+     "name": "black fins",
+     "chance": 58965,
+     "minCount": 1,
+     "maxCount": 1
     },
     {
      "name": "Earth Ball",
-     "chance": 90293,
+     "chance": 95000,
      "minCount": 12,
-     "maxCount": 247
+     "maxCount": 245
+    },
+    {
+     "name": "Water Gem",
+     "chance": 95000,
+     "minCount": 12,
+     "maxCount": 245
     },
     {
      "name": "Water Pendant",
-     "chance": 90293,
-     "minCount": 4,
-     "maxCount": 4
+     "chance": 95000,
+     "minCount": 3,
+     "maxCount": 3
     },
     {
      "name": "Sandbag",
-     "chance": 90293,
-     "minCount": 4,
-     "maxCount": 4
-    },
-    {
-     "name": "black fins",
-     "chance": 56320,
-     "minCount": 1,
-     "maxCount": 1
+     "chance": 95000,
+     "minCount": 3,
+     "maxCount": 3
     },
     {
      "name": "Water Stone",
@@ -46915,22 +47107,16 @@
      "maxCount": 1
     },
     {
-     "name": "Dark Gem",
-     "chance": 65809,
-     "minCount": 1,
-     "maxCount": 10
-    },
-    {
-     "name": "Ruby",
-     "chance": 49357,
-     "minCount": 1,
-     "maxCount": 3
-    },
-    {
-     "name": "Big Crystal",
-     "chance": 16452,
+     "name": "hyena tail",
+     "chance": 32674,
      "minCount": 1,
      "maxCount": 1
+    },
+    {
+     "name": "Dark Gem",
+     "chance": 95000,
+     "minCount": 18,
+     "maxCount": 183
     },
     {
      "name": "Darkness Stone",
@@ -47013,22 +47199,16 @@
      "maxCount": 1
     },
     {
-     "name": "Dark Gem",
-     "chance": 83582,
-     "minCount": 3,
-     "maxCount": 27
-    },
-    {
-     "name": "Ruby",
-     "chance": 83582,
-     "minCount": 2,
-     "maxCount": 6
-    },
-    {
-     "name": "Big Crystal",
-     "chance": 55461,
+     "name": "hyena tail",
+     "chance": 81267,
      "minCount": 1,
      "maxCount": 1
+    },
+    {
+     "name": "Dark Gem",
+     "chance": 95000,
+     "minCount": 16,
+     "maxCount": 692
     },
     {
      "name": "Darkness Stone",
@@ -47144,20 +47324,32 @@
      "maxCount": 1
     },
     {
+     "name": "water plant",
+     "chance": 9531,
+     "minCount": 1,
+     "maxCount": 1
+    },
+    {
+     "name": "Seed",
+     "chance": 95000,
+     "minCount": 7,
+     "maxCount": 36
+    },
+    {
      "name": "Water Gem",
-     "chance": 89630,
-     "minCount": 3,
-     "maxCount": 26
+     "chance": 95000,
+     "minCount": 7,
+     "maxCount": 36
+    },
+    {
+     "name": "Leaves",
+     "chance": 95000,
+     "minCount": 1,
+     "maxCount": 1
     },
     {
      "name": "Water Pendant",
-     "chance": 89630,
-     "minCount": 2,
-     "maxCount": 6
-    },
-    {
-     "name": "lobster claw",
-     "chance": 57664,
+     "chance": 95000,
      "minCount": 1,
      "maxCount": 1
     }
@@ -47237,20 +47429,32 @@
      "maxCount": 1
     },
     {
+     "name": "water plant",
+     "chance": 30469,
+     "minCount": 1,
+     "maxCount": 1
+    },
+    {
+     "name": "Seed",
+     "chance": 95000,
+     "minCount": 12,
+     "maxCount": 117
+    },
+    {
      "name": "Water Gem",
-     "chance": 85845,
-     "minCount": 6,
-     "maxCount": 64
+     "chance": 95000,
+     "minCount": 12,
+     "maxCount": 117
+    },
+    {
+     "name": "Leaves",
+     "chance": 95000,
+     "minCount": 2,
+     "maxCount": 2
     },
     {
      "name": "Water Pendant",
-     "chance": 85845,
-     "minCount": 5,
-     "maxCount": 15
-    },
-    {
-     "name": "lobster claw",
-     "chance": 85845,
+     "chance": 95000,
      "minCount": 2,
      "maxCount": 2
     }
@@ -47346,22 +47550,34 @@
      "maxCount": 1
     },
     {
+     "name": "water plant",
+     "chance": 95000,
+     "minCount": 1,
+     "maxCount": 1
+    },
+    {
+     "name": "Seed",
+     "chance": 95000,
+     "minCount": 19,
+     "maxCount": 391
+    },
+    {
      "name": "Water Gem",
      "chance": 95000,
      "minCount": 19,
-     "maxCount": 195
+     "maxCount": 391
+    },
+    {
+     "name": "Leaves",
+     "chance": 95000,
+     "minCount": 5,
+     "maxCount": 5
     },
     {
      "name": "Water Pendant",
      "chance": 95000,
-     "minCount": 14,
-     "maxCount": 43
-    },
-    {
-     "name": "lobster claw",
-     "chance": 95000,
-     "minCount": 4,
-     "maxCount": 4
+     "minCount": 5,
+     "maxCount": 5
     }
    ],
    "attacks": [
@@ -47470,28 +47686,22 @@
      "maxCount": 1
     },
     {
+     "name": "big seed",
+     "chance": 7184,
+     "minCount": 1,
+     "maxCount": 1
+    },
+    {
      "name": "Seed",
      "chance": 95000,
      "minCount": 6,
-     "maxCount": 18
-    },
-    {
-     "name": "Enchanted Gem",
-     "chance": 95000,
-     "minCount": 6,
-     "maxCount": 18
+     "maxCount": 55
     },
     {
      "name": "Leaves",
      "chance": 95000,
      "minCount": 2,
      "maxCount": 2
-    },
-    {
-     "name": "Plant Foot",
-     "chance": 3643,
-     "minCount": 1,
-     "maxCount": 1
     },
     {
      "name": "Leaf Stone",
@@ -47575,28 +47785,28 @@
      "maxCount": 1
     },
     {
+     "name": "big seed",
+     "chance": 24118,
+     "minCount": 1,
+     "maxCount": 1
+    },
+    {
      "name": "Seed",
-     "chance": 92825,
-     "minCount": 11,
-     "maxCount": 63
+     "chance": 95000,
+     "minCount": 9,
+     "maxCount": 92
     },
     {
-     "name": "Bottles of Poison",
-     "chance": 92825,
-     "minCount": 11,
-     "maxCount": 63
+     "name": "Dark Gem",
+     "chance": 95000,
+     "minCount": 9,
+     "maxCount": 92
     },
     {
-     "name": "Bag of Pollen",
-     "chance": 91824,
-     "minCount": 1,
-     "maxCount": 1
-    },
-    {
-     "name": "Strange Flower",
-     "chance": 25711,
-     "minCount": 1,
-     "maxCount": 1
+     "name": "Leaves",
+     "chance": 95000,
+     "minCount": 4,
+     "maxCount": 4
     },
     {
      "name": "Leaf Stone",
@@ -47682,28 +47892,28 @@
    "experience": 19508,
    "loot": [
     {
+     "name": "Sharp Leaves",
+     "chance": 72429,
+     "minCount": 1,
+     "maxCount": 1
+    },
+    {
      "name": "Seed",
      "chance": 95000,
-     "minCount": 15,
-     "maxCount": 307
+     "minCount": 14,
+     "maxCount": 285
     },
     {
      "name": "Dark Gem",
      "chance": 95000,
-     "minCount": 15,
-     "maxCount": 307
+     "minCount": 14,
+     "maxCount": 285
     },
     {
      "name": "Leaves",
      "chance": 95000,
-     "minCount": 5,
-     "maxCount": 5
-    },
-    {
-     "name": "Sharp Leaves",
-     "chance": 73775,
-     "minCount": 1,
-     "maxCount": 1
+     "minCount": 8,
+     "maxCount": 8
     },
     {
      "name": "Leaf Stone",
@@ -47817,26 +48027,32 @@
      "maxCount": 1
     },
     {
+     "name": "crimson feather",
+     "chance": 17804,
+     "minCount": 1,
+     "maxCount": 1
+    },
+    {
      "name": "Straw",
      "chance": 95000,
      "minCount": 14,
-     "maxCount": 138
+     "maxCount": 68
     },
     {
-     "name": "Water Gem",
+     "name": "Rubber Ball",
      "chance": 95000,
-     "minCount": 11,
-     "maxCount": 31
+     "minCount": 14,
+     "maxCount": 68
     },
     {
-     "name": "Water Pendant",
+     "name": "Feather",
      "chance": 95000,
-     "minCount": 3,
-     "maxCount": 3
+     "minCount": 2,
+     "maxCount": 2
     },
     {
-     "name": "pelican wing",
-     "chance": 32605,
+     "name": "Bird Beak",
+     "chance": 95000,
      "minCount": 1,
      "maxCount": 1
     }
@@ -47924,28 +48140,34 @@
      "maxCount": 1
     },
     {
-     "name": "Straw",
-     "chance": 95000,
-     "minCount": 37,
-     "maxCount": 373
-    },
-    {
-     "name": "Water Gem",
-     "chance": 95000,
-     "minCount": 28,
-     "maxCount": 84
-    },
-    {
-     "name": "Water Pendant",
-     "chance": 95000,
-     "minCount": 10,
-     "maxCount": 10
-    },
-    {
-     "name": "pelican wing",
-     "chance": 88596,
+     "name": "crimson feather",
+     "chance": 65209,
      "minCount": 1,
      "maxCount": 1
+    },
+    {
+     "name": "Straw",
+     "chance": 95000,
+     "minCount": 12,
+     "maxCount": 232
+    },
+    {
+     "name": "Rubber Ball",
+     "chance": 95000,
+     "minCount": 12,
+     "maxCount": 232
+    },
+    {
+     "name": "Feather",
+     "chance": 95000,
+     "minCount": 2,
+     "maxCount": 2
+    },
+    {
+     "name": "Bird Beak",
+     "chance": 95000,
+     "minCount": 4,
+     "maxCount": 4
     }
    ],
    "attacks": [
@@ -48055,22 +48277,28 @@
      "maxCount": 1
     },
     {
+     "name": "pelican wing",
+     "chance": 14614,
+     "minCount": 1,
+     "maxCount": 1
+    },
+    {
+     "name": "Straw",
+     "chance": 95000,
+     "minCount": 12,
+     "maxCount": 62
+    },
+    {
      "name": "Water Gem",
-     "chance": 92735,
-     "minCount": 10,
-     "maxCount": 104
+     "chance": 95000,
+     "minCount": 12,
+     "maxCount": 62
     },
     {
      "name": "Water Pendant",
-     "chance": 92735,
+     "chance": 95000,
      "minCount": 3,
      "maxCount": 3
-    },
-    {
-     "name": "Strange Thing",
-     "chance": 19357,
-     "minCount": 1,
-     "maxCount": 1
     },
     {
      "name": "Crystal Stone",
@@ -48156,28 +48384,28 @@
    "experience": 19508,
    "loot": [
     {
+     "name": "pelican wing",
+     "chance": 52137,
+     "minCount": 1,
+     "maxCount": 1
+    },
+    {
      "name": "Straw",
-     "chance": 93912,
-     "minCount": 11,
-     "maxCount": 236
+     "chance": 95000,
+     "minCount": 10,
+     "maxCount": 217
     },
     {
      "name": "Water Gem",
-     "chance": 93912,
-     "minCount": 11,
-     "maxCount": 236
+     "chance": 95000,
+     "minCount": 10,
+     "maxCount": 217
     },
     {
      "name": "Water Pendant",
-     "chance": 93912,
-     "minCount": 4,
-     "maxCount": 4
-    },
-    {
-     "name": "pelican wing",
-     "chance": 56105,
-     "minCount": 1,
-     "maxCount": 1
+     "chance": 95000,
+     "minCount": 6,
+     "maxCount": 6
     },
     {
      "name": "Water Stone",
@@ -48287,28 +48515,28 @@
    "experience": 548,
    "loot": [
     {
-     "name": "Enchanted Gem",
-     "chance": 90792,
-     "minCount": 4,
-     "maxCount": 41
+     "name": "Cure Flower",
+     "chance": 12097,
+     "minCount": 1,
+     "maxCount": 1
     },
     {
      "name": "Comb",
-     "chance": 74478,
+     "chance": 12097,
      "minCount": 1,
      "maxCount": 1
+    },
+    {
+     "name": "Enchanted Gem",
+     "chance": 95000,
+     "minCount": 10,
+     "maxCount": 102
     },
     {
      "name": "Future Orb",
-     "chance": 74478,
-     "minCount": 1,
-     "maxCount": 1
-    },
-    {
-     "name": "Cure Flower",
-     "chance": 5121,
-     "minCount": 1,
-     "maxCount": 1
+     "chance": 95000,
+     "minCount": 3,
+     "maxCount": 3
     }
    ],
    "attacks": [
@@ -48388,28 +48616,28 @@
    "experience": 2168,
    "loot": [
     {
-     "name": "Enchanted Gem",
-     "chance": 74707,
-     "minCount": 6,
-     "maxCount": 92
+     "name": "Cure Flower",
+     "chance": 31268,
+     "minCount": 1,
+     "maxCount": 1
     },
     {
      "name": "Comb",
-     "chance": 74707,
-     "minCount": 2,
-     "maxCount": 2
+     "chance": 27359,
+     "minCount": 1,
+     "maxCount": 1
+    },
+    {
+     "name": "Enchanted Gem",
+     "chance": 95000,
+     "minCount": 7,
+     "maxCount": 283
     },
     {
      "name": "Future Orb",
-     "chance": 74707,
+     "chance": 95000,
      "minCount": 2,
      "maxCount": 2
-    },
-    {
-     "name": "Cure Flower",
-     "chance": 12601,
-     "minCount": 1,
-     "maxCount": 1
     },
     {
      "name": "Heart Stone",
@@ -48503,28 +48731,28 @@
    "experience": 19508,
    "loot": [
     {
-     "name": "Enchanted Gem",
-     "chance": 88864,
-     "minCount": 8,
-     "maxCount": 168
+     "name": "Cure Flower",
+     "chance": 52480,
+     "minCount": 1,
+     "maxCount": 1
     },
     {
      "name": "Comb",
-     "chance": 88864,
-     "minCount": 3,
-     "maxCount": 3
+     "chance": 30871,
+     "minCount": 1,
+     "maxCount": 1
+    },
+    {
+     "name": "Enchanted Gem",
+     "chance": 95000,
+     "minCount": 13,
+     "maxCount": 559
     },
     {
      "name": "Future Orb",
-     "chance": 88864,
-     "minCount": 3,
-     "maxCount": 3
-    },
-    {
-     "name": "Cure Flower",
-     "chance": 37766,
-     "minCount": 1,
-     "maxCount": 1
+     "chance": 95000,
+     "minCount": 5,
+     "maxCount": 5
     },
     {
      "name": "Enigma Stone",
@@ -48637,22 +48865,22 @@
      "maxCount": 1
     },
     {
-     "name": "Rubber Ball",
-     "chance": 95000,
-     "minCount": 5,
-     "maxCount": 51
-    },
-    {
-     "name": "Nail",
-     "chance": 95000,
-     "minCount": 4,
-     "maxCount": 11
-    },
-    {
-     "name": "cute ball",
-     "chance": 95000,
+     "name": "fur ball",
+     "chance": 21278,
      "minCount": 1,
      "maxCount": 1
+    },
+    {
+     "name": "Rubber Ball",
+     "chance": 95000,
+     "minCount": 14,
+     "maxCount": 138
+    },
+    {
+     "name": "Fur",
+     "chance": 95000,
+     "minCount": 4,
+     "maxCount": 4
     }
    ],
    "attacks": [
@@ -48745,22 +48973,22 @@
      "maxCount": 1
     },
     {
+     "name": "fur ball",
+     "chance": 42213,
+     "minCount": 1,
+     "maxCount": 1
+    },
+    {
      "name": "Rubber Ball",
-     "chance": 90701,
-     "minCount": 8,
-     "maxCount": 77
+     "chance": 95000,
+     "minCount": 7,
+     "maxCount": 306
     },
     {
-     "name": "Nail",
-     "chance": 90701,
-     "minCount": 6,
-     "maxCount": 17
-    },
-    {
-     "name": "cute ball",
-     "chance": 90701,
-     "minCount": 2,
-     "maxCount": 2
+     "name": "Fur",
+     "chance": 95000,
+     "minCount": 4,
+     "maxCount": 4
     }
    ],
    "attacks": [
@@ -48861,28 +49089,22 @@
      "maxCount": 1
     },
     {
+     "name": "cute ball",
+     "chance": 21787,
+     "minCount": 1,
+     "maxCount": 1
+    },
+    {
      "name": "Rubber Ball",
      "chance": 95000,
-     "minCount": 10,
-     "maxCount": 48
+     "minCount": 9,
+     "maxCount": 92
     },
     {
-     "name": "Straw",
+     "name": "Nail",
      "chance": 95000,
-     "minCount": 10,
-     "maxCount": 48
-    },
-    {
-     "name": "Feather",
-     "chance": 68688,
-     "minCount": 1,
-     "maxCount": 1
-    },
-    {
-     "name": "Colored Feather",
-     "chance": 12593,
-     "minCount": 1,
-     "maxCount": 1
+     "minCount": 2,
+     "maxCount": 2
     },
     {
      "name": "Heart Stone",
@@ -48965,34 +49187,28 @@
      "maxCount": 1
     },
     {
+     "name": "cute ball",
+     "chance": 54307,
+     "minCount": 1,
+     "maxCount": 1
+    },
+    {
      "name": "Rubber Ball",
      "chance": 95000,
-     "minCount": 8,
-     "maxCount": 108
+     "minCount": 11,
+     "maxCount": 229
     },
     {
-     "name": "Straw",
-     "chance": 95000,
-     "minCount": 8,
-     "maxCount": 108
-    },
-    {
-     "name": "Bird Beak",
-     "chance": 95000,
+     "name": "eruption ears",
+     "chance": 28511,
      "minCount": 1,
      "maxCount": 1
     },
     {
-     "name": "Feather",
+     "name": "Nail",
      "chance": 95000,
-     "minCount": 1,
-     "maxCount": 1
-    },
-    {
-     "name": "Red Wing",
-     "chance": 42768,
-     "minCount": 1,
-     "maxCount": 1
+     "minCount": 5,
+     "maxCount": 5
     },
     {
      "name": "Heart Stone",
@@ -49077,28 +49293,28 @@
    "experience": 19508,
    "loot": [
     {
-     "name": "Rubber Ball",
-     "chance": 95000,
-     "minCount": 23,
-     "maxCount": 482
-    },
-    {
-     "name": "Nail",
-     "chance": 95000,
-     "minCount": 8,
-     "maxCount": 8
-    },
-    {
      "name": "cute ball",
      "chance": 95000,
-     "minCount": 8,
-     "maxCount": 8
+     "minCount": 2,
+     "maxCount": 2
+    },
+    {
+     "name": "Rubber Ball",
+     "chance": 95000,
+     "minCount": 20,
+     "maxCount": 857
     },
     {
      "name": "eruption ears",
      "chance": 95000,
      "minCount": 1,
      "maxCount": 1
+    },
+    {
+     "name": "Nail",
+     "chance": 95000,
+     "minCount": 12,
+     "maxCount": 12
     },
     {
      "name": "Heart Stone",
@@ -49205,16 +49421,16 @@
      "maxCount": 1
     },
     {
-     "name": "Rubber Ball",
-     "chance": 85549,
-     "minCount": 11,
-     "maxCount": 55
+     "name": "samurai hair",
+     "chance": 1046,
+     "minCount": 1,
+     "maxCount": 1
     },
     {
-     "name": "Band Aid",
-     "chance": 85549,
-     "minCount": 11,
-     "maxCount": 255
+     "name": "band-aid",
+     "chance": 64360,
+     "minCount": 1,
+     "maxCount": 10
     }
    ],
    "attacks": [
@@ -49302,22 +49518,22 @@
    "experience": 2168,
    "loot": [
     {
-     "name": "Dark Gem",
-     "chance": 77953,
-     "minCount": 7,
-     "maxCount": 144
+     "name": "Big Crystal",
+     "chance": 25428,
+     "minCount": 1,
+     "maxCount": 1
     },
     {
      "name": "Ruby",
-     "chance": 77953,
-     "minCount": 3,
-     "maxCount": 3
-    },
-    {
-     "name": "Big Crystal",
-     "chance": 28451,
+     "chance": 54596,
      "minCount": 1,
      "maxCount": 1
+    },
+    {
+     "name": "Ghost Essence",
+     "chance": 95000,
+     "minCount": 13,
+     "maxCount": 491
     },
     {
      "name": "Darkness Stone",
@@ -49428,16 +49644,16 @@
    "experience": 19508,
    "loot": [
     {
-     "name": "Piece of Steel",
-     "chance": 88953,
-     "minCount": 27,
-     "maxCount": 568
+     "name": "Metal Jaw",
+     "chance": 95000,
+     "minCount": 3,
+     "maxCount": 3
     },
     {
-     "name": "Metal Jaw",
-     "chance": 88953,
-     "minCount": 1,
-     "maxCount": 1
+     "name": "Piece of Steel",
+     "chance": 95000,
+     "minCount": 36,
+     "maxCount": 393
     },
     {
      "name": "Metal Stone",
@@ -49553,22 +49769,28 @@
      "maxCount": 1
     },
     {
+     "name": "Metal Hull",
+     "chance": 12700,
+     "minCount": 1,
+     "maxCount": 1
+    },
+    {
      "name": "Piece of Steel",
-     "chance": 86581,
-     "minCount": 3,
-     "maxCount": 32
+     "chance": 95000,
+     "minCount": 11,
+     "maxCount": 53
+    },
+    {
+     "name": "Small Stone",
+     "chance": 95000,
+     "minCount": 11,
+     "maxCount": 53
     },
     {
      "name": "Stone Orb",
-     "chance": 86581,
-     "minCount": 2,
-     "maxCount": 7
-    },
-    {
-     "name": "Metal Hull",
-     "chance": 69594,
-     "minCount": 1,
-     "maxCount": 1
+     "chance": 95000,
+     "minCount": 3,
+     "maxCount": 3
     },
     {
      "name": "Metal Stone",
@@ -49654,22 +49876,28 @@
    "experience": 2168,
    "loot": [
     {
+     "name": "Metal Hull",
+     "chance": 37895,
+     "minCount": 1,
+     "maxCount": 1
+    },
+    {
      "name": "Piece of Steel",
-     "chance": 82534,
-     "minCount": 20,
-     "maxCount": 296
+     "chance": 95000,
+     "minCount": 8,
+     "maxCount": 140
+    },
+    {
+     "name": "Small Stone",
+     "chance": 95000,
+     "minCount": 8,
+     "maxCount": 140
     },
     {
      "name": "Stone Orb",
-     "chance": 82534,
-     "minCount": 5,
-     "maxCount": 5
-    },
-    {
-     "name": "Metal Hull",
-     "chance": 44847,
-     "minCount": 1,
-     "maxCount": 1
+     "chance": 95000,
+     "minCount": 4,
+     "maxCount": 4
     },
     {
      "name": "Metal Stone",
@@ -49779,22 +50007,28 @@
    "experience": 19508,
    "loot": [
     {
+     "name": "Metal Hull",
+     "chance": 49613,
+     "minCount": 1,
+     "maxCount": 3
+    },
+    {
      "name": "Piece of Steel",
-     "chance": 80109,
-     "minCount": 26,
-     "maxCount": 542
+     "chance": 95000,
+     "minCount": 12,
+     "maxCount": 258
+    },
+    {
+     "name": "Small Stone",
+     "chance": 95000,
+     "minCount": 12,
+     "maxCount": 258
     },
     {
      "name": "Stone Orb",
-     "chance": 80109,
-     "minCount": 10,
-     "maxCount": 10
-    },
-    {
-     "name": "Metal Hull",
-     "chance": 80109,
-     "minCount": 1,
-     "maxCount": 1
+     "chance": 95000,
+     "minCount": 6,
+     "maxCount": 6
     },
     {
      "name": "Metal Stone",
@@ -49916,26 +50150,26 @@
      "maxCount": 1
     },
     {
-     "name": "Rubber Ball",
-     "chance": 94784,
-     "minCount": 5,
-     "maxCount": 23
-    },
-    {
-     "name": "Band Aid",
-     "chance": 94784,
-     "minCount": 5,
-     "maxCount": 117
-    },
-    {
-     "name": "Fur",
-     "chance": 89023,
+     "name": "mediling",
+     "chance": 1078,
      "minCount": 1,
      "maxCount": 1
     },
     {
-     "name": "Iron Bracelet",
-     "chance": 23924,
+     "name": "band-aid",
+     "chance": 86223,
+     "minCount": 1,
+     "maxCount": 5
+    },
+    {
+     "name": "Enchanted Gem",
+     "chance": 86223,
+     "minCount": 1,
+     "maxCount": 5
+    },
+    {
+     "name": "Future Orb",
+     "chance": 21556,
      "minCount": 1,
      "maxCount": 1
     },
@@ -50029,16 +50263,28 @@
      "maxCount": 1
     },
     {
-     "name": "Rubber Ball",
-     "chance": 92969,
-     "minCount": 15,
-     "maxCount": 75
+     "name": "mediling",
+     "chance": 3797,
+     "minCount": 1,
+     "maxCount": 1
     },
     {
-     "name": "Band Aid",
-     "chance": 92969,
-     "minCount": 15,
-     "maxCount": 601
+     "name": "band-aid",
+     "chance": 71480,
+     "minCount": 1,
+     "maxCount": 21
+    },
+    {
+     "name": "Enchanted Gem",
+     "chance": 71480,
+     "minCount": 1,
+     "maxCount": 21
+    },
+    {
+     "name": "Future Orb",
+     "chance": 26805,
+     "minCount": 1,
+     "maxCount": 1
     }
    ],
    "attacks": [
@@ -50139,22 +50385,22 @@
      "maxCount": 1
     },
     {
-     "name": "Screw",
-     "chance": 52681,
+     "name": "shock topknot",
+     "chance": 13602,
      "minCount": 1,
-     "maxCount": 5
+     "maxCount": 1
+    },
+    {
+     "name": "Screw",
+     "chance": 95000,
+     "minCount": 11,
+     "maxCount": 115
     },
     {
      "name": "Electric Box",
-     "chance": 52681,
-     "minCount": 1,
-     "maxCount": 8
-    },
-    {
-     "name": "Electric Tail",
-     "chance": 13170,
-     "minCount": 1,
-     "maxCount": 1
+     "chance": 95000,
+     "minCount": 3,
+     "maxCount": 3
     },
     {
      "name": "Thunder Stone",
@@ -50253,22 +50499,22 @@
      "maxCount": 1
     },
     {
+     "name": "shock topknot",
+     "chance": 51767,
+     "minCount": 1,
+     "maxCount": 1
+    },
+    {
      "name": "Screw",
-     "chance": 88527,
+     "chance": 95000,
      "minCount": 10,
-     "maxCount": 443
+     "maxCount": 441
     },
     {
      "name": "Electric Box",
-     "chance": 88527,
-     "minCount": 4,
-     "maxCount": 4
-    },
-    {
-     "name": "Electric Rat Tail",
-     "chance": 49052,
-     "minCount": 1,
-     "maxCount": 1
+     "chance": 95000,
+     "minCount": 5,
+     "maxCount": 5
     }
    ],
    "attacks": [
@@ -50370,32 +50616,32 @@
      "maxCount": 1
     },
     {
-     "name": "Essence of Fire",
-     "chance": 93284,
-     "minCount": 8,
-     "maxCount": 99
-    },
-    {
-     "name": "Fur",
-     "chance": 75675,
+     "name": "nu ball",
+     "chance": 10083,
      "minCount": 1,
      "maxCount": 1
+    },
+    {
+     "name": "Essence of Fire",
+     "chance": 95000,
+     "minCount": 8,
+     "maxCount": 39
+    },
+    {
+     "name": "Earth Ball",
+     "chance": 95000,
+     "minCount": 8,
+     "maxCount": 39
     },
     {
      "name": "Pot of Lava",
-     "chance": 66773,
+     "chance": 95000,
      "minCount": 1,
      "maxCount": 1
     },
     {
-     "name": "Giant Piece of Fur",
-     "chance": 11574,
-     "minCount": 1,
-     "maxCount": 1
-    },
-    {
-     "name": "Nail",
-     "chance": 93284,
+     "name": "Sandbag",
+     "chance": 95000,
      "minCount": 1,
      "maxCount": 1
     },
@@ -50489,32 +50735,38 @@
      "maxCount": 1
     },
     {
-     "name": "Straw",
-     "chance": 95000,
-     "minCount": 8,
-     "maxCount": 159
-    },
-    {
-     "name": "Essence of Fire",
-     "chance": 95000,
-     "minCount": 8,
-     "maxCount": 159
-    },
-    {
-     "name": "Pot of Lava",
-     "chance": 95000,
-     "minCount": 3,
-     "maxCount": 3
-    },
-    {
-     "name": "Fire Tail",
-     "chance": 38830,
+     "name": "nu ball",
+     "chance": 45611,
      "minCount": 1,
      "maxCount": 1
     },
     {
-     "name": "Dragon Tooth",
-     "chance": 4515,
+     "name": "Essence of Fire",
+     "chance": 95000,
+     "minCount": 9,
+     "maxCount": 179
+    },
+    {
+     "name": "Earth Ball",
+     "chance": 95000,
+     "minCount": 9,
+     "maxCount": 179
+    },
+    {
+     "name": "Pot of Lava",
+     "chance": 95000,
+     "minCount": 2,
+     "maxCount": 2
+    },
+    {
+     "name": "Sandbag",
+     "chance": 95000,
+     "minCount": 2,
+     "maxCount": 2
+    },
+    {
+     "name": "mini volcano",
+     "chance": 10136,
      "minCount": 1,
      "maxCount": 1
     }
@@ -50749,22 +51001,22 @@
      "maxCount": 1
     },
     {
+     "name": "springs",
+     "chance": 12610,
+     "minCount": 1,
+     "maxCount": 1
+    },
+    {
      "name": "Enchanted Gem",
      "chance": 95000,
-     "minCount": 9,
-     "maxCount": 75
+     "minCount": 8,
+     "maxCount": 82
     },
     {
      "name": "Future Orb",
      "chance": 95000,
      "minCount": 2,
      "maxCount": 2
-    },
-    {
-     "name": "Psychic Spoon",
-     "chance": 5518,
-     "minCount": 1,
-     "maxCount": 1
     },
     {
      "name": "Enigma Stone",
@@ -50855,28 +51107,22 @@
      "maxCount": 1
     },
     {
-     "name": "Rubber Ball",
-     "chance": 95000,
-     "minCount": 11,
-     "maxCount": 58
-    },
-    {
-     "name": "Future Orb",
-     "chance": 95000,
-     "minCount": 8,
-     "maxCount": 26
+     "name": "springs",
+     "chance": 67524,
+     "minCount": 1,
+     "maxCount": 1
     },
     {
      "name": "Enchanted Gem",
      "chance": 95000,
-     "minCount": 4,
-     "maxCount": 14
+     "minCount": 11,
+     "maxCount": 489
     },
     {
-     "name": "Mimic Clothes",
-     "chance": 6957,
-     "minCount": 1,
-     "maxCount": 1
+     "name": "Future Orb",
+     "chance": 95000,
+     "minCount": 4,
+     "maxCount": 4
     }
    ],
    "attacks": [
@@ -50985,22 +51231,22 @@
      "maxCount": 1
     },
     {
+     "name": "strange ball",
+     "chance": 8904,
+     "minCount": 1,
+     "maxCount": 1
+    },
+    {
      "name": "Earth Ball",
      "chance": 95000,
-     "minCount": 2,
-     "maxCount": 21
+     "minCount": 7,
+     "maxCount": 75
     },
     {
      "name": "Sandbag",
      "chance": 95000,
-     "minCount": 1,
-     "maxCount": 4
-    },
-    {
-     "name": "Sand Tail",
-     "chance": 50592,
-     "minCount": 1,
-     "maxCount": 1
+     "minCount": 2,
+     "maxCount": 2
     },
     {
      "name": "Earth Stone",
@@ -51086,22 +51332,28 @@
    "experience": 1508,
    "loot": [
     {
+     "name": "Sand Tail",
+     "chance": 24531,
+     "minCount": 1,
+     "maxCount": 1
+    },
+    {
+     "name": "Dragon Scale",
+     "chance": 95000,
+     "minCount": 10,
+     "maxCount": 103
+    },
+    {
      "name": "Earth Ball",
-     "chance": 89582,
-     "minCount": 15,
-     "maxCount": 219
+     "chance": 95000,
+     "minCount": 10,
+     "maxCount": 103
     },
     {
      "name": "Sandbag",
-     "chance": 89582,
+     "chance": 95000,
      "minCount": 4,
      "maxCount": 4
-    },
-    {
-     "name": "Sand Tail",
-     "chance": 35960,
-     "minCount": 1,
-     "maxCount": 1
     },
     {
      "name": "Earth Stone",
@@ -51179,22 +51431,28 @@
    "experience": 19508,
    "loot": [
     {
+     "name": "Sand Tail",
+     "chance": 59056,
+     "minCount": 1,
+     "maxCount": 1
+    },
+    {
+     "name": "Dragon Scale",
+     "chance": 95000,
+     "minCount": 12,
+     "maxCount": 246
+    },
+    {
      "name": "Earth Ball",
      "chance": 95000,
-     "minCount": 21,
-     "maxCount": 443
+     "minCount": 12,
+     "maxCount": 246
     },
     {
      "name": "Sandbag",
      "chance": 95000,
-     "minCount": 8,
-     "maxCount": 8
-    },
-    {
-     "name": "Sand Tail",
-     "chance": 95000,
-     "minCount": 1,
-     "maxCount": 1
+     "minCount": 7,
+     "maxCount": 7
     },
     {
      "name": "Earth Stone",
@@ -51321,28 +51579,28 @@
    "experience": 19508,
    "loot": [
     {
+     "name": "Cactus Head",
+     "chance": 53964,
+     "minCount": 1,
+     "maxCount": 1
+    },
+    {
      "name": "Seed",
-     "chance": 91209,
-     "minCount": 10,
-     "maxCount": 216
+     "chance": 95000,
+     "minCount": 11,
+     "maxCount": 225
     },
     {
      "name": "Dark Gem",
-     "chance": 91209,
-     "minCount": 10,
-     "maxCount": 216
+     "chance": 95000,
+     "minCount": 11,
+     "maxCount": 225
     },
     {
      "name": "Small Crown",
-     "chance": 91209,
-     "minCount": 4,
-     "maxCount": 4
-    },
-    {
-     "name": "Cactus Head",
-     "chance": 49923,
-     "minCount": 1,
-     "maxCount": 1
+     "chance": 95000,
+     "minCount": 3,
+     "maxCount": 3
     },
     {
      "name": "Leaf Stone",
@@ -51472,28 +51730,28 @@
      "maxCount": 1
     },
     {
+     "name": "cloud",
+     "chance": 28624,
+     "minCount": 1,
+     "maxCount": 1
+    },
+    {
+     "name": "Rubber Ball",
+     "chance": 95000,
+     "minCount": 24,
+     "maxCount": 121
+    },
+    {
      "name": "Straw",
      "chance": 95000,
-     "minCount": 18,
-     "maxCount": 184
+     "minCount": 24,
+     "maxCount": 121
     },
     {
-     "name": "Water Gem",
-     "chance": 95000,
-     "minCount": 14,
-     "maxCount": 42
-    },
-    {
-     "name": "Water Pendant",
+     "name": "Feather",
      "chance": 95000,
      "minCount": 4,
      "maxCount": 4
-    },
-    {
-     "name": "pelican wing",
-     "chance": 43777,
-     "minCount": 1,
-     "maxCount": 1
     }
    ],
    "attacks": [
@@ -51595,16 +51853,28 @@
      "maxCount": 1
     },
     {
-     "name": "Dragon Scale",
-     "chance": 95000,
-     "minCount": 7,
-     "maxCount": 62
+     "name": "cloud",
+     "chance": 70855,
+     "minCount": 1,
+     "maxCount": 1
     },
     {
-     "name": "Mini Wings",
+     "name": "Dragon Scale",
+     "chance": 95000,
+     "minCount": 14,
+     "maxCount": 295
+    },
+    {
+     "name": "Straw",
+     "chance": 95000,
+     "minCount": 14,
+     "maxCount": 295
+    },
+    {
+     "name": "Feather",
      "chance": 95000,
      "minCount": 4,
-     "maxCount": 13
+     "maxCount": 4
     }
    ],
    "attacks": [
@@ -51713,22 +51983,34 @@
      "maxCount": 1
     },
     {
+     "name": "tribe mark",
+     "chance": 30011,
+     "minCount": 1,
+     "maxCount": 1
+    },
+    {
+     "name": "Wool Ball",
+     "chance": 95000,
+     "minCount": 2,
+     "maxCount": 2
+    },
+    {
      "name": "Rubber Ball",
-     "chance": 77664,
-     "minCount": 18,
-     "maxCount": 179
+     "chance": 95000,
+     "minCount": 6,
+     "maxCount": 256
     },
     {
-     "name": "Nail",
-     "chance": 77664,
-     "minCount": 13,
-     "maxCount": 40
+     "name": "Bottles of Poison",
+     "chance": 95000,
+     "minCount": 6,
+     "maxCount": 387
     },
     {
-     "name": "cute ball",
-     "chance": 77664,
-     "minCount": 4,
-     "maxCount": 4
+     "name": "cat ear",
+     "chance": 22243,
+     "minCount": 1,
+     "maxCount": 1
     }
    ],
    "attacks": [
@@ -51839,22 +52121,22 @@
    "experience": 19508,
    "loot": [
     {
+     "name": "Poisonous Tail",
+     "chance": 71871,
+     "minCount": 1,
+     "maxCount": 1
+    },
+    {
      "name": "Bottles of Poison",
      "chance": 95000,
-     "minCount": 29,
-     "maxCount": 589
+     "minCount": 14,
+     "maxCount": 612
     },
     {
      "name": "Tooth",
      "chance": 95000,
-     "minCount": 10,
-     "maxCount": 10
-    },
-    {
-     "name": "Poisonous Tail",
-     "chance": 95000,
-     "minCount": 1,
-     "maxCount": 1
+     "minCount": 11,
+     "maxCount": 11
     },
     {
      "name": "Venom Stone",
@@ -51961,22 +52243,22 @@
      "maxCount": 1
     },
     {
+     "name": "lobster claw",
+     "chance": 16769,
+     "minCount": 1,
+     "maxCount": 1
+    },
+    {
      "name": "Water Gem",
-     "chance": 93060,
-     "minCount": 11,
-     "maxCount": 106
+     "chance": 95000,
+     "minCount": 14,
+     "maxCount": 141
     },
     {
      "name": "Water Pendant",
-     "chance": 93060,
-     "minCount": 3,
-     "maxCount": 3
-    },
-    {
-     "name": "Strange Thing",
-     "chance": 19744,
-     "minCount": 1,
-     "maxCount": 1
+     "chance": 95000,
+     "minCount": 4,
+     "maxCount": 4
     },
     {
      "name": "Water Stone",
@@ -52076,22 +52358,28 @@
      "maxCount": 1
     },
     {
+     "name": "lobster claw",
+     "chance": 55379,
+     "minCount": 1,
+     "maxCount": 1
+    },
+    {
+     "name": "Dark Gem",
+     "chance": 95000,
+     "minCount": 11,
+     "maxCount": 230
+    },
+    {
      "name": "Water Gem",
-     "chance": 93476,
-     "minCount": 10,
-     "maxCount": 419
+     "chance": 95000,
+     "minCount": 11,
+     "maxCount": 230
     },
     {
      "name": "Water Pendant",
-     "chance": 93476,
-     "minCount": 5,
-     "maxCount": 5
-    },
-    {
-     "name": "Squirtle Hull",
-     "chance": 48919,
-     "minCount": 1,
-     "maxCount": 1
+     "chance": 95000,
+     "minCount": 6,
+     "maxCount": 6
     }
    ],
    "attacks": [
@@ -52193,28 +52481,34 @@
      "maxCount": 1
     },
     {
+     "name": "pawn",
+     "chance": 13629,
+     "minCount": 1,
+     "maxCount": 1
+    },
+    {
      "name": "Earth Ball",
      "chance": 95000,
-     "minCount": 10,
-     "maxCount": 105
+     "minCount": 11,
+     "maxCount": 57
     },
     {
      "name": "Enchanted Gem",
      "chance": 95000,
-     "minCount": 8,
-     "maxCount": 23
+     "minCount": 11,
+     "maxCount": 57
     },
     {
      "name": "Future Orb",
      "chance": 95000,
-     "minCount": 3,
-     "maxCount": 3
+     "minCount": 2,
+     "maxCount": 2
     },
     {
      "name": "Sandbag",
-     "chance": 24922,
-     "minCount": 1,
-     "maxCount": 1
+     "chance": 95000,
+     "minCount": 2,
+     "maxCount": 2
     }
    ],
    "attacks": [
@@ -52300,28 +52594,34 @@
      "maxCount": 1
     },
     {
+     "name": "pawn",
+     "chance": 58268,
+     "minCount": 1,
+     "maxCount": 1
+    },
+    {
      "name": "Earth Ball",
      "chance": 95000,
-     "minCount": 8,
-     "maxCount": 85
+     "minCount": 12,
+     "maxCount": 242
+    },
+    {
+     "name": "Enchanted Gem",
+     "chance": 95000,
+     "minCount": 12,
+     "maxCount": 242
+    },
+    {
+     "name": "Future Orb",
+     "chance": 95000,
+     "minCount": 3,
+     "maxCount": 3
     },
     {
      "name": "Sandbag",
      "chance": 95000,
-     "minCount": 6,
-     "maxCount": 19
-    },
-    {
-     "name": "Horn",
-     "chance": 95000,
-     "minCount": 2,
-     "maxCount": 2
-    },
-    {
-     "name": "Horn Drill",
-     "chance": 20029,
-     "minCount": 1,
-     "maxCount": 1
+     "minCount": 3,
+     "maxCount": 3
     }
    ],
    "attacks": [
@@ -52440,14 +52740,14 @@
     {
      "name": "Ghost Essence",
      "chance": 95000,
-     "minCount": 7,
-     "maxCount": 70
+     "minCount": 17,
+     "maxCount": 726
     },
     {
-     "name": "ghost skull",
+     "name": "doll star",
      "chance": 95000,
-     "minCount": 5,
-     "maxCount": 15
+     "minCount": 1,
+     "maxCount": 2
     }
    ],
    "attacks": [
@@ -52556,20 +52856,14 @@
      "maxCount": 1
     },
     {
-     "name": "Bottles of Poison",
-     "chance": 94002,
-     "minCount": 8,
-     "maxCount": 86
-    },
-    {
      "name": "Ghost Essence",
-     "chance": 94002,
-     "minCount": 8,
-     "maxCount": 86
+     "chance": 95000,
+     "minCount": 12,
+     "maxCount": 232
     },
     {
-     "name": "Traces of Ghost",
-     "chance": 21232,
+     "name": "ghost skull",
+     "chance": 27588,
      "minCount": 1,
      "maxCount": 1
     }
@@ -52650,14 +52944,20 @@
     {
      "name": "Ghost Essence",
      "chance": 95000,
-     "minCount": 8,
-     "maxCount": 84
+     "minCount": 22,
+     "maxCount": 939
     },
     {
      "name": "ghost skull",
      "chance": 95000,
-     "minCount": 6,
-     "maxCount": 19
+     "minCount": 1,
+     "maxCount": 1
+    },
+    {
+     "name": "creepy eye",
+     "chance": 25935,
+     "minCount": 1,
+     "maxCount": 1
     }
    ],
    "attacks": [
@@ -52767,19 +53067,31 @@
      "maxCount": 1
     },
     {
+     "name": "palm leaves",
+     "chance": 54958,
+     "minCount": 1,
+     "maxCount": 1
+    },
+    {
+     "name": "Straw",
+     "chance": 95000,
+     "minCount": 11,
+     "maxCount": 229
+    },
+    {
      "name": "Seed",
      "chance": 95000,
-     "minCount": 14,
-     "maxCount": 139
+     "minCount": 11,
+     "maxCount": 229
     },
     {
-     "name": "Leaves",
+     "name": "Feather",
      "chance": 95000,
-     "minCount": 10,
-     "maxCount": 31
+     "minCount": 2,
+     "maxCount": 2
     },
     {
-     "name": "big seed",
+     "name": "Bird Beak",
      "chance": 95000,
      "minCount": 3,
      "maxCount": 3
@@ -52883,22 +53195,16 @@
      "maxCount": 1
     },
     {
-     "name": "Dark Gem",
-     "chance": 83593,
-     "minCount": 3,
-     "maxCount": 26
-    },
-    {
-     "name": "Ruby",
-     "chance": 83593,
-     "minCount": 2,
-     "maxCount": 6
-    },
-    {
-     "name": "Big Crystal",
-     "chance": 55116,
+     "name": "dark moon",
+     "chance": 16452,
      "minCount": 1,
      "maxCount": 1
+    },
+    {
+     "name": "Dark Gem",
+     "chance": 95000,
+     "minCount": 17,
+     "maxCount": 745
     },
     {
      "name": "Darkness Stone",
@@ -53015,20 +53321,20 @@
    "experience": 548,
    "loot": [
     {
+     "name": "ice blocks",
+     "chance": 11574,
+     "minCount": 1,
+     "maxCount": 1
+    },
+    {
      "name": "Snowball",
-     "chance": 82751,
-     "minCount": 8,
-     "maxCount": 78
+     "chance": 95000,
+     "minCount": 10,
+     "maxCount": 97
     },
     {
      "name": "Ice Orb",
-     "chance": 82751,
-     "minCount": 2,
-     "maxCount": 2
-    },
-    {
-     "name": "ice blocks",
-     "chance": 8880,
+     "chance": 95000,
      "minCount": 1,
      "maxCount": 1
     }
@@ -53115,28 +53421,22 @@
      "maxCount": 1
     },
     {
-     "name": "Earth Ball",
-     "chance": 93167,
-     "minCount": 2,
-     "maxCount": 12
+     "name": "ice blocks",
+     "chance": 37474,
+     "minCount": 1,
+     "maxCount": 1
     },
     {
      "name": "Snowball",
-     "chance": 93167,
+     "chance": 95000,
+     "minCount": 7,
+     "maxCount": 319
+    },
+    {
+     "name": "Ice Orb",
+     "chance": 95000,
      "minCount": 2,
-     "maxCount": 24
-    },
-    {
-     "name": "Giant Piece of Fur",
-     "chance": 84438,
-     "minCount": 1,
      "maxCount": 2
-    },
-    {
-     "name": "Horn",
-     "chance": 42219,
-     "minCount": 1,
-     "maxCount": 1
     }
    ],
    "attacks": [
@@ -53356,40 +53656,40 @@
    "experience": 2168,
    "loot": [
     {
+     "name": "seal mustache",
+     "chance": 21337,
+     "minCount": 1,
+     "maxCount": 1
+    },
+    {
      "name": "Snowball",
-     "chance": 87022,
-     "minCount": 7,
-     "maxCount": 106
+     "chance": 95000,
+     "minCount": 9,
+     "maxCount": 126
     },
     {
      "name": "Water Gem",
-     "chance": 87022,
-     "minCount": 7,
-     "maxCount": 106
+     "chance": 95000,
+     "minCount": 9,
+     "maxCount": 126
     },
     {
      "name": "Ice Orb",
-     "chance": 87022,
+     "chance": 12802,
+     "minCount": 1,
+     "maxCount": 1
+    },
+    {
+     "name": "Water Pendant",
+     "chance": 95000,
      "minCount": 2,
      "maxCount": 2
     },
     {
      "name": "Nail",
-     "chance": 87022,
-     "minCount": 2,
-     "maxCount": 2
-    },
-    {
-     "name": "Water Pendant",
-     "chance": 87022,
-     "minCount": 2,
-     "maxCount": 2
-    },
-    {
-     "name": "seal mustache",
-     "chance": 16874,
-     "minCount": 1,
-     "maxCount": 1
+     "chance": 95000,
+     "minCount": 4,
+     "maxCount": 4
     },
     {
      "name": "Ice Stone",
@@ -53505,52 +53805,40 @@
      "maxCount": 1
     },
     {
-     "name": "Straw",
+     "name": "seal mustache",
+     "chance": 57341,
+     "minCount": 1,
+     "maxCount": 1
+    },
+    {
+     "name": "Snowball",
      "chance": 95000,
-     "minCount": 12,
-     "maxCount": 62
+     "minCount": 14,
+     "maxCount": 298
     },
     {
      "name": "Water Gem",
      "chance": 95000,
-     "minCount": 9,
-     "maxCount": 28
+     "minCount": 14,
+     "maxCount": 298
     },
     {
-     "name": "Feather",
-     "chance": 95000,
-     "minCount": 5,
-     "maxCount": 14
+     "name": "Ice Orb",
+     "chance": 40476,
+     "minCount": 1,
+     "maxCount": 1
     },
     {
      "name": "Water Pendant",
      "chance": 95000,
-     "minCount": 5,
-     "maxCount": 5
+     "minCount": 4,
+     "maxCount": 4
     },
     {
-     "name": "Gyarados Tail",
-     "chance": 7396,
-     "minCount": 1,
-     "maxCount": 1
-    },
-    {
-     "name": "Air Tank",
-     "chance": 7396,
-     "minCount": 1,
-     "maxCount": 1
-    },
-    {
-     "name": "Diving Mask",
-     "chance": 7396,
-     "minCount": 1,
-     "maxCount": 1
-    },
-    {
-     "name": "Fins",
-     "chance": 7396,
-     "minCount": 1,
-     "maxCount": 1
+     "name": "Nail",
+     "chance": 95000,
+     "minCount": 7,
+     "maxCount": 7
     }
    ],
    "attacks": [
@@ -53653,16 +53941,16 @@
    "experience": 968,
    "loot": [
     {
-     "name": "Dragon Scale",
-     "chance": 95000,
-     "minCount": 18,
-     "maxCount": 272
-    },
-    {
      "name": "Mini Wings",
-     "chance": 47281,
+     "chance": 32638,
      "minCount": 1,
      "maxCount": 1
+    },
+    {
+     "name": "Dragon Scale",
+     "chance": 95000,
+     "minCount": 27,
+     "maxCount": 275
     }
    ],
    "attacks": [
@@ -53749,16 +54037,16 @@
    "experience": 2168,
    "loot": [
     {
-     "name": "Dragon Scale",
-     "chance": 95000,
-     "minCount": 19,
-     "maxCount": 394
-    },
-    {
      "name": "Mini Wings",
-     "chance": 94560,
+     "chance": 26591,
      "minCount": 1,
      "maxCount": 1
+    },
+    {
+     "name": "Dragon Scale",
+     "chance": 95000,
+     "minCount": 22,
+     "maxCount": 448
     },
     {
      "name": "Crystal Stone",
@@ -53877,16 +54165,16 @@
    "experience": 248,
    "loot": [
     {
+     "name": "Tech Ball",
+     "chance": 15777,
+     "minCount": 1,
+     "maxCount": 1
+    },
+    {
      "name": "Piece of Steel",
      "chance": 95000,
      "minCount": 13,
-     "maxCount": 132
-    },
-    {
-     "name": "Tech Ball",
-     "chance": 17139,
-     "minCount": 1,
-     "maxCount": 1
+     "maxCount": 133
     }
    ],
    "attacks": [
@@ -53958,16 +54246,16 @@
    "experience": 19508,
    "loot": [
     {
-     "name": "Piece of Steel",
-     "chance": 95000,
-     "minCount": 28,
-     "maxCount": 586
-    },
-    {
      "name": "Tech Ball",
-     "chance": 95000,
+     "chance": 37460,
      "minCount": 1,
      "maxCount": 1
+    },
+    {
+     "name": "Piece of Steel",
+     "chance": 95000,
+     "minCount": 32,
+     "maxCount": 631
     },
     {
      "name": "Metal Stone",
